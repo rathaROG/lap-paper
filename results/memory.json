@@ -1,0 +1,122 @@
+[
+  {
+    "case": "required",
+    "solver": "jvrust",
+    "n": 256,
+    "m": 4096,
+    "limit": "inf",
+    "rss_before": 87347200,
+    "rss_after": 87506944,
+    "peak_before": 87347200,
+    "peak_after": 87506944,
+    "additional_peak": 159744
+  },
+  {
+    "case": "required",
+    "solver": "jvhybrid",
+    "n": 256,
+    "m": 4096,
+    "limit": "inf",
+    "rss_before": 87285760,
+    "rss_after": 87408640,
+    "peak_before": 87285760,
+    "peak_after": 87408640,
+    "additional_peak": 122880
+  },
+  {
+    "case": "required",
+    "solver": "jvcpp",
+    "n": 256,
+    "m": 4096,
+    "limit": "inf",
+    "rss_before": 87072768,
+    "rss_after": 87199744,
+    "peak_before": 87072768,
+    "peak_after": 87199744,
+    "additional_peak": 126976
+  },
+  {
+    "case": "required",
+    "solver": "jvx",
+    "n": 256,
+    "m": 4096,
+    "limit": "inf",
+    "rss_before": 87109632,
+    "rss_after": 87326720,
+    "peak_before": 87109632,
+    "peak_after": 221548544,
+    "additional_peak": 134438912
+  },
+  {
+    "case": "required",
+    "solver": "scipy",
+    "n": 256,
+    "m": 4096,
+    "limit": "inf",
+    "rss_before": 86990848,
+    "rss_after": 87150592,
+    "peak_before": 86990848,
+    "peak_after": 87150592,
+    "additional_peak": 159744
+  },
+  {
+    "case": "optional",
+    "solver": "jvrust",
+    "n": 256,
+    "m": 4096,
+    "limit": "0.5",
+    "rss_before": 87556096,
+    "rss_after": 87683072,
+    "peak_before": 87556096,
+    "peak_after": 87683072,
+    "additional_peak": 126976
+  },
+  {
+    "case": "optional",
+    "solver": "jvhybrid",
+    "n": 256,
+    "m": 4096,
+    "limit": "0.5",
+    "rss_before": 87408640,
+    "rss_after": 87564288,
+    "peak_before": 87408640,
+    "peak_after": 87564288,
+    "additional_peak": 155648
+  },
+  {
+    "case": "optional",
+    "solver": "jvcpp",
+    "n": 256,
+    "m": 4096,
+    "limit": "0.5",
+    "rss_before": 87298048,
+    "rss_after": 87408640,
+    "peak_before": 87298048,
+    "peak_after": 87408640,
+    "additional_peak": 110592
+  },
+  {
+    "case": "optional",
+    "solver": "jvx",
+    "n": 256,
+    "m": 4096,
+    "limit": "0.5",
+    "rss_before": 87330816,
+    "rss_after": 87449600,
+    "peak_before": 87330816,
+    "peak_after": 238968832,
+    "additional_peak": 151638016
+  },
+  {
+    "case": "optional",
+    "solver": "scipy",
+    "n": 256,
+    "m": 4096,
+    "limit": "0.5",
+    "rss_before": 86986752,
+    "rss_after": 87240704,
+    "peak_before": 86986752,
+    "peak_after": 238764032,
+    "additional_peak": 151777280
+  }
+]

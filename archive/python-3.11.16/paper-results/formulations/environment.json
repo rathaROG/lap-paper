@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-10-22T10:28:24.183659+00:00",
+  "python": "3.11.16 (main, Aug 28 2026, 18:03:16) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "cpu": "13th Gen Intel(R) Core(TM) i9-13900KS",
+  "logical_cpus": 24,
+  "physical_cpus": 16,
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "packages": {
+    "lapx": {
+      "version": "0.11.0rc1",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap"
+    },
+    "lapcpp": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp"
+    },
+    "laprust": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust"
+    }
+  },
+  "single_affinity": [
+    0
+  ],
+  "batch_affinity": [],
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+      "version": "0.3.30",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "seed": 20261021,
+  "rounds": 9,
+  "instances_per_single_case": 4,
+  "target_block_seconds": 0.03,
+  "experiment_sha256": "13d68fc59f2cdd86d67823d3aef2d3e2bdb61fc4e3f1de74beea5a4243e9b37e",
+  "native_modules": {
+    "laprust._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "f61a25fec27dfd64327d3b682fd444e6e21ae24a63838e51c01e6cf5ee1bfb6d"
+    },
+    "lapcpp._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "d689841440c7e8df2b902137860e1524c10718b5c6cd386c9cf586f44b8cb51d"
+    },
+    "lap._lapjv_rh": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv_rh.cp311-win_amd64.pyd",
+      "sha256": "193c82488c2f3c51dda08861a2ce90db6374a824936d6b3871e9d32d44f4c4d3"
+    },
+    "lap._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "2f5d80a5b05a66fc97a9d2c9984d3884c0f417b2f66e43781d042f15d88d0c61"
+    },
+    "lap._lapjvx": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvx.cp311-win_amd64.pyd",
+      "sha256": "e8defc2b6dfb54b5aeed01663743be76b0a6d2e136517099f85f79ba13208bfb"
+    },
+    "lap._lapjvs": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvs.cp311-win_amd64.pyd",
+      "sha256": "773dd4b3315751a5ac7f47ad93cdd9089150079ea29c46423038b054738342bb"
+    },
+    "lap._lapjvc": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvc.cp311-win_amd64.pyd",
+      "sha256": "a3f3a96e14831022888930136042e2ace14230e11264f6b270affb0baf3afb66"
+    }
+  },
+  "supplement_sha256": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+  "methods": [
+    "jvrust",
+    "jvcpp",
+    "scipy_square",
+    "scipy_dummies",
+    "scipy_capped"
+  ],
+  "scope": "Separate paired rerun; original results preserved"
+}

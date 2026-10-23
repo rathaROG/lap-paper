@@ -1,0 +1,27 @@
+{
+  "seed": 20261021,
+  "instances": 4200,
+  "solver_calls": 16800,
+  "infeasible_calls": 80,
+  "maximum_absolute_objective_error": 0.0,
+  "failures": [],
+  "input_dtypes": [
+    "float32",
+    "float64"
+  ],
+  "cost_grid": "integers from -16 through 16 divided by 8",
+  "limits": [
+    "infinity",
+    -1.0,
+    0.0,
+    1.0,
+    2.0
+  ],
+  "forbidden_probability": 0.2,
+  "solvers": [
+    "JVRUST",
+    "JVRUST (LAPX lapjvr)",
+    "JVHYBRID",
+    "JVCPP"
+  ]
+}

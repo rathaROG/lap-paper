@@ -1,0 +1,98 @@
+{
+  "square128": {
+    "jvhybrid_over_jvrust": 1.0319051369384298,
+    "jvcpp_over_jvrust": 1.117660527195055,
+    "jvx_over_jvrust": 1.810033486426436,
+    "jvs_over_jvrust": 1.7725374991050333,
+    "jvc_over_jvrust": 4.4766575635767305,
+    "scipy_over_jvrust": 4.4918880217655905
+  },
+  "square512": {
+    "jvhybrid_over_jvrust": 1.0134629070482482,
+    "jvcpp_over_jvrust": 1.0600389688456515,
+    "jvx_over_jvrust": 3.0604017107599613,
+    "jvs_over_jvrust": 3.0637700285356972,
+    "jvc_over_jvrust": 6.052794494614146,
+    "scipy_over_jvrust": 4.889139161617068
+  },
+  "wide64x512": {
+    "jvhybrid_over_jvrust": 0.9943608187695587,
+    "jvcpp_over_jvrust": 1.0918204642216278,
+    "jvx_over_jvrust": 73.88450470137425,
+    "jvs_over_jvrust": 66.17510503070129,
+    "jvc_over_jvrust": 154.9507971560918,
+    "scipy_over_jvrust": 6.766957088290683
+  },
+  "tall512x64": {
+    "jvhybrid_over_jvrust": 0.972163163230288,
+    "jvcpp_over_jvrust": 3.0606926063195274,
+    "jvx_over_jvrust": 35.46297428534237,
+    "jvs_over_jvrust": 32.89602900048518,
+    "jvc_over_jvrust": 76.77575508948259,
+    "scipy_over_jvrust": 5.954118329237553
+  },
+  "near256x320": {
+    "jvhybrid_over_jvrust": 1.013535564811073,
+    "jvcpp_over_jvrust": 1.0376023394308052,
+    "jvx_over_jvrust": 2.4111536657332175,
+    "jvs_over_jvrust": 2.3902502671032377,
+    "jvc_over_jvrust": 59.40819553284773,
+    "scipy_over_jvrust": 7.857306014890508
+  },
+  "blocks256x320": {
+    "jvhybrid_over_jvrust": 1.0253447351751692,
+    "jvcpp_over_jvrust": 1.1192686254446231,
+    "jvx_over_jvrust": 1.0778711689324172,
+    "jvs_over_jvrust": 1.067599766116065,
+    "jvc_over_jvrust": 0.6744335623446864,
+    "scipy_over_jvrust": 0.1654153876138966
+  },
+  "ties128x160": {
+    "jvhybrid_over_jvrust": 1.0499270851417375,
+    "jvcpp_over_jvrust": 1.078284417549168,
+    "jvx_over_jvrust": 1.16913308998043,
+    "jvs_over_jvrust": 1.1230195296382892,
+    "jvc_over_jvrust": 1.7641122831741032,
+    "scipy_over_jvrust": 1.4889814007297322
+  },
+  "optional128x160": {
+    "jvhybrid_over_jvrust": 1.0608031480074356,
+    "jvcpp_over_jvrust": 1.590175023105093,
+    "jvx_over_jvrust": 35.16333036942069,
+    "jvs_over_jvrust": 29.1576581200621,
+    "jvc_over_jvrust": 164.51044262244233,
+    "scipy_over_jvrust": 33.391322284142724
+  },
+  "optional256x320": {
+    "jvhybrid_over_jvrust": 0.9802441507271457,
+    "jvcpp_over_jvrust": 1.0877293334305536,
+    "jvx_over_jvrust": 50.43147155709066,
+    "jvs_over_jvrust": 39.49159486132437,
+    "jvc_over_jvrust": 214.29103396362157,
+    "scipy_over_jvrust": 31.762202467194925
+  },
+  "tight128x160": {
+    "jvhybrid_over_jvrust": 1.0644453922309272,
+    "jvcpp_over_jvrust": 1.7201814527388029,
+    "jvx_over_jvrust": 46.730882633204544,
+    "jvs_over_jvrust": 38.2880793842989,
+    "jvc_over_jvrust": 291.99145727904505,
+    "scipy_over_jvrust": 115.03616939173767
+  },
+  "negative128x160": {
+    "jvhybrid_over_jvrust": 1.0457292951557042,
+    "jvcpp_over_jvrust": 1.499437617024954,
+    "jvx_over_jvrust": 64.91815650922312,
+    "jvs_over_jvrust": 54.74480606795197,
+    "jvc_over_jvrust": 215.59682871860912,
+    "scipy_over_jvrust": 30.11150871810411
+  },
+  "optional_square128": {
+    "jvhybrid_over_jvrust": 1.0211832115290516,
+    "jvcpp_over_jvrust": 1.191111850913281,
+    "jvx_over_jvrust": 2.212159382086615,
+    "jvs_over_jvrust": 2.1255572992430882,
+    "jvc_over_jvrust": 6.920535728379082,
+    "scipy_over_jvrust": 6.1001315859333625
+  }
+}

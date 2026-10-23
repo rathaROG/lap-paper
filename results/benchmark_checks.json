@@ -1,0 +1,96 @@
+{
+  "single": [
+    {
+      "case": "square128",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "square512",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "wide64x512",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "tall512x64",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "near256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "blocks256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "ties128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "tight128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "negative128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional_square128",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    }
+  ],
+  "batch": [
+    {
+      "case": "batch64x64x80",
+      "solvers": 10,
+      "problems": 64,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch16x128x160_optional",
+      "solvers": 10,
+      "problems": 16,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch1024x8x10",
+      "solvers": 10,
+      "problems": 1024,
+      "objective_checks_passed": true
+    }
+  ]
+}

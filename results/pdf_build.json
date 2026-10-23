@@ -1,0 +1,50 @@
+{
+  "engine": "This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)",
+  "manuscript_sha256": "1ac65c5f1d649d7a9c001d23a7106ee6d88b322ce5f1df64f7b7aaedf39713ff",
+  "tex_sha256": "cc7d6d900d1b9b0b4b35dc13e7101352eb4fbf20b9659294ebb0413342ea0ce8",
+  "pdf_sha256": "c03e1850a65ff3f0eb15928bebfc6d8913437e7f02fbe740c919e51c9afd680f",
+  "typesetting_passes": [
+    {
+      "command": [
+        "C:\\dev\\exc\\texlive\\2025\\bin\\windows\\lualatex.exe",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-output-directory=D:\\DEV\\projects\\lapx_all\\new6\\paper\\tmp\\pdfs\\build",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\dev\\exc\\texlive\\2025\\bin\\windows\\bibtex.exe",
+        "main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\dev\\exc\\texlive\\2025\\bin\\windows\\lualatex.exe",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-output-directory=D:\\DEV\\projects\\lapx_all\\new6\\paper\\tmp\\pdfs\\build",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\dev\\exc\\texlive\\2025\\bin\\windows\\lualatex.exe",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-output-directory=D:\\DEV\\projects\\lapx_all\\new6\\paper\\tmp\\pdfs\\build",
+        "main.tex"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "log_diagnostics": [],
+  "scientific_measurements": "All six figures use the measured summaries in results/."
+}

@@ -1,0 +1,36 @@
+# Python bytecode, caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Scratch work, drafts and interrupted or superseded runs
+tmp/
+*.tmp
+
+# LaTeX build by-products (the PDF is built under tmp/pdfs/build). Logs elsewhere
+# are artifact evidence, so ignore only those written next to the LaTeX sources.
+latex/*.aux
+latex/*.bbl
+latex/*.blg
+latex/*.fdb_latexmk
+latex/*.fls
+latex/*.log
+latex/*.out
+latex/*.synctex.gz
+latex/*.toc
+
+# Package benchmark runs kept locally with the archive; they are not paper evidence
+archive/*/benchmark-results/
+archive/*/benchmarks/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini

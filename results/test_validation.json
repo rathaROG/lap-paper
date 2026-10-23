@@ -1,0 +1,133 @@
+{
+  "packages": {
+    "lapx": "0.11.0rc1",
+    "lapcpp": "1.0.0",
+    "laprust": "1.0.0"
+  },
+  "suites": {
+    "lapx_python": {
+      "exit_code": 0,
+      "seconds": 48.8667729000008,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\projects\\lapx_all\\new6\\lapx\\tests",
+        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapx\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        2704
+      ]
+    },
+    "lapcpp_python": {
+      "exit_code": 0,
+      "seconds": 27.049303300002066,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1271
+      ]
+    },
+    "laprust_python": {
+      "exit_code": 0,
+      "seconds": 27.324458900002355,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1271
+      ]
+    },
+    "laprust_rust": {
+      "exit_code": 0,
+      "seconds": 6.323185199995351,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--manifest-path",
+        "D:\\DEV\\projects\\lapx_all\\new6\\laprust\\src\\_lapjv\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        23,
+        0
+      ]
+    },
+    "lapx_rust": {
+      "exit_code": 0,
+      "seconds": 5.337087499996414,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--all-features",
+        "--manifest-path",
+        "D:\\DEV\\projects\\lapx_all\\new6\\lapx\\src\\_lapjvr\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        20,
+        0
+      ]
+    },
+    "lapcpp_native_configure": {
+      "exit_code": 0,
+      "seconds": 2.105021100003796,
+      "command": [
+        "cmake",
+        "-S",
+        "D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\native",
+        "-B",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native_build": {
+      "exit_code": 0,
+      "seconds": 1.6265105999991647,
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native",
+        "--config",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native": {
+      "exit_code": 0,
+      "seconds": 0.0385110999995959,
+      "command": [
+        "ctest",
+        "--test-dir",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native",
+        "-C",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    }
+  }
+}

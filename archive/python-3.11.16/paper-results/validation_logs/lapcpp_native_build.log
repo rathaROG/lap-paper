@@ -1,0 +1,12 @@
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(548,5): warning MSB8029: The Intermediate directory or Output directory cannot reside under the Temporary directory as it could lead to issues with incremental build. [C:\Users\ratha\AppData\Local\Temp\paper-validation-tclzss6v\lapcpp-native\ZERO_CHECK.vcxproj]
+  1>Checking Build System
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(548,5): warning MSB8029: The Intermediate directory or Output directory cannot reside under the Temporary directory as it could lead to issues with incremental build. [C:\Users\ratha\AppData\Local\Temp\paper-validation-tclzss6v\lapcpp-native\native_tests.vcxproj]
+  Building Custom Rule D:/DEV/projects/lapx_all/new6/lapcpp/tests/native/CMakeLists.txt
+  test_solver.cpp
+  completion.cpp
+  Generating Code...
+  native_tests.vcxproj -> C:\Users\ratha\AppData\Local\Temp\paper-validation-tclzss6v\lapcpp-native\Release\native_tests.exe
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(548,5): warning MSB8029: The Intermediate directory or Output directory cannot reside under the Temporary directory as it could lead to issues with incremental build. [C:\Users\ratha\AppData\Local\Temp\paper-validation-tclzss6v\lapcpp-native\ALL_BUILD.vcxproj]
+  Building Custom Rule D:/DEV/projects/lapx_all/new6/lapcpp/tests/native/CMakeLists.txt
