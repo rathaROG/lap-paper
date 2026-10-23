@@ -39,6 +39,14 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def measurement_script(name, expected_sha256):
+    """Resolve the exact script used for a measurement, including preserved sources."""
+    for path in (PAPER / name, PAPER / "archive" / "measurement-scripts" / name):
+        if path.is_file() and digest(path) == expected_sha256:
+            return path
+    raise AssertionError(f"No preserved measurement script matches {name}: {expected_sha256}")
+
+
 def numeric_rows(text):
     rows = []
     for line in text.splitlines():
@@ -75,11 +83,38 @@ def check_binaries(environment, runtime):
         assert metadata["sha256"] == runtime["native_modules"][name]["sha256"], name
 
 
+def check_batch_validation(batch_validation, environment, runtime):
+    recheck_environment = batch_validation["environment"]
+    assert batch_validation["status"] == "passed"
+    assert recheck_environment["experiment_sha256"] == digest(PAPER / "run_experiments.py")
+    assert recheck_environment["seed"] == environment["seed"]
+    assert recheck_environment["rounds"] == 0
+    assert recheck_environment["batch_affinity"] == environment["batch_affinity"]
+    for key in ("python", "numpy", "scipy"):
+        assert recheck_environment[key] == environment[key], key
+    check_binaries(recheck_environment, runtime)
+    assert {name: info["version"] for name, info in recheck_environment["packages"].items()} == \
+        {name: info["version"] for name, info in runtime["packages"].items()}
+    from run_experiments import batch_names, batch_specs
+    specs = batch_specs()
+    names = batch_names(len(recheck_environment["batch_affinity"]))
+    assert len(batch_validation["checks"]) == len(specs)
+    for row, spec in zip(batch_validation["checks"], specs, strict=True):
+        assert row["case"] == spec["case"]
+        assert row["problems"] == spec["b"] and row["solvers"] == len(names)
+        assert row["checked_outputs"] == {name: spec["b"] for name in names}
+        assert row["objective_checks_passed"]
+        assert re.fullmatch(r"[0-9a-f]{64}", row["input_sha256"])
+    assert batch_validation["checked_outputs"] == sum(
+        sum(row["checked_outputs"].values()) for row in batch_validation["checks"]
+    ) == 11040
+
+
 def main():
     manuscript = (PAPER / "manuscript.md").read_text(encoding="utf-8")
     runtime = read_json("runtime.json")
     environment = read_json("environment.json")
-    assert digest(PAPER / "run_experiments.py") == environment["experiment_sha256"]
+    measured_script = measurement_script("run_experiments.py", environment["experiment_sha256"])
     assert digest(PAPER / "record_runtime.py") == runtime["record_script_sha256"]
     check_binaries(environment, runtime)
     assert {name: info["version"] for name, info in environment["packages"].items()} == \
@@ -110,6 +145,22 @@ def main():
     assert validation["maximum_absolute_objective_error"] == 0
     checks = read_json("benchmark_checks.json")
     assert all(row["objective_checks_passed"] for group in checks.values() for row in group)
+    # Strict rechecks have separate provenance from both historical timing runs.
+    batch_validation = read_json("batch_validation.json")
+    check_batch_validation(batch_validation, environment, runtime)
+    archived_root = PAPER / "archive" / "python-3.11.16"
+    archived_batch_validation = json.loads(
+        (archived_root / "batch-revalidation" / "batch_validation.json").read_text(encoding="utf-8")
+    )
+    archived_validation_environment = json.loads(
+        (archived_root / "paper-results" / "environment.json").read_text(encoding="utf-8")
+    )
+    archived_validation_runtime = json.loads(
+        (archived_root / "paper-results" / "runtime.json").read_text(encoding="utf-8")
+    )
+    measurement_script("run_experiments.py", archived_validation_environment["experiment_sha256"])
+    check_batch_validation(archived_batch_validation, archived_validation_environment,
+                           archived_validation_runtime)
     tests = read_json("test_validation.json")
     assert all(suite["exit_code"] == 0 for suite in tests["suites"].values())
     test_counts = {name: sum(suite["reported_pass_counts"]) for name, suite in tests["suites"].items()}
@@ -182,7 +233,10 @@ def main():
     for entry, script, run_environment in zip(run["suites"],
             ("run_experiments.py", "compare_optional.py", "benchmark_scaling.py"),
             (environment, formulation_environment, scaling_environment)):
-        assert entry["exit_code"] == 0 and entry["script_sha256"] == digest(PAPER / script)
+        assert entry["exit_code"] == 0
+        measurement_script(script, entry["script_sha256"])
+        if entry["stage"] == "main":
+            assert entry["script_sha256"] == environment["experiment_sha256"]
         assert entry["started_utc"] <= run_environment["recorded_utc"] <= entry["completed_utc"]
     cpu_load = read_csv("rerun/cpu_load.csv")
     assert {row["stage"] for row in cpu_load} >= {"main", "optional", "scaling"}
@@ -246,6 +300,10 @@ def main():
         "checked_narrative_sentences": len(sentences),
         "checked_appendix_table_rows": appendix_rows,
         "checked_appendix_sentences": len(appendix),
+        "batch_validation_outputs": batch_validation["checked_outputs"],
+        "archived_batch_validation_outputs": archived_batch_validation["checked_outputs"],
+        "measurement_experiment_script": str(measured_script.relative_to(PAPER)).replace("\\", "/"),
+        "measurement_experiment_sha256": environment["experiment_sha256"],
         "enumeration_solver_calls": validation["solver_calls"] + formulation_validation["grid_solver_calls"]
                                     + formulation_validation["targeted_solver_calls"],
         "scaling_settings": len(scaling_datasets), "scaling_objective_checks": len(scaling_checks),

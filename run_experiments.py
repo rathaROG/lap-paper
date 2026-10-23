@@ -345,27 +345,45 @@ def batch_specs():
     ]
 
 
-def batch_experiment(options, batch_threads):
-    rng = np.random.default_rng(options.seed + 3)
-    order_rng = random.Random(options.seed + 4)
+def batch_names(batch_threads):
     names = ["jvrust_loop", "scipy_loop"]
     for family in BATCH_FAMILIES:
         names += [f"{family}_batch_t1", f"{family}_batch_t{batch_threads}"]
-    names = list(dict.fromkeys(names))
+    return list(dict.fromkeys(names))
+
+
+def check_batch(costs, actual, expected, limit):
+    """Validate every requested output and return the number actually checked."""
+    if not len(actual) == len(costs) == len(expected):
+        raise AssertionError(
+            f"batch length mismatch: costs={len(costs)}, outputs={len(actual)}, "
+            f"references={len(expected)}"
+        )
+    checked = 0
+    for a, pairs, reference in zip(costs, actual, expected, strict=True):
+        value = check_pairs(a, pairs.astype(np.int64, copy=False), limit)
+        assert np.isclose(value, reference, rtol=1e-10, atol=1e-10), (checked, value, reference)
+        checked += 1
+    return checked
+
+
+def batch_experiment(options, batch_threads, *, validation_only=False):
+    rng = np.random.default_rng(options.seed + 3)
+    order_rng = random.Random(options.seed + 4)
+    names = batch_names(batch_threads)
     rows, checks = [], []
     for spec in batch_specs():
         costs = np.stack([make_cost(spec, rng) for _ in range(spec["b"])])
         expected = [objective(a, solve("scipy", a, spec["limit"]), spec["limit"]) for a in costs]
-        calls, numbers = {}, {}
+        calls, numbers, checked_outputs = {}, {}, {}
         for name in names:
             calls[name] = functools.partial(batch_call, name, limit=spec["limit"])
             actual = calls[name](costs)
-            for a, pairs, reference in zip(costs, actual, expected):
-                value = check_pairs(a, pairs.astype(np.int64, copy=False), spec["limit"])
-                assert np.isclose(value, reference, rtol=1e-10, atol=1e-10)
-            probe = timed_block(calls[name], [costs], 1)
-            numbers[name] = max(1, min(10000, round(options.block_seconds * 1e9 / probe)))
-        for round_index in range(options.rounds):
+            checked_outputs[name] = check_batch(costs, actual, expected, spec["limit"])
+            if not validation_only:
+                probe = timed_block(calls[name], [costs], 1)
+                numbers[name] = max(1, min(10000, round(options.block_seconds * 1e9 / probe)))
+        for round_index in range(0 if validation_only else options.rounds):
             order = list(names)
             order_rng.shuffle(order)
             for position, name in enumerate(order):
@@ -377,7 +395,9 @@ def batch_experiment(options, batch_threads):
                     "cycles": numbers[name], "nanoseconds": elapsed,
                 })
         checks.append({"case": spec["case"], "solvers": len(names),
-                       "problems": spec["b"], "objective_checks_passed": True})
+                       "problems": len(costs), "checked_outputs": checked_outputs,
+                       "input_sha256": hashlib.sha256(costs.tobytes()).hexdigest(),
+                       "objective_checks_passed": True})
         print("Batch", spec["case"], flush=True)
     return rows, checks
 
@@ -467,6 +487,8 @@ def main():
     parser.add_argument("--rounds", type=int, default=9)
     parser.add_argument("--instances", type=int, default=4)
     parser.add_argument("--block-seconds", type=float, default=0.03)
+    parser.add_argument("--validate-batch-only", action="store_true",
+                        help="Check batch outputs and save batch_validation.json without timing.")
     parser.add_argument("--memory-solver", choices=SOLVERS)
     parser.add_argument("--memory-case", choices=("required", "optional"))
     options = parser.parse_args()
@@ -481,6 +503,22 @@ def main():
     single_affinity = original_affinity[:1]
     batch_affinity = original_affinity[:4]
     try:
+        if options.validate_batch_only:
+            options.rounds = 0
+            process.cpu_affinity(batch_affinity)
+            with threadpool_limits(limits=1):
+                _, checks = batch_experiment(options, len(batch_affinity), validation_only=True)
+                report = {
+                    "status": "passed",
+                    "scope": "Batch correctness only; timing measurements were not rerun.",
+                    "environment": environment(options, single_affinity, batch_affinity),
+                    "checks": checks,
+                    "checked_outputs": sum(sum(row["checked_outputs"].values()) for row in checks),
+                }
+            target = options.output / "batch_validation.json"
+            target.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+            print("Batch validation:", report["checked_outputs"], "outputs passed; saved", target)
+            return
         process.cpu_affinity(single_affinity)
         with threadpool_limits(limits=1):
             validation = validate(options.seed)

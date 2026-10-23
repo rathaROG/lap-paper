@@ -28,6 +28,7 @@ Install the three packages and the Python requirements into one environment, the
 python -m pip install lapx==0.11.0 lapcpp==1.0.0 laprust==1.0.0 -r requirements.txt
 python record_runtime.py          # results/runtime.json: versions, wheel and binary hashes
 python validate_release.py        # package test suites and native unit tests (see below)
+python run_experiments.py --validate-batch-only  # correctness only; no timing campaign
 python rerun_measurements.py      # main, formulation and scaling suites, run sequentially into tmp/rerun
 python report_results.py          # tables, dataset summary, Figures 1-3
 python plot_scaling.py            # Figures 4-6
@@ -42,6 +43,14 @@ python check_artifact.py          # consistency of data, tables, narrative value
 
 The run in `results/` used wheels built from the release sources with each package's default settings (MSVC 14.44, Rust 1.99.1, Python 3.14.9, NumPy 2.5.4, SciPy 1.18.1) on an Intel Core i9-13900KS under Windows. The LAPX wheel reports its version string as `0.11.0rc1`, which `results/runtime.json` records; its solver code is that of the 0.11.0 release.
 
+### Batch-validation correction
+
+The batch validator now requires exactly one output per input and checks every output with strict iteration. Run `python run_experiments.py --validate-batch-only` to repeat the three recorded batch workloads, using their original seed and the one- and four-worker methods. It writes only `results/batch_validation.json`, including per-method checked-output counts, input hashes, and the current script and native-binary hashes. Run `python -m pytest -q tests/test_batch_validation.py` for the harness regression tests.
+
+The retained rechecks cover all 11,040 outputs in each of the Python 3.14.9 and Python 3.11.16 environments, using the same native binaries and Python/NumPy/SciPy versions as their respective timing runs. The timing samples, summaries, and original environment records are unchanged. Their exact experiment script is preserved byte for byte in `archive/measurement-scripts/run_experiments.py`; `check_artifact.py` verifies it against the original recorded hash and verifies the corrected script against the separate recheck. The preserved source documents the historical measurements and is not the entry point for new runs.
+
+The Python 3.11 recheck is saved separately in `archive/python-3.11.16/batch-revalidation/batch_validation.json`. To repeat it, use the Python 3.11 environment with `run_experiments.py --validate-batch-only --output archive/python-3.11.16/batch-revalidation`. Both rechecks are verified by `check_artifact.py`; all original logs remain untouched.
+
 ## Files
 
 | File or directory | Purpose |
@@ -50,7 +59,7 @@ The run in `results/` used wheels built from the release sources with each packa
 | references.bib | BibTeX entries corresponding to the manuscript references |
 | record_runtime.py | Record installed versions, wheel provenance, native-binary hashes and source state |
 | validate_release.py | Run the packages' test suites and native unit tests against the installed wheels |
-| run_experiments.py | Enumeration validation, single-matrix, batch and memory experiments |
+| run_experiments.py | Enumeration validation, single-matrix, batch and memory experiments; batch-only correctness recheck |
 | compare_optional.py | JVRUST and JVCPP against square-expanded, dummy-column and capped-cost SciPy |
 | benchmark_scaling.py | Paired size sweeps: square, 4:1 wide, fixed 64 rows, and congested finite-limit costs |
 | rerun_measurements.py | Run the three timing suites sequentially and record per-CPU load |
@@ -60,7 +69,9 @@ The run in `results/` used wheels built from the release sources with each packa
 | narrative.py | Every number quoted in the text, derived from the results, with checks of the claims made about them |
 | build_pdf.py | Convert the manuscript to LaTeX, draw vector figures and typeset the PDF |
 | check_artifact.py | Check samples, summaries, tables, narrative values, script and binary hashes, without native execution |
-| results/ | Raw samples, summaries, environment, runtime and validation records |
+| results/ | Raw samples, summaries, environment, runtime and validation records, including the separate strict batch recheck |
+| archive/measurement-scripts/ | Exact historical experiment source retained for measurement provenance |
+| tests/test_batch_validation.py | Regression checks for incomplete/extra outputs, incorrect objectives, and validation-only execution |
 | figures/ | Six figures as PNG and editable SVG; vector PDFs are in latex/images/ |
 | archive/python-3.11.16/ | The earlier Python 3.11.16 run, summarized in Appendix A: results and logs, and the manuscript and figures built from them |
 | latex/ | Generated LaTeX project and bibliography |

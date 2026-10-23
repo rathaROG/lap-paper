@@ -16,6 +16,10 @@
   "checked_narrative_sentences": 25,
   "checked_appendix_table_rows": 42,
   "checked_appendix_sentences": 3,
+  "batch_validation_outputs": 11040,
+  "archived_batch_validation_outputs": 11040,
+  "measurement_experiment_script": "archive/measurement-scripts/run_experiments.py",
+  "measurement_experiment_sha256": "13d68fc59f2cdd86d67823d3aef2d3e2bdb61fc4e3f1de74beea5a4243e9b37e",
   "enumeration_solver_calls": 27320,
   "scaling_settings": 47,
   "scaling_objective_checks": 1208,
@@ -33,16 +37,16 @@
   "artifact_script_hashes": {
     "benchmark_scaling.py": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
     "build_pdf.py": "c10458e0b6fb315d4c932b7fbde199f0c1de30f92c09cf5c309dee5774bc72d2",
-    "check_artifact.py": "c677aaa9acf4e08f1b617662d0838da595e4f7c3dc1ff694413271b496a73be9",
+    "check_artifact.py": "22d75e8ff7f5c9ba532ea67ec785cb2a138b7f0943145dbe9ec7fc640f73b455",
     "compare_optional.py": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
     "narrative.py": "158fab0d2ef08082461b8870bb77809b73882d5a784282c9c58dd3c684b64cfc",
     "plot_scaling.py": "e52b2741e9d678e5ab859d27c789e25c5fa9da8d3d0e90a5e70d59404ffbbdf3",
     "record_runtime.py": "03a1771bb74fdc41724056c675bc890439cdeda69cfd4808f814ccbadb9e2a39",
     "report_results.py": "a1095e3103c9986272d9a1275d095eabc2de4e44502b6bbeb9289f7d65524476",
     "rerun_measurements.py": "21ce3e91f860c62504f91ae6e6a0919068483f0a190e81c257d6e16ca6702118",
-    "run_experiments.py": "13d68fc59f2cdd86d67823d3aef2d3e2bdb61fc4e3f1de74beea5a4243e9b37e",
+    "run_experiments.py": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
     "update_manuscript_tables.py": "822cae7277ba973a3df8d5a2f514c062914d9f3bf0422d29dc10863f392660ce",
     "validate_release.py": "6c8d72f9e7284f19376e8a44c935c6fe675fad31fc3975cea710d99576347403"
   },
-  "manuscript_sha256": "1ac65c5f1d649d7a9c001d23a7106ee6d88b322ce5f1df64f7b7aaedf39713ff"
+  "manuscript_sha256": "1dcb0a0fbeaeff8810d41b8d554d9a6701dc913cd96b5c8b676168bc3c20a9ae"
 }
