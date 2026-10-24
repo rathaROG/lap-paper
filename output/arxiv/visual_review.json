@@ -1,23 +1,61 @@
 {
-  "reviewed_utc": "2026-10-24T05:24:21.758795+00:00",
+  "reviewed_utc": "2026-10-24T07:26:24.621578+00:00",
   "pdf_visual_review": {
     "status": "passed",
     "pages": 34,
-    "method": "Rendered all 34 pages at 110 dpi after the second review corrections. Visually inspected changed pages 7 and 33 individually; the other 32 renders are byte-identical to the previously reviewed version.",
+    "method": "Rendered all 34 pages at 110 dpi after the four agreed review-3/review-4 fixes. Visually inspected all 10 changed pages individually; the other 24 renders are byte-identical to the previously reviewed version. An independent reviewer checked pages 28, 29, 30, 31, and 33.",
+    "changed_pages_visually_reviewed": [
+      4,
+      5,
+      12,
+      13,
+      24,
+      28,
+      29,
+      30,
+      31,
+      33
+    ],
+    "unchanged_pages_matching_prior_review": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27,
+      32,
+      34
+    ],
     "renders": {
       "tmp/publication-review/final-page-01.png": "6e50bd38ffc3c960e8bb0c464e5209969be53bb2c296c3f277aad04e1d4876a3",
       "tmp/publication-review/final-page-02.png": "84cba484deaf10dc658cc2081215b106899bfb05366dde135cfbe96494d87f21",
       "tmp/publication-review/final-page-03.png": "4de071cdea1cd12da5840f84e6baf445a5b8b56d6a6be459d62f4e9f7d5b5965",
-      "tmp/publication-review/final-page-04.png": "70c9ffa2d4e2bb669a0ebec563dc896170f9530dce7e2e19c516634bb5313875",
-      "tmp/publication-review/final-page-05.png": "b6d1e3d9a6d9054b1adce7c6688efce98ed0d2e2f762329ade7f7854f9c65bfd",
+      "tmp/publication-review/final-page-04.png": "d6df945c60f5872b5ee7059322914124f7c43c903db90353288dc055b10cade5",
+      "tmp/publication-review/final-page-05.png": "c241f943e917171de3bb28816d76545427330cbb130292f029fccbb8145723f6",
       "tmp/publication-review/final-page-06.png": "050ac7ef38973f1ca56d6b0db68ed0eb795eb43c8496c44dce2fba99b94cf944",
       "tmp/publication-review/final-page-07.png": "52cf49ca0ead5fea39214bee77ff5f9480977872c8f5934411a8d95a8344790a",
       "tmp/publication-review/final-page-08.png": "7b49af1a979d197881197ddc3ba0756a9a9d6c07c0339c002e2ea5a316552827",
       "tmp/publication-review/final-page-09.png": "5a13a63c0c8cbd53e3ad8287cd88830b5bb675582ed555403ed213efbdc2831f",
       "tmp/publication-review/final-page-10.png": "e84ac1c25eb3bc2f3dd950d17aa9fe923edac4d3b98fe63d0e2c1e85a906a79c",
       "tmp/publication-review/final-page-11.png": "e46ccfcdaea6f0b9835142d04c06f5750c1d003f549b1650f910b1bdab2b0bc7",
-      "tmp/publication-review/final-page-12.png": "ec0c295427e8ef1e9a03ccc71168bd61c7b810b03aaa300f5c803d6106d67d53",
-      "tmp/publication-review/final-page-13.png": "99c308c54ecd7097b04807d030ca5c9566c4bdb50c0e4ab71fbd77c3a98f8e62",
+      "tmp/publication-review/final-page-12.png": "21190d39a49db8b05117a1d1e11ac38387adbf330d8b8cda4996a1f3c52b0011",
+      "tmp/publication-review/final-page-13.png": "4261b3492cf95e7b8723ccd4f5f4399a8deae48a8a4f77af19f8c7630a6880a9",
       "tmp/publication-review/final-page-14.png": "2d3a5a65829415b20d08672225f65d0ebd78de47800282071f714d5d3c6c642a",
       "tmp/publication-review/final-page-15.png": "249207f7d4b1bacf9ea18a98d0fc02b572b273f3d06c15350af17e40348711f3",
       "tmp/publication-review/final-page-16.png": "072905ea8f8b3439574d6055e1f3a11a153da4de8f80f8aac5658b5d2cc144b1",
@@ -28,22 +66,22 @@
       "tmp/publication-review/final-page-21.png": "b2f51c4605184770038d5986ce645bfe3975c8b095ba6e77887fbad273501d3b",
       "tmp/publication-review/final-page-22.png": "97ef27d4b307fc1de8b9a4e9f7dec95449b96ad560a0d58a097483b074a5fcbc",
       "tmp/publication-review/final-page-23.png": "65b95b2fcae2e92c74fd23aa224711c24f9d3957a62248338acfaa17088b2179",
-      "tmp/publication-review/final-page-24.png": "2f301491358130d9fc1320bc2d57c1149f6fb18fb4b8539344905329795e7341",
+      "tmp/publication-review/final-page-24.png": "136987b7ee9ceb6905a7ed2543a2de90ba23a0376aea6e5df28e282c52291835",
       "tmp/publication-review/final-page-25.png": "de4aedd19941d6404ed0c820a372d7a5fc05f48972a7c4d66a799ffb345f45a3",
       "tmp/publication-review/final-page-26.png": "a39035cdc9cde44c2d11a907157c6893c51daff08ee38c1e7e75dfccf6b91ef6",
       "tmp/publication-review/final-page-27.png": "e5a90af8c303bf4f080078457688be9fc5cd9db85a573433f8771e811ac38245",
-      "tmp/publication-review/final-page-28.png": "c28600f5011500dda7993264bbb4d3dc615d33181650347a6219084607d4f44f",
-      "tmp/publication-review/final-page-29.png": "29f100469c5abf299a35d1335021ef96ec80f44d2843798baf2f98b59fee891c",
-      "tmp/publication-review/final-page-30.png": "13c0f4e7aff79ed120920627fb068bc537b126baeeb3c2a659f12bab87c2e9b6",
-      "tmp/publication-review/final-page-31.png": "afcaeb4a9f8b33817e02f51eeed4ab8eaf9da37a4e5e454c2a9587dddb397a96",
+      "tmp/publication-review/final-page-28.png": "d78ccfc1adb424bc19ae4b8d72a1a9884906ac13d7997f7a4f05b687d0c85f41",
+      "tmp/publication-review/final-page-29.png": "64733b99c169b302c1b2e542ba72c13b19567ded6cf9a860490c5cbf7275400e",
+      "tmp/publication-review/final-page-30.png": "26ea0d1c0db6901c179bdd240e11ca5721b5cbbe904eeea119c689cdd70e4d62",
+      "tmp/publication-review/final-page-31.png": "d674820770523cc3aec453e9d6fe8e5d25bd27b226f8805232711b16ddbe7200",
       "tmp/publication-review/final-page-32.png": "5967be03bfaaedee3dc0ccffec2427809086c027e2dfd24760bfc3c3d609f3ed",
-      "tmp/publication-review/final-page-33.png": "d7038f2a0e331871f18a630b56e1b90927bcfd1df166086c3c9e1e8ba9112015",
+      "tmp/publication-review/final-page-33.png": "61773f540615513ee2223e3d1cb0e02966070088872b12e60d48bc38bf77f94b",
       "tmp/publication-review/final-page-34.png": "d5421a19db6adb7875f96354d522ee76893c275caa1701411230f306b621946b"
     }
   },
-  "pdf_sha256": "a7f81e02caef9a5462d8f8a2aeee5707e21097a2c6209d816ef878e0cdfe7db1",
-  "archive_sha256": "55be65c0b944ec3e7f5df05b6ea8586ccd6b36d0b87a8d8769b7bdbecfb71704",
-  "html_sha256": "d54d6aa3b44ccdacaa24cc6c431428b1894d4b4e6658472434c38cdea194e222",
+  "pdf_sha256": "66a14db6b1079e0bed7327f6cf87f56e834c8e471a86ab71c80d1d488c9c3e69",
+  "archive_sha256": "5e14f1db76199c3bdee8ed9125876e6b595c83eb75e91185494fa1fade9889b8",
+  "html_sha256": "5377a14c490e324875172c8b0bf9d921fddf8578f2d970a3783c8e1830a3d069",
   "html_conversion_and_structure": {
     "status": "passed",
     "counts": {
@@ -51,7 +89,7 @@
       "tables": 11,
       "references": 19,
       "algorithms": 1,
-      "math_expressions": 251
+      "math_expressions": 253
     },
     "local_assets_checked": 19,
     "embedded_png_assets_checked": 1,
@@ -61,18 +99,17 @@
   },
   "html_browser_layout_review": {
     "status": "blocked",
-    "reason": "Browser security policy rejected the file:// URL. No alternate route or browser workaround attempted. Desktop/narrow-width browser layout has not been visually verified."
+    "reason": "The previously recorded browser security policy rejected the file:// URL. No new browser access or alternate route was attempted for this revision. Desktop/narrow-width browser layout remains visually unverified."
   },
   "harness_tests": {
     "passed": 17,
     "command": "C:\\dev\\exc\\python\\p311\\python.exe -B -m pytest -q -p no:cacheprovider tests",
-    "scope": "Previously passed on the committed baseline; not rerun for this prose correction. The revised sentence-boundary guard was checked against correct and corrupted text, and the publication evidence audit passed."
+    "scope": "Previously passed on the committed baseline; not rerun for these prose and label corrections. The synchronized narrative checks and full publication evidence audit passed using saved results only."
   },
   "scope": "Local PDFLaTeX and LaTeXML verification. arXiv server processing and styling have not been tested by this revision.",
   "repository_link": {
     "url": "https://github.com/rathaROG/lap-paper",
     "pdf_clickable_on_pages": [
-      29,
       30
     ],
     "html_href_verified": true,
@@ -93,6 +130,27 @@
       1.56,
       1.56
     ],
+    "measurements_rerun": false
+  },
+  "review_3_4_corrections": {
+    "status": "passed",
+    "updated_passages_verified_in_pdf_and_html": 6,
+    "original_assignment_domain_scoped_to_equations": [
+      1,
+      4
+    ],
+    "dual_edge_constraint_indexed_over_admissible_edges": true,
+    "proposition_3_and_its_proof_unchanged": true,
+    "installed_python_tests_distinguished_from_native_source_tests": true,
+    "crossover_named_jvrust": true,
+    "fixed_row_example_scoped_to_finite_limit": true,
+    "table_a4_source_named_tables_6_a3": true,
+    "table_a4_values_unchanged": [
+      13.16,
+      15.09
+    ],
+    "narrative_guard_and_label_synchronized": true,
+    "frozen_evidence_files_unchanged": 1691,
     "measurements_rerun": false
   }
 }

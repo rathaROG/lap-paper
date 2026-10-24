@@ -3,13 +3,13 @@
   "texlive_version": 2025,
   "compiler_settings": "Select main.tex, PDFLaTeX and TeX Live 2025 in arXiv's submission interface.",
   "engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025)",
-  "manuscript_sha256": "c76b19ceb5e836cf9ab4f8c2e82961cc04f99f99f18cf626caf229d0fb46d12b",
+  "manuscript_sha256": "d16b0c50d6a3069adb659b2e2050b8c95cd615d7acf8c143bcb96167a56c7601",
   "source_project": "latex",
   "archive": "output/arxiv/native_rectangular_assignment_arxiv.zip",
-  "archive_sha256": "55be65c0b944ec3e7f5df05b6ea8586ccd6b36d0b87a8d8769b7bdbecfb71704",
-  "archive_bytes": 429568,
+  "archive_sha256": "5e14f1db76199c3bdee8ed9125876e6b595c83eb75e91185494fa1fade9889b8",
+  "archive_bytes": 429625,
   "pdf": "output/arxiv/native_rectangular_assignment.pdf",
-  "pdf_sha256": "a7f81e02caef9a5462d8f8a2aeee5707e21097a2c6209d816ef878e0cdfe7db1",
+  "pdf_sha256": "66a14db6b1079e0bed7327f6cf87f56e834c8e471a86ab71c80d1d488c9c3e69",
   "pages": 34,
   "figures": 15,
   "references": 19,
@@ -30,7 +30,7 @@
     "images/structure_optional.pdf": "e678567bb18143b07cf5d3f41cd41364ace699458960fdaa76de83f80d886b25",
     "images/structure_required.pdf": "c0238d6310d3e91bec5e4eb95f7143871c76225f85eb883dcc1f5e7d12920520",
     "main.bbl": "eafd59124d5bc199fc9998aaa6f28d91d2df9acc77fc546b28ca494848033cbb",
-    "main.tex": "e6f413218d543a07e1d3025f1c23a185413b4f2ccba8e8940e2d80d1e0313640",
+    "main.tex": "c262c584fc5d947adaf6ca5640736b7aa089faf80c7d60e1bf1a11e97f85c661",
     "references.bib": "54446f7c368683db0f102ede176978fb18746e43ffccbaefdf9bb3bf102b8038"
   },
   "verified_from_extracted_archive": true,
@@ -133,7 +133,7 @@
       "exit_code": 0
     }
   ],
-  "build_directory": "tmp\\arxiv\\build-q2dy74hh",
+  "build_directory": "tmp\\arxiv\\build-dc5rdnjl",
   "guidance": [
     "https://info.arxiv.org/help/submit_tex.html",
     "https://info.arxiv.org/help/faq/texlive.html",

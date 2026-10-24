@@ -22,7 +22,7 @@ OURS = ("jvrust", "jvhybrid", "jvcpp")
 
 # Manuscript fragments; {name} fields are filled from values().
 TEMPLATES = (
-    ("6.1", "The installed packages pass their own test suites: {tests}"),
+    ("6.1", "The installed packages pass their Python test suites: {tests}"),
     ("6.2", "An implementation of the proposed solver is fastest among the configured methods in {required_wins} of the seven required cases and in all five finite-limit cases."),
     ("6.2", "On the uniform 256 × 320 problem, JVRUST takes {near_jvrust} microseconds versus {near_scipy} for SciPy."),
     ("6.2", "On congested blocks, JVRUST requires {blocks_jvrust_ms} ms while SciPy requires {blocks_scipy_ms} ms: SciPy is about {blocks_ratio} times faster"),
@@ -91,7 +91,7 @@ PRINCIPAL_RATIOS = (
     "t(loop) / t(batch), 1024 × (8 × 10), four workers (×)",
     "t(JVCPP) / t(JVRUST), largest finite-limit gap in Tables 3/A1 (×)",
     "t(JVCPP) / t(JVRUST), tall 512 × 64 (×)",
-    "JVRUST, 128 × 160 at L=0.5 (µs)",
+    "JVRUST, 128 × 160 at L=0.5 in Tables 6/A3 (µs)",
 )
 
 
@@ -226,7 +226,7 @@ def values(single, batch, formulations, scaling, datasets, scaling_datasets, tes
 
     names = {"lapx_python": "lapx", "lapcpp_python": "lapcpp", "laprust_python": "laprust"}
     native = "" if "lapcpp_native" not in tests else ", and lapcpp's native C++ test program"
-    test_text = ("{lapx:,} LAPX, {lapcpp:,} lapcpp, and {laprust:,} laprust Python tests, "
+    test_text = ("{lapx:,} LAPX, {lapcpp:,} lapcpp, and {laprust:,} laprust tests. The corresponding source checkouts pass "
                  "{rr} Rust unit tests for laprust and {xr} for LAPX's solver core with all features enabled{native}.").format(
         **{names[key]: value for key, value in tests.items() if key in names},
         rr=tests["laprust_rust"], xr=tests["lapx_rust"], native=native)

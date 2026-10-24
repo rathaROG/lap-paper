@@ -132,7 +132,7 @@ The sparse LAPMOD interface of LAPX is outside the performance study because it 
 
 \subsection{Required rectangular assignment}
 
-Let C be an N \ensuremath{\times} M real cost matrix, with forbidden edges excluded from the admissible edge set E. Orient the matrix so that r = min(N,M) and c = max(N,M), with r \ensuremath{\leq} c. A required rectangular assignment solves
+Let C be an N \ensuremath{\times} M real cost matrix, with forbidden edges excluded from the admissible edge set E. Orient the matrix so that r = min(N,M) and c = max(N,M), with r \ensuremath{\leq} c. In (1) and (4), \(x_{ij}=0\) for \((i,j)\notin E\). A required rectangular assignment solves
 
 \[
 \min_x \sum_{(i,j)\in E} C_{ij}x_{ij},
@@ -210,7 +210,7 @@ This is a network-flow formulation: each row contributes one unit, real columns 
 \[
 \max_{u,v}\sum_i u_i+\sum_jv_j,
 \quad
-u_i+v_j\leq C_{ij},\quad u_i\leq p,\quad v_j\leq0.
+u_i+v_j\leq C_{ij}\quad((i,j)\in E),\quad u_i\leq p,\quad v_j\leq0.
 \tag{5}
 \]
 
@@ -427,7 +427,7 @@ Ratios in the manuscript divide within-run median times; they do not average rat
 
 All four solver entry points agree exactly with enumeration on all 16,800 calls: JVRUST through laprust and through LAPX, JVHYBRID, and JVCPP. Eighty calls correspond to infeasible required problems and correctly produce errors. The maximum absolute objective discrepancy on feasible settings is zero. This result applies to the finite grid and shapes described above.
 
-The installed packages pass their own test suites: 2,704 LAPX, 1,167 lapcpp, and 1,167 laprust Python tests, 24 Rust unit tests for laprust and 21 for LAPX's solver core with all features enabled, and lapcpp's native C++ test program. Both environments pass these same suites. These suites include numeric contract cases, primal-dual certificates, coexistence and concurrency checks, fault injection, and comparisons between completion implementations. They support implementation confidence but do not constitute a proof for arbitrary floating-point inputs or every platform.
+The installed packages pass their Python test suites: 2,704 LAPX, 1,167 lapcpp, and 1,167 laprust tests. The corresponding source checkouts pass 24 Rust unit tests for laprust and 21 for LAPX's solver core with all features enabled, and lapcpp's native C++ test program. Both environments pass these same suites. These suites include numeric contract cases, primal-dual certificates, coexistence and concurrency checks, fault injection, and comparisons between completion implementations. They support implementation confidence but do not constitute a proof for arbitrary floating-point inputs or every platform.
 
 All 336 single-instance benchmark checks and 11,040 batch-output checks pass in each environment. The extension adds 2,112 timed-input objective checks and 129 edge checks per environment, all passing. Across the formulation, scaling, and extended suites, all 3,520 recorded objectives and match counts agree exactly between environments. Pair-array equality is not a required outcome in tied problems.
 
@@ -725,7 +725,7 @@ The small wide-input native footprint must not be generalized to tall inputs. Fo
 
 JVRUST and JVCPP each preserve their ordering against the relevant SciPy baseline in all 201 non-batch cases. Required cases use native SciPy; finite-limit cases use capped SciPy where available. The original single-call suite retains square-expanded SciPy, so its wins must not be conflated with wins against capped SciPy. JVRUST's wins by suite are 11/12 single-call, 9/10 formulation, 43/47 scaling, and 112/132 extended cases in both runs. JVCPP has the same counts except 42/47 in scaling. All twenty extended losses are the same cases across runs.
 
-The congested base scaling crossover remains between \(N=64\) and \(N=128\); at 1024 \ensuremath{\times} 1280 capped SciPy is 9.42 times faster than JVRUST in Python 3.14 and 9.15 times faster in Python 3.11. For 1024 problems of size 8 \ensuremath{\times} 10, JVRUST's loop-to-batch speedups are 2.39 and 2.30 with one worker, and 5.10 and 4.73 with four. Appendix A compares the main ratios, congestion, and ranking exceptions.
+JVRUST's congested base scaling crossover remains between \(N=64\) and \(N=128\); at 1024 \ensuremath{\times} 1280 capped SciPy is 9.42 times faster than JVRUST in Python 3.14 and 9.15 times faster in Python 3.11. For 1024 problems of size 8 \ensuremath{\times} 10, JVRUST's loop-to-batch speedups are 2.39 and 2.30 with one worker, and 5.10 and 4.73 with four. Appendix A compares the main ratios, congestion, and ranking exceptions.
 
 Consistency does not imply identical rankings. Across all solvers, 62 of 2,104 within-case pairwise median orderings reverse, and the fastest median changes in 31 of 204 cases. Requiring a margin exceeding 2\% in both environments leaves twelve reversals; requiring 5\% or 10\% leaves one. These are post-hoc descriptive filters, not statistical significance thresholds. The 32 \ensuremath{\times} 32 required case changes JVC/SciPy ordering: 10.87/9.71 microseconds in Python 3.14 versus 10.61/12.84 in Python 3.11. JVRUST remains faster than both.
 
@@ -754,7 +754,7 @@ The scaling curves make the dependence on both size and structure explicit. Incr
 
 The three implementations compare implementation choices under a shared algorithmic design. JVHYBRID changes only square completion and provides no consistent whole-call benefit on the evaluated required square workloads. Differences on the shared rectangular Rust path should be treated as timing variation, not algorithmic differences.
 
-JVRUST is faster than JVCPP in all twelve single-matrix cases in Table 3, with the largest gap on the tall input. The scaling sweeps do not preserve that ordering at every point: JVCPP has lower medians on several uniform cases, including the largest fixed-row rectangle. These results compare particular implementations and compiler settings; they do not isolate a programming-language effect. The additional large cases keep the two implementations within about 6.1\%, whereas extreme tall inputs and four-worker batches have different patterns. The two Python environments are not a controlled compiler or language experiment.
+JVRUST is faster than JVCPP in all twelve single-matrix cases in Table 3, with the largest gap on the tall input. The scaling sweeps do not preserve that ordering at every point: JVCPP has lower medians on several uniform cases, including the largest finite-limit fixed-row rectangle. These results compare particular implementations and compiler settings; they do not isolate a programming-language effect. The additional large cases keep the two implementations within about 6.1\%, whereas extreme tall inputs and four-worker batches have different patterns. The two Python environments are not a controlled compiler or language experiment.
 
 \subsection{Implications for applications}
 
@@ -930,7 +930,7 @@ t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), one wor
 t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), four workers (\ensuremath{\times}) & 4.73 & 5.10 \\
 t(JVCPP) / t(JVRUST), largest finite-limit gap in Tables 3/A1 (\ensuremath{\times}) & 1.56 & 1.56 \\
 t(JVCPP) / t(JVRUST), tall 512 \ensuremath{\times} 64 (\ensuremath{\times}) & 3.30 & 3.32 \\
-JVRUST, 128 \ensuremath{\times} 160 at \(L=0.5\) (µs) & 13.16 & 15.09 \\
+JVRUST, 128 \ensuremath{\times} 160 at \(L=0.5\) in Tables 6/A3 (µs) & 13.16 & 15.09 \\
 \bottomrule
 \end{tabularx}
 \endgroup
