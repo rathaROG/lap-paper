@@ -107,11 +107,11 @@ def generate(results=None):
         plt.close(fig)
 
 
-ARCHIVE = PAPER / "archive" / "python-3.11.16" / "paper-results" / "scaling"
+ARCHIVE = PAPER / "collections" / "python-3.11.17-20261024" / "results" / "scaling"
 
 
 def generate_runs(current=None, archived=None):
-    """Figure A1: the congested sweep in both runs, Python 3.14.9 solid and 3.11.16 dashed."""
+    """Supplementary congested sweep: Python 3.14.9 solid and 3.11.17 dashed."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -119,7 +119,7 @@ def generate_runs(current=None, archived=None):
     import numpy as np
 
     runs = (("Python 3.14.9", Path(current or PAPER / "results" / "scaling"), "-"),
-            ("Python 3.11.16", Path(archived or ARCHIVE), "--"))
+            ("Python 3.11.17", Path(archived or ARCHIVE), "--"))
     methods = ("jvrust", "jvcpp", "scipy_capped")
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "axes.titlesize": 8.5,
                          "axes.labelsize": 8, "xtick.labelsize": 7, "ytick.labelsize": 7,

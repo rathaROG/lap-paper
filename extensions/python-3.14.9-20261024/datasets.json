@@ -1,0 +1,5052 @@
+[
+  {
+    "family": "large_square",
+    "n": 1000,
+    "m": 1000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_square_1000",
+    "distribution": "uniform",
+    "case": "000_large_square_required_1000x1000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6a4c1deea4ddd328f65f5ce01ce1bbfa18bb31ce79da99fc75ca2d9d14cd79a6",
+        "canonical_sha256": "6a4c1deea4ddd328f65f5ce01ce1bbfa18bb31ce79da99fc75ca2d9d14cd79a6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "14f8125cc05205c27f1dada57985644765c96a2cb8e1febc5d48786c2cc0b852",
+        "canonical_sha256": "14f8125cc05205c27f1dada57985644765c96a2cb8e1febc5d48786c2cc0b852",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ce8f307f22c20f221516cfe093343c701b14e4444d82a9c4fbfd1beb1ed08bfe",
+        "canonical_sha256": "ce8f307f22c20f221516cfe093343c701b14e4444d82a9c4fbfd1beb1ed08bfe",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ce32256acf22d9d3e4b213da1ea5b700fb9e564fc29f09682a357fa37565457e",
+        "canonical_sha256": "ce32256acf22d9d3e4b213da1ea5b700fb9e564fc29f09682a357fa37565457e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 1000,
+    "m": 1000,
+    "regime": "optional",
+    "limit": 0.002,
+    "input_key": "large_square_1000",
+    "distribution": "uniform",
+    "case": "001_large_square_optional_1000x1000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6a4c1deea4ddd328f65f5ce01ce1bbfa18bb31ce79da99fc75ca2d9d14cd79a6",
+        "canonical_sha256": "6a4c1deea4ddd328f65f5ce01ce1bbfa18bb31ce79da99fc75ca2d9d14cd79a6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "14f8125cc05205c27f1dada57985644765c96a2cb8e1febc5d48786c2cc0b852",
+        "canonical_sha256": "14f8125cc05205c27f1dada57985644765c96a2cb8e1febc5d48786c2cc0b852",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ce8f307f22c20f221516cfe093343c701b14e4444d82a9c4fbfd1beb1ed08bfe",
+        "canonical_sha256": "ce8f307f22c20f221516cfe093343c701b14e4444d82a9c4fbfd1beb1ed08bfe",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ce32256acf22d9d3e4b213da1ea5b700fb9e564fc29f09682a357fa37565457e",
+        "canonical_sha256": "ce32256acf22d9d3e4b213da1ea5b700fb9e564fc29f09682a357fa37565457e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 2000,
+    "m": 2000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_square_2000",
+    "distribution": "uniform",
+    "case": "002_large_square_required_2000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "01ee658e7d952d545e198852528c35ddaaf0eaa5cd976aae0a327491f6a5858f",
+        "canonical_sha256": "01ee658e7d952d545e198852528c35ddaaf0eaa5cd976aae0a327491f6a5858f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9a37d0d8498cf2223f1b97acb64c387f32e24c621106c6deffb9c8aecd28533e",
+        "canonical_sha256": "9a37d0d8498cf2223f1b97acb64c387f32e24c621106c6deffb9c8aecd28533e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "0bd0b2ff1daa860fbb4078bc3b1eaeb11d59c0cea388ef0aaa38ea6382eb7e64",
+        "canonical_sha256": "0bd0b2ff1daa860fbb4078bc3b1eaeb11d59c0cea388ef0aaa38ea6382eb7e64",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "fc52a6549d3c3fc69e52d1330084f0ab9413ddd7e813c0403cae9fab296cec2b",
+        "canonical_sha256": "fc52a6549d3c3fc69e52d1330084f0ab9413ddd7e813c0403cae9fab296cec2b",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 2000,
+    "m": 2000,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "large_square_2000",
+    "distribution": "uniform",
+    "case": "003_large_square_optional_2000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "01ee658e7d952d545e198852528c35ddaaf0eaa5cd976aae0a327491f6a5858f",
+        "canonical_sha256": "01ee658e7d952d545e198852528c35ddaaf0eaa5cd976aae0a327491f6a5858f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9a37d0d8498cf2223f1b97acb64c387f32e24c621106c6deffb9c8aecd28533e",
+        "canonical_sha256": "9a37d0d8498cf2223f1b97acb64c387f32e24c621106c6deffb9c8aecd28533e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "0bd0b2ff1daa860fbb4078bc3b1eaeb11d59c0cea388ef0aaa38ea6382eb7e64",
+        "canonical_sha256": "0bd0b2ff1daa860fbb4078bc3b1eaeb11d59c0cea388ef0aaa38ea6382eb7e64",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "fc52a6549d3c3fc69e52d1330084f0ab9413ddd7e813c0403cae9fab296cec2b",
+        "canonical_sha256": "fc52a6549d3c3fc69e52d1330084f0ab9413ddd7e813c0403cae9fab296cec2b",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 3000,
+    "m": 3000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_square_3000",
+    "distribution": "uniform",
+    "case": "004_large_square_required_3000x3000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "db113a2f677d849d4732e39481fea9696ee12e8687f1cef3d6370f0e80c8757b",
+        "canonical_sha256": "db113a2f677d849d4732e39481fea9696ee12e8687f1cef3d6370f0e80c8757b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "f1fb185a69c265059fa4d87a4dcdc6d5a25c2733d731ba6f8ad036443b05d8e6",
+        "canonical_sha256": "f1fb185a69c265059fa4d87a4dcdc6d5a25c2733d731ba6f8ad036443b05d8e6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "bf1507ea74a33e37a6414847cb2b7ff13b466daa5da1cfd2c4d420756379bf22",
+        "canonical_sha256": "bf1507ea74a33e37a6414847cb2b7ff13b466daa5da1cfd2c4d420756379bf22",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4aa512a67005d91ebb8a58021fc813b1bbdbf0556e14409885c8765a15c17f0f",
+        "canonical_sha256": "4aa512a67005d91ebb8a58021fc813b1bbdbf0556e14409885c8765a15c17f0f",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 3000,
+    "m": 3000,
+    "regime": "optional",
+    "limit": 0.0006666666666666666,
+    "input_key": "large_square_3000",
+    "distribution": "uniform",
+    "case": "005_large_square_optional_3000x3000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "db113a2f677d849d4732e39481fea9696ee12e8687f1cef3d6370f0e80c8757b",
+        "canonical_sha256": "db113a2f677d849d4732e39481fea9696ee12e8687f1cef3d6370f0e80c8757b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "f1fb185a69c265059fa4d87a4dcdc6d5a25c2733d731ba6f8ad036443b05d8e6",
+        "canonical_sha256": "f1fb185a69c265059fa4d87a4dcdc6d5a25c2733d731ba6f8ad036443b05d8e6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "bf1507ea74a33e37a6414847cb2b7ff13b466daa5da1cfd2c4d420756379bf22",
+        "canonical_sha256": "bf1507ea74a33e37a6414847cb2b7ff13b466daa5da1cfd2c4d420756379bf22",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4aa512a67005d91ebb8a58021fc813b1bbdbf0556e14409885c8765a15c17f0f",
+        "canonical_sha256": "4aa512a67005d91ebb8a58021fc813b1bbdbf0556e14409885c8765a15c17f0f",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 5000,
+    "m": 5000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_square_5000",
+    "distribution": "uniform",
+    "case": "006_large_square_required_5000x5000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "4cfbc2f52d9833efb2adcea3e3a733ed262a7a582638832886862844543fd57d",
+        "canonical_sha256": "4cfbc2f52d9833efb2adcea3e3a733ed262a7a582638832886862844543fd57d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "7faa73298f95db5a25d70461c31f2699395470b6e40c18c8c5a8456d991d30d9",
+        "canonical_sha256": "7faa73298f95db5a25d70461c31f2699395470b6e40c18c8c5a8456d991d30d9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "857d4f176bf30e290d92e49487e467e2589b975b2b9ffed7d4bc538ba891e3e3",
+        "canonical_sha256": "857d4f176bf30e290d92e49487e467e2589b975b2b9ffed7d4bc538ba891e3e3",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "e63cf06506ceb3eb921e8ac020dc8ae90bccc1db5fd1839eac7524222e94bd44",
+        "canonical_sha256": "e63cf06506ceb3eb921e8ac020dc8ae90bccc1db5fd1839eac7524222e94bd44",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_square",
+    "n": 5000,
+    "m": 5000,
+    "regime": "optional",
+    "limit": 0.0004,
+    "input_key": "large_square_5000",
+    "distribution": "uniform",
+    "case": "007_large_square_optional_5000x5000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "4cfbc2f52d9833efb2adcea3e3a733ed262a7a582638832886862844543fd57d",
+        "canonical_sha256": "4cfbc2f52d9833efb2adcea3e3a733ed262a7a582638832886862844543fd57d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "7faa73298f95db5a25d70461c31f2699395470b6e40c18c8c5a8456d991d30d9",
+        "canonical_sha256": "7faa73298f95db5a25d70461c31f2699395470b6e40c18c8c5a8456d991d30d9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "857d4f176bf30e290d92e49487e467e2589b975b2b9ffed7d4bc538ba891e3e3",
+        "canonical_sha256": "857d4f176bf30e290d92e49487e467e2589b975b2b9ffed7d4bc538ba891e3e3",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "e63cf06506ceb3eb921e8ac020dc8ae90bccc1db5fd1839eac7524222e94bd44",
+        "canonical_sha256": "e63cf06506ceb3eb921e8ac020dc8ae90bccc1db5fd1839eac7524222e94bd44",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 1000,
+    "m": 2000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_1000x2000",
+    "distribution": "uniform",
+    "case": "008_large_rectangle_required_1000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "canonical_sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "canonical_sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "canonical_sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "canonical_sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 1000,
+    "m": 2000,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "large_rectangle_1000x2000",
+    "distribution": "uniform",
+    "case": "009_large_rectangle_optional_1000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "canonical_sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "canonical_sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "canonical_sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "canonical_sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 2000,
+    "m": 1000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_1000x2000",
+    "distribution": "uniform",
+    "case": "010_large_rectangle_required_2000x1000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "8eb49a5260279fa6cd26ef14cd23923d5b9e545f1eca059d6f9007e281b59c46",
+        "canonical_sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "946af6a1ae931fe8443e48eef56b749bb596fe7f84dd30473c8da8a855131532",
+        "canonical_sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "019695d287b6b6ecfc4c3c8d47740f5440bd96a3882aaa83862410a0e9c94bae",
+        "canonical_sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "d149ef447979447d4406891aca1131ded1df0618e4f8f68cad8c483a7aaca2a1",
+        "canonical_sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 2000,
+    "m": 1000,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "large_rectangle_1000x2000",
+    "distribution": "uniform",
+    "case": "011_large_rectangle_optional_2000x1000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "8eb49a5260279fa6cd26ef14cd23923d5b9e545f1eca059d6f9007e281b59c46",
+        "canonical_sha256": "63a9b6e512b650145db89a3d639635da24cae92975b07760ba7fbdf6de2d44fb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "946af6a1ae931fe8443e48eef56b749bb596fe7f84dd30473c8da8a855131532",
+        "canonical_sha256": "8c2f7bd82ce993516011e4bae0d8325ba8fa1ad0cbe2d6e90049055ad92bbe71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "019695d287b6b6ecfc4c3c8d47740f5440bd96a3882aaa83862410a0e9c94bae",
+        "canonical_sha256": "a666c71cf9e5076b963867af01293e7fc99e248971161138d5f7eca07e235630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "d149ef447979447d4406891aca1131ded1df0618e4f8f68cad8c483a7aaca2a1",
+        "canonical_sha256": "b5b4aea495035866613e118b26a93eb9b12ae70f85d75855e69b70b4b4429713",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 2000,
+    "m": 3000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_2000x3000",
+    "distribution": "uniform",
+    "case": "012_large_rectangle_required_2000x3000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "canonical_sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "canonical_sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "canonical_sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "canonical_sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 2000,
+    "m": 3000,
+    "regime": "optional",
+    "limit": 0.0006666666666666666,
+    "input_key": "large_rectangle_2000x3000",
+    "distribution": "uniform",
+    "case": "013_large_rectangle_optional_2000x3000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "canonical_sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "canonical_sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "canonical_sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "canonical_sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 3000,
+    "m": 2000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_2000x3000",
+    "distribution": "uniform",
+    "case": "014_large_rectangle_required_3000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "99c9971ee20615ce3f89ebffad23aecf4776e30dbdfadb74b37c2c01ab1edf00",
+        "canonical_sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "12ab74469885e279be465b78a3516bc12b3c88fed09690f85cfb9e4471408ae0",
+        "canonical_sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "fa2e90ded7fc71145747e5e40778145a32eabb6080ad86c72ecbfc45574303e5",
+        "canonical_sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "bfab54c127755530a3ba1310adef7539e08bfc0ebf0cc5ad21caa33e5c5857f8",
+        "canonical_sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 3000,
+    "m": 2000,
+    "regime": "optional",
+    "limit": 0.0006666666666666666,
+    "input_key": "large_rectangle_2000x3000",
+    "distribution": "uniform",
+    "case": "015_large_rectangle_optional_3000x2000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "99c9971ee20615ce3f89ebffad23aecf4776e30dbdfadb74b37c2c01ab1edf00",
+        "canonical_sha256": "7980b202bd7e5aff1840a87f5263394a49898e190dc8d24bf4bbc24fadbce0bf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "12ab74469885e279be465b78a3516bc12b3c88fed09690f85cfb9e4471408ae0",
+        "canonical_sha256": "255577b8d356dc3a9d3f694c962ed50f438066a1b656e5b429c22257248795c5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "fa2e90ded7fc71145747e5e40778145a32eabb6080ad86c72ecbfc45574303e5",
+        "canonical_sha256": "a5d7f0c566da4d3267ac950eaa84ee82140b588fdfe98da239a6f92b2e58cb97",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "bfab54c127755530a3ba1310adef7539e08bfc0ebf0cc5ad21caa33e5c5857f8",
+        "canonical_sha256": "22bdd60d4af0da32d7f484241cf70a46b0bf21635b10e862c7e4dfd46e9c1ad5",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 4000,
+    "m": 5000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_4000x5000",
+    "distribution": "uniform",
+    "case": "016_large_rectangle_required_4000x5000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "canonical_sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "canonical_sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "canonical_sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "canonical_sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 4000,
+    "m": 5000,
+    "regime": "optional",
+    "limit": 0.0004,
+    "input_key": "large_rectangle_4000x5000",
+    "distribution": "uniform",
+    "case": "017_large_rectangle_optional_4000x5000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "canonical_sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "canonical_sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "canonical_sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "canonical_sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 5000,
+    "m": 4000,
+    "regime": "required",
+    "limit": null,
+    "input_key": "large_rectangle_4000x5000",
+    "distribution": "uniform",
+    "case": "018_large_rectangle_required_5000x4000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "52312ceda60a06d0a1860239b9f6c34300723ebb30a29bfcffad3b4f8a588b27",
+        "canonical_sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8edc29cba32b8374fca91f13bffeef9bb68aa45846d532077719bec1c0550c54",
+        "canonical_sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "2df674ef43f79b4e798269180fba871ee75648887e089e91348d72770b50beb0",
+        "canonical_sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "5fc2b9f90894fc2b4766296652129a165ca32e35f8c2408051f425d052fb2c24",
+        "canonical_sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "large_rectangle",
+    "n": 5000,
+    "m": 4000,
+    "regime": "optional",
+    "limit": 0.0004,
+    "input_key": "large_rectangle_4000x5000",
+    "distribution": "uniform",
+    "case": "019_large_rectangle_optional_5000x4000",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "52312ceda60a06d0a1860239b9f6c34300723ebb30a29bfcffad3b4f8a588b27",
+        "canonical_sha256": "e183b0b5d11d782d3589ddae4d174f79ecaa4214b51eb42d848c874c9ce9caec",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8edc29cba32b8374fca91f13bffeef9bb68aa45846d532077719bec1c0550c54",
+        "canonical_sha256": "cd538979a9eece3fb8ad1722a3c6b78d9b9f76ed984deb1ec7ad657998e87e57",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "2df674ef43f79b4e798269180fba871ee75648887e089e91348d72770b50beb0",
+        "canonical_sha256": "d9bbacecd5644a38117d4bf1719b27734214a56d3b1b3eed32e2f75a932bb40b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "5fc2b9f90894fc2b4766296652129a165ca32e35f8c2408051f425d052fb2c24",
+        "canonical_sha256": "aed18e824717d28489a3b726916affb9bff17e5e2fafce13adc041c8b5244b09",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 4096,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x4096",
+    "distribution": "uniform",
+    "case": "020_extreme_rectangle_required_64x4096",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "canonical_sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "canonical_sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "canonical_sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "canonical_sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 4096,
+    "regime": "optional",
+    "limit": 0.00048828125,
+    "input_key": "extreme_rectangle_64x4096",
+    "distribution": "uniform",
+    "case": "021_extreme_rectangle_optional_64x4096",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "canonical_sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "canonical_sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "canonical_sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "canonical_sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 4096,
+    "m": 64,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x4096",
+    "distribution": "uniform",
+    "case": "022_extreme_rectangle_required_4096x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "a8ad7235ae97e9ff6daf00aac17fce87f70af3ee48d139192f62501667643607",
+        "canonical_sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "0728ae006d8146e4f29804a7f42ad07d7d5c4c992267a4aa17856211a43af12d",
+        "canonical_sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "fd5be88ecb35bb71b394993b66f46fc4b71019e2931aedca88e3b3fa8f09c48d",
+        "canonical_sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "5419edca22ee54c2d64294af373ac799d69d1994a781ffc24225f23baed78b6b",
+        "canonical_sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 4096,
+    "m": 64,
+    "regime": "optional",
+    "limit": 0.00048828125,
+    "input_key": "extreme_rectangle_64x4096",
+    "distribution": "uniform",
+    "case": "023_extreme_rectangle_optional_4096x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "a8ad7235ae97e9ff6daf00aac17fce87f70af3ee48d139192f62501667643607",
+        "canonical_sha256": "61e853a01c3ea9ebfec308ee7ca946bdd5d0a2221ba919ff402065c44704d96a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "0728ae006d8146e4f29804a7f42ad07d7d5c4c992267a4aa17856211a43af12d",
+        "canonical_sha256": "4a6f0182f21177b5d5b0c043eb4d394c0cccbdc31b9ada54128ee8f526d09450",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "fd5be88ecb35bb71b394993b66f46fc4b71019e2931aedca88e3b3fa8f09c48d",
+        "canonical_sha256": "ad32be83192d493fece22dcec0afebc73642545e650580ceeb97ff0ce601e454",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "5419edca22ee54c2d64294af373ac799d69d1994a781ffc24225f23baed78b6b",
+        "canonical_sha256": "e6da8dff59d01e714f53e2d41a4f34b034ea36c49d429182bab3d004db752846",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 8192,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x8192",
+    "distribution": "uniform",
+    "case": "024_extreme_rectangle_required_64x8192",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "canonical_sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "canonical_sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "canonical_sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "canonical_sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 8192,
+    "regime": "optional",
+    "limit": 0.000244140625,
+    "input_key": "extreme_rectangle_64x8192",
+    "distribution": "uniform",
+    "case": "025_extreme_rectangle_optional_64x8192",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "canonical_sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "canonical_sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "canonical_sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "canonical_sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 8192,
+    "m": 64,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x8192",
+    "distribution": "uniform",
+    "case": "026_extreme_rectangle_required_8192x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "d3741d8a9f10d2e691dd5e901ef878362fc24f54ced3304cb62e3428e1f0dce6",
+        "canonical_sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8cdafba9d1afd7ce866d710fbc2df54aac85fa545b4f3babd9a473de01f379c1",
+        "canonical_sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "acc1fc8bda6ce6910f0dd8945b7a6d1b5ee3705bacf0099c6c389a2f26e5590c",
+        "canonical_sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "7fdd593ddc16fab6d8a4befb309d95df7cd8a4cc4b21a9dfa0e96462285308a2",
+        "canonical_sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 8192,
+    "m": 64,
+    "regime": "optional",
+    "limit": 0.000244140625,
+    "input_key": "extreme_rectangle_64x8192",
+    "distribution": "uniform",
+    "case": "027_extreme_rectangle_optional_8192x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "d3741d8a9f10d2e691dd5e901ef878362fc24f54ced3304cb62e3428e1f0dce6",
+        "canonical_sha256": "015fd27d27062260f58e48cc1144630de6fc10bda5d56e10ccb974bf370143b4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8cdafba9d1afd7ce866d710fbc2df54aac85fa545b4f3babd9a473de01f379c1",
+        "canonical_sha256": "b38028bd09e48b73b329283dab853f7433e973f419c375af16dcbd68f7a46a71",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "acc1fc8bda6ce6910f0dd8945b7a6d1b5ee3705bacf0099c6c389a2f26e5590c",
+        "canonical_sha256": "c5c6f131c479b4cd60f0d3b6eb26511e8bd5685250039cf4cdbadd75fa8e8c5e",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "7fdd593ddc16fab6d8a4befb309d95df7cd8a4cc4b21a9dfa0e96462285308a2",
+        "canonical_sha256": "a75a562398065f82ca43bfaed4282d19514c2f99257b2b8d117fd876a4cd3093",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 16384,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x16384",
+    "distribution": "uniform",
+    "case": "028_extreme_rectangle_required_64x16384",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "canonical_sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "canonical_sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "canonical_sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "canonical_sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 64,
+    "m": 16384,
+    "regime": "optional",
+    "limit": 0.0001220703125,
+    "input_key": "extreme_rectangle_64x16384",
+    "distribution": "uniform",
+    "case": "029_extreme_rectangle_optional_64x16384",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "canonical_sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "canonical_sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "canonical_sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "canonical_sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 16384,
+    "m": 64,
+    "regime": "required",
+    "limit": null,
+    "input_key": "extreme_rectangle_64x16384",
+    "distribution": "uniform",
+    "case": "030_extreme_rectangle_required_16384x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b1e5dbbc0d7a4ed76bd1ed7d9aabdace59186836d43328247efad2f30943b776",
+        "canonical_sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "45c2f8ea8252267c891599226e9fd7d47cc5e92136e189f5659b0f9e9a55ff2e",
+        "canonical_sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "10c7b214909bdc19009e6192f0a008aa46a146a3fc67463f2e0f19d372f66cc1",
+        "canonical_sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "85f11f48e6be0e304c516c5f620e6bed66a0ff39f64f000e2e76f186c608c768",
+        "canonical_sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "extreme_rectangle",
+    "n": 16384,
+    "m": 64,
+    "regime": "optional",
+    "limit": 0.0001220703125,
+    "input_key": "extreme_rectangle_64x16384",
+    "distribution": "uniform",
+    "case": "031_extreme_rectangle_optional_16384x64",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b1e5dbbc0d7a4ed76bd1ed7d9aabdace59186836d43328247efad2f30943b776",
+        "canonical_sha256": "a9cae7dc84bd98e958e3ed5383562a93ab97392d3ba26ebe241b08ac3a989ec8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "45c2f8ea8252267c891599226e9fd7d47cc5e92136e189f5659b0f9e9a55ff2e",
+        "canonical_sha256": "c70a8ba479db3a4c0f1db2ed64eeb6260800d354c1075130d724d08986c30009",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "10c7b214909bdc19009e6192f0a008aa46a146a3fc67463f2e0f19d372f66cc1",
+        "canonical_sha256": "d1306c3fb1da2d3b6e6f710fe7b30c2fd860fe327d7e214ef058ae8eeea1bfb4",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "85f11f48e6be0e304c516c5f620e6bed66a0ff39f64f000e2e76f186c608c768",
+        "canonical_sha256": "52afde1a7ea86cf6289dc1ba275bba8346ddadbcc7ceb8a599312cb6ec257aa7",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.25,
+    "column_fraction": 0.25,
+    "case": "032_congestion_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "ae2c168539c0cb4a350ce92eefa3cf2e9087c89aa6970afcd6b83c4c8dbe5b0a",
+        "canonical_sha256": "ae2c168539c0cb4a350ce92eefa3cf2e9087c89aa6970afcd6b83c4c8dbe5b0a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "03e4469fcad07048eb43762255b5b87b456e790deec1294454faa260eaa708da",
+        "canonical_sha256": "03e4469fcad07048eb43762255b5b87b456e790deec1294454faa260eaa708da",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "61403deef85064e265c7dcc68b3912122b21af578b147a1a5a1315f3a249e27f",
+        "canonical_sha256": "61403deef85064e265c7dcc68b3912122b21af578b147a1a5a1315f3a249e27f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f535e7f879510a5442f84a37592a241ae59ee73c1c8ab8986ad9dceecadabced",
+        "canonical_sha256": "f535e7f879510a5442f84a37592a241ae59ee73c1c8ab8986ad9dceecadabced",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.25,
+    "column_fraction": 0.25,
+    "case": "033_congestion_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "ae2c168539c0cb4a350ce92eefa3cf2e9087c89aa6970afcd6b83c4c8dbe5b0a",
+        "canonical_sha256": "ae2c168539c0cb4a350ce92eefa3cf2e9087c89aa6970afcd6b83c4c8dbe5b0a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "03e4469fcad07048eb43762255b5b87b456e790deec1294454faa260eaa708da",
+        "canonical_sha256": "03e4469fcad07048eb43762255b5b87b456e790deec1294454faa260eaa708da",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "61403deef85064e265c7dcc68b3912122b21af578b147a1a5a1315f3a249e27f",
+        "canonical_sha256": "61403deef85064e265c7dcc68b3912122b21af578b147a1a5a1315f3a249e27f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f535e7f879510a5442f84a37592a241ae59ee73c1c8ab8986ad9dceecadabced",
+        "canonical_sha256": "f535e7f879510a5442f84a37592a241ae59ee73c1c8ab8986ad9dceecadabced",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.5,
+    "column_fraction": 0.25,
+    "case": "034_congestion_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "e4b71a37fbbee39b29c8834f2a1955a5f649a963fe2c87fb349a4484dff32c14",
+        "canonical_sha256": "e4b71a37fbbee39b29c8834f2a1955a5f649a963fe2c87fb349a4484dff32c14",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "fcc7ba72fbb4832334b840729355b79681171fb33a2dff174f36fbf8bf22982c",
+        "canonical_sha256": "fcc7ba72fbb4832334b840729355b79681171fb33a2dff174f36fbf8bf22982c",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "71a6d799c15ce36dfbab7075ce7c91abad37dc03e1449505a3987942838e44a2",
+        "canonical_sha256": "71a6d799c15ce36dfbab7075ce7c91abad37dc03e1449505a3987942838e44a2",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "7516c8f089d7b341bae3e2c9a6a5a75cb543dbb1cacb7926b44eab76f40e46a6",
+        "canonical_sha256": "7516c8f089d7b341bae3e2c9a6a5a75cb543dbb1cacb7926b44eab76f40e46a6",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.5,
+    "column_fraction": 0.25,
+    "case": "035_congestion_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "e4b71a37fbbee39b29c8834f2a1955a5f649a963fe2c87fb349a4484dff32c14",
+        "canonical_sha256": "e4b71a37fbbee39b29c8834f2a1955a5f649a963fe2c87fb349a4484dff32c14",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "fcc7ba72fbb4832334b840729355b79681171fb33a2dff174f36fbf8bf22982c",
+        "canonical_sha256": "fcc7ba72fbb4832334b840729355b79681171fb33a2dff174f36fbf8bf22982c",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "71a6d799c15ce36dfbab7075ce7c91abad37dc03e1449505a3987942838e44a2",
+        "canonical_sha256": "71a6d799c15ce36dfbab7075ce7c91abad37dc03e1449505a3987942838e44a2",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "7516c8f089d7b341bae3e2c9a6a5a75cb543dbb1cacb7926b44eab76f40e46a6",
+        "canonical_sha256": "7516c8f089d7b341bae3e2c9a6a5a75cb543dbb1cacb7926b44eab76f40e46a6",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.625,
+    "column_fraction": 0.25,
+    "case": "036_congestion_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "28e60db476b0f4d2460528883233248bf1ed5d9e230dbe5faf82e5945e5fe7aa",
+        "canonical_sha256": "28e60db476b0f4d2460528883233248bf1ed5d9e230dbe5faf82e5945e5fe7aa",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "d376d730a29eaaf62e3e883a9a0ffbe2963adfaf64f5a625bbef0754f8dbd993",
+        "canonical_sha256": "d376d730a29eaaf62e3e883a9a0ffbe2963adfaf64f5a625bbef0754f8dbd993",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "70b18b9a482686db0c7ee1943e40d08ebae35a3993a1a956fcb4c01bcc47fb85",
+        "canonical_sha256": "70b18b9a482686db0c7ee1943e40d08ebae35a3993a1a956fcb4c01bcc47fb85",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "c24b8a5a048a4e2047f39517f8b6a4864406f84bc7b10f54772f819b0beb288e",
+        "canonical_sha256": "c24b8a5a048a4e2047f39517f8b6a4864406f84bc7b10f54772f819b0beb288e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.625,
+    "column_fraction": 0.25,
+    "case": "037_congestion_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "28e60db476b0f4d2460528883233248bf1ed5d9e230dbe5faf82e5945e5fe7aa",
+        "canonical_sha256": "28e60db476b0f4d2460528883233248bf1ed5d9e230dbe5faf82e5945e5fe7aa",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "d376d730a29eaaf62e3e883a9a0ffbe2963adfaf64f5a625bbef0754f8dbd993",
+        "canonical_sha256": "d376d730a29eaaf62e3e883a9a0ffbe2963adfaf64f5a625bbef0754f8dbd993",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "70b18b9a482686db0c7ee1943e40d08ebae35a3993a1a956fcb4c01bcc47fb85",
+        "canonical_sha256": "70b18b9a482686db0c7ee1943e40d08ebae35a3993a1a956fcb4c01bcc47fb85",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "c24b8a5a048a4e2047f39517f8b6a4864406f84bc7b10f54772f819b0beb288e",
+        "canonical_sha256": "c24b8a5a048a4e2047f39517f8b6a4864406f84bc7b10f54772f819b0beb288e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "038_congestion_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "070b3705eff79aafb9f2e61d38142ebeac361314968c6868b8056abb13b8f8db",
+        "canonical_sha256": "070b3705eff79aafb9f2e61d38142ebeac361314968c6868b8056abb13b8f8db",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ee76270e074b12817fd308eb23fae2159906353e166f38d4985cc93f211d52b6",
+        "canonical_sha256": "ee76270e074b12817fd308eb23fae2159906353e166f38d4985cc93f211d52b6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "9ba1583e29d87b92d8718a40cf1a3cbdd6c30479e2fe6d979613235bba0e23eb",
+        "canonical_sha256": "9ba1583e29d87b92d8718a40cf1a3cbdd6c30479e2fe6d979613235bba0e23eb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ecc451d5d69ec789ae9f167ae1edd122fb8d9cea8ea74f1821b63120768bf9c3",
+        "canonical_sha256": "ecc451d5d69ec789ae9f167ae1edd122fb8d9cea8ea74f1821b63120768bf9c3",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "039_congestion_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "070b3705eff79aafb9f2e61d38142ebeac361314968c6868b8056abb13b8f8db",
+        "canonical_sha256": "070b3705eff79aafb9f2e61d38142ebeac361314968c6868b8056abb13b8f8db",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ee76270e074b12817fd308eb23fae2159906353e166f38d4985cc93f211d52b6",
+        "canonical_sha256": "ee76270e074b12817fd308eb23fae2159906353e166f38d4985cc93f211d52b6",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "9ba1583e29d87b92d8718a40cf1a3cbdd6c30479e2fe6d979613235bba0e23eb",
+        "canonical_sha256": "9ba1583e29d87b92d8718a40cf1a3cbdd6c30479e2fe6d979613235bba0e23eb",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ecc451d5d69ec789ae9f167ae1edd122fb8d9cea8ea74f1821b63120768bf9c3",
+        "canonical_sha256": "ecc451d5d69ec789ae9f167ae1edd122fb8d9cea8ea74f1821b63120768bf9c3",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.9,
+    "column_fraction": 0.25,
+    "case": "040_congestion_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "1d4a8019f37bf61b20756a4d930e2d51db78225fe501a72bb2fd0da3db13d3fd",
+        "canonical_sha256": "1d4a8019f37bf61b20756a4d930e2d51db78225fe501a72bb2fd0da3db13d3fd",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "254723236696596fdc3e17661b3fbd096dc2efdc2b70a696794ba46568453422",
+        "canonical_sha256": "254723236696596fdc3e17661b3fbd096dc2efdc2b70a696794ba46568453422",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "22fe878c0998e0b9ec378cb1aaa3acb1bd56881ad28c8ebe80af057c5de1ca68",
+        "canonical_sha256": "22fe878c0998e0b9ec378cb1aaa3acb1bd56881ad28c8ebe80af057c5de1ca68",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "16ab8e14696e21e04a4a2c105a426876dcf919a58ea9b2bf1ea45f79bd4584ea",
+        "canonical_sha256": "16ab8e14696e21e04a4a2c105a426876dcf919a58ea9b2bf1ea45f79bd4584ea",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.9,
+    "column_fraction": 0.25,
+    "case": "041_congestion_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "1d4a8019f37bf61b20756a4d930e2d51db78225fe501a72bb2fd0da3db13d3fd",
+        "canonical_sha256": "1d4a8019f37bf61b20756a4d930e2d51db78225fe501a72bb2fd0da3db13d3fd",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "254723236696596fdc3e17661b3fbd096dc2efdc2b70a696794ba46568453422",
+        "canonical_sha256": "254723236696596fdc3e17661b3fbd096dc2efdc2b70a696794ba46568453422",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "22fe878c0998e0b9ec378cb1aaa3acb1bd56881ad28c8ebe80af057c5de1ca68",
+        "canonical_sha256": "22fe878c0998e0b9ec378cb1aaa3acb1bd56881ad28c8ebe80af057c5de1ca68",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "16ab8e14696e21e04a4a2c105a426876dcf919a58ea9b2bf1ea45f79bd4584ea",
+        "canonical_sha256": "16ab8e14696e21e04a4a2c105a426876dcf919a58ea9b2bf1ea45f79bd4584ea",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.0,
+    "planted_feasible": true,
+    "case": "042_forbidden_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "5b03627e838daf26b5c8bf8dcf58232ec024d3277733094b48c4d64323ea4cd0",
+        "canonical_sha256": "5b03627e838daf26b5c8bf8dcf58232ec024d3277733094b48c4d64323ea4cd0",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ec0bbe899e9073e9f4434b253bf007441080103462ef27cccb83271a583163ee",
+        "canonical_sha256": "ec0bbe899e9073e9f4434b253bf007441080103462ef27cccb83271a583163ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "f6d2384b9e7f0af755d5e3ad35025a159437334a8f679f4bc4de344e00433541",
+        "canonical_sha256": "f6d2384b9e7f0af755d5e3ad35025a159437334a8f679f4bc4de344e00433541",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "52dd1a325159fc3dbfec7aa3fe1c06a207d5535a3e6bfc04c7c09410e5ed6a9a",
+        "canonical_sha256": "52dd1a325159fc3dbfec7aa3fe1c06a207d5535a3e6bfc04c7c09410e5ed6a9a",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.00625,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.0,
+    "planted_feasible": true,
+    "case": "043_forbidden_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "5b03627e838daf26b5c8bf8dcf58232ec024d3277733094b48c4d64323ea4cd0",
+        "canonical_sha256": "5b03627e838daf26b5c8bf8dcf58232ec024d3277733094b48c4d64323ea4cd0",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ec0bbe899e9073e9f4434b253bf007441080103462ef27cccb83271a583163ee",
+        "canonical_sha256": "ec0bbe899e9073e9f4434b253bf007441080103462ef27cccb83271a583163ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "f6d2384b9e7f0af755d5e3ad35025a159437334a8f679f4bc4de344e00433541",
+        "canonical_sha256": "f6d2384b9e7f0af755d5e3ad35025a159437334a8f679f4bc4de344e00433541",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "52dd1a325159fc3dbfec7aa3fe1c06a207d5535a3e6bfc04c7c09410e5ed6a9a",
+        "canonical_sha256": "52dd1a325159fc3dbfec7aa3fe1c06a207d5535a3e6bfc04c7c09410e5ed6a9a",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "044_forbidden_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b156da8cccb604011830fa1840024283a6e0bf5dc48eda31eff19e29941d8f41",
+        "canonical_sha256": "b156da8cccb604011830fa1840024283a6e0bf5dc48eda31eff19e29941d8f41",
+        "forbidden_fraction": 0.4982666015625
+      },
+      {
+        "instance": 1,
+        "sha256": "439c8792ed8a55718b07b1f6f8e402b766c884fe009d88d5965228cc8c9a731e",
+        "canonical_sha256": "439c8792ed8a55718b07b1f6f8e402b766c884fe009d88d5965228cc8c9a731e",
+        "forbidden_fraction": 0.49962158203125
+      },
+      {
+        "instance": 2,
+        "sha256": "4c128d5dd447334db5f3788a74d859bd756f852935e5ff0e3b03ab22fd99ebab",
+        "canonical_sha256": "4c128d5dd447334db5f3788a74d859bd756f852935e5ff0e3b03ab22fd99ebab",
+        "forbidden_fraction": 0.49891357421875
+      },
+      {
+        "instance": 3,
+        "sha256": "1693aaf0ebeba29107ed6b54e249f5885d0adce226c5543bde0d675a52ee60a8",
+        "canonical_sha256": "1693aaf0ebeba29107ed6b54e249f5885d0adce226c5543bde0d675a52ee60a8",
+        "forbidden_fraction": 0.49656982421875
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.00625,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "045_forbidden_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b156da8cccb604011830fa1840024283a6e0bf5dc48eda31eff19e29941d8f41",
+        "canonical_sha256": "b156da8cccb604011830fa1840024283a6e0bf5dc48eda31eff19e29941d8f41",
+        "forbidden_fraction": 0.4982666015625
+      },
+      {
+        "instance": 1,
+        "sha256": "439c8792ed8a55718b07b1f6f8e402b766c884fe009d88d5965228cc8c9a731e",
+        "canonical_sha256": "439c8792ed8a55718b07b1f6f8e402b766c884fe009d88d5965228cc8c9a731e",
+        "forbidden_fraction": 0.49962158203125
+      },
+      {
+        "instance": 2,
+        "sha256": "4c128d5dd447334db5f3788a74d859bd756f852935e5ff0e3b03ab22fd99ebab",
+        "canonical_sha256": "4c128d5dd447334db5f3788a74d859bd756f852935e5ff0e3b03ab22fd99ebab",
+        "forbidden_fraction": 0.49891357421875
+      },
+      {
+        "instance": 3,
+        "sha256": "1693aaf0ebeba29107ed6b54e249f5885d0adce226c5543bde0d675a52ee60a8",
+        "canonical_sha256": "1693aaf0ebeba29107ed6b54e249f5885d0adce226c5543bde0d675a52ee60a8",
+        "forbidden_fraction": 0.49656982421875
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.9,
+    "planted_feasible": true,
+    "case": "046_forbidden_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "dfc60eef0fbba023ff652e6a581cf2d15ea2c1814f2c436a9ac37c3ec11d2ee2",
+        "canonical_sha256": "dfc60eef0fbba023ff652e6a581cf2d15ea2c1814f2c436a9ac37c3ec11d2ee2",
+        "forbidden_fraction": 0.8992431640625
+      },
+      {
+        "instance": 1,
+        "sha256": "4884f4d91d6b12aec027865e0ac1c8988615f359c84765b236a3e25b412de505",
+        "canonical_sha256": "4884f4d91d6b12aec027865e0ac1c8988615f359c84765b236a3e25b412de505",
+        "forbidden_fraction": 0.89716796875
+      },
+      {
+        "instance": 2,
+        "sha256": "23ad74d3a98638e38a979df7f72c191636386d52765a243d466759af23320a36",
+        "canonical_sha256": "23ad74d3a98638e38a979df7f72c191636386d52765a243d466759af23320a36",
+        "forbidden_fraction": 0.898828125
+      },
+      {
+        "instance": 3,
+        "sha256": "9fd0ca828f921f4de2ee5d6d3a1555a99cb7505e3ab3d62eef88d9b71f4a03ac",
+        "canonical_sha256": "9fd0ca828f921f4de2ee5d6d3a1555a99cb7505e3ab3d62eef88d9b71f4a03ac",
+        "forbidden_fraction": 0.89693603515625
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.00625,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.9,
+    "planted_feasible": true,
+    "case": "047_forbidden_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "dfc60eef0fbba023ff652e6a581cf2d15ea2c1814f2c436a9ac37c3ec11d2ee2",
+        "canonical_sha256": "dfc60eef0fbba023ff652e6a581cf2d15ea2c1814f2c436a9ac37c3ec11d2ee2",
+        "forbidden_fraction": 0.8992431640625
+      },
+      {
+        "instance": 1,
+        "sha256": "4884f4d91d6b12aec027865e0ac1c8988615f359c84765b236a3e25b412de505",
+        "canonical_sha256": "4884f4d91d6b12aec027865e0ac1c8988615f359c84765b236a3e25b412de505",
+        "forbidden_fraction": 0.89716796875
+      },
+      {
+        "instance": 2,
+        "sha256": "23ad74d3a98638e38a979df7f72c191636386d52765a243d466759af23320a36",
+        "canonical_sha256": "23ad74d3a98638e38a979df7f72c191636386d52765a243d466759af23320a36",
+        "forbidden_fraction": 0.898828125
+      },
+      {
+        "instance": 3,
+        "sha256": "9fd0ca828f921f4de2ee5d6d3a1555a99cb7505e3ab3d62eef88d9b71f4a03ac",
+        "canonical_sha256": "9fd0ca828f921f4de2ee5d6d3a1555a99cb7505e3ab3d62eef88d9b71f4a03ac",
+        "forbidden_fraction": 0.89693603515625
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.99,
+    "planted_feasible": true,
+    "case": "048_forbidden_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c2de9b8ee60e4fdd2f7a086942b0216512061c5fe28725a352a04f507def89b4",
+        "canonical_sha256": "c2de9b8ee60e4fdd2f7a086942b0216512061c5fe28725a352a04f507def89b4",
+        "forbidden_fraction": 0.98646240234375
+      },
+      {
+        "instance": 1,
+        "sha256": "c56ff68c40be171a61f57633dc49fe3346eedd9664c558ec8379ef48a31f98ab",
+        "canonical_sha256": "c56ff68c40be171a61f57633dc49fe3346eedd9664c558ec8379ef48a31f98ab",
+        "forbidden_fraction": 0.987060546875
+      },
+      {
+        "instance": 2,
+        "sha256": "9bbb6d0bd171418eacf4bdec9b516889294e740ccec3bc83de3b5fe1b2571419",
+        "canonical_sha256": "9bbb6d0bd171418eacf4bdec9b516889294e740ccec3bc83de3b5fe1b2571419",
+        "forbidden_fraction": 0.98662109375
+      },
+      {
+        "instance": 3,
+        "sha256": "4556bc9cff48b0179ee8abbcbf72776fd29e86b293babb6100845024566dc3b9",
+        "canonical_sha256": "4556bc9cff48b0179ee8abbcbf72776fd29e86b293babb6100845024566dc3b9",
+        "forbidden_fraction": 0.98759765625
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.00625,
+    "input_key": "forbidden_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.99,
+    "planted_feasible": true,
+    "case": "049_forbidden_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c2de9b8ee60e4fdd2f7a086942b0216512061c5fe28725a352a04f507def89b4",
+        "canonical_sha256": "c2de9b8ee60e4fdd2f7a086942b0216512061c5fe28725a352a04f507def89b4",
+        "forbidden_fraction": 0.98646240234375
+      },
+      {
+        "instance": 1,
+        "sha256": "c56ff68c40be171a61f57633dc49fe3346eedd9664c558ec8379ef48a31f98ab",
+        "canonical_sha256": "c56ff68c40be171a61f57633dc49fe3346eedd9664c558ec8379ef48a31f98ab",
+        "forbidden_fraction": 0.987060546875
+      },
+      {
+        "instance": 2,
+        "sha256": "9bbb6d0bd171418eacf4bdec9b516889294e740ccec3bc83de3b5fe1b2571419",
+        "canonical_sha256": "9bbb6d0bd171418eacf4bdec9b516889294e740ccec3bc83de3b5fe1b2571419",
+        "forbidden_fraction": 0.98662109375
+      },
+      {
+        "instance": 3,
+        "sha256": "4556bc9cff48b0179ee8abbcbf72776fd29e86b293babb6100845024566dc3b9",
+        "canonical_sha256": "4556bc9cff48b0179ee8abbcbf72776fd29e86b293babb6100845024566dc3b9",
+        "forbidden_fraction": 0.98759765625
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 1,
+    "case": "050_ties_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 1,
+    "case": "051_ties_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "canonical_sha256": "ff6335069b6e140eb47149d847aea80bf7e2b06bd80ae9708aa382efb3ae21ee",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 2,
+    "case": "052_ties_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b5894c5dcdeee80c41f3f5f9c9ed34b97f2499b487b32003caff8ed9430e9b41",
+        "canonical_sha256": "b5894c5dcdeee80c41f3f5f9c9ed34b97f2499b487b32003caff8ed9430e9b41",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "70eedc8748ab5b6caa7d8f1e891c34e96630590614d287a34dfbb21c0fff7522",
+        "canonical_sha256": "70eedc8748ab5b6caa7d8f1e891c34e96630590614d287a34dfbb21c0fff7522",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "499022f3db9052b83115bad7bd04a326e5ab5ac14289f296ea873e355b3881be",
+        "canonical_sha256": "499022f3db9052b83115bad7bd04a326e5ab5ac14289f296ea873e355b3881be",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "0f0dab8ca0255fdcd077d22b66df5be6062de8a4888b9643a86b0f06015a6c2c",
+        "canonical_sha256": "0f0dab8ca0255fdcd077d22b66df5be6062de8a4888b9643a86b0f06015a6c2c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 2,
+    "case": "053_ties_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b5894c5dcdeee80c41f3f5f9c9ed34b97f2499b487b32003caff8ed9430e9b41",
+        "canonical_sha256": "b5894c5dcdeee80c41f3f5f9c9ed34b97f2499b487b32003caff8ed9430e9b41",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "70eedc8748ab5b6caa7d8f1e891c34e96630590614d287a34dfbb21c0fff7522",
+        "canonical_sha256": "70eedc8748ab5b6caa7d8f1e891c34e96630590614d287a34dfbb21c0fff7522",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "499022f3db9052b83115bad7bd04a326e5ab5ac14289f296ea873e355b3881be",
+        "canonical_sha256": "499022f3db9052b83115bad7bd04a326e5ab5ac14289f296ea873e355b3881be",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "0f0dab8ca0255fdcd077d22b66df5be6062de8a4888b9643a86b0f06015a6c2c",
+        "canonical_sha256": "0f0dab8ca0255fdcd077d22b66df5be6062de8a4888b9643a86b0f06015a6c2c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 8,
+    "case": "054_ties_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "fef41d12d90c67a22a241c668578baec9b4b47addb1ecc6b320c21d4c36a3921",
+        "canonical_sha256": "fef41d12d90c67a22a241c668578baec9b4b47addb1ecc6b320c21d4c36a3921",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "2739eff289a2a4a84449e804060bb906d2283c1aa91e9bab42445ed451dced56",
+        "canonical_sha256": "2739eff289a2a4a84449e804060bb906d2283c1aa91e9bab42445ed451dced56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "f8e0914f3da41e877375e961eadaae4c104e6b3e60cddfb49c9e7b83c6a63502",
+        "canonical_sha256": "f8e0914f3da41e877375e961eadaae4c104e6b3e60cddfb49c9e7b83c6a63502",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "2bf22e398ad65c9df8f7566af9eb8bb3d787ca9ec11ea189b603979912fd2457",
+        "canonical_sha256": "2bf22e398ad65c9df8f7566af9eb8bb3d787ca9ec11ea189b603979912fd2457",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 8,
+    "case": "055_ties_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "fef41d12d90c67a22a241c668578baec9b4b47addb1ecc6b320c21d4c36a3921",
+        "canonical_sha256": "fef41d12d90c67a22a241c668578baec9b4b47addb1ecc6b320c21d4c36a3921",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "2739eff289a2a4a84449e804060bb906d2283c1aa91e9bab42445ed451dced56",
+        "canonical_sha256": "2739eff289a2a4a84449e804060bb906d2283c1aa91e9bab42445ed451dced56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "f8e0914f3da41e877375e961eadaae4c104e6b3e60cddfb49c9e7b83c6a63502",
+        "canonical_sha256": "f8e0914f3da41e877375e961eadaae4c104e6b3e60cddfb49c9e7b83c6a63502",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "2bf22e398ad65c9df8f7566af9eb8bb3d787ca9ec11ea189b603979912fd2457",
+        "canonical_sha256": "2bf22e398ad65c9df8f7566af9eb8bb3d787ca9ec11ea189b603979912fd2457",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 256,
+    "case": "056_ties_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "d4fd7477cd705be6def2b66de293ae762c0bc8dc7da95b041f9034f4b6746a79",
+        "canonical_sha256": "d4fd7477cd705be6def2b66de293ae762c0bc8dc7da95b041f9034f4b6746a79",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8dbe444c0b1686648a331f1c9b72061b68456237b55e3025d47ee6710fc31c09",
+        "canonical_sha256": "8dbe444c0b1686648a331f1c9b72061b68456237b55e3025d47ee6710fc31c09",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "35fef08e1eef084eb9b8d2a182b8b379b30df68d12809f746bc5c6671e34eb3b",
+        "canonical_sha256": "35fef08e1eef084eb9b8d2a182b8b379b30df68d12809f746bc5c6671e34eb3b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4e4255017e7b7418bbff64e99eaaef15cfeec3ff68193056b4dc62067b81b0cb",
+        "canonical_sha256": "4e4255017e7b7418bbff64e99eaaef15cfeec3ff68193056b4dc62067b81b0cb",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_256x320",
+    "distribution": "uniform",
+    "levels": 256,
+    "case": "057_ties_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "d4fd7477cd705be6def2b66de293ae762c0bc8dc7da95b041f9034f4b6746a79",
+        "canonical_sha256": "d4fd7477cd705be6def2b66de293ae762c0bc8dc7da95b041f9034f4b6746a79",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8dbe444c0b1686648a331f1c9b72061b68456237b55e3025d47ee6710fc31c09",
+        "canonical_sha256": "8dbe444c0b1686648a331f1c9b72061b68456237b55e3025d47ee6710fc31c09",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "35fef08e1eef084eb9b8d2a182b8b379b30df68d12809f746bc5c6671e34eb3b",
+        "canonical_sha256": "35fef08e1eef084eb9b8d2a182b8b379b30df68d12809f746bc5c6671e34eb3b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4e4255017e7b7418bbff64e99eaaef15cfeec3ff68193056b4dc62067b81b0cb",
+        "canonical_sha256": "4e4255017e7b7418bbff64e99eaaef15cfeec3ff68193056b4dc62067b81b0cb",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.25,
+    "column_fraction": 0.25,
+    "case": "058_congestion_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "55195f12ebf06d2a0f6858bc4c444c95acee2698adb5d58d1dd4e0e129c29f78",
+        "canonical_sha256": "55195f12ebf06d2a0f6858bc4c444c95acee2698adb5d58d1dd4e0e129c29f78",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8d8affa2c7a1a464e49f35565572bd941d8f3498bd08da038ac98812757b0a44",
+        "canonical_sha256": "8d8affa2c7a1a464e49f35565572bd941d8f3498bd08da038ac98812757b0a44",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "385d30d89d7d570015da4a6e5dff8f0a09a638f21fa9e01b2bf5dc6b9e12f47a",
+        "canonical_sha256": "385d30d89d7d570015da4a6e5dff8f0a09a638f21fa9e01b2bf5dc6b9e12f47a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f3ec87b7c1d1bac7ac07aecefe21b2d5527ab2ff40b7cfaeeaee1848920c3a93",
+        "canonical_sha256": "f3ec87b7c1d1bac7ac07aecefe21b2d5527ab2ff40b7cfaeeaee1848920c3a93",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.25,
+    "column_fraction": 0.25,
+    "case": "059_congestion_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "55195f12ebf06d2a0f6858bc4c444c95acee2698adb5d58d1dd4e0e129c29f78",
+        "canonical_sha256": "55195f12ebf06d2a0f6858bc4c444c95acee2698adb5d58d1dd4e0e129c29f78",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "8d8affa2c7a1a464e49f35565572bd941d8f3498bd08da038ac98812757b0a44",
+        "canonical_sha256": "8d8affa2c7a1a464e49f35565572bd941d8f3498bd08da038ac98812757b0a44",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "385d30d89d7d570015da4a6e5dff8f0a09a638f21fa9e01b2bf5dc6b9e12f47a",
+        "canonical_sha256": "385d30d89d7d570015da4a6e5dff8f0a09a638f21fa9e01b2bf5dc6b9e12f47a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f3ec87b7c1d1bac7ac07aecefe21b2d5527ab2ff40b7cfaeeaee1848920c3a93",
+        "canonical_sha256": "f3ec87b7c1d1bac7ac07aecefe21b2d5527ab2ff40b7cfaeeaee1848920c3a93",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.5,
+    "column_fraction": 0.25,
+    "case": "060_congestion_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c2ae2c23dfda8379ba493adb3e4467e83c745977002a71f01334edf57f3bd30b",
+        "canonical_sha256": "c2ae2c23dfda8379ba493adb3e4467e83c745977002a71f01334edf57f3bd30b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ebfa462ce26a2b6674ec56b7548d269ab0071f1b391c60836bafeaac45ba8ce9",
+        "canonical_sha256": "ebfa462ce26a2b6674ec56b7548d269ab0071f1b391c60836bafeaac45ba8ce9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "0f66ded5304df011164189de131bcbaf6165ed56ce9bb073da65f96a031cd305",
+        "canonical_sha256": "0f66ded5304df011164189de131bcbaf6165ed56ce9bb073da65f96a031cd305",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4f86217a0c50b4eb27f5b7ea6efffff1352171ebfd6d20ee8d8c309a50f49b8d",
+        "canonical_sha256": "4f86217a0c50b4eb27f5b7ea6efffff1352171ebfd6d20ee8d8c309a50f49b8d",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.5,
+    "column_fraction": 0.25,
+    "case": "061_congestion_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c2ae2c23dfda8379ba493adb3e4467e83c745977002a71f01334edf57f3bd30b",
+        "canonical_sha256": "c2ae2c23dfda8379ba493adb3e4467e83c745977002a71f01334edf57f3bd30b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ebfa462ce26a2b6674ec56b7548d269ab0071f1b391c60836bafeaac45ba8ce9",
+        "canonical_sha256": "ebfa462ce26a2b6674ec56b7548d269ab0071f1b391c60836bafeaac45ba8ce9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "0f66ded5304df011164189de131bcbaf6165ed56ce9bb073da65f96a031cd305",
+        "canonical_sha256": "0f66ded5304df011164189de131bcbaf6165ed56ce9bb073da65f96a031cd305",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "4f86217a0c50b4eb27f5b7ea6efffff1352171ebfd6d20ee8d8c309a50f49b8d",
+        "canonical_sha256": "4f86217a0c50b4eb27f5b7ea6efffff1352171ebfd6d20ee8d8c309a50f49b8d",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.625,
+    "column_fraction": 0.25,
+    "case": "062_congestion_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "67ad0c59aff3bdea73b23a70f3a966a4e3e854cecea393823ee75e633de81b58",
+        "canonical_sha256": "67ad0c59aff3bdea73b23a70f3a966a4e3e854cecea393823ee75e633de81b58",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "017a8c46abf02f4df19a2922e8139718f896dcc9d165bd035d4ba130b876254a",
+        "canonical_sha256": "017a8c46abf02f4df19a2922e8139718f896dcc9d165bd035d4ba130b876254a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "5376472f06209dd2f568962a7857e471ad682432b67944313d0cc189f1543a26",
+        "canonical_sha256": "5376472f06209dd2f568962a7857e471ad682432b67944313d0cc189f1543a26",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "18b1830ca0d77bf310ea7c10fca433edb727bf7f99bc087cdef1f82a57e2461e",
+        "canonical_sha256": "18b1830ca0d77bf310ea7c10fca433edb727bf7f99bc087cdef1f82a57e2461e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.625,
+    "column_fraction": 0.25,
+    "case": "063_congestion_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "67ad0c59aff3bdea73b23a70f3a966a4e3e854cecea393823ee75e633de81b58",
+        "canonical_sha256": "67ad0c59aff3bdea73b23a70f3a966a4e3e854cecea393823ee75e633de81b58",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "017a8c46abf02f4df19a2922e8139718f896dcc9d165bd035d4ba130b876254a",
+        "canonical_sha256": "017a8c46abf02f4df19a2922e8139718f896dcc9d165bd035d4ba130b876254a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "5376472f06209dd2f568962a7857e471ad682432b67944313d0cc189f1543a26",
+        "canonical_sha256": "5376472f06209dd2f568962a7857e471ad682432b67944313d0cc189f1543a26",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "18b1830ca0d77bf310ea7c10fca433edb727bf7f99bc087cdef1f82a57e2461e",
+        "canonical_sha256": "18b1830ca0d77bf310ea7c10fca433edb727bf7f99bc087cdef1f82a57e2461e",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "064_congestion_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b34b88c863f822c66d0bb78641d7e0fa953768a6d154cc701d333c630428aad8",
+        "canonical_sha256": "b34b88c863f822c66d0bb78641d7e0fa953768a6d154cc701d333c630428aad8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "074af0cf48946cb6c8e8f18f63f2cba7e55b1e78415075c8379e1bceff7b3f59",
+        "canonical_sha256": "074af0cf48946cb6c8e8f18f63f2cba7e55b1e78415075c8379e1bceff7b3f59",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "3bbb734110e441c4b704db22edfb9a14ce9f732cd9d991209245437dd0ff087b",
+        "canonical_sha256": "3bbb734110e441c4b704db22edfb9a14ce9f732cd9d991209245437dd0ff087b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "9e39797ac675f942d1b6676a3b9ae306dd4e46839b3a36b0ba59597e0589fd8d",
+        "canonical_sha256": "9e39797ac675f942d1b6676a3b9ae306dd4e46839b3a36b0ba59597e0589fd8d",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "065_congestion_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "b34b88c863f822c66d0bb78641d7e0fa953768a6d154cc701d333c630428aad8",
+        "canonical_sha256": "b34b88c863f822c66d0bb78641d7e0fa953768a6d154cc701d333c630428aad8",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "074af0cf48946cb6c8e8f18f63f2cba7e55b1e78415075c8379e1bceff7b3f59",
+        "canonical_sha256": "074af0cf48946cb6c8e8f18f63f2cba7e55b1e78415075c8379e1bceff7b3f59",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "3bbb734110e441c4b704db22edfb9a14ce9f732cd9d991209245437dd0ff087b",
+        "canonical_sha256": "3bbb734110e441c4b704db22edfb9a14ce9f732cd9d991209245437dd0ff087b",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "9e39797ac675f942d1b6676a3b9ae306dd4e46839b3a36b0ba59597e0589fd8d",
+        "canonical_sha256": "9e39797ac675f942d1b6676a3b9ae306dd4e46839b3a36b0ba59597e0589fd8d",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.9,
+    "column_fraction": 0.25,
+    "case": "066_congestion_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "675de41acba280063658feeb0b4a5de2a58e9f20894b192e75b88e25a1f00687",
+        "canonical_sha256": "675de41acba280063658feeb0b4a5de2a58e9f20894b192e75b88e25a1f00687",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "6a6bc93f8b623e998dc40a2b000cbbaa9aa0663899861f317306d104a1892698",
+        "canonical_sha256": "6a6bc93f8b623e998dc40a2b000cbbaa9aa0663899861f317306d104a1892698",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "190d8e1d9e26e31593966df8a3a9130c0c00379cb909b370067468454ae8f303",
+        "canonical_sha256": "190d8e1d9e26e31593966df8a3a9130c0c00379cb909b370067468454ae8f303",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "99ce0ab48d0f4e64a9a893ee338e2415960f5631ec314033a0257a606250ed52",
+        "canonical_sha256": "99ce0ab48d0f4e64a9a893ee338e2415960f5631ec314033a0257a606250ed52",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "congestion",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "congestion_512x640",
+    "distribution": "blocks",
+    "row_fraction": 0.9,
+    "column_fraction": 0.25,
+    "case": "067_congestion_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "675de41acba280063658feeb0b4a5de2a58e9f20894b192e75b88e25a1f00687",
+        "canonical_sha256": "675de41acba280063658feeb0b4a5de2a58e9f20894b192e75b88e25a1f00687",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "6a6bc93f8b623e998dc40a2b000cbbaa9aa0663899861f317306d104a1892698",
+        "canonical_sha256": "6a6bc93f8b623e998dc40a2b000cbbaa9aa0663899861f317306d104a1892698",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "190d8e1d9e26e31593966df8a3a9130c0c00379cb909b370067468454ae8f303",
+        "canonical_sha256": "190d8e1d9e26e31593966df8a3a9130c0c00379cb909b370067468454ae8f303",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "99ce0ab48d0f4e64a9a893ee338e2415960f5631ec314033a0257a606250ed52",
+        "canonical_sha256": "99ce0ab48d0f4e64a9a893ee338e2415960f5631ec314033a0257a606250ed52",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.0,
+    "planted_feasible": true,
+    "case": "068_forbidden_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c0b06c528e03a7471801de871c0e310994bae8d1b4a0f59853ddd895eb504e11",
+        "canonical_sha256": "c0b06c528e03a7471801de871c0e310994bae8d1b4a0f59853ddd895eb504e11",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "7c69c7fa5f8869e431d65ae530a8a214a2621834990c0c278c5d54b91d6f8630",
+        "canonical_sha256": "7c69c7fa5f8869e431d65ae530a8a214a2621834990c0c278c5d54b91d6f8630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d3d06f8fc7f1faa93216443d6b806a29eb582a0f51ed374d533faedb39518b1f",
+        "canonical_sha256": "d3d06f8fc7f1faa93216443d6b806a29eb582a0f51ed374d533faedb39518b1f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "d6de44a94a7b380af11444927f6456b963a1d648e30744c90cb3dc7cfb822248",
+        "canonical_sha256": "d6de44a94a7b380af11444927f6456b963a1d648e30744c90cb3dc7cfb822248",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.003125,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.0,
+    "planted_feasible": true,
+    "case": "069_forbidden_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c0b06c528e03a7471801de871c0e310994bae8d1b4a0f59853ddd895eb504e11",
+        "canonical_sha256": "c0b06c528e03a7471801de871c0e310994bae8d1b4a0f59853ddd895eb504e11",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "7c69c7fa5f8869e431d65ae530a8a214a2621834990c0c278c5d54b91d6f8630",
+        "canonical_sha256": "7c69c7fa5f8869e431d65ae530a8a214a2621834990c0c278c5d54b91d6f8630",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "d3d06f8fc7f1faa93216443d6b806a29eb582a0f51ed374d533faedb39518b1f",
+        "canonical_sha256": "d3d06f8fc7f1faa93216443d6b806a29eb582a0f51ed374d533faedb39518b1f",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "d6de44a94a7b380af11444927f6456b963a1d648e30744c90cb3dc7cfb822248",
+        "canonical_sha256": "d6de44a94a7b380af11444927f6456b963a1d648e30744c90cb3dc7cfb822248",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "070_forbidden_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "20a18a48656b79273a71105610f7beadadaecffc7fd3b92cd1346bc232feb306",
+        "canonical_sha256": "20a18a48656b79273a71105610f7beadadaecffc7fd3b92cd1346bc232feb306",
+        "forbidden_fraction": 0.4979766845703125
+      },
+      {
+        "instance": 1,
+        "sha256": "16f6cf89bbf6c5fc09847433f8b94527c2bbfc90e0b6610d4f3d12ee1a5b65ef",
+        "canonical_sha256": "16f6cf89bbf6c5fc09847433f8b94527c2bbfc90e0b6610d4f3d12ee1a5b65ef",
+        "forbidden_fraction": 0.4985260009765625
+      },
+      {
+        "instance": 2,
+        "sha256": "efeef67bbf1df91f9cb8d60a43deec3c2a8244ffa07f3c5bc314290df6d23d63",
+        "canonical_sha256": "efeef67bbf1df91f9cb8d60a43deec3c2a8244ffa07f3c5bc314290df6d23d63",
+        "forbidden_fraction": 0.500494384765625
+      },
+      {
+        "instance": 3,
+        "sha256": "c98995d503f78f2a84f398a6f26439196d7a8d21ef02a5fe8ad2c1fdae13de26",
+        "canonical_sha256": "c98995d503f78f2a84f398a6f26439196d7a8d21ef02a5fe8ad2c1fdae13de26",
+        "forbidden_fraction": 0.497943115234375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.003125,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "071_forbidden_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "20a18a48656b79273a71105610f7beadadaecffc7fd3b92cd1346bc232feb306",
+        "canonical_sha256": "20a18a48656b79273a71105610f7beadadaecffc7fd3b92cd1346bc232feb306",
+        "forbidden_fraction": 0.4979766845703125
+      },
+      {
+        "instance": 1,
+        "sha256": "16f6cf89bbf6c5fc09847433f8b94527c2bbfc90e0b6610d4f3d12ee1a5b65ef",
+        "canonical_sha256": "16f6cf89bbf6c5fc09847433f8b94527c2bbfc90e0b6610d4f3d12ee1a5b65ef",
+        "forbidden_fraction": 0.4985260009765625
+      },
+      {
+        "instance": 2,
+        "sha256": "efeef67bbf1df91f9cb8d60a43deec3c2a8244ffa07f3c5bc314290df6d23d63",
+        "canonical_sha256": "efeef67bbf1df91f9cb8d60a43deec3c2a8244ffa07f3c5bc314290df6d23d63",
+        "forbidden_fraction": 0.500494384765625
+      },
+      {
+        "instance": 3,
+        "sha256": "c98995d503f78f2a84f398a6f26439196d7a8d21ef02a5fe8ad2c1fdae13de26",
+        "canonical_sha256": "c98995d503f78f2a84f398a6f26439196d7a8d21ef02a5fe8ad2c1fdae13de26",
+        "forbidden_fraction": 0.497943115234375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.9,
+    "planted_feasible": true,
+    "case": "072_forbidden_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "9b563ebaed841b0c9e2d9fd71e6ff05ca70c2359578c2cbd70a27be5545f6058",
+        "canonical_sha256": "9b563ebaed841b0c9e2d9fd71e6ff05ca70c2359578c2cbd70a27be5545f6058",
+        "forbidden_fraction": 0.8981414794921875
+      },
+      {
+        "instance": 1,
+        "sha256": "63e542c8d94d9c3abeae2211deae3d6b151f39f6124693a1be8332e46a14e0db",
+        "canonical_sha256": "63e542c8d94d9c3abeae2211deae3d6b151f39f6124693a1be8332e46a14e0db",
+        "forbidden_fraction": 0.8988677978515625
+      },
+      {
+        "instance": 2,
+        "sha256": "3e130fcd707554a1255da624c605fa5b4272c8d684c8226aae540be5c1835b92",
+        "canonical_sha256": "3e130fcd707554a1255da624c605fa5b4272c8d684c8226aae540be5c1835b92",
+        "forbidden_fraction": 0.89757080078125
+      },
+      {
+        "instance": 3,
+        "sha256": "459cad6fbd6e980e2da05c503da86ec5a08159e09cd0ed1d9b1f98c5f2c395c7",
+        "canonical_sha256": "459cad6fbd6e980e2da05c503da86ec5a08159e09cd0ed1d9b1f98c5f2c395c7",
+        "forbidden_fraction": 0.8979339599609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.003125,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.9,
+    "planted_feasible": true,
+    "case": "073_forbidden_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "9b563ebaed841b0c9e2d9fd71e6ff05ca70c2359578c2cbd70a27be5545f6058",
+        "canonical_sha256": "9b563ebaed841b0c9e2d9fd71e6ff05ca70c2359578c2cbd70a27be5545f6058",
+        "forbidden_fraction": 0.8981414794921875
+      },
+      {
+        "instance": 1,
+        "sha256": "63e542c8d94d9c3abeae2211deae3d6b151f39f6124693a1be8332e46a14e0db",
+        "canonical_sha256": "63e542c8d94d9c3abeae2211deae3d6b151f39f6124693a1be8332e46a14e0db",
+        "forbidden_fraction": 0.8988677978515625
+      },
+      {
+        "instance": 2,
+        "sha256": "3e130fcd707554a1255da624c605fa5b4272c8d684c8226aae540be5c1835b92",
+        "canonical_sha256": "3e130fcd707554a1255da624c605fa5b4272c8d684c8226aae540be5c1835b92",
+        "forbidden_fraction": 0.89757080078125
+      },
+      {
+        "instance": 3,
+        "sha256": "459cad6fbd6e980e2da05c503da86ec5a08159e09cd0ed1d9b1f98c5f2c395c7",
+        "canonical_sha256": "459cad6fbd6e980e2da05c503da86ec5a08159e09cd0ed1d9b1f98c5f2c395c7",
+        "forbidden_fraction": 0.8979339599609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.99,
+    "planted_feasible": true,
+    "case": "074_forbidden_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c95e26cd0d547302fe80df5491bb8a7a0ceff75b85dfcba06acc8848e98334ad",
+        "canonical_sha256": "c95e26cd0d547302fe80df5491bb8a7a0ceff75b85dfcba06acc8848e98334ad",
+        "forbidden_fraction": 0.988116455078125
+      },
+      {
+        "instance": 1,
+        "sha256": "2b7e32a8787b98dd6891a89eb4f14df18fa233b02709f3eb2c908f1d8cde8b9a",
+        "canonical_sha256": "2b7e32a8787b98dd6891a89eb4f14df18fa233b02709f3eb2c908f1d8cde8b9a",
+        "forbidden_fraction": 0.9884124755859375
+      },
+      {
+        "instance": 2,
+        "sha256": "24fb6dff31bcbf4ac65976dec95e9c92209251f617b1ed88e675ef0d27b2f3d5",
+        "canonical_sha256": "24fb6dff31bcbf4ac65976dec95e9c92209251f617b1ed88e675ef0d27b2f3d5",
+        "forbidden_fraction": 0.9883331298828125
+      },
+      {
+        "instance": 3,
+        "sha256": "e4514558691b3218e44f3fa47b9ae8c1120ef7fa8c4f1ae6172f11d97cc40065",
+        "canonical_sha256": "e4514558691b3218e44f3fa47b9ae8c1120ef7fa8c4f1ae6172f11d97cc40065",
+        "forbidden_fraction": 0.988446044921875
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "forbidden",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.003125,
+    "input_key": "forbidden_512x640",
+    "distribution": "uniform",
+    "forbidden": 0.99,
+    "planted_feasible": true,
+    "case": "075_forbidden_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "c95e26cd0d547302fe80df5491bb8a7a0ceff75b85dfcba06acc8848e98334ad",
+        "canonical_sha256": "c95e26cd0d547302fe80df5491bb8a7a0ceff75b85dfcba06acc8848e98334ad",
+        "forbidden_fraction": 0.988116455078125
+      },
+      {
+        "instance": 1,
+        "sha256": "2b7e32a8787b98dd6891a89eb4f14df18fa233b02709f3eb2c908f1d8cde8b9a",
+        "canonical_sha256": "2b7e32a8787b98dd6891a89eb4f14df18fa233b02709f3eb2c908f1d8cde8b9a",
+        "forbidden_fraction": 0.9884124755859375
+      },
+      {
+        "instance": 2,
+        "sha256": "24fb6dff31bcbf4ac65976dec95e9c92209251f617b1ed88e675ef0d27b2f3d5",
+        "canonical_sha256": "24fb6dff31bcbf4ac65976dec95e9c92209251f617b1ed88e675ef0d27b2f3d5",
+        "forbidden_fraction": 0.9883331298828125
+      },
+      {
+        "instance": 3,
+        "sha256": "e4514558691b3218e44f3fa47b9ae8c1120ef7fa8c4f1ae6172f11d97cc40065",
+        "canonical_sha256": "e4514558691b3218e44f3fa47b9ae8c1120ef7fa8c4f1ae6172f11d97cc40065",
+        "forbidden_fraction": 0.988446044921875
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 1,
+    "case": "076_ties_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 1,
+    "case": "077_ties_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "canonical_sha256": "6de7493c5c90f643357c268fbaaf461c1567e0334e4948023ce17268403aa37a",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 2,
+    "case": "078_ties_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2abf2d25d8a9e45321d1faabb6b59f165265b4f585464e690e47163107014577",
+        "canonical_sha256": "2abf2d25d8a9e45321d1faabb6b59f165265b4f585464e690e47163107014577",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "5190427c334e2694d3b186e7191410190992e4f34b3c53818c4cd0e4bab0c69a",
+        "canonical_sha256": "5190427c334e2694d3b186e7191410190992e4f34b3c53818c4cd0e4bab0c69a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "dc318efaab36f48bc0f8622967fdb334099f7817e860d998f37ae52f60386627",
+        "canonical_sha256": "dc318efaab36f48bc0f8622967fdb334099f7817e860d998f37ae52f60386627",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f1752589b071db96c8a02ac8de1e0a82d14d638acaa53c17a81766a6694200bf",
+        "canonical_sha256": "f1752589b071db96c8a02ac8de1e0a82d14d638acaa53c17a81766a6694200bf",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 2,
+    "case": "079_ties_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2abf2d25d8a9e45321d1faabb6b59f165265b4f585464e690e47163107014577",
+        "canonical_sha256": "2abf2d25d8a9e45321d1faabb6b59f165265b4f585464e690e47163107014577",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "5190427c334e2694d3b186e7191410190992e4f34b3c53818c4cd0e4bab0c69a",
+        "canonical_sha256": "5190427c334e2694d3b186e7191410190992e4f34b3c53818c4cd0e4bab0c69a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "dc318efaab36f48bc0f8622967fdb334099f7817e860d998f37ae52f60386627",
+        "canonical_sha256": "dc318efaab36f48bc0f8622967fdb334099f7817e860d998f37ae52f60386627",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "f1752589b071db96c8a02ac8de1e0a82d14d638acaa53c17a81766a6694200bf",
+        "canonical_sha256": "f1752589b071db96c8a02ac8de1e0a82d14d638acaa53c17a81766a6694200bf",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 8,
+    "case": "080_ties_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "3b96879f5dba478b8518687f916e773066673aef01a0c21149d91c81cc53e73d",
+        "canonical_sha256": "3b96879f5dba478b8518687f916e773066673aef01a0c21149d91c81cc53e73d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ae15f96637c134a469fdc27f005c80ea58abd56d75259f95cf408d372ebbb6ae",
+        "canonical_sha256": "ae15f96637c134a469fdc27f005c80ea58abd56d75259f95cf408d372ebbb6ae",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "895c5d9d158d1caf9e8c38473e83247478460c9a2c3ad406c1d811423071d628",
+        "canonical_sha256": "895c5d9d158d1caf9e8c38473e83247478460c9a2c3ad406c1d811423071d628",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "b2cc51cd5a8c1d2f9931c73120a7806d09dce02676aa695a286e2a2a381c9fc0",
+        "canonical_sha256": "b2cc51cd5a8c1d2f9931c73120a7806d09dce02676aa695a286e2a2a381c9fc0",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 8,
+    "case": "081_ties_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "3b96879f5dba478b8518687f916e773066673aef01a0c21149d91c81cc53e73d",
+        "canonical_sha256": "3b96879f5dba478b8518687f916e773066673aef01a0c21149d91c81cc53e73d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ae15f96637c134a469fdc27f005c80ea58abd56d75259f95cf408d372ebbb6ae",
+        "canonical_sha256": "ae15f96637c134a469fdc27f005c80ea58abd56d75259f95cf408d372ebbb6ae",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "895c5d9d158d1caf9e8c38473e83247478460c9a2c3ad406c1d811423071d628",
+        "canonical_sha256": "895c5d9d158d1caf9e8c38473e83247478460c9a2c3ad406c1d811423071d628",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "b2cc51cd5a8c1d2f9931c73120a7806d09dce02676aa695a286e2a2a381c9fc0",
+        "canonical_sha256": "b2cc51cd5a8c1d2f9931c73120a7806d09dce02676aa695a286e2a2a381c9fc0",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "required",
+    "limit": null,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 256,
+    "case": "082_ties_required_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "0378047fea388d83f99e3a007554d00b0ec72d5aa336028227bb249d7ac2828a",
+        "canonical_sha256": "0378047fea388d83f99e3a007554d00b0ec72d5aa336028227bb249d7ac2828a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "bb1880c0b17deb163bdcd8f9d85eaf0053d309b47a9d44a4ae1158833802389d",
+        "canonical_sha256": "bb1880c0b17deb163bdcd8f9d85eaf0053d309b47a9d44a4ae1158833802389d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "5d26f5ccef6efeaeacdf0df11b44329a7628097a71fcb55b7c7553e52cd8cbd5",
+        "canonical_sha256": "5d26f5ccef6efeaeacdf0df11b44329a7628097a71fcb55b7c7553e52cd8cbd5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "655016b9f52b95cb03bb9f1022aa72db981cfea7582d3094e62ba15e22a8d966",
+        "canonical_sha256": "655016b9f52b95cb03bb9f1022aa72db981cfea7582d3094e62ba15e22a8d966",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "ties",
+    "n": 512,
+    "m": 640,
+    "regime": "optional",
+    "limit": 0.25,
+    "input_key": "ties_512x640",
+    "distribution": "uniform",
+    "levels": 256,
+    "case": "083_ties_optional_512x640",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "0378047fea388d83f99e3a007554d00b0ec72d5aa336028227bb249d7ac2828a",
+        "canonical_sha256": "0378047fea388d83f99e3a007554d00b0ec72d5aa336028227bb249d7ac2828a",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "bb1880c0b17deb163bdcd8f9d85eaf0053d309b47a9d44a4ae1158833802389d",
+        "canonical_sha256": "bb1880c0b17deb163bdcd8f9d85eaf0053d309b47a9d44a4ae1158833802389d",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "5d26f5ccef6efeaeacdf0df11b44329a7628097a71fcb55b7c7553e52cd8cbd5",
+        "canonical_sha256": "5d26f5ccef6efeaeacdf0df11b44329a7628097a71fcb55b7c7553e52cd8cbd5",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "655016b9f52b95cb03bb9f1022aa72db981cfea7582d3094e62ba15e22a8d966",
+        "canonical_sha256": "655016b9f52b95cb03bb9f1022aa72db981cfea7582d3094e62ba15e22a8d966",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "signed",
+    "n": 256,
+    "m": 320,
+    "regime": "required",
+    "limit": null,
+    "input_key": "signed_256x320",
+    "distribution": "uniform",
+    "signed": true,
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "084_signed_required_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "canonical_sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "forbidden_fraction": 0.49979248046875
+      },
+      {
+        "instance": 1,
+        "sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "canonical_sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "forbidden_fraction": 0.49921875
+      },
+      {
+        "instance": 2,
+        "sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "canonical_sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "forbidden_fraction": 0.50147705078125
+      },
+      {
+        "instance": 3,
+        "sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "canonical_sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "forbidden_fraction": 0.4995849609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "signed",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": -0.25,
+    "input_key": "signed_256x320",
+    "distribution": "uniform",
+    "signed": true,
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "085_signed_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "canonical_sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "forbidden_fraction": 0.49979248046875
+      },
+      {
+        "instance": 1,
+        "sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "canonical_sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "forbidden_fraction": 0.49921875
+      },
+      {
+        "instance": 2,
+        "sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "canonical_sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "forbidden_fraction": 0.50147705078125
+      },
+      {
+        "instance": 3,
+        "sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "canonical_sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "forbidden_fraction": 0.4995849609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "signed",
+    "n": 320,
+    "m": 256,
+    "regime": "required",
+    "limit": null,
+    "input_key": "signed_256x320",
+    "distribution": "uniform",
+    "signed": true,
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "086_signed_required_320x256",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2ca513f3a7e82796ea1355b27509a769221d16a22da0febb4d605172f4afe6f0",
+        "canonical_sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "forbidden_fraction": 0.49979248046875
+      },
+      {
+        "instance": 1,
+        "sha256": "7a109cdfc6cf942a0995e174877795a055adb6fd9b702299585ded9ea8599f9b",
+        "canonical_sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "forbidden_fraction": 0.49921875
+      },
+      {
+        "instance": 2,
+        "sha256": "d954be7d421c6f7dcc1616d85ae2babcfb1b5fa16bea3747b54940808375b628",
+        "canonical_sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "forbidden_fraction": 0.50147705078125
+      },
+      {
+        "instance": 3,
+        "sha256": "88ecd22f876fcf9c04afba37fdb9b76ae604354d2b78917e1bae2d0b9453410d",
+        "canonical_sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "forbidden_fraction": 0.4995849609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "signed",
+    "n": 320,
+    "m": 256,
+    "regime": "optional",
+    "limit": -0.25,
+    "input_key": "signed_256x320",
+    "distribution": "uniform",
+    "signed": true,
+    "forbidden": 0.5,
+    "planted_feasible": true,
+    "case": "087_signed_optional_320x256",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2ca513f3a7e82796ea1355b27509a769221d16a22da0febb4d605172f4afe6f0",
+        "canonical_sha256": "f5ffa366de1b11d19174a3d73fc879011fd8d1e24ae18ef5d8e01b052ad264fb",
+        "forbidden_fraction": 0.49979248046875
+      },
+      {
+        "instance": 1,
+        "sha256": "7a109cdfc6cf942a0995e174877795a055adb6fd9b702299585ded9ea8599f9b",
+        "canonical_sha256": "f5aef43e17317ffc07e18554366f4f3ab9e43bc01cd101a37ad2ab2f35a37879",
+        "forbidden_fraction": 0.49921875
+      },
+      {
+        "instance": 2,
+        "sha256": "d954be7d421c6f7dcc1616d85ae2babcfb1b5fa16bea3747b54940808375b628",
+        "canonical_sha256": "23a5e46dec3c61789a36fb5c0cbf94e5eae2cb9d57145bdc7545b9f95d96c3dc",
+        "forbidden_fraction": 0.50147705078125
+      },
+      {
+        "instance": 3,
+        "sha256": "88ecd22f876fcf9c04afba37fdb9b76ae604354d2b78917e1bae2d0b9453410d",
+        "canonical_sha256": "5b97aae69d0fb82229346ae5ec468454e42c8a2203be2c5fc9ad90e6af351224",
+        "forbidden_fraction": 0.4995849609375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.0,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "088_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.0005,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "089_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "090_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.002,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "091_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.005,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "092_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.01,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "093_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.02,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "094_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.05,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "095_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.1,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "096_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "097_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 4.0,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "098_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+        "forbidden_fraction": 0.498046875
+      },
+      {
+        "instance": 1,
+        "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+        "forbidden_fraction": 0.496337890625
+      },
+      {
+        "instance": 2,
+        "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+        "forbidden_fraction": 0.4966796875
+      },
+      {
+        "instance": 3,
+        "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+        "forbidden_fraction": 0.49755859375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.0,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "099_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.0005,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "100_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "101_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.002,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "102_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.005,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "103_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.01,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "104_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.02,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "105_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.05,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "106_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.1,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "107_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "108_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 4.0,
+    "input_key": "rejection_blocks_128x160",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "109_rejection_optional_128x160",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "canonical_sha256": "6d0e598ca6de7429dfe442a31895a2e57ab915029321e2163fabbc94169b3e56",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "canonical_sha256": "9ea78d8bdc94943aca927574a8a57ab60829f490260e74331f9d9fb9e510f1a9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "canonical_sha256": "734889d9783de4e991239fe9b286b7794e0e628046a6b824d1972183d4b63339",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "canonical_sha256": "74e5c5425ef88439ecc450637ce2618707255d0dc8b46593c0cc30717f0a048c",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.0,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "110_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.0005,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "111_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "112_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.002,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "113_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.005,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "114_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.01,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "115_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.02,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "116_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.05,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "117_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.1,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "118_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "119_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 4.0,
+    "input_key": "rejection_uniform_256x320",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "120_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "canonical_sha256": "2005facb69933f285e2a8dcc74e246249798b5d9f4d89220dffb755d1c42fd30",
+        "forbidden_fraction": 0.499755859375
+      },
+      {
+        "instance": 1,
+        "sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "canonical_sha256": "fdbfdb9d7a03a227c3aaf05502df16bbaf9ec48c409d32fdcbd3ff935ca95106",
+        "forbidden_fraction": 0.49954833984375
+      },
+      {
+        "instance": 2,
+        "sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "canonical_sha256": "f7c7157c66bedb456776f66f0d74cde2eecb71d76b0edabcf5a93243d2c95c89",
+        "forbidden_fraction": 0.5000244140625
+      },
+      {
+        "instance": 3,
+        "sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "canonical_sha256": "9721254b9dc2f8b1723746e48271621681bd0382319e4877bb4059e495bcc219",
+        "forbidden_fraction": 0.5032958984375
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.0,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "121_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.0005,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "122_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.001,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "123_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.002,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "124_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.005,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "125_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.01,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "126_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.02,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "127_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.05,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "128_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.1,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "129_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 0.5,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "130_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  },
+  {
+    "family": "rejection",
+    "n": 256,
+    "m": 320,
+    "regime": "optional",
+    "limit": 4.0,
+    "input_key": "rejection_blocks_256x320",
+    "distribution": "blocks",
+    "row_fraction": 0.75,
+    "column_fraction": 0.25,
+    "case": "131_rejection_optional_256x320",
+    "inputs": [
+      {
+        "instance": 0,
+        "sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "canonical_sha256": "81c3d541d4c704fa2117dc30e0372063bcbdb422be6289f27429bfe60340edaf",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 1,
+        "sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "canonical_sha256": "ffc2850d124290902a480136f32d68793bd3f21c27ae67ba57d68891c949b8e9",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 2,
+        "sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "canonical_sha256": "45e7e0cafc9d69ce7000fd060b4486a72913308511828fc1d1023c80922c3067",
+        "forbidden_fraction": 0.0
+      },
+      {
+        "instance": 3,
+        "sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "canonical_sha256": "3b2006a75e5cd88f73872fa6702b8a0809d007385ef99d03bdc0b5323b985b86",
+        "forbidden_fraction": 0.0
+      }
+    ],
+    "status": "completed"
+  }
+]

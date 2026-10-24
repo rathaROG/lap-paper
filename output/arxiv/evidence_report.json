@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "frozen_evidence_files_unchanged": 1691,
+  "timing_samples_per_environment": 8946,
+  "recomputed_comparison_matches": true,
+  "numeric_tables_checked": 9,
+  "publication_figures": 15,
+  "extended_implementation_ranges": [
+    {
+      "large_cpp_over_rust": [
+        0.9613875972282004,
+        1.0606458875830993
+      ],
+      "extreme_tall_cpp_over_rust": [
+        3.002002827521207,
+        3.844230366909413
+      ]
+    },
+    {
+      "large_cpp_over_rust": [
+        0.9622763440794351,
+        1.0577456953282949
+      ],
+      "extreme_tall_cpp_over_rust": [
+        2.9771517209575316,
+        3.806419190315168
+      ]
+    }
+  ],
+  "manuscript_sha256": "766f0167d30e88ccf277869ab71440916ae1451eea50948cfb546895ebc1f053",
+  "archive_sha256": "a6f70fc9597f54fd6d0ff98b70ef2b7e212d6eb0798cc4d20c286525741cb432",
+  "pdf_sha256": "87b753c1d47bacce5d257d10f0ae81d6f9844d4e3d0bb14757588b7eedad0c44",
+  "pdf_pages": 34,
+  "html_counts": {
+    "figures": 15,
+    "tables": 11,
+    "references": 19,
+    "algorithms": 1,
+    "math_expressions": 249
+  },
+  "solver_measurements_rerun": false
+}

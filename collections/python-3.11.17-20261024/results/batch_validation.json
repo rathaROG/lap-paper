@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "scope": "Batch correctness only; timing measurements were not rerun.",
+  "environment": {
+    "recorded_utc": "2026-10-24T02:00:02.109259+00:00",
+    "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900KS",
+    "logical_cpus": 24,
+    "physical_cpus": 16,
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "packages": {
+      "lapx": {
+        "version": "0.11.1",
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap"
+      },
+      "lapcpp": {
+        "version": "1.0.0",
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp"
+      },
+      "laprust": {
+        "version": "1.0.0",
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust"
+      }
+    },
+    "single_affinity": [
+      0
+    ],
+    "batch_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "seed": 20261021,
+    "rounds": 0,
+    "instances_per_single_case": 4,
+    "target_block_seconds": 0.03,
+    "experiment_sha256": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+    "native_modules": {
+      "laprust._lapjv": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust\\_lapjv.cp311-win_amd64.pyd",
+        "sha256": "819bc8ba75152a9a4560d1f2bea02ee2660a5eecadbdf7eabe092e88af76eeb5"
+      },
+      "lapcpp._lapjv": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp\\_lapjv.cp311-win_amd64.pyd",
+        "sha256": "f92438bc4cd4822cbcde36c993a12bc460bf4e9f670b1e642ec75201a63f8e97"
+      },
+      "lap._lapjv_rh": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv_rh.cp311-win_amd64.pyd",
+        "sha256": "48d367f99f293e2966e0cb05f3ae70ae5d12960b557c577694ad704b474111e5"
+      },
+      "lap._lapjv": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv.cp311-win_amd64.pyd",
+        "sha256": "a6896ba6f460096ac1f3782fabca33b77aa47e3d6c26015e7201541e4b84106c"
+      },
+      "lap._lapjvx": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvx.cp311-win_amd64.pyd",
+        "sha256": "9abc5850a345d345e561c9e20fd304ea18e2e8b9adbaa6e37e135fd5f97fd351"
+      },
+      "lap._lapjvs": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvs.cp311-win_amd64.pyd",
+        "sha256": "452315605c87794211af85b4acaf97b6e7fc05dff900012b306171b2ac92ad4f"
+      },
+      "lap._lapjvc": {
+        "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvc.cp311-win_amd64.pyd",
+        "sha256": "5df7fc8db6904fa3243e697d2fd194703000f4ecb9b33ef529253ac4438b6cdb"
+      }
+    }
+  },
+  "checks": [
+    {
+      "case": "batch64x64x80",
+      "solvers": 10,
+      "problems": 64,
+      "checked_outputs": {
+        "jvrust_loop": 64,
+        "scipy_loop": 64,
+        "jvrust_batch_t1": 64,
+        "jvrust_batch_t4": 64,
+        "jvhybrid_batch_t1": 64,
+        "jvhybrid_batch_t4": 64,
+        "jvcpp_batch_t1": 64,
+        "jvcpp_batch_t4": 64,
+        "jvx_batch_t1": 64,
+        "jvx_batch_t4": 64
+      },
+      "input_sha256": "9d15a3bc066223187d2798f88df6cee2432ec8772617780b27160d30556d7047",
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch16x128x160_optional",
+      "solvers": 10,
+      "problems": 16,
+      "checked_outputs": {
+        "jvrust_loop": 16,
+        "scipy_loop": 16,
+        "jvrust_batch_t1": 16,
+        "jvrust_batch_t4": 16,
+        "jvhybrid_batch_t1": 16,
+        "jvhybrid_batch_t4": 16,
+        "jvcpp_batch_t1": 16,
+        "jvcpp_batch_t4": 16,
+        "jvx_batch_t1": 16,
+        "jvx_batch_t4": 16
+      },
+      "input_sha256": "8dae7643cb1088ee7ac324d6c59d0764e9df0bc7f48c05bc720342c3b3d4a4a5",
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch1024x8x10",
+      "solvers": 10,
+      "problems": 1024,
+      "checked_outputs": {
+        "jvrust_loop": 1024,
+        "scipy_loop": 1024,
+        "jvrust_batch_t1": 1024,
+        "jvrust_batch_t4": 1024,
+        "jvhybrid_batch_t1": 1024,
+        "jvhybrid_batch_t4": 1024,
+        "jvcpp_batch_t1": 1024,
+        "jvcpp_batch_t4": 1024,
+        "jvx_batch_t1": 1024,
+        "jvx_batch_t4": 1024
+      },
+      "input_sha256": "7de3e5346dbbb35b32f031e21a6f3834f6faddff725567a750cb5735e52e6643",
+      "objective_checks_passed": true
+    }
+  ],
+  "checked_outputs": 11040
+}

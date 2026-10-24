@@ -1,0 +1,98 @@
+{
+  "single_runtime.pdf": {
+    "source": "figures/single_runtime.pdf",
+    "sha256": "caf50440fa7524eb1b4218fc0dfff9d6ffa51d1f55ab6e68e4cb38f8e34eb7b6",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "batch_runtime.pdf": {
+    "source": "figures/batch_runtime.pdf",
+    "sha256": "51defd1283c7a1f7868fb61f4a7d8395bea84b24836dd4061097144441a4994d",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "memory_peak.pdf": {
+    "source": "figures/memory_peak.pdf",
+    "sha256": "8dd9c8432fd9786b51b4aba984ef57e2bee15afd3dce01c4d8c48beb44710a11",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "scaling_required.pdf": {
+    "source": "figures/scaling_required.pdf",
+    "sha256": "5e5975156e85628efa07b31bd0b9aeaeb84616c7cf6e4d6c1d4be3331b02b114",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "scaling_optional.pdf": {
+    "source": "figures/scaling_optional.pdf",
+    "sha256": "48cb9e9ae94a617b97e8eb496cd775f14788c848b9c8f39d46202bebb56bbb92",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "scaling_blocks.pdf": {
+    "source": "figures/scaling_blocks.pdf",
+    "sha256": "8716ff5b4baa73fb69c4bde44d351227f404f4980a6c0b730780b6ea9578f25a",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "large_square.pdf": {
+    "source": "figures/paper/large_square.pdf",
+    "sha256": "289c153716294e230498ccb976bd09f79d29f84bfc3e12806fa38308c2cf78a0",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "large_rectangles.pdf": {
+    "source": "figures/paper/large_rectangles.pdf",
+    "sha256": "a6a20eabfaf7ac8d4cea752739f161766bdeadbfd118e5a312c3371c3a891307",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "extreme_rectangles.pdf": {
+    "source": "figures/paper/extreme_rectangles.pdf",
+    "sha256": "467fc6e0bc620cf3568bbda84ead7fcf7fc7dce9f462b7f0015169d83b451478",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "structure_required.pdf": {
+    "source": "figures/paper/structure_required.pdf",
+    "sha256": "c0238d6310d3e91bec5e4eb95f7143871c76225f85eb883dcc1f5e7d12920520",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "structure_optional.pdf": {
+    "source": "figures/paper/structure_optional.pdf",
+    "sha256": "e678567bb18143b07cf5d3f41cd41364ace699458960fdaa76de83f80d886b25",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "rejection_sweep.pdf": {
+    "source": "figures/paper/rejection_sweep.pdf",
+    "sha256": "d8e6b5eaf2942a63213898730558da4378715edae3e9af96fa5f0623303300d1",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Same four cost matrices and forbidden masks at every limit. Top: median and timing-round IQR. Bottom: mean unmatched fraction.\nDifferent optimal pair sets/cardinalities at ties are permitted; objectives are checked. The limit axis includes zero using a symmetric-log scale.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "memory_sweeps.pdf": {
+    "source": "figures/paper/memory_sweeps.pdf",
+    "sha256": "77160fb9cd7ca212a01479586f0234ed91c4aa6dc1ee74fe725bb1b9d8d6000e",
+    "measurement_collection": "extensions/python-3.14.9-20261024",
+    "plot_definition": "plot_extended_results.py",
+    "note": "Median and IQR across five fresh processes per condition. Input already resident. High-water increments are not allocation counts.\nThe vertical scale is linear from zero to 0.25 MiB and logarithmic above it; zero increments remain visible. Compact SciPy formulations are included.",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "environment_consistency.pdf": {
+    "source": "figures/paper/environment_consistency.pdf",
+    "sha256": "3b7b65935616fcb6fb81ea0b50bd8d67b54dc23703b9189543445ef01195dec6",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  },
+  "ranking_exceptions.pdf": {
+    "source": "figures/paper/ranking_exceptions.pdf",
+    "sha256": "a315b30c851c77ce19ee678c46727a9eb50ccedb3830a0826c3bb2326dff852f",
+    "preparation_script_sha256": "87274c478aa966b4d53be716a1231621778ed46b361d56ea95dc06f6247a97cc"
+  }
+}

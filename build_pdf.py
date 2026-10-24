@@ -160,7 +160,10 @@ def convert(destination=PROJECT):
                        "2": "@{}p{.13\\linewidth}p{.13\\linewidth}p{.15\\linewidth}X@{}",
                        "4": "@{}X" + numeric * 3 + "@{}", "A2": "@{}X" + numeric * 3 + "@{}"}
             layout = layouts.get(number, "@{}X" + "r" * (columns - 1) + "@{}")
-            size = r"\footnotesize" if number in ("2", "3", "6", "A1", "A3") else r"\small"
+            if number == "7":
+                layouts["7"] = "@{}X" + ">{\\raggedleft\\arraybackslash}p{.15\\linewidth}" * 4 + "@{}"
+                layout = layouts["7"]
+            size = r"\footnotesize" if number in ("2", "3", "6", "7", "A1", "A3") else r"\small"
             # Appendix tables stay with their headings; main-text tables float.
             placement = "[H]" if number[0].isalpha() else "[!htbp]"
             out += [
@@ -343,10 +346,8 @@ def main():
                         help="Regenerate figures and LaTeX without compiling or packaging")
     options = parser.parse_args()
     if options.refresh_figures or options.sources_only:
-        figures()
-        from plot_scaling import generate, generate_runs
-        generate()
-        generate_runs()
+        from paper_figures import prepare
+        prepare()
     if options.sources_only:
         convert()
         print(PROJECT / "main.tex")

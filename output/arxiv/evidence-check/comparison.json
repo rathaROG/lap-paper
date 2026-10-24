@@ -1,0 +1,195 @@
+{
+  "status": "passed",
+  "created_utc": "2026-10-24T03:46:44.143030+00:00",
+  "scope": "Read-only comparison of the completed 3.14.9 and 3.11.17 collections; no manuscript update.",
+  "environments": [
+    {
+      "python": "3.14.9 (tags/v3.14.9:ead82c0, Oct 21 2026, 06:26:14) [MSC v.1944 64 bit (AMD64)]",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "cpu": "13th Gen Intel(R) Core(TM) i9-13900KS",
+      "single_affinity": [
+        0
+      ],
+      "batch_affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "cpu": "13th Gen Intel(R) Core(TM) i9-13900KS",
+      "single_affinity": [
+        0
+      ],
+      "batch_affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "suites": {
+    "single": {
+      "settings": 84,
+      "cases": 12,
+      "timing_samples_per_run": 756,
+      "median_time_311_over_314": 0.9152815188979136,
+      "q25_time_ratio": 0.9001104799411167,
+      "q75_time_ratio": 0.9322667246820829,
+      "min_time_ratio": 0.8654919440441606,
+      "max_time_ratio": 1.0394196827996955,
+      "winner_changes": 3,
+      "pairwise_reversals": 8
+    },
+    "batch": {
+      "settings": 30,
+      "cases": 3,
+      "timing_samples_per_run": 270,
+      "median_time_311_over_314": 0.9134908433937086,
+      "q25_time_ratio": 0.8975222419460769,
+      "q75_time_ratio": 0.9421498989917485,
+      "min_time_ratio": 0.6654938486068386,
+      "max_time_ratio": 1.1062314250633987,
+      "winner_changes": 1,
+      "pairwise_reversals": 4
+    },
+    "formulations": {
+      "settings": 50,
+      "cases": 10,
+      "timing_samples_per_run": 450,
+      "median_time_311_over_314": 0.9283194204363376,
+      "q25_time_ratio": 0.8890521693264037,
+      "q75_time_ratio": 0.9686312464492657,
+      "min_time_ratio": 0.7060359599141317,
+      "max_time_ratio": 1.0263428455499812,
+      "winner_changes": 1,
+      "pairwise_reversals": 1
+    },
+    "scaling": {
+      "settings": 302,
+      "cases": 47,
+      "timing_samples_per_run": 2718,
+      "median_time_311_over_314": 0.9888022935975802,
+      "q25_time_ratio": 0.9384518842772561,
+      "q75_time_ratio": 1.0295901428916694,
+      "min_time_ratio": 0.7146719866648784,
+      "max_time_ratio": 1.3213926769997895,
+      "winner_changes": 11,
+      "pairwise_reversals": 22
+    },
+    "extended": {
+      "settings": 528,
+      "cases": 132,
+      "timing_samples_per_run": 4752,
+      "median_time_311_over_314": 1.0108328429620155,
+      "q25_time_ratio": 0.9889103281136647,
+      "q75_time_ratio": 1.04568125700843,
+      "min_time_ratio": 0.7910144590165166,
+      "max_time_ratio": 1.2042186628201503,
+      "winner_changes": 15,
+      "pairwise_reversals": 27
+    }
+  },
+  "settings": 994,
+  "cases": 204,
+  "primary_comparisons": {
+    "jvrust": {
+      "single": {
+        "cases": 12,
+        "wins_314": 11,
+        "wins_311": 11,
+        "ordering_changes": 0
+      },
+      "formulations": {
+        "cases": 10,
+        "wins_314": 9,
+        "wins_311": 9,
+        "ordering_changes": 0
+      },
+      "scaling": {
+        "cases": 47,
+        "wins_314": 43,
+        "wins_311": 43,
+        "ordering_changes": 0
+      },
+      "extended": {
+        "cases": 132,
+        "wins_314": 112,
+        "wins_311": 112,
+        "ordering_changes": 0
+      }
+    },
+    "jvcpp": {
+      "single": {
+        "cases": 12,
+        "wins_314": 11,
+        "wins_311": 11,
+        "ordering_changes": 0
+      },
+      "formulations": {
+        "cases": 10,
+        "wins_314": 9,
+        "wins_311": 9,
+        "ordering_changes": 0
+      },
+      "scaling": {
+        "cases": 47,
+        "wins_314": 42,
+        "wins_311": 42,
+        "ordering_changes": 0
+      },
+      "extended": {
+        "cases": 132,
+        "wins_314": 112,
+        "wins_311": 112,
+        "ordering_changes": 0
+      }
+    }
+  },
+  "pairwise_comparisons": 2104,
+  "pairwise_reversals": 62,
+  "winner_changes": 31,
+  "reversal_margin_sensitivity": {
+    "0": 62,
+    "0.02": 12,
+    "0.05": 1,
+    "0.1": 1
+  },
+  "correctness": {
+    "formulations": {
+      "records": 200,
+      "maximum_objective_difference": 0.0,
+      "cardinality_changes": 0
+    },
+    "scaling": {
+      "records": 1208,
+      "maximum_objective_difference": 0.0,
+      "cardinality_changes": 0
+    },
+    "extended": {
+      "records": 2112,
+      "maximum_objective_difference": 0.0,
+      "cardinality_changes": 0
+    }
+  },
+  "edge_checks_identical": 129,
+  "input_hashes_identical": {
+    "formulations": 40,
+    "scaling": 188,
+    "extended": 528,
+    "memory_trials": 405,
+    "batches": 3
+  },
+  "memory_conditions": 81,
+  "max_absolute_memory_median_difference_mib": 0.08984375,
+  "methods": "Within-run ratios divide reported median times. Cross-run ratios divide the 3.11 median by the 3.14 median. Round numbers are not treated as paired observations across sessions. IQRs are descriptive, not confidence intervals. The 5% ranking margin is a post-hoc descriptive filter; 0/2/5/10% sensitivity is reported.",
+  "limitations": "One session per environment on one host; the 204 cases are a designed grid, not an independent application sample. NumPy, SciPy, native wheels, and session state also differ. No causal interpreter-speed claim or population significance test.",
+  "previous_files_unchanged": 1691,
+  "source_script_sha256": "3e955226d58ab8da0a3cb114eb18dd31719bbe5ddd6015195720b745be7e13b1"
+}

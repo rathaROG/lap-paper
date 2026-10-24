@@ -1,0 +1,234 @@
+Plan: 132 timing cases, 405 fresh-process memory trials
+Timing 1/132: 000_large_square_required_1000x1000
+Timing 2/132: 001_large_square_optional_1000x1000
+Timing 3/132: 002_large_square_required_2000x2000
+Timing 4/132: 003_large_square_optional_2000x2000
+Timing 5/132: 004_large_square_required_3000x3000
+Timing 6/132: 005_large_square_optional_3000x3000
+Timing 7/132: 006_large_square_required_5000x5000
+Timing 8/132: 007_large_square_optional_5000x5000
+Timing 9/132: 008_large_rectangle_required_1000x2000
+Timing 10/132: 009_large_rectangle_optional_1000x2000
+Timing 11/132: 010_large_rectangle_required_2000x1000
+Timing 12/132: 011_large_rectangle_optional_2000x1000
+Timing 13/132: 012_large_rectangle_required_2000x3000
+Timing 14/132: 013_large_rectangle_optional_2000x3000
+Timing 15/132: 014_large_rectangle_required_3000x2000
+Timing 16/132: 015_large_rectangle_optional_3000x2000
+Timing 17/132: 016_large_rectangle_required_4000x5000
+Timing 18/132: 017_large_rectangle_optional_4000x5000
+Timing 19/132: 018_large_rectangle_required_5000x4000
+Timing 20/132: 019_large_rectangle_optional_5000x4000
+Timing 21/132: 020_extreme_rectangle_required_64x4096
+Timing 22/132: 021_extreme_rectangle_optional_64x4096
+Timing 23/132: 022_extreme_rectangle_required_4096x64
+Timing 24/132: 023_extreme_rectangle_optional_4096x64
+Timing 25/132: 024_extreme_rectangle_required_64x8192
+Timing 26/132: 025_extreme_rectangle_optional_64x8192
+Timing 27/132: 026_extreme_rectangle_required_8192x64
+Timing 28/132: 027_extreme_rectangle_optional_8192x64
+Timing 29/132: 028_extreme_rectangle_required_64x16384
+Timing 30/132: 029_extreme_rectangle_optional_64x16384
+Timing 31/132: 030_extreme_rectangle_required_16384x64
+Timing 32/132: 031_extreme_rectangle_optional_16384x64
+Timing 33/132: 032_congestion_required_256x320
+Timing 34/132: 033_congestion_optional_256x320
+Timing 35/132: 034_congestion_required_256x320
+Timing 36/132: 035_congestion_optional_256x320
+Timing 37/132: 036_congestion_required_256x320
+Timing 38/132: 037_congestion_optional_256x320
+Timing 39/132: 038_congestion_required_256x320
+Timing 40/132: 039_congestion_optional_256x320
+Timing 41/132: 040_congestion_required_256x320
+Timing 42/132: 041_congestion_optional_256x320
+Timing 43/132: 042_forbidden_required_256x320
+Timing 44/132: 043_forbidden_optional_256x320
+Timing 45/132: 044_forbidden_required_256x320
+Timing 46/132: 045_forbidden_optional_256x320
+Timing 47/132: 046_forbidden_required_256x320
+Timing 48/132: 047_forbidden_optional_256x320
+Timing 49/132: 048_forbidden_required_256x320
+Timing 50/132: 049_forbidden_optional_256x320
+Timing 51/132: 050_ties_required_256x320
+Timing 52/132: 051_ties_optional_256x320
+Timing 53/132: 052_ties_required_256x320
+Timing 54/132: 053_ties_optional_256x320
+Timing 55/132: 054_ties_required_256x320
+Timing 56/132: 055_ties_optional_256x320
+Timing 57/132: 056_ties_required_256x320
+Timing 58/132: 057_ties_optional_256x320
+Timing 59/132: 058_congestion_required_512x640
+Timing 60/132: 059_congestion_optional_512x640
+Timing 61/132: 060_congestion_required_512x640
+Timing 62/132: 061_congestion_optional_512x640
+Timing 63/132: 062_congestion_required_512x640
+Timing 64/132: 063_congestion_optional_512x640
+Timing 65/132: 064_congestion_required_512x640
+Timing 66/132: 065_congestion_optional_512x640
+Timing 67/132: 066_congestion_required_512x640
+Timing 68/132: 067_congestion_optional_512x640
+Timing 69/132: 068_forbidden_required_512x640
+Timing 70/132: 069_forbidden_optional_512x640
+Timing 71/132: 070_forbidden_required_512x640
+Timing 72/132: 071_forbidden_optional_512x640
+Timing 73/132: 072_forbidden_required_512x640
+Timing 74/132: 073_forbidden_optional_512x640
+Timing 75/132: 074_forbidden_required_512x640
+Timing 76/132: 075_forbidden_optional_512x640
+Timing 77/132: 076_ties_required_512x640
+Timing 78/132: 077_ties_optional_512x640
+Timing 79/132: 078_ties_required_512x640
+Timing 80/132: 079_ties_optional_512x640
+Timing 81/132: 080_ties_required_512x640
+Timing 82/132: 081_ties_optional_512x640
+Timing 83/132: 082_ties_required_512x640
+Timing 84/132: 083_ties_optional_512x640
+Timing 85/132: 084_signed_required_256x320
+Timing 86/132: 085_signed_optional_256x320
+Timing 87/132: 086_signed_required_320x256
+Timing 88/132: 087_signed_optional_320x256
+Timing 89/132: 088_rejection_optional_128x160
+Timing 90/132: 089_rejection_optional_128x160
+Timing 91/132: 090_rejection_optional_128x160
+Timing 92/132: 091_rejection_optional_128x160
+Timing 93/132: 092_rejection_optional_128x160
+Timing 94/132: 093_rejection_optional_128x160
+Timing 95/132: 094_rejection_optional_128x160
+Timing 96/132: 095_rejection_optional_128x160
+Timing 97/132: 096_rejection_optional_128x160
+Timing 98/132: 097_rejection_optional_128x160
+Timing 99/132: 098_rejection_optional_128x160
+Timing 100/132: 099_rejection_optional_128x160
+Timing 101/132: 100_rejection_optional_128x160
+Timing 102/132: 101_rejection_optional_128x160
+Timing 103/132: 102_rejection_optional_128x160
+Timing 104/132: 103_rejection_optional_128x160
+Timing 105/132: 104_rejection_optional_128x160
+Timing 106/132: 105_rejection_optional_128x160
+Timing 107/132: 106_rejection_optional_128x160
+Timing 108/132: 107_rejection_optional_128x160
+Timing 109/132: 108_rejection_optional_128x160
+Timing 110/132: 109_rejection_optional_128x160
+Timing 111/132: 110_rejection_optional_256x320
+Timing 112/132: 111_rejection_optional_256x320
+Timing 113/132: 112_rejection_optional_256x320
+Timing 114/132: 113_rejection_optional_256x320
+Timing 115/132: 114_rejection_optional_256x320
+Timing 116/132: 115_rejection_optional_256x320
+Timing 117/132: 116_rejection_optional_256x320
+Timing 118/132: 117_rejection_optional_256x320
+Timing 119/132: 118_rejection_optional_256x320
+Timing 120/132: 119_rejection_optional_256x320
+Timing 121/132: 120_rejection_optional_256x320
+Timing 122/132: 121_rejection_optional_256x320
+Timing 123/132: 122_rejection_optional_256x320
+Timing 124/132: 123_rejection_optional_256x320
+Timing 125/132: 124_rejection_optional_256x320
+Timing 126/132: 125_rejection_optional_256x320
+Timing 127/132: 126_rejection_optional_256x320
+Timing 128/132: 127_rejection_optional_256x320
+Timing 129/132: 128_rejection_optional_256x320
+Timing 130/132: 129_rejection_optional_256x320
+Timing 131/132: 130_rejection_optional_256x320
+Timing 132/132: 131_rejection_optional_256x320
+Memory 1/405: memory_required_256x256 jvrust
+Memory 6/405: memory_required_256x256 jvcpp
+Memory 11/405: memory_required_256x256 scipy
+Memory 16/405: memory_required_256x256 jvx
+Memory 21/405: memory_optional_256x256 jvrust
+Memory 26/405: memory_optional_256x256 jvcpp
+Memory 31/405: memory_optional_256x256 scipy_capped
+Memory 36/405: memory_optional_256x256 scipy_dummies
+Memory 41/405: memory_optional_256x256 scipy_square
+Memory 46/405: memory_required_256x512 jvrust
+Memory 51/405: memory_required_256x512 jvcpp
+Memory 56/405: memory_required_256x512 scipy
+Memory 61/405: memory_required_256x512 jvx
+Memory 66/405: memory_optional_256x512 jvrust
+Memory 71/405: memory_optional_256x512 jvcpp
+Memory 76/405: memory_optional_256x512 scipy_capped
+Memory 81/405: memory_optional_256x512 scipy_dummies
+Memory 86/405: memory_optional_256x512 scipy_square
+Memory 91/405: memory_required_512x256 jvrust
+Memory 96/405: memory_required_512x256 jvcpp
+Memory 101/405: memory_required_512x256 scipy
+Memory 106/405: memory_required_512x256 jvx
+Memory 111/405: memory_optional_512x256 jvrust
+Memory 116/405: memory_optional_512x256 jvcpp
+Memory 121/405: memory_optional_512x256 scipy_capped
+Memory 126/405: memory_optional_512x256 scipy_dummies
+Memory 131/405: memory_optional_512x256 scipy_square
+Memory 136/405: memory_required_256x1024 jvrust
+Memory 141/405: memory_required_256x1024 jvcpp
+Memory 146/405: memory_required_256x1024 scipy
+Memory 151/405: memory_required_256x1024 jvx
+Memory 156/405: memory_optional_256x1024 jvrust
+Memory 161/405: memory_optional_256x1024 jvcpp
+Memory 166/405: memory_optional_256x1024 scipy_capped
+Memory 171/405: memory_optional_256x1024 scipy_dummies
+Memory 176/405: memory_optional_256x1024 scipy_square
+Memory 181/405: memory_required_1024x256 jvrust
+Memory 186/405: memory_required_1024x256 jvcpp
+Memory 191/405: memory_required_1024x256 scipy
+Memory 196/405: memory_required_1024x256 jvx
+Memory 201/405: memory_optional_1024x256 jvrust
+Memory 206/405: memory_optional_1024x256 jvcpp
+Memory 211/405: memory_optional_1024x256 scipy_capped
+Memory 216/405: memory_optional_1024x256 scipy_dummies
+Memory 221/405: memory_optional_1024x256 scipy_square
+Memory 226/405: memory_required_256x2048 jvrust
+Memory 231/405: memory_required_256x2048 jvcpp
+Memory 236/405: memory_required_256x2048 scipy
+Memory 241/405: memory_required_256x2048 jvx
+Memory 246/405: memory_optional_256x2048 jvrust
+Memory 251/405: memory_optional_256x2048 jvcpp
+Memory 256/405: memory_optional_256x2048 scipy_capped
+Memory 261/405: memory_optional_256x2048 scipy_dummies
+Memory 266/405: memory_optional_256x2048 scipy_square
+Memory 271/405: memory_required_2048x256 jvrust
+Memory 276/405: memory_required_2048x256 jvcpp
+Memory 281/405: memory_required_2048x256 scipy
+Memory 286/405: memory_required_2048x256 jvx
+Memory 291/405: memory_optional_2048x256 jvrust
+Memory 296/405: memory_optional_2048x256 jvcpp
+Memory 301/405: memory_optional_2048x256 scipy_capped
+Memory 306/405: memory_optional_2048x256 scipy_dummies
+Memory 311/405: memory_optional_2048x256 scipy_square
+Memory 316/405: memory_required_256x4096 jvrust
+Memory 321/405: memory_required_256x4096 jvcpp
+Memory 326/405: memory_required_256x4096 scipy
+Memory 331/405: memory_required_256x4096 jvx
+Memory 336/405: memory_optional_256x4096 jvrust
+Memory 341/405: memory_optional_256x4096 jvcpp
+Memory 346/405: memory_optional_256x4096 scipy_capped
+Memory 351/405: memory_optional_256x4096 scipy_dummies
+Memory 356/405: memory_optional_256x4096 scipy_square
+Memory 361/405: memory_required_4096x256 jvrust
+Memory 366/405: memory_required_4096x256 jvcpp
+Memory 371/405: memory_required_4096x256 scipy
+Memory 376/405: memory_required_4096x256 jvx
+Memory 381/405: memory_optional_4096x256 jvrust
+Memory 386/405: memory_optional_4096x256 jvcpp
+Memory 391/405: memory_optional_4096x256 scipy_capped
+Memory 396/405: memory_optional_4096x256 scipy_dummies
+Memory 401/405: memory_optional_4096x256 scipy_square
+{
+  "status": "completed",
+  "started_utc": "2026-10-24T01:27:57.696428+00:00",
+  "python_executable": "C:\\dev\\exc\\python\\p314\\python.exe",
+  "source_sha256": {
+    "run_extended_experiments.py": "e18e805c87cd5d6cadb10a9ce531d13c0ca7be27028d71271accf6888cda8840",
+    "run_experiments.py": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+    "compare_optional.py": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50"
+  },
+  "planned_timing_cases": 132,
+  "planned_memory_trials": 405,
+  "failures": [],
+  "timing_cases": 132,
+  "timing_samples": 4752,
+  "completed_method_settings": 528,
+  "memory_trials": 405,
+  "objective_checks": 2112,
+  "excluded_method_settings": 0,
+  "completed_utc": "2026-10-24T01:39:02.694158+00:00"
+}

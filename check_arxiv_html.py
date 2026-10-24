@@ -175,7 +175,8 @@ def main():
     for leaked in ("ItalicFont=", "BoldFont=", "Scale=MatchLowercase", "setmathfont", ".otf"):
         assert leaked not in visible, f"Leaked TeX font setting: {leaked}"
     assert "Native Rectangular Linear Assignment with Implicit Rejection" in visible
-    assert "Ratha SIV" in visible and "22 October 2026" in visible
+    date = re.search(r"\\date\{([^}]+)\}", tex).group(1)
+    assert "Ratha SIV" in visible and date in visible
     diagnostics = []
     for label in ("conversion", "postprocess"):
         log = (work / f"{label}.log").read_text(encoding="utf-8")

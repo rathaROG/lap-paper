@@ -1,0 +1,46 @@
+{
+  "reason": "All timing suites run sequentially on an otherwise idle system.",
+  "status": "completed",
+  "suites": [
+    {
+      "stage": "main",
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\run_experiments.py",
+        "--output",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\staging\\main"
+      ],
+      "started_utc": "2026-10-24T02:00:05.201835+00:00",
+      "completed_utc": "2026-10-24T02:00:52.444606+00:00",
+      "script_sha256": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+      "exit_code": 0
+    },
+    {
+      "stage": "optional",
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\compare_optional.py",
+        "--output",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\staging\\optional"
+      ],
+      "started_utc": "2026-10-24T02:00:52.444606+00:00",
+      "completed_utc": "2026-10-24T02:01:07.040193+00:00",
+      "script_sha256": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+      "exit_code": 0
+    },
+    {
+      "stage": "scaling",
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\benchmark_scaling.py",
+        "--output",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\collections\\python-3.11.17-20261024\\staging\\scaling"
+      ],
+      "started_utc": "2026-10-24T02:01:07.040193+00:00",
+      "completed_utc": "2026-10-24T02:13:46.866873+00:00",
+      "script_sha256": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
+      "exit_code": 0
+    }
+  ],
+  "cpu_monitor": "One-second per-logical-CPU utilization snapshots; descriptive evidence, not isolation or frequency control."
+}

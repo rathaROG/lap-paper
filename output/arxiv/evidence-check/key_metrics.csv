@@ -1,0 +1,7 @@
+metric,unit,python_314,python_311
+"JVRUST advantage over capped SciPy, 128x160 L=.5",ratio of medians,9.016397325499716,9.983585509011878
+Capped SciPy advantage on formulation congestion,ratio of medians,2.406280038449215,2.294202431592189
+Capped SciPy advantage on 1024x1280 congestion,ratio of medians,9.422586715498959,9.147842219118814
+JVRUST small-batch loop / one worker,ratio of medians,2.3877228047945542,2.297548151724878
+JVRUST small-batch loop / four workers,ratio of medians,5.095198050716614,4.726564808864161
+"JVCPP / JVRUST four-worker time, 64x64x80 batch",ratio of medians,1.3738420091021875,0.9769392710373717

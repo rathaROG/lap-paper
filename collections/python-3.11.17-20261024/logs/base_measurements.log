@@ -1,0 +1,99 @@
+Starting main measurements
+Validation 16800 calls passed
+Single square128
+Single square512
+Single wide64x512
+Single tall512x64
+Single near256x320
+Single blocks256x320
+Single ties128x160
+Single optional128x160
+Single optional256x320
+Single tight128x160
+Single negative128x160
+Single optional_square128
+Batch batch64x64x80
+Batch batch16x128x160_optional
+Batch batch1024x8x10
+Memory required jvrust
+Memory required jvhybrid
+Memory required jvcpp
+Memory required jvx
+Memory required scipy
+Memory optional jvrust
+Memory optional jvhybrid
+Memory optional jvcpp
+Memory optional jvx
+Memory optional scipy
+Results saved: D:\DEV\phd\all_pyppbox\new2\lap-paper\collections\python-3.11.17-20261024\staging\main
+Starting optional measurements
+Independent optional validation passed: 10500
+optional128x160 mean pairs 128.0
+optional256x320 mean pairs 256.0
+tight128x160 mean pairs 119.75
+negative128x160 mean pairs 128.0
+optional_square128 mean pairs 128.0
+reject128x160_L005 mean pairs 40.25
+reject128x160_L001 mean pairs 11.0
+reject_tall160x128 mean pairs 38.5
+optional_wide64x512 mean pairs 46.0
+optional_blocks256x320 mean pairs 144.0
+optional128x160 {'jvcpp': 18.68, 'jvrust': 13.16, 'scipy_capped': 131.41, 'scipy_dummies': 261.16, 'scipy_square': 439.99}
+optional256x320 {'jvcpp': 77.14, 'jvrust': 71.34, 'scipy_capped': 577.33, 'scipy_dummies': 1356.99, 'scipy_square': 2327.7}
+tight128x160 {'jvcpp': 14.08, 'jvrust': 9.25, 'scipy_capped': 103.35, 'scipy_dummies': 256.3, 'scipy_square': 1054.59}
+negative128x160 {'jvcpp': 19.31, 'jvrust': 13.77, 'scipy_capped': 140.81, 'scipy_dummies': 240.74, 'scipy_square': 436.12}
+optional_square128 {'jvcpp': 96.59, 'jvrust': 85.93, 'scipy_capped': 224.62, 'scipy_dummies': 415.92, 'scipy_square': 533.0}
+reject128x160_L005 {'jvcpp': 6.87, 'jvrust': 5.83, 'scipy_capped': 73.17, 'scipy_dummies': 170.22, 'scipy_square': 825.64}
+reject128x160_L001 {'jvcpp': 6.22, 'jvrust': 5.54, 'scipy_capped': 68.06, 'scipy_dummies': 163.95, 'scipy_square': 505.93}
+reject_tall160x128 {'jvcpp': 12.05, 'jvrust': 13.47, 'scipy_capped': 84.32, 'scipy_dummies': 175.97, 'scipy_square': 880.12}
+optional_wide64x512 {'jvcpp': 9.05, 'jvrust': 8.55, 'scipy_capped': 89.0, 'scipy_dummies': 197.94, 'scipy_square': 2072.51}
+optional_blocks256x320 {'jvcpp': 1723.54, 'jvrust': 1673.29, 'scipy_capped': 729.36, 'scipy_dummies': 1635.13, 'scipy_square': 2596.48}
+Starting scaling measurements
+1/47 required_square_16x16 unmatched=0.00 elapsed=2.3s
+2/47 required_square_32x32 unmatched=0.00 elapsed=3.0s
+3/47 required_square_64x64 unmatched=0.00 elapsed=4.5s
+4/47 required_square_128x128 unmatched=0.00 elapsed=6.5s
+5/47 required_square_256x256 unmatched=0.00 elapsed=8.3s
+6/47 required_square_512x512 unmatched=0.00 elapsed=10.0s
+7/47 required_square_1024x1024 unmatched=0.00 elapsed=14.1s
+8/47 required_wide_16x64 unmatched=0.00 elapsed=15.4s
+9/47 required_wide_32x128 unmatched=0.00 elapsed=16.7s
+10/47 required_wide_64x256 unmatched=0.00 elapsed=18.3s
+11/47 required_wide_128x512 unmatched=0.00 elapsed=20.2s
+12/47 required_wide_256x1024 unmatched=0.00 elapsed=22.9s
+13/47 required_wide_512x2048 unmatched=0.00 elapsed=34.6s
+14/47 required_fixed_64x64 unmatched=0.00 elapsed=35.9s
+15/47 required_fixed_64x128 unmatched=0.00 elapsed=37.4s
+16/47 required_fixed_64x256 unmatched=0.00 elapsed=39.1s
+17/47 required_fixed_64x512 unmatched=0.00 elapsed=40.8s
+18/47 required_fixed_64x1024 unmatched=0.00 elapsed=42.6s
+19/47 required_fixed_64x2048 unmatched=0.00 elapsed=46.2s
+20/47 required_fixed_64x4096 unmatched=0.00 elapsed=59.1s
+21/47 optional_square_16x16 unmatched=0.00 elapsed=60.2s
+22/47 optional_square_32x32 unmatched=0.00 elapsed=61.1s
+23/47 optional_square_64x64 unmatched=0.00 elapsed=62.7s
+24/47 optional_square_128x128 unmatched=0.00 elapsed=64.4s
+25/47 optional_square_256x256 unmatched=0.00 elapsed=66.1s
+26/47 optional_square_512x512 unmatched=0.00 elapsed=68.2s
+27/47 optional_square_1024x1024 unmatched=0.00 elapsed=76.9s
+28/47 optional_wide_16x64 unmatched=0.00 elapsed=78.1s
+29/47 optional_wide_32x128 unmatched=0.00 elapsed=79.4s
+30/47 optional_wide_64x256 unmatched=0.00 elapsed=81.0s
+31/47 optional_wide_128x512 unmatched=0.00 elapsed=83.3s
+32/47 optional_wide_256x1024 unmatched=0.00 elapsed=91.7s
+33/47 optional_wide_512x2048 unmatched=0.00 elapsed=155.3s
+34/47 optional_fixed_64x64 unmatched=0.00 elapsed=156.9s
+35/47 optional_fixed_64x128 unmatched=0.00 elapsed=158.2s
+36/47 optional_fixed_64x256 unmatched=0.00 elapsed=159.7s
+37/47 optional_fixed_64x512 unmatched=0.00 elapsed=161.7s
+38/47 optional_fixed_64x1024 unmatched=0.00 elapsed=168.9s
+39/47 optional_fixed_64x2048 unmatched=0.00 elapsed=218.2s
+40/47 optional_fixed_64x4096 unmatched=0.00 elapsed=692.6s
+41/47 optional_blocks_16x20 unmatched=7.00 elapsed=693.6s
+42/47 optional_blocks_32x40 unmatched=14.00 elapsed=695.1s
+43/47 optional_blocks_64x80 unmatched=28.00 elapsed=696.7s
+44/47 optional_blocks_128x160 unmatched=56.00 elapsed=698.5s
+45/47 optional_blocks_256x320 unmatched=112.00 elapsed=700.5s
+46/47 optional_blocks_512x640 unmatched=224.00 elapsed=707.6s
+47/47 optional_blocks_1024x1280 unmatched=448.00 elapsed=759.2s
+{"status": "completed", "completed_cases": 47, "objective_checks": 1208, "timing_samples": 2718, "elapsed_seconds": 759.1997314999999}

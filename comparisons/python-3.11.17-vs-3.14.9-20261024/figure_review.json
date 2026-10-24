@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-10-24T02:48:18.136591+00:00",
+  "figures": [
+    {
+      "stem": "memory_and_rejection",
+      "png_dimensions": [
+        1854,
+        1364
+      ],
+      "svg_parse": "passed",
+      "sha256": {
+        "memory_and_rejection.png": "60c3b15f7b6c0867ff7ed6d46d1b94d51f8e5bc2567dd172308c124397ce9678",
+        "memory_and_rejection.svg": "2aa1d13e44bbde68a6709eff04fa389ee90c922bc16d17291a4493b489268478"
+      }
+    },
+    {
+      "stem": "principal_findings",
+      "png_dimensions": [
+        2534,
+        815
+      ],
+      "svg_parse": "passed",
+      "sha256": {
+        "principal_findings.png": "6fc5711945e0fb465809b4f01b7275d2c7ba61964672c72dc57b789d4d7403b5",
+        "principal_findings.svg": "518b6787af2c1520b54d2bba313e4fbfb08fd53dce818a98cb0e0d394b79d5d1"
+      }
+    },
+    {
+      "stem": "ranking_exceptions",
+      "png_dimensions": [
+        1685,
+        815
+      ],
+      "svg_parse": "passed",
+      "sha256": {
+        "ranking_exceptions.png": "cea33fbe0aa636e64cb5211a84e53f7e0fd6a23838e8836ebccf2e48a1325018",
+        "ranking_exceptions.svg": "a1518e9d12f905706fcb7130311b32052d85d785367fc99a7bd5dba16d0c61d3"
+      }
+    },
+    {
+      "stem": "runtime_shifts",
+      "png_dimensions": [
+        1685,
+        832
+      ],
+      "svg_parse": "passed",
+      "sha256": {
+        "runtime_shifts.png": "f6223006ead3b7454883f0dfb2de0295f9fb5a83284ece1519065f4d174874d5",
+        "runtime_shifts.svg": "d976cd53af6e8923f2e3705e477afbeedd5a63a040641d48798fd73302a35809"
+      }
+    }
+  ],
+  "method": "All four final PNG charts visually inspected; SVGs parse as XML.",
+  "observations": "Legible labels, legends and footnotes; no observed clipping or overlap. Changed rankings are displayed explicitly. Cross-run timing ratios and within-run IQRs are labelled separately."
+}

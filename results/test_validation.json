@@ -1,13 +1,13 @@
 {
   "packages": {
-    "lapx": "0.11.0rc1",
+    "lapx": "0.11.1",
     "lapcpp": "1.0.0",
     "laprust": "1.0.0"
   },
   "suites": {
     "lapx_python": {
       "exit_code": 0,
-      "seconds": 48.8667729000008,
+      "seconds": 47.37058950000005,
       "command": [
         "C:\\dev\\exc\\python\\p314\\python.exe",
         "-m",
@@ -15,8 +15,8 @@
         "-q",
         "-p",
         "no:cacheprovider",
-        "D:\\DEV\\projects\\lapx_all\\new6\\lapx\\tests",
-        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapx\\tests\\test_setup.py"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests\\test_setup.py"
       ],
       "reported_pass_counts": [
         2704
@@ -24,7 +24,7 @@
     },
     "lapcpp_python": {
       "exit_code": 0,
-      "seconds": 27.049303300002066,
+      "seconds": 25.8216496,
       "command": [
         "C:\\dev\\exc\\python\\p314\\python.exe",
         "-m",
@@ -32,18 +32,18 @@
         "-q",
         "-p",
         "no:cacheprovider",
-        "D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests",
         "--run-cross-package",
-        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\test_editable_install.py",
-        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\test_setup.py"
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_setup.py"
       ],
       "reported_pass_counts": [
-        1271
+        1167
       ]
     },
     "laprust_python": {
       "exit_code": 0,
-      "seconds": 27.324458900002355,
+      "seconds": 26.060007300000052,
       "command": [
         "C:\\dev\\exc\\python\\p314\\python.exe",
         "-m",
@@ -51,34 +51,34 @@
         "-q",
         "-p",
         "no:cacheprovider",
-        "D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests",
         "--run-cross-package",
-        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests\\test_editable_install.py",
-        "--ignore=D:\\DEV\\projects\\lapx_all\\new6\\laprust\\tests\\test_setup.py"
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_setup.py"
       ],
       "reported_pass_counts": [
-        1271
+        1167
       ]
     },
     "laprust_rust": {
       "exit_code": 0,
-      "seconds": 6.323185199995351,
+      "seconds": 6.456086599999935,
       "command": [
         "cargo",
         "test",
         "--release",
         "--locked",
         "--manifest-path",
-        "D:\\DEV\\projects\\lapx_all\\new6\\laprust\\src\\_lapjv\\Cargo.toml"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\src\\_lapjv\\Cargo.toml"
       ],
       "reported_pass_counts": [
-        23,
+        24,
         0
       ]
     },
     "lapx_rust": {
       "exit_code": 0,
-      "seconds": 5.337087499996414,
+      "seconds": 5.202481799999987,
       "command": [
         "cargo",
         "test",
@@ -86,32 +86,32 @@
         "--locked",
         "--all-features",
         "--manifest-path",
-        "D:\\DEV\\projects\\lapx_all\\new6\\lapx\\src\\_lapjvr\\Cargo.toml"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\src\\_lapjvr\\Cargo.toml"
       ],
       "reported_pass_counts": [
-        20,
+        21,
         0
       ]
     },
     "lapcpp_native_configure": {
       "exit_code": 0,
-      "seconds": 2.105021100003796,
+      "seconds": 2.2538913999999295,
       "command": [
         "cmake",
         "-S",
-        "D:\\DEV\\projects\\lapx_all\\new6\\lapcpp\\tests\\native",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\native",
         "-B",
-        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native"
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native"
       ],
       "reported_pass_counts": []
     },
     "lapcpp_native_build": {
       "exit_code": 0,
-      "seconds": 1.6265105999991647,
+      "seconds": 1.5769304000000375,
       "command": [
         "cmake",
         "--build",
-        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native",
         "--config",
         "Release"
       ],
@@ -119,11 +119,11 @@
     },
     "lapcpp_native": {
       "exit_code": 0,
-      "seconds": 0.0385110999995959,
+      "seconds": 0.06071849999989354,
       "command": [
         "ctest",
         "--test-dir",
-        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-rm1qi1i3\\lapcpp-native",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native",
         "-C",
         "Release"
       ],

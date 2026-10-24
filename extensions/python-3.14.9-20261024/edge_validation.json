@@ -1,0 +1,994 @@
+{
+  "status": "passed",
+  "instances": 23,
+  "checks": [
+    {
+      "case": "empty_0x0",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x0",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_0x5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "empty_5x0",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "single_wide_inf",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_wide_inf",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_wide_inf",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_wide_inf",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_wide_inf",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_-0.25",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_wide_0.5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_inf",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_tall_inf",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_tall_inf",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_tall_inf",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_tall_inf",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.0,
+      "reference_objective": -1.0
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_-0.25",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": -1.5,
+      "reference_objective": -1.5
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "single_tall_0.5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "forbidden_3x5_inf",
+      "solver": "jvrust",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_3x5_inf",
+      "solver": "jvhybrid",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_3x5_inf",
+      "solver": "jvcpp",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_3x5_inf",
+      "solver": "scipy",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_3x5_inf",
+      "solver": "jvrust_lapx",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_3x5_0.5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_inf",
+      "solver": "jvrust",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_5x3_inf",
+      "solver": "jvhybrid",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_5x3_inf",
+      "solver": "jvcpp",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_5x3_inf",
+      "solver": "scipy",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_5x3_inf",
+      "solver": "jvrust_lapx",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "forbidden_5x3_0.5",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.0,
+      "reference_objective": 2.0
+    },
+    {
+      "case": "all_zero",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "all_zero",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "all_zero",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "all_zero",
+      "solver": "scipy",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "all_zero",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.0,
+      "reference_objective": 0.0
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_zero_optional",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 4,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "all_equal_to_limit",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 0,
+      "objective": 2.5,
+      "reference_objective": 2.5
+    },
+    {
+      "case": "signed",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "signed",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "signed",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "signed",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "signed",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "signed",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 2,
+      "objective": -2.125,
+      "reference_objective": -2.125
+    },
+    {
+      "case": "required_infeasible",
+      "solver": "jvrust",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "required_infeasible",
+      "solver": "jvhybrid",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "required_infeasible",
+      "solver": "jvcpp",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "required_infeasible",
+      "solver": "scipy",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "required_infeasible",
+      "solver": "jvrust_lapx",
+      "status": "expected_infeasible"
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "optional_infeasible_row",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 1,
+      "objective": 0.5,
+      "reference_objective": 0.5
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "jvrust",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "jvcpp",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "scipy_capped",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "scipy_dummies",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "jvhybrid",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    },
+    {
+      "case": "penalty_boundary",
+      "solver": "jvrust_lapx",
+      "status": "passed",
+      "pairs": 2,
+      "objective": 1.25,
+      "reference_objective": 1.25
+    }
+  ],
+  "method": "Independent exhaustive objective enumeration; pair identity is not required for ties."
+}

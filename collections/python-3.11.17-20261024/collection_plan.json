@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-24T01:57:19.181996+00:00",
+  "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\dev\\exc\\python\\p311\\python.exe",
+  "original_suites": [
+    "main",
+    "optional",
+    "scaling"
+  ],
+  "extended_timing_cases": 132,
+  "extended_memory_trials": 405,
+  "measurement_protocol": "Same seeds, inputs, methods, rounds, CPU affinity and budgets as the Python 3.14.9 collection. Original timing sources are byte-identical; extension changes only interpreter guards and preservation scope.",
+  "timing_sources": [
+    "run_experiments.py",
+    "compare_optional.py",
+    "benchmark_scaling.py"
+  ],
+  "paper_updated": false
+}

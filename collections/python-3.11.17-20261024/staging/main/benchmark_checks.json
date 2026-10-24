@@ -1,0 +1,135 @@
+{
+  "single": [
+    {
+      "case": "square128",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "square512",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "wide64x512",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "tall512x64",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "near256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "blocks256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "ties128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional256x320",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "tight128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "negative128x160",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    },
+    {
+      "case": "optional_square128",
+      "instances": 4,
+      "solvers": 7,
+      "objective_checks_passed": true
+    }
+  ],
+  "batch": [
+    {
+      "case": "batch64x64x80",
+      "solvers": 10,
+      "problems": 64,
+      "checked_outputs": {
+        "jvrust_loop": 64,
+        "scipy_loop": 64,
+        "jvrust_batch_t1": 64,
+        "jvrust_batch_t4": 64,
+        "jvhybrid_batch_t1": 64,
+        "jvhybrid_batch_t4": 64,
+        "jvcpp_batch_t1": 64,
+        "jvcpp_batch_t4": 64,
+        "jvx_batch_t1": 64,
+        "jvx_batch_t4": 64
+      },
+      "input_sha256": "9d15a3bc066223187d2798f88df6cee2432ec8772617780b27160d30556d7047",
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch16x128x160_optional",
+      "solvers": 10,
+      "problems": 16,
+      "checked_outputs": {
+        "jvrust_loop": 16,
+        "scipy_loop": 16,
+        "jvrust_batch_t1": 16,
+        "jvrust_batch_t4": 16,
+        "jvhybrid_batch_t1": 16,
+        "jvhybrid_batch_t4": 16,
+        "jvcpp_batch_t1": 16,
+        "jvcpp_batch_t4": 16,
+        "jvx_batch_t1": 16,
+        "jvx_batch_t4": 16
+      },
+      "input_sha256": "8dae7643cb1088ee7ac324d6c59d0764e9df0bc7f48c05bc720342c3b3d4a4a5",
+      "objective_checks_passed": true
+    },
+    {
+      "case": "batch1024x8x10",
+      "solvers": 10,
+      "problems": 1024,
+      "checked_outputs": {
+        "jvrust_loop": 1024,
+        "scipy_loop": 1024,
+        "jvrust_batch_t1": 1024,
+        "jvrust_batch_t4": 1024,
+        "jvhybrid_batch_t1": 1024,
+        "jvhybrid_batch_t4": 1024,
+        "jvcpp_batch_t1": 1024,
+        "jvcpp_batch_t4": 1024,
+        "jvx_batch_t1": 1024,
+        "jvx_batch_t4": 1024
+      },
+      "input_sha256": "7de3e5346dbbb35b32f031e21a6f3834f6faddff725567a750cb5735e52e6643",
+      "objective_checks_passed": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Independent optional validation passed: 10500
+optional128x160 mean pairs 128.0
+optional256x320 mean pairs 256.0
+tight128x160 mean pairs 119.75
+negative128x160 mean pairs 128.0
+optional_square128 mean pairs 128.0
+reject128x160_L005 mean pairs 40.25
+reject128x160_L001 mean pairs 11.0
+reject_tall160x128 mean pairs 38.5
+optional_wide64x512 mean pairs 46.0
+optional_blocks256x320 mean pairs 144.0
+optional128x160 {'jvcpp': 18.68, 'jvrust': 13.16, 'scipy_capped': 131.41, 'scipy_dummies': 261.16, 'scipy_square': 439.99}
+optional256x320 {'jvcpp': 77.14, 'jvrust': 71.34, 'scipy_capped': 577.33, 'scipy_dummies': 1356.99, 'scipy_square': 2327.7}
+tight128x160 {'jvcpp': 14.08, 'jvrust': 9.25, 'scipy_capped': 103.35, 'scipy_dummies': 256.3, 'scipy_square': 1054.59}
+negative128x160 {'jvcpp': 19.31, 'jvrust': 13.77, 'scipy_capped': 140.81, 'scipy_dummies': 240.74, 'scipy_square': 436.12}
+optional_square128 {'jvcpp': 96.59, 'jvrust': 85.93, 'scipy_capped': 224.62, 'scipy_dummies': 415.92, 'scipy_square': 533.0}
+reject128x160_L005 {'jvcpp': 6.87, 'jvrust': 5.83, 'scipy_capped': 73.17, 'scipy_dummies': 170.22, 'scipy_square': 825.64}
+reject128x160_L001 {'jvcpp': 6.22, 'jvrust': 5.54, 'scipy_capped': 68.06, 'scipy_dummies': 163.95, 'scipy_square': 505.93}
+reject_tall160x128 {'jvcpp': 12.05, 'jvrust': 13.47, 'scipy_capped': 84.32, 'scipy_dummies': 175.97, 'scipy_square': 880.12}
+optional_wide64x512 {'jvcpp': 9.05, 'jvrust': 8.55, 'scipy_capped': 89.0, 'scipy_dummies': 197.94, 'scipy_square': 2072.51}
+optional_blocks256x320 {'jvcpp': 1723.54, 'jvrust': 1673.29, 'scipy_capped': 729.36, 'scipy_dummies': 1635.13, 'scipy_square': 2596.48}

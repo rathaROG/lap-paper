@@ -45,7 +45,7 @@ def table_values(results=RESULTS):
 
 
 def all_table_values():
-    """Main tables from results/; Appendix A tables from the archived Python 3.11.16 run."""
+    """Main tables from results/; Appendix A from the Python 3.11.17 replication."""
     groups = table_values()
     archived = table_values(narrative.ARCHIVE)
     groups.update({"A.1": archived["6.2"], "A.2": archived["6.3"], "A.3": archived["6.5"]})

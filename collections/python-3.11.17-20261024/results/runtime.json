@@ -1,0 +1,64 @@
+{
+  "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "lapx": {
+      "version": "0.11.1",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap",
+      "installed_from": null,
+      "source": {
+        "head": "17c132e2f9107b6dda78dc748ed7ce30d7d4519c",
+        "clean": true
+      }
+    },
+    "lapcpp": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp",
+      "installed_from": null,
+      "source": {
+        "head": "7e6b506ff53c54b974090c635b3813bee7df8a1b",
+        "clean": true
+      }
+    },
+    "laprust": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust",
+      "installed_from": null,
+      "source": {
+        "head": "99a6f99df7ee5fcdda45893583d88e4486bfddb4",
+        "clean": true
+      }
+    }
+  },
+  "native_modules": {
+    "laprust._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "819bc8ba75152a9a4560d1f2bea02ee2660a5eecadbdf7eabe092e88af76eeb5"
+    },
+    "lapcpp._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "f92438bc4cd4822cbcde36c993a12bc460bf4e9f670b1e642ec75201a63f8e97"
+    },
+    "lap._lapjv_rh": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv_rh.cp311-win_amd64.pyd",
+      "sha256": "48d367f99f293e2966e0cb05f3ae70ae5d12960b557c577694ad704b474111e5"
+    },
+    "lap._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "a6896ba6f460096ac1f3782fabca33b77aa47e3d6c26015e7201541e4b84106c"
+    },
+    "lap._lapjvx": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvx.cp311-win_amd64.pyd",
+      "sha256": "9abc5850a345d345e561c9e20fd304ea18e2e8b9adbaa6e37e135fd5f97fd351"
+    },
+    "lap._lapjvs": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvs.cp311-win_amd64.pyd",
+      "sha256": "452315605c87794211af85b4acaf97b6e7fc05dff900012b306171b2ac92ad4f"
+    },
+    "lap._lapjvc": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvc.cp311-win_amd64.pyd",
+      "sha256": "5df7fc8db6904fa3243e697d2fd194703000f4ecb9b33ef529253ac4438b6cdb"
+    }
+  },
+  "record_script_sha256": "92c3f064baa460b9c7e37990ed51d9a3df4d0306fc0f29563953bad9414dce91"
+}

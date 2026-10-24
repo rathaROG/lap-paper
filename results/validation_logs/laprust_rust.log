@@ -4,36 +4,37 @@
    Compiling rayon-core v1.13.0
    Compiling either v1.19.0
    Compiling rayon v1.12.0
-   Compiling laprust-core v1.0.0 (D:\DEV\projects\lapx_all\new6\laprust\src\_lapjv)
-    Finished `release` profile [optimized] target(s) in 6.23s
-     Running unittests src\lib.rs (C:\Users\ratha\AppData\Local\Temp\paper-validation-rm1qi1i3\cargo-target\release\deps\laprust_core-353ed8f7d4c0a5a5.exe)
+   Compiling laprust-core v1.0.0 (D:\DEV\phd\all_pyppbox\new2\laprust\src\_lapjv)
+    Finished `release` profile [optimized] target(s) in 6.32s
+     Running unittests src\lib.rs (C:\Users\ratha\AppData\Local\Temp\paper-validation-fzo96spc\cargo-target\release\deps\laprust_core-353ed8f7d4c0a5a5.exe)
 
-running 23 tests
+running 24 tests
 test ffi::boundary_tests::overflow_is_rejected_before_ffi_pointer_access ... ok
-test ffi::boundary_tests::parallel_failures_report_the_lowest_index_and_recover ... ok
-test ffi::tests::ordinary_rectangles_do_not_allocate_a_square_cost_matrix ... ok
-test ffi::tests::auto_estimate_handles_overflow_orientation_and_singleton_batches ... ok
-test rectangular::tests::rectangular_storage_is_linear_and_recovers_after_error ... ok
-test ffi::boundary_tests::workspace_allocation_failure_at_first_and_later_reservations_recovers ... ok
-test ffi::tests::finite_limits_do_not_allocate_dummy_costs_or_assignments ... ok
-test ffi::boundary_tests::worker_start_failure_and_partial_startup_recovers ... ok
-test ffi::tests::auto_worker_releases_oversized_orientation_and_linear_scratch ... ok
 test ffi::tests::dense_conflicts_bypass_square_initialization_without_new_cost_storage ... ok
+test ffi::tests::auto_estimate_handles_overflow_orientation_and_singleton_batches ... ok
+test ffi::tests::auto_worker_releases_oversized_orientation_and_linear_scratch ... ok
+test ffi::boundary_tests::workspace_allocation_failure_at_first_and_later_reservations_recovers ... ok
+test ffi::boundary_tests::parallel_failures_report_the_lowest_index_and_recover ... ok
+test ffi::tests::finite_limits_do_not_allocate_dummy_costs_or_assignments ... ok
+test ffi::tests::ordinary_rectangles_do_not_allocate_a_square_cost_matrix ... ok
+test rectangular::tests::rectangular_storage_is_linear_and_recovers_after_error ... ok
+test ffi::boundary_tests::worker_start_failure_and_partial_startup_recovers ... ok
+test tests::grouped_square_minima_match_full_precision_scan ... ok
+test tests::larger_square_primal_dual_certificate ... ok
+test tests::conflicting_blocks_primal_dual_certificate ... ok
 test tests::infeasible_then_reuse_and_singleton_large_cost ... ok
 test rectangular::tests::optional_minima_preserve_order_and_unmatched_ties ... ok
-test tests::grouped_square_minima_match_full_precision_scan ... ok
+test ffi::tests::worker_pool_cache_reuses_entries_and_keeps_evicted_pools_usable ... ok
 test ffi::boundary_tests::panics_never_unwind_across_c_boundary_and_workers_recover ... ok
 test rectangular::tests::rectangular_optimum_and_dual_certificate ... ok
-test tests::larger_square_primal_dual_certificate ... ok
 test ffi::tests::worker_pools_honor_counts_above_eight_and_cap_at_batch_size ... ok
-test tests::conflicting_blocks_primal_dual_certificate ... ok
 test rectangular::tests::large_near_square_and_dispatch_boundary_duals ... ok
 test rectangular::tests::bounded_optional_square_primal_dual_certificates ... ok
 test tests::seeded_ties_negative_and_forbidden_against_enumeration ... ok
 test tests::heterogeneous_rows_primal_dual_certificate ... ok
 test rectangular::tests::optional_optimum_and_dual_certificate ... ok
 
-test result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
 
    Doc-tests laprust_core
 

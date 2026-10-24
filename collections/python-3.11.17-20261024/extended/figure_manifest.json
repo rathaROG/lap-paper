@@ -1,0 +1,141 @@
+{
+  "plot_script_sha256": "1297b13465126a72d9dd871425563a67325b65031ae40ac3f0202fc9bdb3a743",
+  "figures": [
+    {
+      "stem": "large_square",
+      "title": "Large square matrices",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.",
+      "files": [
+        "large_square.png",
+        "large_square.svg",
+        "large_square.pdf"
+      ]
+    },
+    {
+      "stem": "large_rectangles",
+      "title": "Large paired rectangles",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+      "files": [
+        "large_rectangles.png",
+        "large_rectangles.svg",
+        "large_rectangles.pdf"
+      ]
+    },
+    {
+      "stem": "extreme_rectangles",
+      "title": "Extreme aspect ratios: smaller dimension 64",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+      "files": [
+        "extreme_rectangles.png",
+        "extreme_rectangles.svg",
+        "extreme_rectangles.pdf"
+      ]
+    },
+    {
+      "stem": "structure_required",
+      "title": "Structured costs: required assignment",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+      "files": [
+        "structure_required.png",
+        "structure_required.svg",
+        "structure_required.pdf"
+      ]
+    },
+    {
+      "stem": "structure_optional",
+      "title": "Structured costs: optional assignment",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+      "files": [
+        "structure_optional.png",
+        "structure_optional.svg",
+        "structure_optional.pdf"
+      ]
+    },
+    {
+      "stem": "signed_orientation",
+      "title": "Signed costs and orientation",
+      "note": "Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nCosts in [-1,1), 50% nominal forbidden entries, feasible diagonal retained.",
+      "files": [
+        "signed_orientation.png",
+        "signed_orientation.svg",
+        "signed_orientation.pdf"
+      ]
+    },
+    {
+      "stem": "rejection_sweep",
+      "title": "Runtime and realized rejection on fixed inputs",
+      "note": "Same four cost matrices and forbidden masks at every limit. Top: median and timing-round IQR. Bottom: mean unmatched fraction.\nDifferent optimal pair sets/cardinalities at ties are permitted; objectives are checked. The limit axis includes zero using a symmetric-log scale.",
+      "files": [
+        "rejection_sweep.png",
+        "rejection_sweep.svg",
+        "rejection_sweep.pdf"
+      ]
+    },
+    {
+      "stem": "memory_sweeps",
+      "title": "Repeated fresh-process memory measurements",
+      "note": "Median and IQR across five fresh processes per condition. Input already resident. High-water increments are not allocation counts.\nThe vertical scale is linear from zero to 0.25 MiB and logarithmic above it; zero increments remain visible. Compact SciPy formulations are included.",
+      "files": [
+        "memory_sweeps.png",
+        "memory_sweeps.svg",
+        "memory_sweeps.pdf"
+      ]
+    },
+    {
+      "stem": "focused_existing_cases",
+      "title": "Focused views of the Python 3.11.17 base results",
+      "note": "Original measurements retained unchanged; no timings combined across suites. Medians and timing-round IQRs.\nThe finite-limit panel uses capped and dummy-column SciPy from the paired formulation comparison. Congested cases are retained.",
+      "files": [
+        "focused_existing_cases.png",
+        "focused_existing_cases.svg",
+        "focused_existing_cases.pdf"
+      ]
+    },
+    {
+      "stem": "formulation_speedup",
+      "title": "Paired speedups against capped SciPy",
+      "note": "Median and IQR of nine within-round time ratios, using the preserved formulation samples. Ratios are not confidence intervals.\nAll ten cases are shown, including the congested-block reversal.",
+      "files": [
+        "formulation_speedup.png",
+        "formulation_speedup.svg",
+        "formulation_speedup.pdf"
+      ]
+    },
+    {
+      "stem": "focused_existing_scaling",
+      "title": "Focused scaling views of the preserved run",
+      "note": "Same saved timing samples as the original scaling figures; selected solver subset. Medians and timing-round IQRs.\nAll original uniform finite-limit instances match the complete smaller side; the new rejection sweep characterizes other regimes.",
+      "files": [
+        "focused_existing_scaling.png",
+        "focused_existing_scaling.svg",
+        "focused_existing_scaling.pdf"
+      ]
+    },
+    {
+      "stem": "focused_existing_blocks",
+      "title": "Congested-block crossover in the preserved run",
+      "note": "Original finite-limit sweep, L = 0.5. Selected native and compact SciPy methods; medians and timing-round IQRs.\nThe full original comparison remains available in the preserved figures and results.",
+      "files": [
+        "focused_existing_blocks.png",
+        "focused_existing_blocks.svg",
+        "focused_existing_blocks.pdf"
+      ]
+    },
+    {
+      "stem": "large_implementation_ratios",
+      "title": "Implementation differences on the large inputs",
+      "note": "Median and IQR of nine paired round ratios. Same inputs for all implementations; baseline is JVRUST = 1.\nCompanion large-matrix runtime charts include the SciPy baselines. These ratios compare implementations/builds, not programming languages in general.",
+      "files": [
+        "large_implementation_ratios.png",
+        "large_implementation_ratios.svg",
+        "large_implementation_ratios.pdf"
+      ]
+    }
+  ],
+  "total_figures": 13,
+  "source_runs": [
+    "results/",
+    "extended"
+  ],
+  "note": "Each comparison uses samples from its own measurement suite. Original figures and paper files are unchanged."
+}

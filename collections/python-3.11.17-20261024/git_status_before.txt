@@ -1,0 +1,125 @@
+ D archive/measurement-scripts/README.md
+ D archive/measurement-scripts/run_experiments.py
+ D archive/python-3.11.16/README.md
+ D archive/python-3.11.16/batch-revalidation/batch_validation.json
+ D archive/python-3.11.16/paper-results/artifact_audit.json
+ D archive/python-3.11.16/paper-results/batch_samples.csv
+ D archive/python-3.11.16/paper-results/batch_summary.csv
+ D archive/python-3.11.16/paper-results/benchmark_checks.json
+ D archive/python-3.11.16/paper-results/dataset_summary.csv
+ D archive/python-3.11.16/paper-results/derived.json
+ D archive/python-3.11.16/paper-results/environment.json
+ D archive/python-3.11.16/paper-results/formulations/checks.json
+ D archive/python-3.11.16/paper-results/formulations/datasets.json
+ D archive/python-3.11.16/paper-results/formulations/environment.json
+ D archive/python-3.11.16/paper-results/formulations/samples.csv
+ D archive/python-3.11.16/paper-results/formulations/summary.csv
+ D archive/python-3.11.16/paper-results/formulations/validation.json
+ D archive/python-3.11.16/paper-results/generated_tables.md
+ D archive/python-3.11.16/paper-results/memory.json
+ D archive/python-3.11.16/paper-results/pdf_build.json
+ D archive/python-3.11.16/paper-results/rerun/cpu_load.csv
+ D archive/python-3.11.16/paper-results/rerun/main.log
+ D archive/python-3.11.16/paper-results/rerun/optional.log
+ D archive/python-3.11.16/paper-results/rerun/rerun.json
+ D archive/python-3.11.16/paper-results/rerun/scaling.log
+ D archive/python-3.11.16/paper-results/runtime.json
+ D archive/python-3.11.16/paper-results/scaling/checks.json
+ D archive/python-3.11.16/paper-results/scaling/datasets.json
+ D archive/python-3.11.16/paper-results/scaling/environment.json
+ D archive/python-3.11.16/paper-results/scaling/samples.csv
+ D archive/python-3.11.16/paper-results/scaling/summary.csv
+ D archive/python-3.11.16/paper-results/single_samples.csv
+ D archive/python-3.11.16/paper-results/single_summary.csv
+ D archive/python-3.11.16/paper-results/test_validation.json
+ D archive/python-3.11.16/paper-results/validation.json
+ D archive/python-3.11.16/paper-results/validation_logs/lapcpp_native.log
+ D archive/python-3.11.16/paper-results/validation_logs/lapcpp_native_build.log
+ D archive/python-3.11.16/paper-results/validation_logs/lapcpp_native_configure.log
+ D archive/python-3.11.16/paper-results/validation_logs/lapcpp_python.log
+ D archive/python-3.11.16/paper-results/validation_logs/laprust_python.log
+ D archive/python-3.11.16/paper-results/validation_logs/laprust_rust.log
+ D archive/python-3.11.16/paper-results/validation_logs/lapx_python.log
+ D archive/python-3.11.16/paper-results/validation_logs/lapx_rust.log
+ D archive/python-3.11.16/paper-snapshot/README.md
+ D archive/python-3.11.16/paper-snapshot/figures/batch_runtime.png
+ D archive/python-3.11.16/paper-snapshot/figures/batch_runtime.svg
+ D archive/python-3.11.16/paper-snapshot/figures/memory_peak.png
+ D archive/python-3.11.16/paper-snapshot/figures/memory_peak.svg
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_blocks.png
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_blocks.svg
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_optional.png
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_optional.svg
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_required.png
+ D archive/python-3.11.16/paper-snapshot/figures/scaling_required.svg
+ D archive/python-3.11.16/paper-snapshot/figures/single_runtime.png
+ D archive/python-3.11.16/paper-snapshot/figures/single_runtime.svg
+ D archive/python-3.11.16/paper-snapshot/manuscript.md
+ M figures/batch_runtime.png
+ M figures/batch_runtime.svg
+ M figures/memory_peak.png
+ M figures/memory_peak.svg
+ M figures/scaling_blocks.png
+ M figures/scaling_blocks.svg
+ D figures/scaling_blocks_runs.png
+ D figures/scaling_blocks_runs.svg
+ M figures/scaling_optional.png
+ M figures/scaling_optional.svg
+ M figures/scaling_required.png
+ M figures/scaling_required.svg
+ M figures/single_runtime.png
+ M figures/single_runtime.svg
+ D results/artifact_audit.json
+ M results/batch_samples.csv
+ M results/batch_summary.csv
+ M results/batch_validation.json
+ M results/benchmark_checks.json
+ M results/derived.json
+ M results/environment.json
+ M results/formulations/environment.json
+ M results/formulations/samples.csv
+ M results/formulations/summary.csv
+ M results/generated_tables.md
+ M results/memory.json
+ M results/rerun/cpu_load.csv
+ M results/rerun/main.log
+ M results/rerun/optional.log
+ M results/rerun/rerun.json
+ M results/rerun/scaling.log
+ M results/runtime.json
+ M results/scaling/environment.json
+ M results/scaling/samples.csv
+ M results/scaling/summary.csv
+ M results/single_samples.csv
+ M results/single_summary.csv
+ M results/test_validation.json
+ M results/validation_logs/lapcpp_native.log
+ M results/validation_logs/lapcpp_native_build.log
+ M results/validation_logs/lapcpp_native_configure.log
+ M results/validation_logs/lapcpp_python.log
+ M results/validation_logs/laprust_python.log
+ M results/validation_logs/laprust_rust.log
+ M results/validation_logs/lapx_python.log
+ M results/validation_logs/lapx_rust.log
+?? EXTENDED_EXPERIMENTS.md
+?? check_extended_results.py
+?? collections/
+?? extensions/
+?? figures/batch_runtime.pdf
+?? figures/memory_peak.pdf
+?? figures/scaling_blocks.pdf
+?? figures/scaling_optional.pdf
+?? figures/scaling_required.pdf
+?? figures/single_runtime.pdf
+?? plot_extended_results.py
+?? results/collection/
+?? results/collection_audit.json
+?? results/figure_generation.log
+?? results/installed_packages.txt
+?? results/pip_inspect.json
+?? results/release_validation.log
+?? results/validation_logs/batch_validation.log
+?? results/validation_logs/paper_harness.log
+?? results/validation_logs/pip_check.log
+?? run_extended_experiments.py
+?? tests/test_extended_experiments.py

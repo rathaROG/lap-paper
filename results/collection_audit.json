@@ -1,0 +1,249 @@
+{
+  "status": "passed",
+  "completed_utc": "2026-10-24T00:57:10.392928+00:00",
+  "scope": "Fresh Python 3.14.9 measurements only; the manuscript and existing arXiv project/output are frozen.",
+  "python_executable": "C:\\dev\\exc\\python\\p314\\python.exe",
+  "python": "3.14.9 (tags/v3.14.9:ead82c0, Oct 21 2026, 06:26:14) [MSC v.1944 64 bit (AMD64)]",
+  "packages": {
+    "lapx": "0.11.1",
+    "lapcpp": "1.0.0",
+    "laprust": "1.0.0"
+  },
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "previous_commit": "8d6327c5bea3bf23d6358fe86a9b9097e543dd3f",
+  "cleaned_old_files": 110,
+  "cleanup_method": "Windows Recycle Bin",
+  "python_3_11_run": "not started",
+  "paper_updated": false,
+  "unchanged_paper_files": 31,
+  "sample_summary_checks": {
+    "single": {
+      "timing_samples": 756,
+      "settings": 84
+    },
+    "batch": {
+      "timing_samples": 270,
+      "settings": 30
+    },
+    "formulations": {
+      "timing_samples": 450,
+      "settings": 50
+    },
+    "scaling": {
+      "timing_samples": 2718,
+      "settings": 302
+    }
+  },
+  "enumeration_solver_calls": 27320,
+  "strict_batch_outputs": 11040,
+  "objective_checks": {
+    "formulations": 200,
+    "scaling": 1208
+  },
+  "memory_measurements": 10,
+  "package_test_suites": {
+    "lapx_python": {
+      "exit_code": 0,
+      "seconds": 47.37058950000005,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        2704
+      ]
+    },
+    "lapcpp_python": {
+      "exit_code": 0,
+      "seconds": 25.8216496,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1167
+      ]
+    },
+    "laprust_python": {
+      "exit_code": 0,
+      "seconds": 26.060007300000052,
+      "command": [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1167
+      ]
+    },
+    "laprust_rust": {
+      "exit_code": 0,
+      "seconds": 6.456086599999935,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--manifest-path",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\src\\_lapjv\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        24,
+        0
+      ]
+    },
+    "lapx_rust": {
+      "exit_code": 0,
+      "seconds": 5.202481799999987,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--all-features",
+        "--manifest-path",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\src\\_lapjvr\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        21,
+        0
+      ]
+    },
+    "lapcpp_native_configure": {
+      "exit_code": 0,
+      "seconds": 2.2538913999999295,
+      "command": [
+        "cmake",
+        "-S",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\native",
+        "-B",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native_build": {
+      "exit_code": 0,
+      "seconds": 1.5769304000000375,
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native",
+        "--config",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native": {
+      "exit_code": 0,
+      "seconds": 0.06071849999989354,
+      "command": [
+        "ctest",
+        "--test-dir",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-fzo96spc\\lapcpp-native",
+        "-C",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    }
+  },
+  "cpu_load": {
+    "baseline": {
+      "samples": 2,
+      "median_outside_cpu0_3_percent": 3.3625,
+      "maximum_outside_cpu0_3_percent": 4.62
+    },
+    "main": {
+      "samples": 50,
+      "median_outside_cpu0_3_percent": 1.145,
+      "maximum_outside_cpu0_3_percent": 5.659999999999999
+    },
+    "optional": {
+      "samples": 14,
+      "median_outside_cpu0_3_percent": 0.7925,
+      "maximum_outside_cpu0_3_percent": 5.365
+    },
+    "scaling": {
+      "samples": 766,
+      "median_outside_cpu0_3_percent": 0.23500000000000001,
+      "maximum_outside_cpu0_3_percent": 5.52
+    }
+  },
+  "paper_harness_tests_passed": 11,
+  "figure_visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-10-24T00:57:10.085107+00:00",
+    "pdf_pages": {
+      "single_runtime": 1,
+      "batch_runtime": 1,
+      "memory_peak": 1,
+      "scaling_required": 1,
+      "scaling_optional": 1,
+      "scaling_blocks": 1
+    },
+    "method": "Each PDF inspected through a 140-dpi Poppler rendering. The separate PNG layouts for the first three figures were also inspected; scaling PNG/SVG/PDF share their layout. All six SVGs parse as XML.",
+    "visual_findings": "Legible labels and legends, with no clipping or overlap found.",
+    "renders": "tmp/collection-20261024/pdf-review"
+  },
+  "figures": [
+    "figures/single_runtime.png",
+    "figures/single_runtime.svg",
+    "figures/single_runtime.pdf",
+    "figures/batch_runtime.png",
+    "figures/batch_runtime.svg",
+    "figures/batch_runtime.pdf",
+    "figures/memory_peak.png",
+    "figures/memory_peak.svg",
+    "figures/memory_peak.pdf",
+    "figures/scaling_required.png",
+    "figures/scaling_required.svg",
+    "figures/scaling_required.pdf",
+    "figures/scaling_optional.png",
+    "figures/scaling_optional.svg",
+    "figures/scaling_optional.pdf",
+    "figures/scaling_blocks.png",
+    "figures/scaling_blocks.svg",
+    "figures/scaling_blocks.pdf"
+  ],
+  "script_sha256": {
+    "benchmark_scaling.py": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
+    "build_pdf.py": "d8a1f6b1f4132aab24c21984143743830168101214c04df9220e1fa49c9fca21",
+    "check_artifact.py": "22d75e8ff7f5c9ba532ea67ec785cb2a138b7f0943145dbe9ec7fc640f73b455",
+    "check_arxiv_html.py": "bc3894a969d17ac3827e7a7acc89f7a79933f690688b7763db79e90f61fe073e",
+    "compare_optional.py": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+    "narrative.py": "158fab0d2ef08082461b8870bb77809b73882d5a784282c9c58dd3c684b64cfc",
+    "plot_scaling.py": "e52b2741e9d678e5ab859d27c789e25c5fa9da8d3d0e90a5e70d59404ffbbdf3",
+    "record_runtime.py": "03a1771bb74fdc41724056c675bc890439cdeda69cfd4808f814ccbadb9e2a39",
+    "report_results.py": "c1726e2b7a18f13a648d0328c734eb8d702c9b2c235d04728f47a4fd1103150c",
+    "rerun_measurements.py": "21ce3e91f860c62504f91ae6e6a0919068483f0a190e81c257d6e16ca6702118",
+    "run_experiments.py": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+    "update_manuscript_tables.py": "822cae7277ba973a3df8d5a2f514c062914d9f3bf0422d29dc10863f392660ce",
+    "validate_release.py": "6c8d72f9e7284f19376e8a44c935c6fe675fad31fc3975cea710d99576347403"
+  },
+  "deferred": [
+    "Python 3.11.17 experiments and comparison figure",
+    "Manuscript tables/text and arXiv rebuild",
+    "Full paper/data consistency check after the manuscript is updated"
+  ]
+}

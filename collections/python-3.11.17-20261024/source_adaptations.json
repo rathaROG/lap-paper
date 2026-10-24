@@ -1,0 +1,116 @@
+{
+  "run_experiments.py": {
+    "original_sha256": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+    "collection_sha256": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+    "adaptations": []
+  },
+  "compare_optional.py": {
+    "original_sha256": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+    "collection_sha256": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+    "adaptations": []
+  },
+  "benchmark_scaling.py": {
+    "original_sha256": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
+    "collection_sha256": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
+    "adaptations": []
+  },
+  "record_runtime.py": {
+    "original_sha256": "03a1771bb74fdc41724056c675bc890439cdeda69cfd4808f814ccbadb9e2a39",
+    "collection_sha256": "92c3f064baa460b9c7e37990ed51d9a3df4d0306fc0f29563953bad9414dce91",
+    "adaptations": [
+      [
+        "PAPER.parent / distribution",
+        "PAPER.parents[2] / distribution"
+      ]
+    ]
+  },
+  "validate_release.py": {
+    "original_sha256": "6c8d72f9e7284f19376e8a44c935c6fe675fad31fc3975cea710d99576347403",
+    "collection_sha256": "a19dd944b14143fc656692475f7640c37cf6d67a4635e3cc1dc1515db5edbe34",
+    "adaptations": [
+      [
+        "ROOT = PAPER.parent",
+        "ROOT = PAPER.parents[2]"
+      ],
+      [
+        "    shutil.rmtree(neutral, ignore_errors=True)",
+        "    resolved = neutral.resolve()\n    assert resolved.parent == Path(tempfile.gettempdir()).resolve() and resolved.name.startswith(\"paper-validation-\")\n    shutil.rmtree(resolved, ignore_errors=True)"
+      ]
+    ]
+  },
+  "rerun_measurements.py": {
+    "original_sha256": "21ce3e91f860c62504f91ae6e6a0919068483f0a190e81c257d6e16ca6702118",
+    "collection_sha256": "21ce3e91f860c62504f91ae6e6a0919068483f0a190e81c257d6e16ca6702118",
+    "adaptations": []
+  },
+  "check_artifact.py": {
+    "original_sha256": "22d75e8ff7f5c9ba532ea67ec785cb2a138b7f0943145dbe9ec7fc640f73b455",
+    "collection_sha256": "22d75e8ff7f5c9ba532ea67ec785cb2a138b7f0943145dbe9ec7fc640f73b455",
+    "adaptations": []
+  },
+  "report_results.py": {
+    "original_sha256": "c1726e2b7a18f13a648d0328c734eb8d702c9b2c235d04728f47a4fd1103150c",
+    "collection_sha256": "c1726e2b7a18f13a648d0328c734eb8d702c9b2c235d04728f47a4fd1103150c",
+    "adaptations": []
+  },
+  "build_pdf.py": {
+    "original_sha256": "d8a1f6b1f4132aab24c21984143743830168101214c04df9220e1fa49c9fca21",
+    "collection_sha256": "d8a1f6b1f4132aab24c21984143743830168101214c04df9220e1fa49c9fca21",
+    "adaptations": []
+  },
+  "plot_scaling.py": {
+    "original_sha256": "e52b2741e9d678e5ab859d27c789e25c5fa9da8d3d0e90a5e70d59404ffbbdf3",
+    "collection_sha256": "e52b2741e9d678e5ab859d27c789e25c5fa9da8d3d0e90a5e70d59404ffbbdf3",
+    "adaptations": []
+  },
+  "run_extended_experiments.py": {
+    "original_sha256": "e18e805c87cd5d6cadb10a9ce531d13c0ca7be27028d71271accf6888cda8840",
+    "collection_sha256": "8747c46324c2ac9143da3635be8cbacae1664a430102e56cce4592a7a3a69ea5",
+    "adaptations": [
+      [
+        "(3, 14, 9)",
+        "(3, 11, 17)"
+      ],
+      [
+        "Python 3.14.9",
+        "Python 3.11.17"
+      ],
+      [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "C:\\dev\\exc\\python\\p311\\python.exe"
+      ],
+      [
+        "    paths = [PAPER / name for name in (\"manuscript.md\", \"references.bib\", \"README.md\", \"ARXIV.md\")]",
+        "    paths = []  # Original paper and both 3.14 collections are protected by the outer collection manifest."
+      ]
+    ]
+  },
+  "check_extended_results.py": {
+    "original_sha256": "a2b622f1a14eeb322fb0be8f4fa2af349fb9b023b59ee8bdf0364a532a96785a",
+    "collection_sha256": "9a2c980314d78e206531f7ce8452ba26732af0cece9084b39b3a9ef8819466fc",
+    "adaptations": [
+      [
+        "3.14.9 ",
+        "3.11.17 "
+      ],
+      [
+        "C:\\dev\\exc\\python\\p314\\python.exe",
+        "C:\\dev\\exc\\python\\p311\\python.exe"
+      ],
+      [
+        "python_3_11_run=False",
+        "python_3_11_run=True"
+      ]
+    ]
+  },
+  "plot_extended_results.py": {
+    "original_sha256": "9724abafee672acc56b7caa72831eb3625364666ec693dcaeedcbe42f306d438",
+    "collection_sha256": "1297b13465126a72d9dd871425563a67325b65031ae40ac3f0202fc9bdb3a743",
+    "adaptations": [
+      [
+        "preserved Python 3.14 results",
+        "Python 3.11.17 base results"
+      ]
+    ]
+  }
+}

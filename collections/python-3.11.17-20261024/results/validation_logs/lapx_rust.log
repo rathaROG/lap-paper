@@ -1,0 +1,38 @@
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.15
+   Compiling cc v1.9.0
+   Compiling lapjvr-core v0.1.0 (D:\DEV\phd\all_pyppbox\new2\lapx\src\_lapjvr)
+    Finished `release` profile [optimized] target(s) in 5.06s
+     Running unittests src\lib.rs (C:\Users\ratha\AppData\Local\Temp\paper-validation-q899b75c\cargo-target\release\deps\lapjvr_core-e261710b0cf9ec03.exe)
+
+running 21 tests
+test ffi::tests::auto_estimate_handles_overflow_orientation_and_singleton_batches ... ok
+test ffi::tests::dense_conflicts_bypass_square_initialization_without_new_cost_storage ... ok
+test ffi::tests::auto_worker_releases_oversized_orientation_and_linear_scratch ... ok
+test rectangular::tests::rectangular_storage_is_linear_and_recovers_after_error ... ok
+test ffi::tests::worker_pool_cache_reuses_entries_and_keeps_evicted_pools_usable ... ok
+test tests::infeasible_then_reuse_and_singleton_large_cost ... ok
+test ffi::tests::ordinary_rectangles_do_not_allocate_a_square_cost_matrix ... ok
+test rectangular::tests::optional_minima_preserve_order_and_unmatched_ties ... ok
+test ffi::tests::finite_limits_do_not_allocate_dummy_costs_or_assignments ... ok
+test tests::conflicting_blocks_primal_dual_certificate ... ok
+test tests::grouped_square_minima_match_full_precision_scan ... ok
+test tests::larger_square_primal_dual_certificate ... ok
+test cpp_completion::tests::mixed_completion_preserves_f32_primal_dual_state ... ok
+test rectangular::tests::rectangular_optimum_and_dual_certificate ... ok
+test ffi::tests::worker_pools_honor_counts_above_eight_and_cap_at_batch_size ... ok
+test cpp_completion::tests::mixed_completion_preserves_f64_primal_dual_state ... ok
+test rectangular::tests::large_near_square_and_dispatch_boundary_duals ... ok
+test rectangular::tests::bounded_optional_square_primal_dual_certificates ... ok
+test tests::seeded_ties_negative_and_forbidden_against_enumeration ... ok
+test tests::heterogeneous_rows_primal_dual_certificate ... ok
+test rectangular::tests::optional_optimum_and_dual_certificate ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests lapjvr_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

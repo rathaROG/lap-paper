@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-10-24T00:57:10.085107+00:00",
+  "pdf_pages": {
+    "single_runtime": 1,
+    "batch_runtime": 1,
+    "memory_peak": 1,
+    "scaling_required": 1,
+    "scaling_optional": 1,
+    "scaling_blocks": 1
+  },
+  "method": "Each PDF inspected through a 140-dpi Poppler rendering. The separate PNG layouts for the first three figures were also inspected; scaling PNG/SVG/PDF share their layout. All six SVGs parse as XML.",
+  "visual_findings": "Legible labels and legends, with no clipping or overlap found.",
+  "renders": "tmp/collection-20261024/pdf-review"
+}

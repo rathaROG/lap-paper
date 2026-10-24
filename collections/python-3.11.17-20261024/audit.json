@@ -1,0 +1,247 @@
+{
+  "status": "passed",
+  "audited_utc": "2026-10-24T02:28:33.285306+00:00",
+  "scope": "Completed Python 3.11.17 measurements; manuscript claims and arXiv build remain deferred.",
+  "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\dev\\exc\\python\\p311\\python.exe",
+  "packages": {
+    "lapx": "0.11.1",
+    "lapcpp": "1.0.0",
+    "laprust": "1.0.0"
+  },
+  "dependencies": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "previous_dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "base_suites": {
+    "single": {
+      "samples": 756,
+      "settings": 84
+    },
+    "batch": {
+      "samples": 270,
+      "settings": 30
+    },
+    "formulations": {
+      "samples": 450,
+      "settings": 50
+    },
+    "scaling": {
+      "samples": 2718,
+      "settings": 302
+    }
+  },
+  "extended": {
+    "status": "passed",
+    "audited_utc": "2026-10-24T02:28:33.211817+00:00",
+    "timing_cases": 132,
+    "timing_samples": 4752,
+    "complete_method_settings": 528,
+    "timed_input_objective_checks": 2112,
+    "memory_trials": 405,
+    "memory_conditions": 81,
+    "edge_instances": 23,
+    "edge_solver_checks": 129,
+    "expected_infeasible_checks": 15,
+    "existing_files_unchanged": 35,
+    "python_3_11_run": true,
+    "paper_updated": false,
+    "figures": 13,
+    "paired_ratio_summaries_checked": 68,
+    "exclusions": [],
+    "cpu_monitor_samples": 663,
+    "median_outside_cpu0_3_percent": 1.24,
+    "scope": "Data, paired inputs, summaries, provenance and preservation. The unchanged manuscript is not checked against the new measurements."
+  },
+  "total_timing_samples": 8946,
+  "total_memory_trials": 415,
+  "enumeration_solver_calls": 27320,
+  "batch_outputs_checked": 11040,
+  "package_suites": {
+    "lapx_python": {
+      "exit_code": 0,
+      "seconds": 48.77769420000004,
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        2704
+      ]
+    },
+    "lapcpp_python": {
+      "exit_code": 0,
+      "seconds": 26.196108099999947,
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1167
+      ]
+    },
+    "laprust_python": {
+      "exit_code": 0,
+      "seconds": 26.41652950000025,
+      "command": [
+        "C:\\dev\\exc\\python\\p311\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests",
+        "--run-cross-package",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_editable_install.py",
+        "--ignore=D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\tests\\test_setup.py"
+      ],
+      "reported_pass_counts": [
+        1167
+      ]
+    },
+    "laprust_rust": {
+      "exit_code": 0,
+      "seconds": 6.074523000000227,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--manifest-path",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\laprust\\src\\_lapjv\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        24,
+        0
+      ]
+    },
+    "lapx_rust": {
+      "exit_code": 0,
+      "seconds": 5.154907799999819,
+      "command": [
+        "cargo",
+        "test",
+        "--release",
+        "--locked",
+        "--all-features",
+        "--manifest-path",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapx\\src\\_lapjvr\\Cargo.toml"
+      ],
+      "reported_pass_counts": [
+        21,
+        0
+      ]
+    },
+    "lapcpp_native_configure": {
+      "exit_code": 0,
+      "seconds": 1.974722699999802,
+      "command": [
+        "cmake",
+        "-S",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lapcpp\\tests\\native",
+        "-B",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-q899b75c\\lapcpp-native"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native_build": {
+      "exit_code": 0,
+      "seconds": 1.514757400000235,
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-q899b75c\\lapcpp-native",
+        "--config",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    },
+    "lapcpp_native": {
+      "exit_code": 0,
+      "seconds": 0.04107990000011341,
+      "command": [
+        "ctest",
+        "--test-dir",
+        "C:\\Users\\ratha\\AppData\\Local\\Temp\\paper-validation-q899b75c\\lapcpp-native",
+        "-C",
+        "Release"
+      ],
+      "reported_pass_counts": []
+    }
+  },
+  "harness_tests_passed": 17,
+  "same_input_hashes_as_python314": {
+    "formulations": 40,
+    "scaling": 188,
+    "extended_timing": 528,
+    "extended_memory_trials": 405,
+    "batches": 3
+  },
+  "base_cpu_monitor": {
+    "baseline": {
+      "samples": 2,
+      "median_outside_cpu0_3_percent": 0.96
+    },
+    "main": {
+      "samples": 48,
+      "median_outside_cpu0_3_percent": 0.2575
+    },
+    "optional": {
+      "samples": 14,
+      "median_outside_cpu0_3_percent": 0.22999999999999998
+    },
+    "scaling": {
+      "samples": 760,
+      "median_outside_cpu0_3_percent": 0.23500000000000001
+    }
+  },
+  "same_method_order_as_python314": [
+    "single",
+    "batch",
+    "formulations",
+    "scaling",
+    "extended"
+  ],
+  "previous_files_unchanged": 863,
+  "paper_updated": false,
+  "figures_reviewed": [
+    "single_runtime",
+    "batch_runtime",
+    "memory_peak",
+    "scaling_required",
+    "scaling_optional",
+    "scaling_blocks",
+    "large_square",
+    "large_rectangles",
+    "extreme_rectangles",
+    "structure_required",
+    "structure_optional",
+    "signed_orientation",
+    "rejection_sweep",
+    "memory_sweeps",
+    "focused_existing_cases",
+    "formulation_speedup",
+    "focused_existing_scaling",
+    "focused_existing_blocks",
+    "large_implementation_ratios"
+  ],
+  "caveat": "Separate environment runs, with different NumPy/SciPy versions and native wheels. Differences cannot be attributed to Python version alone."
+}

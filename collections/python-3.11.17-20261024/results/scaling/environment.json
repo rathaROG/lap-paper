@@ -1,0 +1,114 @@
+{
+  "recorded_utc": "2026-10-24T02:01:08.642500+00:00",
+  "python": "3.11.17 (main, Oct 24 2026, 01:38:37) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "cpu": "13th Gen Intel(R) Core(TM) i9-13900KS",
+  "logical_cpus": 24,
+  "physical_cpus": 16,
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "packages": {
+    "lapx": {
+      "version": "0.11.1",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap"
+    },
+    "lapcpp": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp"
+    },
+    "laprust": {
+      "version": "1.0.0",
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust"
+    }
+  },
+  "single_affinity": [
+    0
+  ],
+  "batch_affinity": [],
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+      "version": "0.3.30",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "seed": 20261021,
+  "rounds": 9,
+  "instances_per_single_case": 4,
+  "target_block_seconds": 0.03,
+  "experiment_sha256": "c083c4572486dbb5207a1b725d245c68021dd52fe65f1a081426490d0b15f2d2",
+  "native_modules": {
+    "laprust._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\laprust\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "819bc8ba75152a9a4560d1f2bea02ee2660a5eecadbdf7eabe092e88af76eeb5"
+    },
+    "lapcpp._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lapcpp\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "f92438bc4cd4822cbcde36c993a12bc460bf4e9f670b1e642ec75201a63f8e97"
+    },
+    "lap._lapjv_rh": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv_rh.cp311-win_amd64.pyd",
+      "sha256": "48d367f99f293e2966e0cb05f3ae70ae5d12960b557c577694ad704b474111e5"
+    },
+    "lap._lapjv": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjv.cp311-win_amd64.pyd",
+      "sha256": "a6896ba6f460096ac1f3782fabca33b77aa47e3d6c26015e7201541e4b84106c"
+    },
+    "lap._lapjvx": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvx.cp311-win_amd64.pyd",
+      "sha256": "9abc5850a345d345e561c9e20fd304ea18e2e8b9adbaa6e37e135fd5f97fd351"
+    },
+    "lap._lapjvs": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvs.cp311-win_amd64.pyd",
+      "sha256": "452315605c87794211af85b4acaf97b6e7fc05dff900012b306171b2ac92ad4f"
+    },
+    "lap._lapjvc": {
+      "path": "C:\\dev\\exc\\python\\p311\\Lib\\site-packages\\lap\\_lapjvc.cp311-win_amd64.pyd",
+      "sha256": "5df7fc8db6904fa3243e697d2fd194703000f4ecb9b33ef529253ac4438b6cdb"
+    }
+  },
+  "status": "completed",
+  "scaling_script_sha256": "d49d38972ebdafc62f4ce75697b9028d2ed444aff87a0c7f91956b503ac0e7e5",
+  "optional_script_sha256": "70f42c0a9654d74a764ef81e122ed51bf17584c9141abeac5d46a3f3b0db3f50",
+  "input_seed": 20261222,
+  "order_seed": 20261223,
+  "planned_cases": 47,
+  "required_methods": [
+    "jvrust",
+    "jvhybrid",
+    "jvcpp",
+    "jvx",
+    "jvs",
+    "jvc",
+    "scipy"
+  ],
+  "optional_methods": [
+    "jvrust",
+    "jvcpp",
+    "jvx",
+    "scipy_square",
+    "scipy_dummies",
+    "scipy_capped"
+  ],
+  "costs": "Independent U[0,1); no forbidden entries; block cases add 3 to competing blocks.",
+  "scope": "Separate paired scaling run; fixed grid, all adapters and int64 output work included.",
+  "elapsed_seconds": 759.1997314999999,
+  "completed_cases": 47,
+  "objective_checks": 1208,
+  "timing_samples": 2718
+}

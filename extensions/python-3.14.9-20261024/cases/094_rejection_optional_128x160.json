@@ -1,0 +1,533 @@
+{
+  "spec": {
+    "family": "rejection",
+    "n": 128,
+    "m": 160,
+    "regime": "optional",
+    "limit": 0.02,
+    "input_key": "rejection_uniform_128x160",
+    "distribution": "uniform",
+    "forbidden": 0.5,
+    "case": "094_rejection_optional_128x160"
+  },
+  "status": "completed",
+  "started_utc": "2026-10-24T01:35:01.690954+00:00",
+  "samples": [
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 0,
+      "position": 0,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8441.483516483517
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 0,
+      "position": 1,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188038.46153846153
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 0,
+      "position": 2,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 85734.88372093023
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 0,
+      "position": 3,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6703.95256916996
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 1,
+      "position": 0,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6701.910408432148
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 1,
+      "position": 1,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8420.260989010989
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 1,
+      "position": 2,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84048.54651162791
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 1,
+      "position": 3,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 210275.0
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 2,
+      "position": 0,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6708.596837944664
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 2,
+      "position": 1,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84149.12790697675
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 2,
+      "position": 2,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188535.2564102564
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 2,
+      "position": 3,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8393.23489010989
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 3,
+      "position": 0,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 83880.81395348837
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 3,
+      "position": 1,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8433.756868131868
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 3,
+      "position": 2,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6698.320158102767
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 3,
+      "position": 3,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 187992.94871794872
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 4,
+      "position": 0,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84041.27906976744
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 4,
+      "position": 1,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188673.71794871794
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 4,
+      "position": 2,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6687.417654808959
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 4,
+      "position": 3,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8404.567307692309
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 5,
+      "position": 0,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188565.38461538462
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 5,
+      "position": 1,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84057.26744186046
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 5,
+      "position": 2,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8384.718406593407
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 5,
+      "position": 3,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6681.686429512516
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 6,
+      "position": 0,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6685.046113306983
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 6,
+      "position": 1,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188160.89743589744
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 6,
+      "position": 2,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8409.512362637362
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 6,
+      "position": 3,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84760.46511627907
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 7,
+      "position": 0,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 84185.17441860466
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 7,
+      "position": 1,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6774.604743083004
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 7,
+      "position": 2,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 8397.39010989011
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 7,
+      "position": 3,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 188351.28205128206
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "round": 8,
+      "position": 0,
+      "instances": 4,
+      "cycles": 728,
+      "nanoseconds": 9040.281593406593
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "round": 8,
+      "position": 1,
+      "instances": 4,
+      "cycles": 86,
+      "nanoseconds": 100225.58139534884
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "round": 8,
+      "position": 2,
+      "instances": 4,
+      "cycles": 759,
+      "nanoseconds": 6967.226613965744
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "round": 8,
+      "position": 3,
+      "instances": 4,
+      "cycles": 39,
+      "nanoseconds": 186436.53846153847
+    }
+  ],
+  "checks": [
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "instance": 0,
+      "pairs": 83,
+      "objective": 1.8083672104470072,
+      "reference_objective": 1.8083672104470072
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "instance": 1,
+      "pairs": 84,
+      "objective": 1.8523991768332673,
+      "reference_objective": 1.8523991768332673
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "instance": 2,
+      "pairs": 93,
+      "objective": 1.692841687553647,
+      "reference_objective": 1.692841687553647
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvrust",
+      "instance": 3,
+      "pairs": 83,
+      "objective": 1.8541276746799384,
+      "reference_objective": 1.8541276746799384
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "instance": 0,
+      "pairs": 83,
+      "objective": 1.8083672104470072,
+      "reference_objective": 1.8083672104470072
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "instance": 1,
+      "pairs": 84,
+      "objective": 1.8523991768332673,
+      "reference_objective": 1.8523991768332673
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "instance": 2,
+      "pairs": 93,
+      "objective": 1.692841687553647,
+      "reference_objective": 1.692841687553647
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "jvcpp",
+      "instance": 3,
+      "pairs": 83,
+      "objective": 1.8541276746799384,
+      "reference_objective": 1.8541276746799384
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "instance": 0,
+      "pairs": 83,
+      "objective": 1.8083672104470072,
+      "reference_objective": 1.8083672104470072
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "instance": 1,
+      "pairs": 84,
+      "objective": 1.8523991768332673,
+      "reference_objective": 1.8523991768332673
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "instance": 2,
+      "pairs": 93,
+      "objective": 1.692841687553647,
+      "reference_objective": 1.692841687553647
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_capped",
+      "instance": 3,
+      "pairs": 83,
+      "objective": 1.8541276746799384,
+      "reference_objective": 1.8541276746799384
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "instance": 0,
+      "pairs": 83,
+      "objective": 1.8083672104470072,
+      "reference_objective": 1.8083672104470072
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "instance": 1,
+      "pairs": 84,
+      "objective": 1.8523991768332673,
+      "reference_objective": 1.8523991768332673
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "instance": 2,
+      "pairs": 93,
+      "objective": 1.692841687553647,
+      "reference_objective": 1.692841687553647
+    },
+    {
+      "case": "094_rejection_optional_128x160",
+      "solver": "scipy_dummies",
+      "instance": 3,
+      "pairs": 83,
+      "objective": 1.8541276746799384,
+      "reference_objective": 1.8541276746799384
+    }
+  ],
+  "methods": {
+    "jvrust": {
+      "status": "completed",
+      "probe_ns": 9875.0,
+      "cycles": 759,
+      "projected_timing_seconds": 0.2698245,
+      "validation_and_probe_seconds": 0.0007369000004473492,
+      "measured_seconds": 0.1840652000018963
+    },
+    "jvcpp": {
+      "status": "completed",
+      "probe_ns": 10300.0,
+      "cycles": 728,
+      "projected_timing_seconds": 0.2699424,
+      "validation_and_probe_seconds": 0.0002206999997724779,
+      "measured_seconds": 0.22231400000146095
+    },
+    "scipy_capped": {
+      "status": "completed",
+      "probe_ns": 87625.0,
+      "cycles": 86,
+      "projected_timing_seconds": 0.271287,
+      "validation_and_probe_seconds": 0.0009285000005547772,
+      "measured_seconds": 0.2666853999999148
+    },
+    "scipy_dummies": {
+      "status": "completed",
+      "probe_ns": 192875.0,
+      "cycles": 39,
+      "projected_timing_seconds": 0.2707965,
+      "validation_and_probe_seconds": 0.001723399999718822,
+      "measured_seconds": 0.26760429999922053
+    }
+  },
+  "inputs": [
+    {
+      "instance": 0,
+      "sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+      "canonical_sha256": "7dd2169eb5b3c6bd125481a2c7556b0d580b9bb064c039a53b37a2ddaeab8ac0",
+      "forbidden_fraction": 0.498046875
+    },
+    {
+      "instance": 1,
+      "sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+      "canonical_sha256": "76c4c31517e96f4a219519c17f0b7cadbfc5df18e1b4eff4c27e645017418a56",
+      "forbidden_fraction": 0.496337890625
+    },
+    {
+      "instance": 2,
+      "sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+      "canonical_sha256": "43ca687d9e29c41b323f047db3ea922f23dfbe3b1c4461b01c9efa239909bd50",
+      "forbidden_fraction": 0.4966796875
+    },
+    {
+      "instance": 3,
+      "sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+      "canonical_sha256": "313e2250dd73686d93f8d19b5b860f20ae39d683ae706feb8c325ff253b059e6",
+      "forbidden_fraction": 0.49755859375
+    }
+  ],
+  "active_method": null,
+  "completed_utc": "2026-10-24T01:35:02.680097+00:00"
+}

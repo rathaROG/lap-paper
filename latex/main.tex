@@ -44,12 +44,12 @@ urlcolor=blue!45!black]{hyperref}
 \title{Native Rectangular Linear Assignment with Implicit Rejection:\\
 A Jonker--Volgenant Solver without Square Expansion}
 \author{Ratha SIV}
-\date{22 October 2026}
+\date{24 October 2026}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Tracking and matching applications often solve rectangular assignment with a uniform penalty for leaving elements unmatched. Widely used tracking code does this through a Jonker--Volgenant interface that embeds the N \ensuremath{\times} M costs in an (N+M)-square matrix: for 256 rows and 4096 columns, 144.5 MiB of costs for an 8 MiB problem. We describe a Jonker--Volgenant implementation that keeps the real matrix and represents rejection inside its shortest-path search by a constant-size terminal, one distance and one predecessor row. Building on established rectangular and optional-assignment formulations, we derive the one-sided objective it optimizes and the primal-dual certificate it satisfies. Rust (JVRUST), hybrid Rust/C++ (JVHYBRID), and C++ (JVCPP) implementations with native batching agree with exhaustive enumeration and are compared with expanded solvers and with an exact capped-cost SciPy formulation on the original dimensions. On one Intel/Windows system, a 128 \ensuremath{\times} 160 finite-limit problem takes 15.6 microseconds with JVRUST, 139.1 with SciPy on capped costs of the original dimensions, and 476.7 with square-expanded SciPy. JVRUST is faster than capped SciPy in nine of ten finite-limit formulation cases, but capped SciPy is 2.4 times faster on a congested-block case and leads at larger sizes in that congested family. Native batching reduces whole-batch latency, by 5.2 times against a Python loop for 1024 small problems with four workers. The results show where the implementation improves on existing interfaces and where cost structure favors the alternatives.
+Tracking and matching applications often solve rectangular assignment with a uniform penalty for leaving elements unmatched. Widely used tracking interfaces embed the N \ensuremath{\times} M costs in an (N+M)-square matrix: for 256 rows and 4096 columns, 144.5 MiB of costs for an 8 MiB problem. We describe a Jonker--Volgenant implementation that keeps the real matrix and represents rejection inside its shortest-path search by one terminal distance and one predecessor row. Building on established rectangular and optional-assignment formulations, we derive the one-sided objective and its primal-dual certificate. Rust, hybrid Rust/C++, and C++ implementations with native batching agree with exhaustive enumeration and are compared with expanded solvers and an exact capped-cost SciPy formulation. Two environments, Python 3.14.9 and 3.11.17 on one Intel/Windows host, each provide 8,946 timing samples across 204 cases, including 5000-square matrices, extreme aspect ratios, structured costs, and rejection sweeps. JVRUST beats capped SciPy in the same nine of ten formulation cases; each native Rust/C++ implementation preserves its ordering against the relevant SciPy baseline in all 201 non-batch cases. Congestion remains a counterexample: capped SciPy is about 9.4 and 9.1 times faster at 1024 \ensuremath{\times} 1280. Small-problem batching improves latency by 5.1 and 4.7 times with four workers. Repeated memory measurements confirm the cost of square expansion and an orientation-dependent native footprint. These results characterize particular implementations and software environments; they do not isolate a Python-version or programming-language effect.
 \end{abstract}
 \noindent{\small \textbf{Keywords:} linear assignment; Jonker--Volgenant; rectangular matching; implicit rejection; rejection penalties; research software; Rust; C++; Python}
 
@@ -70,7 +70,7 @@ The paper makes four contributions.
 \item \textbf{Derivation.} A self-contained derivation of the uniform-penalty objective in one-sided form and of the primal-dual certificate the solver satisfies, related to established optional-assignment formulations (Section 3).
 \item \textbf{Implementation.} A Jonker--Volgenant solver that combines rectangular reductions with a rejection terminal stored as one distance and one predecessor row, linear solver state on suitable wide input, the threshold arguments of \texttt{lap.lapjv}, and native batch workers (Section 4).
 \item \textbf{Baseline evaluation.} Comparison with an exact capped-cost formulation on the original dimensions, a specialization of established outsourcing and error-correction reductions \cite{bougleux2020,bijsterbosch2010}, alongside expanded formulations (Sections 3.5 and 6.5).
-\item \textbf{Empirical characterization.} Rust, hybrid Rust/C++, and C++ implementations measured under one build environment, covering batching, memory, size scaling, and the workloads where SciPy is faster (Sections 6 and 7).
+\item \textbf{Empirical characterization.} Rust, hybrid Rust/C++, and C++ implementations measured in two Python environments on one host, covering batching, repeated memory trials, large and extreme shapes, structured costs, rejection sweeps, and workloads where SciPy is faster (Sections 6 and 7).
 \end{itemize}
 
 Section 2 positions the solver among existing methods and interfaces. Section 3 formulates the problem and proves the reformulations, and Section 4 describes the implementation. Sections 5 and 6 present the experimental design and results, Section 7 discusses what they imply for practitioners, and Section 8 lists the limitations.
@@ -268,8 +268,8 @@ Each implementation consists of a thin Python extension and a native core. The e
 \toprule
 \textbf{Label} & \textbf{Main core} & \textbf{Square completion} & \textbf{Distribution} \\
 \midrule
-JVRUST & Rust & Rust & laprust 1.0.0 \cite{laprust2026}; LAPX 0.11.0 \texttt{lapjvr} \cite{lapx2026} \\
-JVHYBRID & Rust & C++ & LAPX 0.11.0 \texttt{lapjvh} \cite{lapx2026} \\
+JVRUST & Rust & Rust & laprust 1.0.0 \cite{laprust2026}; LAPX 0.11.1 \texttt{lapjvr} \cite{lapx2026} \\
+JVHYBRID & Rust & C++ & LAPX 0.11.1 \texttt{lapjvh} \cite{lapx2026} \\
 JVCPP & C++ & C++ & lapcpp 1.0.0 \cite{lapcpp2026} \\
 \bottomrule
 \end{tabularx}
@@ -342,13 +342,13 @@ All timed methods return int64 pair arrays and omit total-cost calculation. Pair
 
 \subsection{Software and environment}
 
-The experiments evaluate the release sources of LAPX 0.11.0, lapcpp 1.0.0, and laprust 1.0.0, built as wheels with each package's default build settings and installed into one environment. A runtime record captures each package version, wheel hash, and native-binary hash; every timed experiment verifies that it measured the same binaries. Experiments were run on 22 October 2026.
+The experiments evaluate installed PyPI releases LAPX 0.11.1, lapcpp 1.0.0, and laprust 1.0.0 in two separately prepared environments. Python 3.14.9 uses NumPy 2.5.4 and SciPy 1.18.1; Python 3.11.17 uses NumPy 2.4.6 and SciPy 1.17.1. Runtime records preserve installed package metadata and native-binary hashes, and each suite verifies its binary identities. The measurements were collected on 24 October 2026. The main tables and runtime figures report Python 3.14.9 unless explicitly stated otherwise; Section 6.10 and Appendix A compare the complete Python 3.11.17 replication.
 
-The host reported an Intel Core i9-13900KS, 16 physical cores and 24 logical processors available to the operating system, and Windows build 26300. Python was 3.14.9, NumPy 2.5.4, SciPy 1.18.1, and Rust 1.99.1. C++ code was compiled with MSVC tools 14.44.35207 in /std:c++17 mode, except LAPX's JVS extension, which uses /std:c++latest; portable optimization and link-time optimization were enabled, and native CPU tuning and fast-math options were disabled. In preliminary checks, the C++ language mode alone changed JVCPP's rectangular timings by up to about one third under this compiler, so compiler settings are part of the evaluated configuration.
+Both environments used the same Intel Core i9-13900KS host, with 16 physical cores and 24 logical processors reported as available to the operating system, on Windows build 26300. These are installed release binaries, not a controlled compiler experiment. Recorded source checkouts support package and native tests; they do not by themselves establish every build flag of a downloaded wheel. The former locally built wheel measurements are not used in this revision.
 
-Single-matrix timings were restricted to logical CPU 0. Batch timings were restricted to logical CPUs 0--3, with either one or four requested native workers. Four logical processors are not treated as four physical cores. BLAS/OpenMP pools visible to threadpoolctl were limited to one thread. Clock frequency, turbo behavior, and all external host activity were not fixed.
+Single-matrix timings were restricted to logical CPU 0. Batch timings were restricted to logical CPUs 0--3, with one or four requested native workers. Four logical processors are not treated as four physical cores. BLAS/OpenMP pools visible to threadpoolctl were limited to one thread. CPU frequency, turbo behavior, and external activity were not fixed.
 
-All single-matrix, batch, memory, formulation, and scaling measurements were run sequentially in one session. One-second per-logical-CPU utilization samples are archived with the run manifest; this monitoring is descriptive and does not establish full host isolation or fixed clock frequency.
+The base and extension suites ran sequentially within each environment, in separate collection sessions. Per-logical-CPU utilization samples accompany the runs. Inputs, seeds, adapter semantics, method order, and repetition counts match across environments. NumPy, SciPy, native wheels, and session state also differ, so cross-environment differences cannot be attributed to the Python interpreter alone.
 
 \subsection{Equivalent objectives and output work}
 
@@ -380,7 +380,7 @@ In addition, the installed packages are tested against their own test suites, an
 
 Memory measurements use one fresh process for each method and condition. After imports and a small warmup solve, a contiguous 256 \ensuremath{\times} 4096 float64 input is created and touched by generation. Windows process counters record the working set and its high-water mark immediately before and after the solve.
 
-The reported additional peak is the increase in the process high-water mark above the input-prepared baseline. It is not an allocation count or total process memory. These measurements use one trial per condition and are descriptive; they are complemented by the exact transformed-matrix size calculation.
+The reported additional peak is the increase in the process high-water mark above the input-prepared baseline. It is not an allocation count or total process memory. The original measurements use one trial per condition and are descriptive. Section 5.8 adds five fresh-process trials per condition across a size and orientation sweep, alongside exact transformed-matrix size calculations.
 
 \subsection{Implicit rejection against compact formulations}
 
@@ -400,6 +400,26 @@ Required curves compare all seven solvers. Finite-limit curves compare JVRUST, J
 
 The horizontal coordinate is the sum \(N+M\) of the original dimensions, not the number of matrix entries or the expanded problem order. Curves connect measured medians; bands and error bars show timing-round interquartile ranges. Both axes are logarithmic in the right panels. No extrapolation or fitted complexity exponent is used. Identical \(N+M\) values from different shape families need not represent equal input storage or equivalent problems.
 
+\subsection{Larger inputs, special cases, and repeated memory measurements}
+
+An additional predeclared grid contains 132 timing cases, 528 method/case settings, and 4,752 timing samples per environment. Large squares have orders 1000, 2000, 3000, and 5000. Large rectangles have shapes 1000 \ensuremath{\times} 2000, 2000 \ensuremath{\times} 3000, and 4000 \ensuremath{\times} 5000, together with their exact transposes. Extreme rectangles pair 64 rows with 4096, 8192, or 16384 columns, again in both orientations. Costs are uniform [0,1); finite-limit large and extreme cases use \(L=2/\max(N,M)\). This size-dependent limit is distinct from the fixed \(L=0.5\) base scaling experiment.
+
+Structured sweeps use 256 \ensuremath{\times} 320 and 512 \ensuremath{\times} 640 inputs. Congestion varies the fraction of rows competing for the first quarter of columns over 0.25, 0.5, 0.625, 0.75, and 0.9, with an off-block increment of 3. Forbidden-entry probabilities are 0, 0.5, 0.9, and 0.99; a finite diagonal is planted to guarantee required feasibility. Tied costs use 1, 2, 8, or 256 quantization levels. Their finite limits are 0.5 for congestion, \(2/M\) for forbidden entries, and 0.25 for ties. Signed costs use uniform [-1,1), 50\% nominal forbidden entries and a finite feasible diagonal on 256 \ensuremath{\times} 320 and its transpose, with \(L=-0.25\) for finite-limit assignment.
+
+Rejection sweeps use 128 \ensuremath{\times} 160 and 256 \ensuremath{\times} 320 inputs, either uniform with 50\% forbidden entries or congested without forbidden entries. Eleven limits, 0, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.5, and 4, reuse the same costs within a family. Changing the limit changes the objective, so this experiment does not isolate a causal effect of the rejected fraction. The seed is 20261024, with stable family and instance keys. Runtime transposes use identical costs in transposed orientation. Each case retains four inputs, nine shuffled rounds, and the 30 ms calibration target. Every timed output is validated outside timing, and hashes are checked again to detect input mutation.
+
+The focused required comparison uses JVRUST, JVHYBRID, JVCPP, and native rectangular SciPy; the finite-limit comparison uses JVRUST, JVCPP, capped SciPy, and dummy-column SciPy. JVX, JVS, and JVC are excluded from this extension to keep the larger experiments tractable; the original all-solver comparisons remain in Figures 1--6. Thus a winner in a focused plot means a winner among those selected methods. The declared resource limits are 240 seconds per method/case, 1200 seconds per complete case, and 120 seconds per memory trial. No method was excluded and no measurement failed in either completed extension.
+
+Repeated memory trials use 256 \ensuremath{\times} M for \(M=256\), 512, 1024, 2048, and 4096, plus the nonsquare transposes. Required methods are JVRUST, JVCPP, SciPy, and JVX; finite-limit methods are JVRUST, JVCPP, capped, dummy-column, and square-expanded SciPy at \(L=0.5\). There are 81 conditions and five fresh processes per condition, totaling 405 trials per environment. A small warmup precedes input creation; validation occurs after peak capture. Each shape/trial is paired across methods, while memory orientations use independently generated, distribution-matched arrays to avoid a pre-baseline transpose allocation. Medians and interquartile ranges include process and input variation and are not allocation counts.
+
+Finally, 23 edge fixtures generate 129 solver checks, including 15 expected infeasibility checks. They cover empty dimensions, one row or column, all-forbidden and all-zero costs, costs equal to the rejection limit, signed costs, an isolated infeasible row, and neighboring floating-point values around the limit. The small fixtures use independent exhaustive objectives; tied pair identities need not agree.
+
+\subsection{Cross-environment comparison}
+
+Each environment contributes 994 method/case settings across 204 cases: 12 single-call, three batch, ten formulation, 47 scaling, and 132 extended cases. All 8,946 raw timing samples per environment are retained. The replication checks recorded input hashes and schedules, then independently recalculates medians and quartiles from the samples. It also compares per-input objectives, cardinalities, and repeated-memory summaries.
+
+Ratios in the manuscript divide within-run median times; they do not average ratios from different sessions. Timing rounds are not paired across environments. Some supplementary focused charts summarize within-round paired ratios and are explicitly labeled that way. Interquartile ranges describe the recorded timing rounds or memory trials, not population confidence intervals. The workload grid is designed rather than sampled from applications; no population significance tests or universal interpreter-speed claim are made.
+
 \FloatBarrier
 \section{Results}
 
@@ -407,9 +427,9 @@ The horizontal coordinate is the sum \(N+M\) of the original dimensions, not the
 
 All four solver entry points agree exactly with enumeration on all 16,800 calls: JVRUST through laprust and through LAPX, JVHYBRID, and JVCPP. Eighty calls correspond to infeasible required problems and correctly produce errors. The maximum absolute objective discrepancy on feasible settings is zero. This result applies to the finite grid and shapes described above.
 
-The installed packages pass their own test suites: 2,704 LAPX, 1,271 lapcpp, and 1,271 laprust Python tests, 23 Rust unit tests for laprust and 20 for LAPX's solver core with all features enabled, and lapcpp's native C++ test program. These suites include numeric contract cases, primal-dual certificates, coexistence and concurrency checks, fault injection, and comparisons between completion implementations. They support implementation confidence but do not constitute a proof for arbitrary floating-point inputs or every platform.
+The installed packages pass their own test suites: 2,704 LAPX, 1,167 lapcpp, and 1,167 laprust Python tests, 24 Rust unit tests for laprust and 21 for LAPX's solver core with all features enabled, and lapcpp's native C++ test program. Both environments pass these same suites. These suites include numeric contract cases, primal-dual certificates, coexistence and concurrency checks, fault injection, and comparisons between completion implementations. They support implementation confidence but do not constitute a proof for arbitrary floating-point inputs or every platform.
 
-All 336 single-instance benchmark checks and 11,040 batch-output checks pass. Pair-array equality is not a required outcome in tied problems.
+All 336 single-instance benchmark checks and 11,040 batch-output checks pass in each environment. The extension adds 2,112 timed-input objective checks and 129 edge checks per environment, all passing. Across the formulation, scaling, and extended suites, all 3,520 recorded objectives and match counts agree exactly between environments. Pair-array equality is not a required outcome in tied problems.
 
 \subsection{Single-matrix runtime}
 
@@ -426,24 +446,24 @@ Table 3 reports median microseconds per matrix. Figure 1 shows the same cases wi
 \toprule
 \textbf{Case} & \textbf{JVRUST} & \textbf{JVHYBRID} & \textbf{JVCPP} & \textbf{JVX} & \textbf{JVS} & \textbf{JVC} & \textbf{SciPy} \\
 \midrule
-Square 128 \ensuremath{\times} 128 & 66.00 & 67.99 & 75.03 & 117.85 & 113.44 & 289.92 & 286.09 \\
-Square 512 \ensuremath{\times} 512 & 1154.27 & 1155.28 & 1199.35 & 3469.28 & 3401.31 & 6812.50 & 5562.75 \\
-Wide 64 \ensuremath{\times} 512 & 12.99 & 12.88 & 14.59 & 958.65 & 873.42 & 1939.21 & 89.05 \\
-Tall 512 \ensuremath{\times} 64 & 26.50 & 26.24 & 84.45 & 967.06 & 887.39 & 1911.43 & 172.49 \\
-Rectangle 256 \ensuremath{\times} 320 & 80.50 & 80.28 & 85.75 & 190.42 & 185.61 & 4698.29 & 596.42 \\
-Blocks 256 \ensuremath{\times} 320 & 9704.65 & 9653.83 & 10871.62 & 10164.90 & 10145.95 & 6484.25 & 1540.40 \\
-Ties 128 \ensuremath{\times} 160 & 50.83 & 58.11 & 58.91 & 60.32 & 57.43 & 95.20 & 78.02 \\
-128 \ensuremath{\times} 160, \(L=0.5\) & 14.95 & 15.33 & 25.16 & 526.17 & 431.37 & 2442.30 & 464.23 \\
-256 \ensuremath{\times} 320, \(L=0.5\) & 72.35 & 69.87 & 86.90 & 3615.47 & 2895.25 & 16191.33 & 2263.69 \\
-Tight 128 \ensuremath{\times} 160, \(L=0.05\) & 10.12 & 10.32 & 18.39 & 456.01 & 377.27 & 2820.47 & 1170.98 \\
-Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 14.42 & 15.14 & 24.40 & 991.37 & 806.95 & 3261.84 & 432.10 \\
-Square 128, \(L=0.5\) & 89.97 & 86.59 & 112.39 & 185.62 & 182.69 & 597.88 & 495.40 \\
+Square 128 \ensuremath{\times} 128 & 68.47 & 69.82 & 78.82 & 127.52 & 120.93 & 296.40 & 294.05 \\
+Square 512 \ensuremath{\times} 512 & 1108.85 & 1123.00 & 1190.53 & 3385.24 & 3504.47 & 6294.77 & 5247.77 \\
+Wide 64 \ensuremath{\times} 512 & 13.01 & 12.56 & 15.02 & 957.28 & 890.37 & 1954.62 & 76.29 \\
+Tall 512 \ensuremath{\times} 64 & 26.01 & 26.20 & 86.26 & 953.45 & 874.88 & 1872.11 & 158.69 \\
+Rectangle 256 \ensuremath{\times} 320 & 76.54 & 77.29 & 87.25 & 188.29 & 187.12 & 4379.26 & 588.21 \\
+Blocks 256 \ensuremath{\times} 320 & 9707.80 & 9776.38 & 10714.25 & 10442.83 & 10583.38 & 6280.60 & 1565.43 \\
+Ties 128 \ensuremath{\times} 160 & 56.20 & 61.41 & 59.67 & 68.46 & 65.97 & 104.75 & 84.46 \\
+128 \ensuremath{\times} 160, \(L=0.5\) & 14.89 & 15.39 & 21.17 & 551.83 & 483.97 & 2292.61 & 447.76 \\
+256 \ensuremath{\times} 320, \(L=0.5\) & 76.52 & 77.20 & 84.92 & 4053.53 & 3381.00 & 15973.10 & 2315.12 \\
+Tight 128 \ensuremath{\times} 160, \(L=0.05\) & 9.96 & 10.43 & 15.53 & 487.20 & 417.84 & 2656.32 & 1169.17 \\
+Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 14.83 & 16.03 & 21.45 & 1095.88 & 957.44 & 3292.79 & 448.89 \\
+Square 128, \(L=0.5\) & 91.49 & 95.30 & 107.96 & 213.91 & 207.66 & 656.27 & 563.53 \\
 \bottomrule
 \end{tabularx}
 \endgroup
 \end{table}
 
-An implementation of the proposed solver is fastest among the configured methods in six of the seven required cases and in all five finite-limit cases. On the uniform 256 \ensuremath{\times} 320 problem, JVRUST takes 80.50 microseconds versus 596.42 for SciPy. The tall case costs more than the corresponding wide case for JVRUST and SciPy, consistent with orientation-dependent work, although this experiment does not isolate every source of the difference.
+An implementation of the proposed solver is fastest among the configured methods in six of the seven required cases and in all five finite-limit cases. On the uniform 256 \ensuremath{\times} 320 problem, JVRUST takes 76.54 microseconds versus 588.21 for SciPy. The tall case costs more than the corresponding wide case for JVRUST and SciPy, consistent with orientation-dependent work, although this experiment does not isolate every source of the difference.
 
 \begin{figure}[!htbp]
 \centering
@@ -452,13 +472,13 @@ An implementation of the proposed solver is fastest among the configured methods
 \label{fig:1}
 \end{figure}
 
-The structured cases qualify the overall result. On congested blocks, JVRUST requires 9.70 ms while SciPy requires 1.54 ms: SciPy is about 6.3 times faster, and JVC is also faster than all three implementations. On tied costs, JVRUST and JVS are close: JVRUST takes 50.83 microseconds and JVS 57.43. Matrix dimensions alone do not predict the fastest method. Initialization and reduction behavior on the cost structure also matter.
+The structured cases qualify the overall result. On congested blocks, JVRUST requires 9.71 ms while SciPy requires 1.57 ms: SciPy is about 6.2 times faster, and JVC is also faster than all three implementations. On tied costs, JVRUST and JVS are close: JVRUST takes 56.20 microseconds and JVS 65.97.43. Matrix dimensions alone do not predict the fastest method. Initialization and reduction behavior on the cost structure also matter.
 
-Finite-limit JVRUST runtimes range from 10.12 to 89.97 microseconds. The 128 \ensuremath{\times} 160, \(L=0.5\) case is 31.0 times faster than the square-augmented SciPy configuration. This ratio applies to that interface/formulation comparison; Section 6.5 reports a separate paired comparison against smaller and unexpanded alternatives.
+Finite-limit JVRUST runtimes range from 9.96 to 91.49 microseconds. The 128 \ensuremath{\times} 160, \(L=0.5\) case is 30.1 times faster than the square-augmented SciPy configuration. This ratio applies to that interface/formulation comparison; Section 6.5 reports a separate paired comparison against smaller and unexpanded alternatives.
 
-Most finite-limit timing instances still have a complete smaller-side matching at the optimum. The tight \(L=0.05\) case averages 119.75 pairs, leaving 8.25 of 128 smaller-side rows unmatched. Thus the principal measured benefit in the other finite-limit cases is avoiding the augmented formulation, rather than avoiding a large fraction of real matches. The correctness study covers substantially smaller and signed instances with broader rejection behavior.
+Most finite-limit timing instances still have a complete smaller-side matching at the optimum. The tight \(L=0.05\) case averages 119.75 pairs, leaving 8.25 of 128 smaller-side rows unmatched. Thus the principal measured benefit in the other finite-limit cases is avoiding the augmented formulation, rather than avoiding a large fraction of real matches. The added rejection and structure sweeps broaden the timed evidence (Section 6.8), while exhaustive validation remains restricted to small inputs.
 
-The three implementations differ in ways that follow their structure. JVRUST and JVHYBRID are within a few percent on the required square cases, so the C++ completion kernel gives no consistent advantage; on their shared Rust paths, small differences are not evidence of different algorithmic capabilities. JVCPP is 4--16\% slower than JVRUST on the required cases other than the tall input, 1.2--1.8 times slower on the finite-limit cases, and 3.2 times slower on the tall 512 \ensuremath{\times} 64 case. The larger tall-input gap is consistent with orientation or other implementation overhead, but these timings do not isolate its cause. The tall and wide cases use independently generated matrices; a paired transpose experiment and phase-level profiling would be needed to distinguish copying, search, and output costs.
+The three implementations differ in ways that follow their structure. JVRUST and JVHYBRID are within a few percent on the required square cases, so the C++ completion kernel gives no consistent advantage; on their shared Rust paths, small differences are not evidence of different algorithmic capabilities. JVCPP is 6--15\% slower than JVRUST on the required cases other than the tall input, 1.1--1.6 times slower on the finite-limit cases, and 3.3 times slower on the tall 512 \ensuremath{\times} 64 case. The larger tall-input gap is consistent with orientation or other implementation overhead, but these timings do not isolate its cause. The tall and wide cases use independently generated matrices; the paired transpose experiments in Section 6.7 broaden the orientation evidence, but phase-level profiling is still needed to separate copying, search, and output costs.
 
 \subsection{Batch runtime}
 
@@ -475,16 +495,16 @@ Table 4 compares whole-batch latencies. Four-worker native calls improve through
 \toprule
 \textbf{Method} & \textbf{64 \ensuremath{\times} (64 \ensuremath{\times} 80) required, ms} & \textbf{16 \ensuremath{\times} (128 \ensuremath{\times} 160) \(L=0.5\), ms} & \textbf{1024 \ensuremath{\times} (8 \ensuremath{\times} 10) required, ms} \\
 \midrule
-JVRUST sequential loop & 0.774 & 0.441 & 1.349 \\
-JVRUST batch, 1 worker & 0.716 & 0.429 & 0.549 \\
-JVRUST batch, 4 workers & 0.334 & 0.226 & 0.259 \\
-JVHYBRID batch, 1 worker & 0.715 & 0.429 & 0.543 \\
-JVHYBRID batch, 4 workers & 0.317 & 0.229 & 0.269 \\
-JVCPP batch, 1 worker & 0.788 & 0.534 & 0.664 \\
-JVCPP batch, 4 workers & 0.328 & 0.258 & 0.344 \\
-JVX batch, 1 worker & 1.710 & 8.534 & 7.108 \\
-JVX batch, 4 workers & 3.208 & 5.121 & 17.696 \\
-SciPy sequential loop & 2.762 & 7.780 & 3.253 \\
+JVRUST sequential loop & 0.789 & 0.444 & 1.343 \\
+JVRUST batch, 1 worker & 0.725 & 0.429 & 0.563 \\
+JVRUST batch, 4 workers & 0.313 & 0.223 & 0.264 \\
+JVHYBRID batch, 1 worker & 0.718 & 0.442 & 0.556 \\
+JVHYBRID batch, 4 workers & 0.316 & 0.225 & 0.263 \\
+JVCPP batch, 1 worker & 0.779 & 0.486 & 0.565 \\
+JVCPP batch, 4 workers & 0.430 & 0.242 & 0.346 \\
+JVX batch, 1 worker & 1.795 & 9.220 & 7.413 \\
+JVX batch, 4 workers & 3.213 & 5.580 & 17.429 \\
+SciPy sequential loop & 2.824 & 7.823 & 3.181 \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -497,7 +517,7 @@ SciPy sequential loop & 2.762 & 7.780 & 3.253 \\
 \label{fig:2}
 \end{figure}
 
-JVRUST's four-worker call is 2.14 times faster than its one-worker call on the 64 \ensuremath{\times} 80 batch, 1.89 times faster on the finite-limit batch, and 2.12 times faster on the 1024-problem batch. With larger problems, serial batching is close to the JVRUST loop, and the benefit comes from parallel execution with retained native workspaces. With 1024 problems of size 8 \ensuremath{\times} 10, the batch call is 2.5 times faster than the loop even with one worker, consistent with amortizing Python-call and output-handling overhead; four workers make it 5.2 times faster than the loop. JVHYBRID follows JVRUST closely. JVCPP's one-worker batch calls are slower than JVRUST's in every case. With four workers, the 64 \ensuremath{\times} 80 batch medians are close. JVCPP is slower on the other two batches, most on the 1024-problem batch, where its four-worker call takes 0.344 ms against 0.259 ms.
+JVRUST's four-worker call is 2.32 times faster than its one-worker call on the 64 \ensuremath{\times} 80 batch, 1.93 times faster on the finite-limit batch, and 2.13 times faster on the 1024-problem batch. With larger problems, serial batching is close to the JVRUST loop, and the benefit comes from parallel execution with retained native workspaces. With 1024 problems of size 8 \ensuremath{\times} 10, the batch call is 2.4 times faster than the loop even with one worker, consistent with amortizing Python-call and output-handling overhead; four workers make it 5.1 times faster than the loop. JVHYBRID follows JVRUST closely. JVCPP's one-worker batch calls are slower than JVRUST's in every case. With four workers, the 64 \ensuremath{\times} 80 batch medians differ appreciably in Python 3.14: JVCPP takes 0.430 ms versus JVRUST's 0.313 ms, approximately 37\% longer. Its timing-round interquartile range is wide, 0.312--0.447 ms. The Python 3.11 replication does not preserve this gap (Section 6.10). JVCPP is slower on the other two batches, most on the 1024-problem batch, where its four-worker call takes 0.346 ms against 0.264 ms.
 
 The JVX four-worker call is slower than its serial call on both required batches, while improving the finite-limit batch. The result demonstrates that requesting more workers is not inherently beneficial. This study does not isolate scheduling, Python dispatch, and memory effects sufficiently to assign that regression to one cause.
 
@@ -516,11 +536,11 @@ Table 5 reports additional peak working set above the input-prepared baseline. T
 \toprule
 \textbf{Method} & \textbf{Required, MiB} & \textbf{Finite \(L=0.5\), MiB} \\
 \midrule
-JVRUST & 0.152 & 0.121 \\
-JVHYBRID & 0.117 & 0.148 \\
-JVCPP & 0.121 & 0.105 \\
-JVX & 128.211 & 144.613 \\
-SciPy & 0.152 & 144.746 \\
+JVRUST & 0.125 & 0.168 \\
+JVHYBRID & 0.117 & 0.152 \\
+JVCPP & 0.141 & 0.133 \\
+JVX & 128.145 & 144.660 \\
+SciPy & 0.215 & 144.746 \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -533,7 +553,7 @@ SciPy & 0.152 & 144.746 \\
 \label{fig:3}
 \end{figure}
 
-The measured increments agree closely with the 128 MiB padded and 144.5 MiB augmented cost-matrix calculations, plus smaller workspace effects. The three implementations add 0.11--0.15 MiB in both conditions. Required SciPy is similarly small, confirming that this memory benefit is shared by existing native rectangular methods.
+The measured increments agree closely with the 128 MiB padded and 144.5 MiB augmented cost-matrix calculations, plus smaller workspace effects. The three implementations add 0.12--0.17 MiB in both conditions. Required SciPy is similarly small, confirming that this memory benefit is shared by existing native rectangular methods.
 
 The small increments do not imply zero allocation. They are process-level measurements affected by prior high-water marks, allocator reuse, page residency, and the single-trial design. Their main interpretation is the absence of the much larger transformed dense cost buffer in this wide-input experiment.
 
@@ -552,24 +572,24 @@ The additional enumeration has zero objective error on all 10,500 grid calls, an
 \toprule
 \textbf{Case} & \textbf{Unmatched} & \textbf{JVRUST} & \textbf{JVCPP} & \textbf{Square} & \textbf{Dummy cols} & \textbf{Capped} \\
 \midrule
-128 \ensuremath{\times} 160, \(L=0.5\) & 0.00 & 15.57 & 26.32 & 476.67 & 279.40 & 139.13 \\
-256 \ensuremath{\times} 320, \(L=0.5\) & 0.00 & 69.69 & 87.88 & 2186.42 & 1284.63 & 533.66 \\
-128 \ensuremath{\times} 160, \(L=0.05\) & 8.25 & 9.98 & 18.06 & 1121.10 & 259.89 & 110.69 \\
-Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 0.00 & 15.78 & 25.24 & 438.47 & 250.63 & 149.01 \\
-Square 128, \(L=0.5\) & 0.00 & 87.94 & 111.83 & 519.23 & 411.47 & 228.40 \\
-128 \ensuremath{\times} 160, \(L=0.005\) & 87.75 & 6.32 & 8.33 & 866.48 & 172.65 & 75.35 \\
-128 \ensuremath{\times} 160, \(L=0.001\) & 117.00 & 5.71 & 7.16 & 498.82 & 161.17 & 66.36 \\
-Tall 160 \ensuremath{\times} 128, \(L=0.005\) & 89.50 & 14.08 & 14.14 & 900.31 & 177.58 & 82.85 \\
-Wide 64 \ensuremath{\times} 512, \(L=0.005\) & 18.00 & 8.79 & 9.83 & 2042.70 & 193.78 & 84.33 \\
-Blocks 256 \ensuremath{\times} 320, \(L=0.5\) & 112.00 & 1866.22 & 2087.07 & 2710.69 & 1710.78 & 772.86 \\
+128 \ensuremath{\times} 160, \(L=0.5\) & 0.00 & 15.09 & 22.29 & 449.53 & 270.09 & 136.02 \\
+256 \ensuremath{\times} 320, \(L=0.5\) & 0.00 & 78.07 & 85.79 & 2377.34 & 1417.70 & 606.58 \\
+128 \ensuremath{\times} 160, \(L=0.05\) & 8.25 & 10.58 & 16.07 & 1206.82 & 275.33 & 117.73 \\
+Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 0.00 & 15.08 & 20.95 & 442.48 & 241.04 & 142.01 \\
+Square 128, \(L=0.5\) & 0.00 & 89.22 & 104.05 & 519.32 & 411.31 & 223.18 \\
+128 \ensuremath{\times} 160, \(L=0.005\) & 87.75 & 6.71 & 7.80 & 928.85 & 186.24 & 81.58 \\
+128 \ensuremath{\times} 160, \(L=0.001\) & 117.00 & 6.16 & 7.00 & 524.88 & 169.16 & 70.65 \\
+Tall 160 \ensuremath{\times} 128, \(L=0.005\) & 89.50 & 14.22 & 14.89 & 923.88 & 177.90 & 82.48 \\
+Wide 64 \ensuremath{\times} 512, \(L=0.005\) & 18.00 & 10.04 & 10.26 & 2258.12 & 219.39 & 126.05 \\
+Blocks 256 \ensuremath{\times} 320, \(L=0.5\) & 112.00 & 1802.40 & 1884.59 & 2666.16 & 1699.89 & 749.04 \\
 \bottomrule
 \end{tabularx}
 \endgroup
 \end{table}
 
-For the 128 \ensuremath{\times} 160, \(L=0.5\) workload, JVRUST is 8.9 times faster than capped SciPy in this run, compared with 30.6 times faster than square-expanded SciPy. The smaller dummy-column construction falls between the two SciPy alternatives. Thus a substantial part of the square comparison is formulation overhead, while a runtime difference remains against an unexpanded baseline on this workload.
+For the 128 \ensuremath{\times} 160, \(L=0.5\) workload, JVRUST is 9.0 times faster than capped SciPy in this run, compared with 29.8 times faster than square-expanded SciPy. The smaller dummy-column construction falls between the two SciPy alternatives. Thus a substantial part of the square comparison is formulation overhead, while a runtime difference remains against an unexpanded baseline on this workload.
 
-JVRUST is faster than capped SciPy in nine of ten finite-limit cases, by factors of 2.6--11.9 on those cases; JVCPP is also faster than capped SciPy in the same nine cases. The congested block case reverses the result: capped SciPy takes 0.773 ms and JVRUST takes 1.866 ms, making capped SciPy 2.4 times faster. This reversal occurs despite both methods avoiding dimensional expansion. The rejection-heavy cases leave 87.75 and 117 of 128 rows unmatched on average, extending the timed evidence beyond nearly complete matchings. These are descriptive ratios of within-run medians, not confidence intervals or an estimate of general application speedup.
+JVRUST is faster than capped SciPy in nine of ten finite-limit cases, by factors of 2.5--12.6 on those cases; JVCPP is also faster than capped SciPy in the same nine cases. The congested block case reverses the result: capped SciPy takes 0.749 ms and JVRUST takes 1.802 ms, making capped SciPy 2.4 times faster. This reversal occurs despite both methods avoiding dimensional expansion. The rejection-heavy cases leave 87.75 and 117 of 128 rows unmatched on average, extending the timed evidence beyond nearly complete matchings. These are descriptive ratios of within-run medians, not confidence intervals or an estimate of general application speedup.
 
 The alternatives also change the storage comparison. For a 256 \ensuremath{\times} 4096 float64 problem, square expansion requires a 144.5 MiB transformed cost matrix, the r-dummy-column construction requires 8.5 MiB, and capped costs require 8 MiB. These are exact buffer-size calculations, not new process-memory measurements. For a suitable wide input, the proposed solver borrows the original costs and needs \(\mathcal{O}(r+c)\) solver state; capped SciPy avoids the square expansion but our adapter creates an additional original-size cost array. The distinction is avoiding a transformed copy, as well as the number and organization of columns scanned.
 
@@ -577,11 +597,11 @@ The alternatives also change the storage comparison. For a 256 \ensuremath{\time
 
 Figures 4 and 5 show the uniform required and finite-limit sweeps, respectively. Figure 6 shows the congested finite-limit sweep with the same plotting convention. Every curve comes from the separate paired scaling run; ratios are calculated within that run. All 1,208 timed-instance feasibility and objective checks pass, and 2,718 timing-round samples are archived across 302 method/setting combinations.
 
-The shape sweeps distinguish increasing the smaller dimension from increasing only the larger one. At 1024 \ensuremath{\times} 1024 without a finite limit, JVRUST takes 4.585 ms, JVHYBRID takes 4.444 ms, JVCPP takes 4.760 ms, and SciPy takes 24.536 ms. At 64 \ensuremath{\times} 4096, JVRUST takes 0.071 ms and SciPy takes 0.535 ms, while JVX takes 69.483 ms. Thus a large sum of dimensions does not imply a difficult problem for every implementation. Padding changes both the represented dimensions and the search work; the present measurements do not isolate those effects individually.
+The shape sweeps distinguish increasing the smaller dimension from increasing only the larger one. At 1024 \ensuremath{\times} 1024 without a finite limit, JVRUST takes 4.410 ms, JVHYBRID takes 4.399 ms, JVCPP takes 4.684 ms, and SciPy takes 24.703 ms. At 64 \ensuremath{\times} 4096, JVRUST takes 0.070 ms and SciPy takes 0.555 ms, while JVX takes 71.956 ms. Thus a large sum of dimensions does not imply a difficult problem for every implementation. Padding changes both the represented dimensions and the search work; the present measurements do not isolate those effects individually.
 
-For finite-limit 512 \ensuremath{\times} 2048 inputs at \(L=0.5\), JVRUST takes 0.439 ms, capped SciPy takes 4.712 ms, square-expanded SciPy takes 30.798 ms, and JVX takes 1404.052 ms. The large difference between the two square-expanded implementations shows that transformed dimensions alone do not predict runtime. In these uniform sweeps, which contain no forbidden entries, JVCPP takes up to 2.0 times as long as JVRUST; at the largest size of each family, their median runtimes differ by at most 8\% relative to JVRUST, and neither implementation is faster at every point. The narrowing gaps are consistent with a contribution from fixed setup costs, but the measurements do not separate setup from search time. All uniform finite-limit scaling instances have complete smaller-side matchings under JVRUST, so those curves primarily characterize finite-limit handling on easy-to-match random costs. The congested sweep tests a different regime.
+For finite-limit 512 \ensuremath{\times} 2048 inputs at \(L=0.5\), JVRUST takes 0.369 ms, capped SciPy takes 4.281 ms, square-expanded SciPy takes 28.212 ms, and JVX takes 1392.663 ms. The large difference between the two square-expanded implementations shows that transformed dimensions alone do not predict runtime. In these uniform sweeps, which contain no forbidden entries, JVCPP takes up to 1.6 times as long as JVRUST; at the largest size of each family, their median runtimes differ by at most 20\% relative to JVRUST, and neither implementation is faster at every point. The narrowing gaps are consistent with a contribution from fixed setup costs, but the measurements do not separate setup from search time. All uniform finite-limit scaling instances have complete smaller-side matchings under JVRUST, so those curves primarily characterize finite-limit handling on easy-to-match random costs. The congested sweep tests a different regime.
 
-The congested curve changes the ordering as size grows. JVRUST is faster than capped SciPy at \(N=16\), 32, and 64; capped SciPy is faster at \(N=128\), 256, 512, and 1024. At 1024 \ensuremath{\times} 1280, JVRUST takes 173.704 ms and capped SciPy takes 18.783 ms, a 9.2-fold advantage for capped SciPy. JVRUST leaves 43.75\% of the smaller side unmatched at every tested congested size, including 448 of 1024 rows at the largest point. Substantial rejection therefore does not itself imply an advantage for the native terminal strategy. Both methods avoid dimensional expansion, and the observed crossover motivates investigation of their initialization and search policies.
+The congested curve changes the ordering as size grows. JVRUST is faster than capped SciPy at \(N=16\), 32, and 64; capped SciPy is faster at \(N=128\), 256, 512, and 1024. At 1024 \ensuremath{\times} 1280, JVRUST takes 167.616 ms and capped SciPy takes 17.789 ms, a 9.4-fold advantage for capped SciPy. JVRUST leaves 43.75\% of the smaller side unmatched at every tested congested size, including 448 of 1024 rows at the largest point. Substantial rejection therefore does not itself imply an advantage for the native terminal strategy. Both methods avoid dimensional expansion, and the observed crossover motivates investigation of their initialization and search policies.
 
 \begin{figure}[!htbp]
 \centering
@@ -604,6 +624,113 @@ The congested curve changes the ordering as size grows. JVRUST is faster than ca
 \label{fig:6}
 \end{figure}
 
+\subsection{Larger matrices and extreme aspect ratios}
+
+The focused comparisons preserve the native-versus-SciPy advantage on the tested large uniform matrices in both environments. Table 7 includes representative large and signed cases from both runs. At 5000 \ensuremath{\times} 5000 without rejection, JVRUST takes 257.35 ms in Python 3.14 and 253.86 ms in Python 3.11; SciPy takes 1083.77 and 1095.19 ms. At the size-dependent finite limit \(L=0.0004\), the same-sized costs define a different optimization problem: JVRUST takes 11.42 and 11.41 ms, compared with 146.47 and 132.90 ms for capped SciPy. These required and finite-limit times are not an ablation of rejection overhead.
+
+\begin{table}[!htbp]
+\centering
+\caption{Representative extended-case medians in milliseconds. R denotes required assignment; F denotes the finite-limit regime. The reference is native SciPy for R and capped SciPy for F. Large F cases use \(L=0.0004\); signed F cases use \(L=-0.25\). Each value summarizes nine timing rounds over four inputs in its own environment.}
+\label{tab:7}
+\begingroup\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.13}
+\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{.15\linewidth}>{\raggedleft\arraybackslash}p{.15\linewidth}>{\raggedleft\arraybackslash}p{.15\linewidth}>{\raggedleft\arraybackslash}p{.15\linewidth}@{}}
+\toprule
+\textbf{Case} & \textbf{JVRUST 3.14} & \textbf{Ref. 3.14} & \textbf{JVRUST 3.11} & \textbf{Ref. 3.11} \\
+\midrule
+5000 \ensuremath{\times} 5000 R & 257.352 & 1083.767 & 253.856 & 1095.185 \\
+5000 \ensuremath{\times} 5000 F & 11.424 & 146.471 & 11.409 & 132.900 \\
+4000 \ensuremath{\times} 5000 R & 14.068 & 131.876 & 13.805 & 137.624 \\
+4000 \ensuremath{\times} 5000 F & 8.503 & 102.012 & 8.489 & 96.458 \\
+Signed 256 \ensuremath{\times} 320 R & 0.084 & 0.810 & 0.076 & 0.835 \\
+Signed 256 \ensuremath{\times} 320 F & 0.063 & 0.469 & 0.063 & 0.496 \\
+Signed 320 \ensuremath{\times} 256 R & 0.120 & 0.977 & 0.109 & 0.933 \\
+Signed 320 \ensuremath{\times} 256 F & 0.096 & 0.575 & 0.096 & 0.598 \\
+\bottomrule
+\end{tabularx}
+\endgroup
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Large square runtime for required and finite-limit assignment},width=\linewidth,height=.77\textheight,keepaspectratio]{images/large_square.pdf}
+\caption{Large uniform squares in Python 3.14. Required and finite-limit panels use different objectives; finite limits are \(2/\max(N,M)\). Lines and error bands show medians and timing-round interquartile ranges for the fixed focused method sets.}
+\label{fig:7}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Large rectangular runtimes in both orientations},width=\linewidth,height=.77\textheight,keepaspectratio]{images/large_rectangles.pdf}
+\caption{Large rectangles and their exact transposes in Python 3.14, including 4000 \ensuremath{\times} 5000 and 5000 \ensuremath{\times} 4000. Required and finite-limit comparisons retain the compact SciPy alternatives. The Python 3.11 replication preserves each native method's ordering against the matching SciPy baseline.}
+\label{fig:8}
+\end{figure}
+
+On the large square and large rectangle grids, JVCPP/JVRUST median-time ratios span 0.961--1.061 in Python 3.14 and 0.962--1.058 in Python 3.11. The implementations are therefore within about 6.1\% on this grid, with neither winning every point. This observation is specific to the added large cases: the original uniform sweep has a larger maximum gap at the largest point of its shape families. The hybrid completion kernel again gives no uniform benefit.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Extreme rectangular runtimes for wide and tall costs},width=\linewidth,height=.77\textheight,keepaspectratio]{images/extreme_rectangles.pdf}
+\caption{Extreme shapes with smaller dimension 64 and larger dimension up to 16384, in both orientations, in Python 3.14. Transposes reuse the same cost values; finite-limit panels use \(L=2/\max(N,M)\). Interquartile ranges describe the nine timing rounds.}
+\label{fig:9}
+\end{figure}
+
+Extreme tall inputs retain a different implementation pattern: JVCPP/JVRUST ratios range from 3.00 to 3.84 in Python 3.14 and 2.98 to 3.81 in Python 3.11. The signed cases in Table 7 also show larger tall than wide times for JVRUST in both regimes. Paired runtime transposes establish that the orientation differences persist on identical cost values, but do not identify a single cause in orientation conversion, search, or output work.
+
+\subsection{Structure, rejection, and edge cases}
+
+The structured sweeps reproduce the central congestion counterexample. At both tested shapes, competing-row fraction 0.25 favors the native implementations over the matching SciPy baseline; fractions 0.5, 0.625, 0.75, and 0.9 favor SciPy in both required and finite-limit regimes. This accounts for sixteen of the extension's twenty native-versus-SciPy losses in each environment. The sampled fractions do not locate a continuous crossover threshold.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Required-assignment runtime under congestion, forbidden costs and ties},width=\linewidth,height=.77\textheight,keepaspectratio]{images/structure_required.pdf}
+\caption{Required structure sweeps in Python 3.14 at 256 \ensuremath{\times} 320 and 512 \ensuremath{\times} 640. The columns vary congestion, forbidden-entry probability, and quantization. A finite diagonal preserves feasibility in the forbidden sweep. All panels use the same four required-assignment methods.}
+\label{fig:10}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Finite-limit runtime under congestion, forbidden costs and ties},width=\linewidth,height=.77\textheight,keepaspectratio]{images/structure_optional.pdf}
+\caption{Finite-limit structure sweeps in Python 3.14. Limits are 0.5 for congestion, \(2/M\) for forbidden entries, and 0.25 for quantized costs. Capped and dummy-column SciPy are included in every panel. Medians and timing-round interquartile ranges are shown.}
+\label{fig:11}
+\end{figure}
+
+The native methods retain their advantage over the matching SciPy baseline throughout the tested forbidden-entry, tie, and signed grids in both environments. This includes dense representations with 99\% nominal forbidden entries and completely tied inputs; it does not compare sparse data structures or establish performance for arbitrary numerical ranges. Distinct selected pairs can still be optimal under ties.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Runtime and realized rejection as the limit changes},width=\linewidth,height=.77\textheight,keepaspectratio]{images/rejection_sweep.pdf}
+\caption{Rejection sweeps in Python 3.14 with the same input values reused across limits. Each row pairs runtime medians and timing-round interquartile ranges (left) with realized unmatched fractions (right), for one shape and cost family. The realized profiles agree exactly between environments for each recorded method and input.}
+\label{fig:12}
+\end{figure}
+
+The congested sweeps have roughly 43.75\% unmatched smaller-side rows over intermediate limits and full matching at \(L=4\). Capped SciPy leads at the tested limits 0.5 and 4 for both shapes, accounting for the other four native losses; substantial rejection alone does not guarantee a runtime advantage. The limit changes both the optimal matching and the search problem. The separate edge fixtures pass in both environments, including the expected infeasible cases and floating-point neighbors of the penalty boundary; this bounded validation is not a general numerical stability proof.
+
+\subsection{Repeated memory measurements}
+
+The five-trial sweep confirms both formulation and orientation effects. At 256 \ensuremath{\times} 4096 and \(L=0.5\), median additional peak working set in Python 3.14 is 0.152 MiB for JVRUST, 8.098 MiB for capped SciPy, 8.641 MiB for dummy-column SciPy, and 144.734 MiB for square-expanded SciPy. The corresponding Python 3.11 medians are 0.137, 8.090, 8.664, and 144.742 MiB. The maximum absolute difference between the two environments' medians over all 81 conditions is 0.08984 MiB.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[alt={Repeated memory measurements for wide and tall inputs},width=\linewidth,height=.77\textheight,keepaspectratio]{images/memory_sweeps.pdf}
+\caption{Python 3.14 additional peak working set for required and finite-limit assignment in both orientations. Each condition has five fresh processes; medians and interquartile ranges are shown. The scale is linear below 0.25 MiB to include zero increments. The input is already resident; these are high-water changes rather than exact allocation counts.}
+\label{fig:13}
+\end{figure}
+
+The small wide-input native footprint must not be generalized to tall inputs. For 4096 \ensuremath{\times} 256 at \(L=0.5\), JVRUST's medians are 8.172 and 8.141 MiB in Python 3.14 and 3.11; capped SciPy's are 16.082 and 16.160 MiB, while square-expanded SciPy remains near 144.7 MiB. These observations are consistent with additional orientation-related work and storage, but the process counters do not trace allocations. Near-zero increments should be compared in absolute units, because percentage ratios can become unstable or undefined.
+
+\subsection{Consistency across Python environments}
+
+JVRUST and JVCPP each preserve their ordering against the relevant SciPy baseline in all 201 non-batch cases. Required cases use native SciPy; finite-limit cases use capped SciPy where available. The original single-call suite retains square-expanded SciPy, so its wins must not be conflated with wins against capped SciPy. JVRUST's wins by suite are 11/12 single-call, 9/10 formulation, 43/47 scaling, and 112/132 extended cases in both runs. JVCPP has the same counts except 42/47 in scaling. All twenty extended losses are the same cases across runs.
+
+The congested base scaling crossover remains between \(N=64\) and \(N=128\); at 1024 \ensuremath{\times} 1280 capped SciPy is 9.42 times faster than JVRUST in Python 3.14 and 9.15 times faster in Python 3.11. For 1024 problems of size 8 \ensuremath{\times} 10, JVRUST's loop-to-batch speedups are 2.39 and 2.30 with one worker, and 5.10 and 4.73 with four. Appendix A compares the main ratios, congestion, and ranking exceptions.
+
+Consistency does not imply identical rankings. Across all solvers, 62 of 2,104 within-case pairwise median orderings reverse, and the fastest median changes in 31 of 204 cases. Requiring a margin exceeding 2\% in both environments leaves twelve reversals; requiring 5\% or 10\% leaves one. These are post-hoc descriptive filters, not statistical significance thresholds. The 32 \ensuremath{\times} 32 required case changes JVC/SciPy ordering: 10.87/9.71 microseconds in Python 3.14 versus 10.61/12.84 in Python 3.11. JVRUST remains faster than both.
+
+The four-worker batch ranking also needs qualification. For 64 problems of size 64 \ensuremath{\times} 80, JVCPP is approximately 37\% slower than JVRUST in Python 3.14, but its 0.286 ms median is approximately tied with JVRUST's 0.293 ms in Python 3.11. The wide Python 3.14 JVCPP interquartile range weakens any claim of a stable implementation gap. The batching benefit itself repeats.
+
+Median time(3.11)/time(3.14) ratios across equally weighted method/case settings are 0.915 for single-call, 0.913 for batch, 0.928 for formulation, 0.989 for scaling, and 1.011 for extended cases. These summaries describe the chosen grid, not an application mix or a universal speedup. Dependencies and session conditions differ, and additional independent sessions would be needed to assess small gaps or separate interpreter effects.
+
 \FloatBarrier
 \section{Discussion}
 
@@ -625,11 +752,11 @@ The scaling curves make the dependence on both size and structure explicit. Incr
 
 The three implementations compare implementation choices under a shared algorithmic design. JVHYBRID changes only square completion and provides no consistent whole-call benefit on the evaluated required square workloads. Differences on the shared rectangular Rust path should be treated as timing variation, not algorithmic differences.
 
-JVRUST is faster than JVCPP in all twelve single-matrix cases in Table 3, with the largest gap on the tall input. The scaling sweeps do not preserve that ordering at every point: JVCPP has lower medians on several uniform cases, including the largest fixed-row rectangle. These results compare particular implementations and compiler settings; they do not isolate a programming-language effect. The sensitivity of JVCPP to the C++ language mode noted in Section 5.1 shows how strongly such comparisons depend on the compiler and its settings.
+JVRUST is faster than JVCPP in all twelve single-matrix cases in Table 3, with the largest gap on the tall input. The scaling sweeps do not preserve that ordering at every point: JVCPP has lower medians on several uniform cases, including the largest fixed-row rectangle. These results compare particular implementations and compiler settings; they do not isolate a programming-language effect. The additional large cases keep the two implementations within about 6.1\%, whereas extreme tall inputs and four-worker batches have different patterns. The two Python environments are not a controlled compiler or language experiment.
 
 \subsection{Implications for applications}
 
-On the evaluated synthetic costs outside the congested-block family, an implementation of the proposed solver had the lowest median among the configured methods. For the finite-limit congested family, JVRUST led at \(N=16\), 32, and 64, while capped SciPy led at \(N=128\), 256, 512, and 1024; these sampled sizes do not define a general crossover threshold. SciPy also led on the required 256 \ensuremath{\times} 320 block case. Capping used the smallest transformed cost buffer and was the fastest evaluated SciPy formulation in every finite-limit formulation and scaling case. Native batching reduced latency for the tested batches of independent problems that were already available together; a tracker with only one assignment available at a time cannot exploit inter-problem batching without changing how work is scheduled. JVCPP provides a C++-only implementation, with workload-dependent performance relative to JVRUST. Application-specific matrices should determine the final choice.
+On the evaluated synthetic costs outside the congested-block family, an implementation of the proposed solver had the lowest median among the configured methods in the original suites; the extension retains the native advantage against its selected SciPy baselines. The focused comparison does not rank excluded solvers. For the finite-limit congested family, JVRUST led at \(N=16\), 32, and 64, while capped SciPy led at \(N=128\), 256, 512, and 1024; these sampled sizes do not define a general crossover threshold. SciPy also led on the required 256 \ensuremath{\times} 320 block case. Capping used the smallest transformed cost buffer and was the fastest evaluated SciPy formulation in every finite-limit formulation and scaling case. Native batching reduced latency for the tested batches of independent problems that were already available together; a tracker with only one assignment available at a time cannot exploit inter-problem batching without changing how work is scheduled. JVCPP provides a C++-only implementation, with workload-dependent performance relative to JVRUST. Application-specific matrices should determine the final choice.
 
 An assignment acceleration is not an end-to-end application acceleration of the same factor. Cost construction, motion prediction, feature extraction, detection, and bookkeeping can dominate a tracking pipeline. This paper does not measure tracking accuracy, identity switches, or detector-plus-tracker frame rate.
 
@@ -638,7 +765,7 @@ Finite-limit integration also requires agreement on ties and numeric precision. 
 \FloatBarrier
 \section{Limitations and threats to validity}
 
-The performance study uses one Windows/compiler/hardware configuration, four generated instances per case, and nine timing rounds. CPU frequency and background activity are not controlled. Round interquartile ranges measure repeated-timing variation on the chosen inputs, not uncertainty over all possible assignment problems. In particular, every C++ result comes from one compiler; GCC or Clang builds may change the relative behavior of the Rust, hybrid, and C++ implementations.
+The performance study uses one Windows/hardware configuration and two software environments, four generated inputs per timing case, and nine timing rounds. NumPy, SciPy and native wheels differ, so the replication cannot isolate the effect of Python versions. CPU frequency and background activity are not controlled. Round interquartile ranges measure repeated-timing variation on the chosen inputs, not uncertainty over all possible assignment problems. In particular, every C++ result comes from one compiler; GCC or Clang builds may change the relative behavior of the Rust, hybrid, and C++ implementations.
 
 All timed inputs are float64. The native precision modes and conversion paths are validated more broadly by tests but are not characterized by the runtime tables. Very large dynamic ranges, subnormal penalties, and arbitrary floating-point near-ties require separate numerical studies.
 
@@ -646,7 +773,7 @@ The main finite-limit baselines use explicit square augmentation where no equiva
 
 The workload suite is synthetic. Several main finite-limit cases reject no smaller-side rows at the optimum; the formulation experiment covers rejection-heavy inputs and a congested finite-limit case. The scaling experiment covers fixed aspect ratios and a fixed smaller dimension, but uses only four random matrices per size and no held-out application distribution. Its linear and log-log curves are descriptive measurements, not empirical proofs of asymptotic bounds. These deliberately selected cases broaden coverage but do not establish application representativeness. Captured application matrices and held-out structured instances would improve external validity.
 
-Memory increments are single-process observations from one trial per condition. They corroborate storage calculations but do not establish exact allocation counts, cross-platform resident-memory bounds, or long-running pool-retention behavior.
+The original memory observations use one trial per condition; the added sweep uses five fresh processes and paired inputs per condition. They corroborate formulation and orientation effects but do not establish exact allocation counts, cross-platform resident-memory bounds, or long-running pool-retention behavior.
 
 The three mathematical propositions justify the reformulations and final certificate in exact arithmetic. They do not prove all code paths, error cases, and floating-point transitions. Passing tests and exhaustive small cases complement, rather than replace, that distinction.
 
@@ -657,12 +784,12 @@ Thresholded rectangular assignment does not need a square matrix. A one-sided re
 
 The proposed implementations substantially outperform the expanded interfaces on the evaluated uniform and rejection-heavy workloads. JVRUST also outperforms capped SciPy in nine of the ten finite-limit formulation cases, although capped SciPy is faster on congested blocks and its advantage grows in the congested scaling family. Native batching reduces whole-batch latency on the tested independent workloads. The hybrid completion kernel provides no consistent benefit on the evaluated required square cases, and the Rust-versus-C++ ordering varies across scaling points. These comparisons establish results for the evaluated implementations, not superiority over every specialized optional-assignment solver.
 
-The contribution is a specific solver and a reproducible characterization within an established algorithmic framework. Further work should compare specialized LSAPE solvers, isolate reduction and initialization policies, explain the congested-block crossover, extend hardware and compiler coverage, and evaluate captured application workloads.
+The two-environment replication preserves the main native-versus-SciPy orderings across all tested sizes and structures, while revealing unstable small implementation gaps and four-worker batch rankings. Repeated memory trials also distinguish wide from tall native footprints. The contribution is a specific solver and a reproducible characterization within an established algorithmic framework. Further work should compare specialized LSAPE solvers, isolate reduction and initialization policies, explain the congested-block crossover, extend hardware and compiler coverage, and evaluate captured application workloads.
 
 \FloatBarrier
 \section*{Data and software availability}
 
-The solver is distributed as laprust 1.0.0 \cite{laprust2026} (JVRUST), lapcpp 1.0.0 \cite{lapcpp2026} (JVCPP), and LAPX 0.11.0 \cite{lapx2026} (JVRUST as \texttt{lapjvr}, JVHYBRID as \texttt{lapjvh}, and the JVX, JVS, and JVC baselines). The reproducibility artifact for this paper is available at \href{https://github.com/rathaROG/lap-paper}{github.com/rathaROG/lap-paper}. It includes the runtime-recording and validation scripts, the independent enumerator, experiment runners, raw timing samples, environment and binary hashes, test logs, generated tables, and figure-generation code. The finite-limit formulation comparison and matrix-size scaling experiments each include scripts, raw samples, summaries, input hashes, per-instance checks, and environment metadata. The artifact also contains the complete results of the Python 3.11.16 run summarized in Appendix A, and instructions for reproducing every reported number with the released packages. Input generation is deterministic from the recorded seeds. No private or external tracking dataset is required.
+The solver is distributed as laprust 1.0.0 \cite{laprust2026} (JVRUST), lapcpp 1.0.0 \cite{lapcpp2026} (JVCPP), and LAPX 0.11.1 \cite{lapx2026} (JVRUST and JVHYBRID alongside the baseline families). The paper repository is \href{https://github.com/rathaROG/lap-paper}{github.com/rathaROG/lap-paper}. The accompanying reproducibility artifact contains both environments' raw timing samples, memory trials, input hashes, schedules, validation records, package and binary identities, protocols, exact measurement sources, and figures. It also includes the cross-environment comparison, publication evidence checks, and arXiv build and HTML validation reports. All 17,892 timing samples and 830 memory observations are retained; the manuscript does not pool the environments into one timing estimate. Figures can be rebuilt from saved measurements without executing solvers.
 
 \FloatBarrier
 \section*{Acknowledgements}
@@ -687,19 +814,17 @@ AI coding assistants (OpenAI Codex with GPT-6 Astra and GPT-6.1 Sol, and Anthrop
 \renewcommand{\thetable}{\Alph{section}\arabic{table}}
 \setcounter{figure}{0}
 \renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
-\section{Results with Python 3.11.16}
+\section{Replication with Python 3.11.17}
 
-The complete study was first run with Python 3.11.16, NumPy 2.4.6, and SciPy 1.17.1 on 22 October 2026, on the same host and with the same scripts, seeds, timing protocol, and solver sources. It was repeated with Python 3.14.9 because current NumPy and SciPy releases no longer support Python 3.11; the main text reports the repeated run. This appendix summarizes the first run; its raw samples, summaries, and logs are part of the reproducibility artifact.
+The full base and extended collections were repeated with Python 3.11.17, NumPy 2.4.6, and SciPy 1.17.1 on 24 October 2026. Solver releases, host, input hashes, schedules, and measurement protocol match the Python 3.14.9 collection; dependencies and sessions differ. Tables A1--A3 provide the replicated single-call, batch, and formulation medians, and Table A4 compares within-environment ratios.
 
-All of its correctness checks passed: 16,800 enumeration calls with 80 correctly reported infeasible problems, 10,520 calls in the formulation validation, 1,208 scaling checks, and the same package test suites as in Section 6.1.
-
-Absolute times differ between the two software environments and measurement sessions. The principal speed ratios and the congested-family crossover pattern are similar. One noticeable difference concerns the parallel 64 \ensuremath{\times} 80 batch: with four workers on the 64 \ensuremath{\times} 80 batch, JVCPP was 17\% slower than JVRUST in the first run, rather than within a few percent. Table A4 compares the principal ratios, and Figure A1 the congested scaling sweep.
+All correctness validations passed: 16,800 base enumeration calls including 80 expected infeasible calls, 10,520 formulation validation calls, 1,208 scaling checks, 2,112 extended timed-input checks, 129 edge checks, and the same package test counts as Section 6.1. The four-worker JVCPP and JVRUST medians on the 64 \ensuremath{\times} 80 batch are approximately tied in Python 3.11, unlike the larger gap in Python 3.14. This appendix complements the full 201-case ordering comparison and repeated-memory findings in Sections 6.9--6.10.
 
 \subsection{Single-matrix runtime}
 
 \begin{table}[H]
 \centering
-\caption{Median runtime in microseconds in the Python 3.11.16 run, with the cases and methods of Table 3.}
+\caption{Median runtime in microseconds in the Python 3.11.17 run, with the cases and methods of Table 3.}
 \label{tab:A1}
 \begingroup\footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -708,18 +833,18 @@ Absolute times differ between the two software environments and measurement sess
 \toprule
 \textbf{Case} & \textbf{JVRUST} & \textbf{JVHYBRID} & \textbf{JVCPP} & \textbf{JVX} & \textbf{JVS} & \textbf{JVC} & \textbf{SciPy} \\
 \midrule
-Square 128 \ensuremath{\times} 128 & 69.83 & 72.06 & 78.05 & 126.40 & 123.79 & 312.63 & 313.69 \\
-Square 512 \ensuremath{\times} 512 & 1206.09 & 1222.33 & 1278.50 & 3691.12 & 3695.19 & 7300.23 & 5896.75 \\
-Wide 64 \ensuremath{\times} 512 & 13.65 & 13.57 & 14.90 & 1008.63 & 903.39 & 2115.31 & 92.38 \\
-Tall 512 \ensuremath{\times} 64 & 29.34 & 28.52 & 89.81 & 1040.55 & 965.23 & 2252.74 & 174.70 \\
-Rectangle 256 \ensuremath{\times} 320 & 84.21 & 85.35 & 87.37 & 203.03 & 201.27 & 5002.55 & 661.64 \\
-Blocks 256 \ensuremath{\times} 320 & 10261.50 & 10521.58 & 11485.38 & 11060.58 & 10955.17 & 6920.70 & 1697.41 \\
-Ties 128 \ensuremath{\times} 160 & 61.20 & 64.26 & 66.00 & 71.56 & 68.73 & 107.97 & 91.13 \\
-128 \ensuremath{\times} 160, \(L=0.5\) & 15.65 & 16.60 & 24.89 & 550.32 & 456.33 & 2574.64 & 522.59 \\
-256 \ensuremath{\times} 320, \(L=0.5\) & 85.29 & 83.61 & 92.78 & 4301.48 & 3368.38 & 18277.62 & 2709.11 \\
-Tight 128 \ensuremath{\times} 160, \(L=0.05\) & 10.77 & 11.47 & 18.53 & 503.39 & 412.44 & 3145.36 & 1239.18 \\
-Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 17.20 & 17.99 & 25.79 & 1116.55 & 941.58 & 3708.12 & 517.90 \\
-Square 128, \(L=0.5\) & 101.53 & 103.68 & 120.93 & 224.59 & 215.80 & 702.62 & 619.33 \\
+Square 128 \ensuremath{\times} 128 & 59.71 & 61.22 & 71.42 & 111.37 & 109.65 & 260.29 & 268.04 \\
+Square 512 \ensuremath{\times} 512 & 1033.70 & 1047.44 & 1111.29 & 3265.40 & 3276.91 & 6031.73 & 5066.82 \\
+Wide 64 \ensuremath{\times} 512 & 11.26 & 11.31 & 13.80 & 866.98 & 815.35 & 1803.09 & 76.49 \\
+Tall 512 \ensuremath{\times} 64 & 23.76 & 23.28 & 78.40 & 887.86 & 832.86 & 1945.91 & 148.59 \\
+Rectangle 256 \ensuremath{\times} 320 & 72.11 & 71.52 & 81.86 & 171.94 & 173.29 & 4014.82 & 559.79 \\
+Blocks 256 \ensuremath{\times} 320 & 8991.83 & 8744.50 & 9801.58 & 9417.83 & 9580.05 & 5601.48 & 1443.51 \\
+Ties 128 \ensuremath{\times} 160 & 49.30 & 53.29 & 52.25 & 59.57 & 60.04 & 93.52 & 77.25 \\
+128 \ensuremath{\times} 160, \(L=0.5\) & 13.45 & 14.20 & 19.29 & 517.50 & 437.54 & 2178.79 & 454.00 \\
+256 \ensuremath{\times} 320, \(L=0.5\) & 68.50 & 69.23 & 75.29 & 3652.79 & 3047.66 & 14849.92 & 2284.79 \\
+Tight 128 \ensuremath{\times} 160, \(L=0.05\) & 9.17 & 9.43 & 14.28 & 451.08 & 378.58 & 2540.20 & 1083.24 \\
+Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 13.61 & 14.33 & 19.23 & 1021.79 & 848.29 & 3028.26 & 435.84 \\
+Square 128, \(L=0.5\) & 86.70 & 88.23 & 96.25 & 194.29 & 192.23 & 590.52 & 516.45 \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -729,7 +854,7 @@ Square 128, \(L=0.5\) & 101.53 & 103.68 & 120.93 & 224.59 & 215.80 & 702.62 & 61
 
 \begin{table}[H]
 \centering
-\caption{Median milliseconds per complete batch in the Python 3.11.16 run, with the workloads and methods of Table 4.}
+\caption{Median milliseconds per complete batch in the Python 3.11.17 run, with the workloads and methods of Table 4.}
 \label{tab:A2}
 \begingroup\small
 \setlength{\tabcolsep}{4pt}
@@ -738,16 +863,16 @@ Square 128, \(L=0.5\) & 101.53 & 103.68 & 120.93 & 224.59 & 215.80 & 702.62 & 61
 \toprule
 \textbf{Method} & \textbf{64 \ensuremath{\times} (64 \ensuremath{\times} 80) required, ms} & \textbf{16 \ensuremath{\times} (128 \ensuremath{\times} 160) \(L=0.5\), ms} & \textbf{1024 \ensuremath{\times} (8 \ensuremath{\times} 10) required, ms} \\
 \midrule
-JVRUST sequential loop & 0.810 & 0.463 & 1.310 \\
-JVRUST batch, 1 worker & 0.754 & 0.436 & 0.584 \\
-JVRUST batch, 4 workers & 0.332 & 0.248 & 0.276 \\
-JVHYBRID batch, 1 worker & 0.745 & 0.450 & 0.589 \\
-JVHYBRID batch, 4 workers & 0.339 & 0.238 & 0.294 \\
-JVCPP batch, 1 worker & 0.793 & 0.519 & 0.671 \\
-JVCPP batch, 4 workers & 0.389 & 0.249 & 0.404 \\
-JVX batch, 1 worker & 1.783 & 9.362 & 6.680 \\
-JVX batch, 4 workers & 3.302 & 5.681 & 20.275 \\
-SciPy sequential loop & 3.094 & 8.748 & 3.637 \\
+JVRUST sequential loop & 0.728 & 0.406 & 1.158 \\
+JVRUST batch, 1 worker & 0.655 & 0.390 & 0.504 \\
+JVRUST batch, 4 workers & 0.293 & 0.214 & 0.245 \\
+JVHYBRID batch, 1 worker & 0.658 & 0.396 & 0.508 \\
+JVHYBRID batch, 4 workers & 0.298 & 0.219 & 0.244 \\
+JVCPP batch, 1 worker & 0.710 & 0.439 & 0.508 \\
+JVCPP batch, 4 workers & 0.286 & 0.241 & 0.282 \\
+JVX batch, 1 worker & 1.586 & 8.430 & 5.873 \\
+JVX batch, 4 workers & 2.931 & 5.372 & 19.281 \\
+SciPy sequential loop & 2.707 & 7.677 & 2.803 \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -757,7 +882,7 @@ SciPy sequential loop & 3.094 & 8.748 & 3.637 \\
 
 \begin{table}[H]
 \centering
-\caption{Finite-limit formulation comparison in the Python 3.11.16 run, median microseconds per matrix, with the cases and methods of Table 6.}
+\caption{Finite-limit formulation comparison in the Python 3.11.17 run, median microseconds per matrix, with the cases and methods of Table 6.}
 \label{tab:A3}
 \begingroup\footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -766,16 +891,16 @@ SciPy sequential loop & 3.094 & 8.748 & 3.637 \\
 \toprule
 \textbf{Case} & \textbf{Unmatched} & \textbf{JVRUST} & \textbf{JVCPP} & \textbf{Square} & \textbf{Dummy cols} & \textbf{Capped} \\
 \midrule
-128 \ensuremath{\times} 160, \(L=0.5\) & 0.00 & 16.25 & 24.74 & 525.22 & 313.46 & 155.32 \\
-256 \ensuremath{\times} 320, \(L=0.5\) & 0.00 & 80.18 & 91.84 & 2580.61 & 1519.23 & 657.02 \\
-128 \ensuremath{\times} 160, \(L=0.05\) & 8.25 & 11.04 & 18.26 & 1238.71 & 307.99 & 122.56 \\
-Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 0.00 & 16.41 & 25.98 & 523.94 & 281.89 & 167.81 \\
-Square 128, \(L=0.5\) & 0.00 & 97.80 & 117.37 & 615.84 & 482.58 & 262.75 \\
-128 \ensuremath{\times} 160, \(L=0.005\) & 87.75 & 6.76 & 8.39 & 960.08 & 201.05 & 86.46 \\
-128 \ensuremath{\times} 160, \(L=0.001\) & 117.00 & 6.53 & 7.65 & 612.20 & 192.94 & 80.01 \\
-Tall 160 \ensuremath{\times} 128, \(L=0.005\) & 89.50 & 15.45 & 16.59 & 994.76 & 204.62 & 97.49 \\
-Wide 64 \ensuremath{\times} 512, \(L=0.005\) & 18.00 & 10.19 & 10.82 & 2429.68 & 234.66 & 104.12 \\
-Blocks 256 \ensuremath{\times} 320, \(L=0.5\) & 112.00 & 1966.21 & 2142.55 & 3126.15 & 1956.87 & 862.64 \\
+128 \ensuremath{\times} 160, \(L=0.5\) & 0.00 & 13.16 & 18.68 & 439.99 & 261.16 & 131.41 \\
+256 \ensuremath{\times} 320, \(L=0.5\) & 0.00 & 71.34 & 77.14 & 2327.70 & 1356.99 & 577.33 \\
+128 \ensuremath{\times} 160, \(L=0.05\) & 8.25 & 9.25 & 14.08 & 1054.59 & 256.30 & 103.35 \\
+Signed 128 \ensuremath{\times} 160, \(L=-0.25\) & 0.00 & 13.77 & 19.31 & 436.12 & 240.74 & 140.81 \\
+Square 128, \(L=0.5\) & 0.00 & 85.93 & 96.59 & 533.00 & 415.92 & 224.62 \\
+128 \ensuremath{\times} 160, \(L=0.005\) & 87.75 & 5.83 & 6.87 & 825.64 & 170.22 & 73.17 \\
+128 \ensuremath{\times} 160, \(L=0.001\) & 117.00 & 5.54 & 6.22 & 505.93 & 163.95 & 68.06 \\
+Tall 160 \ensuremath{\times} 128, \(L=0.005\) & 89.50 & 13.47 & 12.05 & 880.12 & 175.97 & 84.32 \\
+Wide 64 \ensuremath{\times} 512, \(L=0.005\) & 18.00 & 8.55 & 9.05 & 2072.51 & 197.94 & 89.00 \\
+Blocks 256 \ensuremath{\times} 320, \(L=0.5\) & 112.00 & 1673.29 & 1723.54 & 2596.48 & 1635.13 & 729.36 \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -792,32 +917,39 @@ Blocks 256 \ensuremath{\times} 320, \(L=0.5\) & 112.00 & 1966.21 & 2142.55 & 312
 \renewcommand{\arraystretch}{1.13}
 \begin{tabularx}{\linewidth}{@{}Xrr@{}}
 \toprule
-\textbf{Quantity} & \textbf{Python 3.11.16} & \textbf{Python 3.14.9} \\
+\textbf{Quantity} & \textbf{Python 3.11.17} & \textbf{Python 3.14.9} \\
 \midrule
-t(JVRUST) / t(SciPy), required blocks (\ensuremath{\times}) & 6.05 & 6.30 \\
-t(capped SciPy) / t(JVRUST), smallest of nine wins (\ensuremath{\times}) & 2.69 & 2.60 \\
-t(capped SciPy) / t(JVRUST), largest of nine wins (\ensuremath{\times}) & 12.79 & 11.92 \\
-t(JVRUST) / t(capped SciPy), blocks 256 \ensuremath{\times} 320 (\ensuremath{\times}) & 2.28 & 2.41 \\
-t(JVRUST) / t(capped SciPy), blocks 1024 \ensuremath{\times} 1280 (\ensuremath{\times}) & 9.08 & 9.25 \\
-t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), one worker (\ensuremath{\times}) & 2.24 & 2.45 \\
-t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), four workers (\ensuremath{\times}) & 4.75 & 5.22 \\
-t(JVCPP) / t(JVRUST), largest finite-limit gap (\ensuremath{\times}) & 1.72 & 1.82 \\
-t(JVCPP) / t(JVRUST), tall 512 \ensuremath{\times} 64 (\ensuremath{\times}) & 3.06 & 3.19 \\
-JVRUST, 128 \ensuremath{\times} 160 at \(L=0.5\) (µs) & 16.25 & 15.57 \\
+t(JVRUST) / t(SciPy), required blocks (\ensuremath{\times}) & 6.23 & 6.20 \\
+t(capped SciPy) / t(JVRUST), smallest of nine wins (\ensuremath{\times}) & 2.61 & 2.50 \\
+t(capped SciPy) / t(JVRUST), largest of nine wins (\ensuremath{\times}) & 12.56 & 12.56 \\
+t(JVRUST) / t(capped SciPy), blocks 256 \ensuremath{\times} 320 (\ensuremath{\times}) & 2.29 & 2.41 \\
+t(JVRUST) / t(capped SciPy), blocks 1024 \ensuremath{\times} 1280 (\ensuremath{\times}) & 9.15 & 9.42 \\
+t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), one worker (\ensuremath{\times}) & 2.30 & 2.39 \\
+t(loop) / t(batch), 1024 \ensuremath{\times} (8 \ensuremath{\times} 10), four workers (\ensuremath{\times}) & 4.73 & 5.10 \\
+t(JVCPP) / t(JVRUST), largest finite-limit gap (\ensuremath{\times}) & 1.56 & 1.56 \\
+t(JVCPP) / t(JVRUST), tall 512 \ensuremath{\times} 64 (\ensuremath{\times}) & 3.30 & 3.32 \\
+JVRUST, 128 \ensuremath{\times} 160 at \(L=0.5\) (µs) & 13.16 & 15.09 \\
 \bottomrule
 \end{tabularx}
 \endgroup
 \end{table}
 
-\subsection{Congested scaling in both runs}
+\subsection{Consistent orderings and important exceptions}
 
-Figure A1 repeats the congested finite-limit sweep of Figure 6 for both runs. In both runs, JVRUST is faster than capped SciPy at \(N=16\), 32, and 64, while capped SciPy is faster at \(N=128\), 256, 512, and 1024. The same change in ordering is observed between \(N=64\) and \(N=128\) in both tested environments; these runs do not isolate the effects of interpreter, library version, or host state.
+In both runs, JVRUST is faster than capped SciPy at \(N=16\), 32, and 64, while capped SciPy is faster at \(N=128\), 256, 512, and 1024. Figure A1 shows the unchanged native-versus-SciPy orderings and the sampled congested crossover. Points reflect the designed case grid, not independent draws from an application population.
 
 \begin{figure}[H]
 \centering
-\includegraphics[alt={Congested finite-limit scaling in both runs},width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_blocks_runs.pdf}
-\caption{Congested finite-limit scaling, with \(M=5N/4\) and \(L=0.5\), for JVRUST, JVCPP, and capped-cost SciPy in the Python 3.14.9 run (solid) and the Python 3.11.16 run (dashed). Each point is the median of nine timing-round averages over four matrices. Linear and log-log views show the same measurements.}
+\includegraphics[alt={Cross-environment native versus SciPy ratios and congested crossover},width=\linewidth,height=.77\textheight,keepaspectratio]{images/environment_consistency.pdf}
+\caption{Ratios of within-run median times. Left: the relevant SciPy time divided by JVRUST time for each of the 201 non-batch cases in both environments, grouped by suite. Right: capped SciPy/JVRUST ratios in the congested base scaling sweep. Ratios above one favor JVRUST. Finite-limit single-call cases retain square-expanded SciPy; other finite-limit cases use capped SciPy.}
 \label{fig:A1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[alt={Ranking exceptions in a small required case and a four-worker batch},width=\linewidth,height=.77\textheight,keepaspectratio]{images/ranking_exceptions.pdf}
+\caption{Two changes that qualify the consistency finding. Left: required 32 \ensuremath{\times} 32 scaling, where JVC and SciPy exchange order. Right: 64 problems of size 64 \ensuremath{\times} 80 with four workers, where JVCPP's large Python 3.14 gap becomes an approximate tie in Python 3.11. Whiskers are timing-round interquartile ranges, not confidence intervals. These examples do not overturn the repeated native-versus-SciPy ordering or the general batching benefit.}
+\label{fig:A2}
 \end{figure}
 
 \FloatBarrier
