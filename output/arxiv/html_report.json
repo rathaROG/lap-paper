@@ -1,5 +1,5 @@
 {
-  "archive_sha256": "5e14f1db76199c3bdee8ed9125876e6b595c83eb75e91185494fa1fade9889b8",
+  "archive_sha256": "b8fba9105c89720e02d53a26b6301224e06a08b3b53506e79053a6e097f34fb1",
   "converter": "latexml (LaTeXML version 0.8.8)",
   "source": "Unmodified main.tex and main.bbl extracted from the upload ZIP",
   "figure_rendering": "Original PDF figures rendered by Poppler for the local HTML preview only",
@@ -16,8 +16,8 @@
   "all_internal_links_resolve": true,
   "all_figures_have_alt_text": true,
   "preview": "output/arxiv/html/index.html",
-  "preview_sha256": "5377a14c490e324875172c8b0bf9d921fddf8578f2d970a3783c8e1830a3d069",
-  "build_directory": "tmp/arxiv/html-aceu202_",
+  "preview_sha256": "fed1dbed81a10915ea8911693188607e84d01fe3710202bc69e93a71a0f54994",
+  "build_directory": "tmp/arxiv/html-7z1jvj8a",
   "commands": [
     {
       "step": "conversion",
@@ -25,7 +25,7 @@
         "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\strawberry\\perl\\bin\\perl.exe",
         "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\latexml\\bin\\latexml",
         "--strict",
-        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\main.xml",
+        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\main.xml",
         "main.tex"
       ],
       "exit_code": 0
@@ -38,8 +38,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\single_runtime.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\single_runtime"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\single_runtime.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\single_runtime"
       ],
       "exit_code": 0
     },
@@ -51,8 +51,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\batch_runtime.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\batch_runtime"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\batch_runtime.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\batch_runtime"
       ],
       "exit_code": 0
     },
@@ -64,8 +64,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\memory_peak.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\memory_peak"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\memory_peak.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\memory_peak"
       ],
       "exit_code": 0
     },
@@ -77,8 +77,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\scaling_required.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\scaling_required"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\scaling_required.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\scaling_required"
       ],
       "exit_code": 0
     },
@@ -90,8 +90,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\scaling_optional.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\scaling_optional"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\scaling_optional.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\scaling_optional"
       ],
       "exit_code": 0
     },
@@ -103,8 +103,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\scaling_blocks.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\scaling_blocks"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\scaling_blocks.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\scaling_blocks"
       ],
       "exit_code": 0
     },
@@ -116,8 +116,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\large_square.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\large_square"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\large_square.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\large_square"
       ],
       "exit_code": 0
     },
@@ -129,8 +129,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\large_rectangles.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\large_rectangles"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\large_rectangles.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\large_rectangles"
       ],
       "exit_code": 0
     },
@@ -142,8 +142,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\extreme_rectangles.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\extreme_rectangles"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\extreme_rectangles.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\extreme_rectangles"
       ],
       "exit_code": 0
     },
@@ -155,8 +155,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\structure_required.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\structure_required"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\structure_required.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\structure_required"
       ],
       "exit_code": 0
     },
@@ -168,8 +168,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\structure_optional.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\structure_optional"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\structure_optional.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\structure_optional"
       ],
       "exit_code": 0
     },
@@ -181,8 +181,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\rejection_sweep.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\rejection_sweep"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\rejection_sweep.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\rejection_sweep"
       ],
       "exit_code": 0
     },
@@ -194,8 +194,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\memory_sweeps.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\memory_sweeps"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\memory_sweeps.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\memory_sweeps"
       ],
       "exit_code": 0
     },
@@ -207,8 +207,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\environment_consistency.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\environment_consistency"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\environment_consistency.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\environment_consistency"
       ],
       "exit_code": 0
     },
@@ -220,8 +220,8 @@
         "144",
         "-png",
         "-singlefile",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source\\images\\ranking_exceptions.pdf",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\images\\ranking_exceptions"
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source\\images\\ranking_exceptions.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\images\\ranking_exceptions"
       ],
       "exit_code": 0
     },
@@ -231,10 +231,10 @@
         "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\strawberry\\perl\\bin\\perl.exe",
         "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\latexml\\bin\\latexmlpost",
         "--format=html5",
-        "--sourcedirectory=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\source",
-        "--css=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\paper-preview.css",
-        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\html\\index.html",
-        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-aceu202_\\web.xml"
+        "--sourcedirectory=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\source",
+        "--css=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\paper-preview.css",
+        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\html\\index.html",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-7z1jvj8a\\web.xml"
       ],
       "exit_code": 0
     },

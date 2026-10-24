@@ -1,31 +1,27 @@
 {
-  "reviewed_utc": "2026-10-24T07:26:24.621578+00:00",
+  "reviewed_utc": "2026-10-24T09:22:47.106170+00:00",
   "pdf_visual_review": {
     "status": "passed",
     "pages": 34,
-    "method": "Rendered all 34 pages at 110 dpi after the four agreed review-3/review-4 fixes. Visually inspected all 10 changed pages individually; the other 24 renders are byte-identical to the previously reviewed version. An independent reviewer checked pages 28, 29, 30, 31, and 33.",
-    "changed_pages_visually_reviewed": [
-      4,
-      5,
-      12,
-      13,
-      24,
-      28,
-      29,
-      30,
-      31,
-      33
+    "method": "Rendered all 34 pages at 110 dpi after rebuilding from the committed proposal-01 revision. All renders are byte-identical to the previously visually reviewed version in the source commit; page 24 was additionally visually inspected again. No content or layout changes occurred.",
+    "changed_pages_visually_reviewed": [],
+    "additional_pages_visually_reviewed": [
+      24
     ],
     "unchanged_pages_matching_prior_review": [
       1,
       2,
       3,
+      4,
+      5,
       6,
       7,
       8,
       9,
       10,
       11,
+      12,
+      13,
       14,
       15,
       16,
@@ -36,52 +32,59 @@
       21,
       22,
       23,
+      24,
       25,
       26,
       27,
+      28,
+      29,
+      30,
+      31,
       32,
+      33,
       34
     ],
+    "prior_review_commit": "a41eba9946ec1106bf571a2c95041b231563b48f",
     "renders": {
-      "tmp/publication-review/final-page-01.png": "6e50bd38ffc3c960e8bb0c464e5209969be53bb2c296c3f277aad04e1d4876a3",
-      "tmp/publication-review/final-page-02.png": "84cba484deaf10dc658cc2081215b106899bfb05366dde135cfbe96494d87f21",
-      "tmp/publication-review/final-page-03.png": "4de071cdea1cd12da5840f84e6baf445a5b8b56d6a6be459d62f4e9f7d5b5965",
-      "tmp/publication-review/final-page-04.png": "d6df945c60f5872b5ee7059322914124f7c43c903db90353288dc055b10cade5",
-      "tmp/publication-review/final-page-05.png": "c241f943e917171de3bb28816d76545427330cbb130292f029fccbb8145723f6",
-      "tmp/publication-review/final-page-06.png": "050ac7ef38973f1ca56d6b0db68ed0eb795eb43c8496c44dce2fba99b94cf944",
-      "tmp/publication-review/final-page-07.png": "52cf49ca0ead5fea39214bee77ff5f9480977872c8f5934411a8d95a8344790a",
-      "tmp/publication-review/final-page-08.png": "7b49af1a979d197881197ddc3ba0756a9a9d6c07c0339c002e2ea5a316552827",
-      "tmp/publication-review/final-page-09.png": "5a13a63c0c8cbd53e3ad8287cd88830b5bb675582ed555403ed213efbdc2831f",
-      "tmp/publication-review/final-page-10.png": "e84ac1c25eb3bc2f3dd950d17aa9fe923edac4d3b98fe63d0e2c1e85a906a79c",
-      "tmp/publication-review/final-page-11.png": "e46ccfcdaea6f0b9835142d04c06f5750c1d003f549b1650f910b1bdab2b0bc7",
-      "tmp/publication-review/final-page-12.png": "21190d39a49db8b05117a1d1e11ac38387adbf330d8b8cda4996a1f3c52b0011",
-      "tmp/publication-review/final-page-13.png": "4261b3492cf95e7b8723ccd4f5f4399a8deae48a8a4f77af19f8c7630a6880a9",
-      "tmp/publication-review/final-page-14.png": "2d3a5a65829415b20d08672225f65d0ebd78de47800282071f714d5d3c6c642a",
-      "tmp/publication-review/final-page-15.png": "249207f7d4b1bacf9ea18a98d0fc02b572b273f3d06c15350af17e40348711f3",
-      "tmp/publication-review/final-page-16.png": "072905ea8f8b3439574d6055e1f3a11a153da4de8f80f8aac5658b5d2cc144b1",
-      "tmp/publication-review/final-page-17.png": "c9a861d0aaccc5fde06781859861f2ccabcb726dd5999ca70f7ac4d3dde9055e",
-      "tmp/publication-review/final-page-18.png": "700ab424cf2e2bf159b87046e127824e4371b032cef2e1382a7fa3975f3becc6",
-      "tmp/publication-review/final-page-19.png": "67dc6800fc20a63fdd70c33f5be4f2885736926530e4ee28be99afa2068e3fa5",
-      "tmp/publication-review/final-page-20.png": "a63c2745f258e3e0c08510e0373d87828f12e727d30556c8b617fd796111c121",
-      "tmp/publication-review/final-page-21.png": "b2f51c4605184770038d5986ce645bfe3975c8b095ba6e77887fbad273501d3b",
-      "tmp/publication-review/final-page-22.png": "97ef27d4b307fc1de8b9a4e9f7dec95449b96ad560a0d58a097483b074a5fcbc",
-      "tmp/publication-review/final-page-23.png": "65b95b2fcae2e92c74fd23aa224711c24f9d3957a62248338acfaa17088b2179",
-      "tmp/publication-review/final-page-24.png": "136987b7ee9ceb6905a7ed2543a2de90ba23a0376aea6e5df28e282c52291835",
-      "tmp/publication-review/final-page-25.png": "de4aedd19941d6404ed0c820a372d7a5fc05f48972a7c4d66a799ffb345f45a3",
-      "tmp/publication-review/final-page-26.png": "a39035cdc9cde44c2d11a907157c6893c51daff08ee38c1e7e75dfccf6b91ef6",
-      "tmp/publication-review/final-page-27.png": "e5a90af8c303bf4f080078457688be9fc5cd9db85a573433f8771e811ac38245",
-      "tmp/publication-review/final-page-28.png": "d78ccfc1adb424bc19ae4b8d72a1a9884906ac13d7997f7a4f05b687d0c85f41",
-      "tmp/publication-review/final-page-29.png": "64733b99c169b302c1b2e542ba72c13b19567ded6cf9a860490c5cbf7275400e",
-      "tmp/publication-review/final-page-30.png": "26ea0d1c0db6901c179bdd240e11ca5721b5cbbe904eeea119c689cdd70e4d62",
-      "tmp/publication-review/final-page-31.png": "d674820770523cc3aec453e9d6fe8e5d25bd27b226f8805232711b16ddbe7200",
-      "tmp/publication-review/final-page-32.png": "5967be03bfaaedee3dc0ccffec2427809086c027e2dfd24760bfc3c3d609f3ed",
-      "tmp/publication-review/final-page-33.png": "61773f540615513ee2223e3d1cb0e02966070088872b12e60d48bc38bf77f94b",
-      "tmp/publication-review/final-page-34.png": "d5421a19db6adb7875f96354d522ee76893c275caa1701411230f306b621946b"
+      "tmp/post-commit-review/page-01.png": "6e50bd38ffc3c960e8bb0c464e5209969be53bb2c296c3f277aad04e1d4876a3",
+      "tmp/post-commit-review/page-02.png": "84cba484deaf10dc658cc2081215b106899bfb05366dde135cfbe96494d87f21",
+      "tmp/post-commit-review/page-03.png": "4de071cdea1cd12da5840f84e6baf445a5b8b56d6a6be459d62f4e9f7d5b5965",
+      "tmp/post-commit-review/page-04.png": "d6df945c60f5872b5ee7059322914124f7c43c903db90353288dc055b10cade5",
+      "tmp/post-commit-review/page-05.png": "c241f943e917171de3bb28816d76545427330cbb130292f029fccbb8145723f6",
+      "tmp/post-commit-review/page-06.png": "050ac7ef38973f1ca56d6b0db68ed0eb795eb43c8496c44dce2fba99b94cf944",
+      "tmp/post-commit-review/page-07.png": "52cf49ca0ead5fea39214bee77ff5f9480977872c8f5934411a8d95a8344790a",
+      "tmp/post-commit-review/page-08.png": "7b49af1a979d197881197ddc3ba0756a9a9d6c07c0339c002e2ea5a316552827",
+      "tmp/post-commit-review/page-09.png": "5a13a63c0c8cbd53e3ad8287cd88830b5bb675582ed555403ed213efbdc2831f",
+      "tmp/post-commit-review/page-10.png": "5fd067b6daca40a8538ff2cb3f9f65ff7d3bc468e5aa2e948e2bf4aba9edcaea",
+      "tmp/post-commit-review/page-11.png": "e46ccfcdaea6f0b9835142d04c06f5750c1d003f549b1650f910b1bdab2b0bc7",
+      "tmp/post-commit-review/page-12.png": "21190d39a49db8b05117a1d1e11ac38387adbf330d8b8cda4996a1f3c52b0011",
+      "tmp/post-commit-review/page-13.png": "4261b3492cf95e7b8723ccd4f5f4399a8deae48a8a4f77af19f8c7630a6880a9",
+      "tmp/post-commit-review/page-14.png": "2d3a5a65829415b20d08672225f65d0ebd78de47800282071f714d5d3c6c642a",
+      "tmp/post-commit-review/page-15.png": "249207f7d4b1bacf9ea18a98d0fc02b572b273f3d06c15350af17e40348711f3",
+      "tmp/post-commit-review/page-16.png": "072905ea8f8b3439574d6055e1f3a11a153da4de8f80f8aac5658b5d2cc144b1",
+      "tmp/post-commit-review/page-17.png": "c9a861d0aaccc5fde06781859861f2ccabcb726dd5999ca70f7ac4d3dde9055e",
+      "tmp/post-commit-review/page-18.png": "700ab424cf2e2bf159b87046e127824e4371b032cef2e1382a7fa3975f3becc6",
+      "tmp/post-commit-review/page-19.png": "67dc6800fc20a63fdd70c33f5be4f2885736926530e4ee28be99afa2068e3fa5",
+      "tmp/post-commit-review/page-20.png": "a63c2745f258e3e0c08510e0373d87828f12e727d30556c8b617fd796111c121",
+      "tmp/post-commit-review/page-21.png": "b2f51c4605184770038d5986ce645bfe3975c8b095ba6e77887fbad273501d3b",
+      "tmp/post-commit-review/page-22.png": "97ef27d4b307fc1de8b9a4e9f7dec95449b96ad560a0d58a097483b074a5fcbc",
+      "tmp/post-commit-review/page-23.png": "65b95b2fcae2e92c74fd23aa224711c24f9d3957a62248338acfaa17088b2179",
+      "tmp/post-commit-review/page-24.png": "a49caba689f9c109ed0dfaac5b66a303ecda6d6856002847357e76c73b1146e6",
+      "tmp/post-commit-review/page-25.png": "d29816a98e5db6a7c67881d1553e8dd332acb65b6910cad54751c232d517479e",
+      "tmp/post-commit-review/page-26.png": "a39035cdc9cde44c2d11a907157c6893c51daff08ee38c1e7e75dfccf6b91ef6",
+      "tmp/post-commit-review/page-27.png": "e5a90af8c303bf4f080078457688be9fc5cd9db85a573433f8771e811ac38245",
+      "tmp/post-commit-review/page-28.png": "bc7227783935d70bf51468817ac5f6bc26c28537a3186db062e092c318116b98",
+      "tmp/post-commit-review/page-29.png": "831d766ecdc9149ffe27dee20e9afb9160633e374542b57dc213552026ea60e1",
+      "tmp/post-commit-review/page-30.png": "26ea0d1c0db6901c179bdd240e11ca5721b5cbbe904eeea119c689cdd70e4d62",
+      "tmp/post-commit-review/page-31.png": "d674820770523cc3aec453e9d6fe8e5d25bd27b226f8805232711b16ddbe7200",
+      "tmp/post-commit-review/page-32.png": "5967be03bfaaedee3dc0ccffec2427809086c027e2dfd24760bfc3c3d609f3ed",
+      "tmp/post-commit-review/page-33.png": "61773f540615513ee2223e3d1cb0e02966070088872b12e60d48bc38bf77f94b",
+      "tmp/post-commit-review/page-34.png": "d5421a19db6adb7875f96354d522ee76893c275caa1701411230f306b621946b"
     }
   },
-  "pdf_sha256": "66a14db6b1079e0bed7327f6cf87f56e834c8e471a86ab71c80d1d488c9c3e69",
-  "archive_sha256": "5e14f1db76199c3bdee8ed9125876e6b595c83eb75e91185494fa1fade9889b8",
-  "html_sha256": "5377a14c490e324875172c8b0bf9d921fddf8578f2d970a3783c8e1830a3d069",
+  "pdf_sha256": "c3882f32433c876ccf60ba84031847c47407f3dbb05682c163dff1e5747ac954",
+  "archive_sha256": "b8fba9105c89720e02d53a26b6301224e06a08b3b53506e79053a6e097f34fb1",
+  "html_sha256": "fed1dbed81a10915ea8911693188607e84d01fe3710202bc69e93a71a0f54994",
   "html_conversion_and_structure": {
     "status": "passed",
     "counts": {
@@ -104,7 +107,7 @@
   "harness_tests": {
     "passed": 17,
     "command": "C:\\dev\\exc\\python\\p311\\python.exe -B -m pytest -q -p no:cacheprovider tests",
-    "scope": "Previously passed on the committed baseline; not rerun for these prose and label corrections. The synchronized narrative checks and full publication evidence audit passed using saved results only."
+    "scope": "Historical result from the previously tested baseline; not rerun for the three prose replacements. The current full publication evidence audit passed using saved results only."
   },
   "scope": "Local PDFLaTeX and LaTeXML verification. arXiv server processing and styling have not been tested by this revision.",
   "repository_link": {
@@ -115,42 +118,81 @@
     "html_href_verified": true,
     "upload_source_verified": true
   },
-  "review_corrections": {
+  "proposal_01_corrections": {
     "status": "passed",
-    "updated_passages_verified_in_pdf_and_html": 8,
-    "malformed_number_absent": true,
-    "sentence_boundary_guard_rejects_previous_corruption": true,
-    "measurements_rerun": false
-  },
-  "review_2_corrections": {
-    "status": "passed",
-    "reduction_policy_description_verified_in_pdf_and_html": true,
-    "table_a4_label_verified_in_pdf_html_and_generator": true,
-    "table_a4_values_unchanged": [
-      1.56,
-      1.56
+    "manuscript_edits_match_proposal_verbatim": [
+      "P1",
+      "P2",
+      "P3"
     ],
-    "measurements_rerun": false
-  },
-  "review_3_4_corrections": {
-    "status": "passed",
-    "updated_passages_verified_in_pdf_and_html": 6,
-    "original_assignment_domain_scoped_to_equations": [
-      1,
-      4
+    "updated_passages_verified_in_pdf_html_and_upload_source": 3,
+    "pdf_pages_for_p1_p2_p3": [
+      24,
+      28,
+      10
     ],
-    "dual_edge_constraint_indexed_over_admissible_edges": true,
-    "proposition_3_and_its_proof_unchanged": true,
-    "installed_python_tests_distinguished_from_native_source_tests": true,
-    "crossover_named_jvrust": true,
-    "fixed_row_example_scoped_to_finite_limit": true,
-    "table_a4_source_named_tables_6_a3": true,
-    "table_a4_values_unchanged": [
-      13.16,
-      15.09
-    ],
-    "narrative_guard_and_label_synchronized": true,
+    "deferred_items_unchanged": true,
+    "surrounding_numerical_results_and_caveats_unchanged": true,
+    "publication_figure_files_unchanged": 15,
     "frozen_evidence_files_unchanged": 1691,
-    "measurements_rerun": false
+    "measurements_rerun": false,
+    "figures_regenerated": false
+  },
+  "historical_revision_checks": {
+    "reviewed_utc": "2026-10-24T07:26:24.621578+00:00",
+    "pdf_sha256": "66a14db6b1079e0bed7327f6cf87f56e834c8e471a86ab71c80d1d488c9c3e69",
+    "archive_sha256": "5e14f1db76199c3bdee8ed9125876e6b595c83eb75e91185494fa1fade9889b8",
+    "html_sha256": "5377a14c490e324875172c8b0bf9d921fddf8578f2d970a3783c8e1830a3d069",
+    "review_corrections": {
+      "status": "passed",
+      "updated_passages_verified_in_pdf_and_html": 8,
+      "malformed_number_absent": true,
+      "sentence_boundary_guard_rejects_previous_corruption": true,
+      "measurements_rerun": false
+    },
+    "review_2_corrections": {
+      "status": "passed",
+      "reduction_policy_description_verified_in_pdf_and_html": true,
+      "table_a4_label_verified_in_pdf_html_and_generator": true,
+      "table_a4_values_unchanged": [
+        1.56,
+        1.56
+      ],
+      "measurements_rerun": false
+    },
+    "review_3_4_corrections": {
+      "status": "passed",
+      "updated_passages_verified_in_pdf_and_html": 6,
+      "original_assignment_domain_scoped_to_equations": [
+        1,
+        4
+      ],
+      "dual_edge_constraint_indexed_over_admissible_edges": true,
+      "proposition_3_and_its_proof_unchanged": true,
+      "installed_python_tests_distinguished_from_native_source_tests": true,
+      "crossover_named_jvrust": true,
+      "fixed_row_example_scoped_to_finite_limit": true,
+      "table_a4_source_named_tables_6_a3": true,
+      "table_a4_values_unchanged": [
+        13.16,
+        15.09
+      ],
+      "narrative_guard_and_label_synchronized": true,
+      "frozen_evidence_files_unchanged": 1691,
+      "measurements_rerun": false
+    },
+    "scope": "Recorded checks of the prior revision, retained as historical evidence; not presented as fresh checks of this revision."
+  },
+  "rebuilt_from_commit": "a41eba9946ec1106bf571a2c95041b231563b48f",
+  "post_commit_rebuild": {
+    "status": "passed",
+    "upload_archive_byte_identical_to_commit": true,
+    "all_18_packaged_source_files_byte_identical_to_commit": true,
+    "pdf_renders_byte_identical_to_prior_review": 34,
+    "html_unchanged_except_two_generation_timestamps": true,
+    "local_html_assets_byte_identical_to_commit": 19,
+    "frozen_evidence_files_unchanged": 1691,
+    "measurements_rerun": false,
+    "figures_regenerated": false
   }
 }
