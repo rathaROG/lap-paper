@@ -89,7 +89,7 @@ PRINCIPAL_RATIOS = (
     "t(JVRUST) / t(capped SciPy), blocks 1024 × 1280 (×)",
     "t(loop) / t(batch), 1024 × (8 × 10), one worker (×)",
     "t(loop) / t(batch), 1024 × (8 × 10), four workers (×)",
-    "t(JVCPP) / t(JVRUST), largest finite-limit gap (×)",
+    "t(JVCPP) / t(JVRUST), largest finite-limit gap in Tables 3/A1 (×)",
     "t(JVCPP) / t(JVRUST), tall 512 × 64 (×)",
     "JVRUST, 128 × 160 at L=0.5 (µs)",
 )

@@ -68,7 +68,9 @@ def verify():
         if section=='Abstract':
             continue  # The revised abstract summarizes both environments.
         block=re.search(rf'### {re.escape(section)} .*?\n(.*?)(?=\n### |\n## |\Z)',manuscript,re.S).group(1)
-        assert sentence in block, (section,sentence)
+        # A complete sentence must not match a truncated decimal such as 65.97.43.
+        boundary = r'(?=\s|$)' if sentence.endswith('.') else ''
+        assert re.search(re.escape(sentence) + boundary, block), (section,sentence)
 
     # Independent formatting of Table 7 directly from each extended summary.
     expected=[]
