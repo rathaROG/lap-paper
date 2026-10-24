@@ -1,0 +1,148 @@
+{
+  "archive_sha256": "d857c572d4eb0d1a017c78cdf1b9f5235f4c0d4d6d0a4012b5e224b2d5f3ff5c",
+  "converter": "latexml (LaTeXML version 0.8.8)",
+  "source": "Unmodified main.tex and main.bbl extracted from the upload ZIP",
+  "figure_rendering": "Original PDF figures rendered by Poppler for the local HTML preview only",
+  "counts": {
+    "figures": 7,
+    "tables": 10,
+    "references": 19,
+    "algorithms": 1,
+    "math_expressions": 207
+  },
+  "diagnostics": [],
+  "parsed_math_expressions_including_alternatives": 216,
+  "font_settings_leaked": false,
+  "all_internal_links_resolve": true,
+  "all_figures_have_alt_text": true,
+  "preview": "output/arxiv/html/index.html",
+  "preview_sha256": "3eba29e4ad2ee9861ddd2c672418c2cca4c4d905f2e7ef20ac3c7fff73199aee",
+  "build_directory": "tmp/arxiv/html-pac95622",
+  "commands": [
+    {
+      "step": "conversion",
+      "command": [
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\strawberry\\perl\\bin\\perl.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\latexml\\bin\\latexml",
+        "--strict",
+        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\main.xml",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-1",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\single_runtime.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\single_runtime"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-2",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\batch_runtime.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\batch_runtime"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-3",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\memory_peak.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\memory_peak"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-4",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\scaling_required.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\scaling_required"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-5",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\scaling_optional.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\scaling_optional"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-6",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\scaling_blocks.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\scaling_blocks"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-7",
+      "command": [
+        "C:\\Users\\ratha\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source\\images\\scaling_blocks_runs.pdf",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\images\\scaling_blocks_runs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "postprocess",
+      "command": [
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\strawberry\\perl\\bin\\perl.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\latexml\\bin\\latexmlpost",
+        "--format=html5",
+        "--sourcedirectory=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\source",
+        "--css=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\paper-preview.css",
+        "--destination=D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\html\\index.html",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\html-pac95622\\web.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "version",
+      "command": [
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\strawberry\\perl\\bin\\perl.exe",
+        "D:\\DEV\\phd\\all_pyppbox\\new2\\lap-paper\\tmp\\arxiv\\tools\\latexml\\bin\\latexml",
+        "--VERSION"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "scope": "Local LaTeXML validation; arXiv's deployed version and styling may differ."
+}

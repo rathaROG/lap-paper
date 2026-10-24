@@ -1,0 +1,145 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Zhang et~al.(2022)Zhang, Sun, Jiang, Yu, Weng, Yuan, Luo, Liu, and
+  Wang]{zhang2022bytetrack}
+Yifu Zhang, Peize Sun, Yi~Jiang, Dongdong Yu, Fucheng Weng, Zehuan Yuan, Ping
+  Luo, Wenyu Liu, and Xinggang Wang.
+\newblock {ByteTrack}: Multi-object tracking by associating every detection
+  box.
+\newblock In \emph{European Conference on Computer Vision (ECCV)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2110.06864}.
+
+\bibitem[Kazmar et~al.()]{gatagatlap}
+Tomas Kazmar et~al.
+\newblock lap.
+\newblock Source implementation.
+\newblock URL \url{https://github.com/gatagat/lap}.
+\newblock Evaluated through its LAPX adaptation.
+
+\bibitem[Jonker and Volgenant(1987)]{jonker1987}
+R.~Jonker and A.~Volgenant.
+\newblock A shortest augmenting path algorithm for dense and sparse linear
+  assignment problems.
+\newblock \emph{Computing}, 38:\penalty0 325--340, 1987.
+\newblock \doi{10.1007/BF02278710}.
+
+\bibitem[Crouse(2016)]{crouse2016}
+David~F. Crouse.
+\newblock On implementing 2d rectangular assignment algorithms.
+\newblock \emph{IEEE Transactions on Aerospace and Electronic Systems},
+  52\penalty0 (4):\penalty0 1679--1696, 2016.
+\newblock \doi{10.1109/TAES.2016.140952}.
+
+\bibitem[Bougleux and Brun(2016)]{bougleux2016}
+S{\'e}bastien Bougleux and Luc Brun.
+\newblock Linear sum assignment with edition.
+\newblock Technical report, Normandie Universit{\'e}, 2016.
+\newblock URL \url{https://arxiv.org/abs/1603.04380}.
+
+\bibitem[Jones et~al.(2017)Jones, Chawdhary, and King]{jones2017}
+William Jones, Aziem Chawdhary, and Andy King.
+\newblock Optimising the {Volgenant--Jonker} algorithm for approximating graph
+  edit distance.
+\newblock \emph{Pattern Recognition Letters}, 87:\penalty0 47--54, 2017.
+\newblock \doi{10.1016/j.patrec.2016.07.024}.
+\newblock URL \url{https://kar.kent.ac.uk/56765/1/main.pdf}.
+
+\bibitem[Bougleux et~al.(2020)Bougleux, Ga{\"u}z{\`e}re, Blumenthal, and
+  Brun]{bougleux2020}
+S{\'e}bastien Bougleux, Benoit Ga{\"u}z{\`e}re, David~B. Blumenthal, and Luc
+  Brun.
+\newblock Fast linear sum assignment with error-correction and no cost
+  constraints.
+\newblock \emph{Pattern Recognition Letters}, 134:\penalty0 37--45, 2020.
+\newblock \doi{10.1016/j.patrec.2018.03.032}.
+\newblock First published online in 2018.
+
+\bibitem[Bijsterbosch and Volgenant(2010)]{bijsterbosch2010}
+J.~Bijsterbosch and A.~Volgenant.
+\newblock Solving the rectangular assignment problem and applications.
+\newblock \emph{Annals of Operations Research}, 181:\penalty0 443--462, 2010.
+\newblock \doi{10.1007/s10479-010-0757-3}.
+
+\bibitem[Volgenant(1996)]{volgenant1996}
+A.~Volgenant.
+\newblock Linear and semi-assignment problems: A core oriented approach.
+\newblock \emph{Computers \& Operations Research}, 23\penalty0 (10):\penalty0
+  917--932, 1996.
+\newblock \doi{10.1016/0305-0548(96)00010-X}.
+
+\bibitem[Crouse(2017)]{crouse2017tcl}
+David~F. Crouse.
+\newblock The {Tracker Component Library}: Free routines for rapid prototyping.
+\newblock \emph{IEEE Aerospace and Electronic Systems Magazine}, 32\penalty0
+  (5):\penalty0 18--27, 2017.
+\newblock Routines \texttt{assign2DMissedDetect} and \texttt{assign2DFull},
+  \url{https://github.com/USNavalResearchLaboratory/TrackerComponentLibrary},
+  accessed 22 October 2026.
+
+\bibitem[{The MathWorks, Inc.}()]{mathworks2018assign}
+{The MathWorks, Inc.}
+\newblock assignjv, assignmunkres, and assignauction.
+\newblock Sensor Fusion and Tracking Toolbox documentation, introduced in
+  R2018b.
+\newblock URL \url{https://www.mathworks.com/help/fusion/ref/assignjv.html}.
+\newblock Accessed 22 October 2026.
+
+\bibitem[Markovtsev et~al.()]{srcdlapjv}
+Vadim Markovtsev et~al.
+\newblock lapjv.
+\newblock Source implementation.
+\newblock URL \url{https://github.com/src-d/lapjv}.
+\newblock Accessed 2026-10-22.
+
+\bibitem[SIV(2026{\natexlab{a}})]{laprust2026}
+Ratha SIV.
+\newblock laprust: Native {Rust} linear assignment solvers with implicit
+  rejection and batch solving.
+\newblock Version 1.0.0, 2026{\natexlab{a}}.
+\newblock URL \url{https://github.com/rathaROG/laprust}.
+
+\bibitem[SIV(2026{\natexlab{b}})]{lapx2026}
+Ratha SIV.
+\newblock {LAPX}: Linear assignment problem solvers.
+\newblock Version 0.11.0, 2026{\natexlab{b}}.
+\newblock URL \url{https://github.com/rathaROG/lapx}.
+
+\bibitem[SIV(2026{\natexlab{c}})]{lapcpp2026}
+Ratha SIV.
+\newblock lapcpp: Native {C++} linear assignment solvers with implicit
+  rejection and batch solving.
+\newblock Version 1.0.0, 2026{\natexlab{c}}.
+\newblock URL \url{https://github.com/rathaROG/lapcpp}.
+
+\bibitem[Heindl et~al.()]{pylapsolver}
+Christoph Heindl et~al.
+\newblock py-lapsolver.
+\newblock Source implementation.
+\newblock URL \url{https://github.com/cheind/py-lapsolver}.
+\newblock Evaluated through its LAPX adaptation.
+
+\bibitem[{SciPy developers}()]{scipylsa}
+{SciPy developers}.
+\newblock Documentation for scipy.optimize.linear\_sum\_assignment.
+\newblock URL
+  \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html}.
+\newblock Accessed 2026-10-22; experiments use SciPy 1.18.1.
+
+\bibitem[Vander~Wiel and Sahinidis(1997)]{vanderwiel1997}
+Russ~J. Vander~Wiel and Nikolaos~V. Sahinidis.
+\newblock The assignment problem with external interactions.
+\newblock \emph{Networks}, 30\penalty0 (3):\penalty0 171--185, 1997.
+\newblock \doi{10.1002/(SICI)1097-0037(199710)30:3<171::AID-NET3>3.0.CO;2-I}.
+
+\bibitem[Bougleux et~al.(2017)Bougleux, Brun, et~al.]{lsape2017}
+S{\'e}bastien Bougleux, Luc Brun, et~al.
+\newblock {LSAPE} bipartite matching toolbox.
+\newblock Version 4, 2017.
+\newblock URL \url{https://bougleux.users.greyc.fr/lsape/}.
+
+\end{thebibliography}

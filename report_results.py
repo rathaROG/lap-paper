@@ -8,11 +8,6 @@ import math
 from pathlib import Path
 import sys
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import numpy as np
-
 PAPER = Path(__file__).resolve().parent
 RESULTS = PAPER / "results"
 FIGURES = PAPER / "figures"
@@ -29,6 +24,8 @@ def read(name):
 
 
 def save(fig, name):
+    import matplotlib.pyplot as plt
+
     fig.savefig(FIGURES / (name + ".png"), dpi=220, bbox_inches="tight")
     fig.savefig(FIGURES / (name + ".svg"), bbox_inches="tight")
     plt.close(fig)
@@ -51,6 +48,13 @@ def batch_label(solver):
 
 
 def main():
+    # Table ordering and labels are also imported by the standard-library-only
+    # artifact checker; load plotting dependencies only when generating figures.
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+
     FIGURES.mkdir(exist_ok=True)
     plt.rcParams.update({
         "font.family": "DejaVu Sans", "font.size": 9, "axes.spines.top": False,

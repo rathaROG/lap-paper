@@ -10,10 +10,11 @@ venv/
 tmp/
 *.tmp
 
-# LaTeX build by-products (the PDF is built under tmp/pdfs/build). Logs elsewhere
-# are artifact evidence, so ignore only those written next to the LaTeX sources.
+# Local LaTeX build by-products. The verified arXiv build runs under tmp/arxiv/;
+# retain the generated main.bbl as part of the canonical submission sources.
 latex/*.aux
 latex/*.bbl
+!latex/main.bbl
 latex/*.blg
 latex/*.fdb_latexmk
 latex/*.fls

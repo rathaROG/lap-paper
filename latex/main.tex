@@ -1,25 +1,20 @@
-
+% arXiv PDFLaTeX / TeX Live 2025 and LaTeXML-compatible front matter.
+% This template is inlined into main.tex by build_pdf.py.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=23mm,headheight=14pt]{geometry}
-\usepackage{fontspec,amsmath,amssymb}
-\usepackage{unicode-math}
-\setmainfont{texgyretermes-regular.otf}[ItalicFont=texgyretermes-italic.otf,
- BoldFont=texgyretermes-bold.otf,BoldItalicFont=texgyretermes-bolditalic.otf]
-\setsansfont{texgyreheros-regular.otf}[ItalicFont=texgyreheros-italic.otf,
- BoldFont=texgyreheros-bold.otf,BoldItalicFont=texgyreheros-bolditalic.otf]
-\setmonofont{texgyrecursor-regular.otf}[Scale=MatchLowercase,
- ItalicFont=texgyrecursor-italic.otf,BoldFont=texgyrecursor-bold.otf,
- BoldItalicFont=texgyrecursor-bolditalic.otf]
-\setmathfont{texgyretermes-math.otf}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
 \usepackage{graphicx,booktabs,tabularx,array,xcolor}
-\usepackage{caption,float,placeins,listings,titlesec}
+\usepackage{caption,float,placeins,listings}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[unicode,colorlinks=true,linkcolor=black,citecolor=black,
 urlcolor=blue!45!black]{hyperref}
 \hypersetup{
- pdftitle={Native Rectangular Linear Assignment with Implicit Rejection},
+ pdftitle={Native Rectangular Linear Assignment with Implicit Rejection: A Jonker-Volgenant Solver without Square Expansion},
  pdfauthor={Ratha SIV},
  pdfsubject={Implementation and experimental study},
  pdfkeywords={linear assignment, Jonker-Volgenant, rectangular matching, implicit rejection}
@@ -41,25 +36,17 @@ urlcolor=blue!45!black]{hyperref}
 \renewcommand{\bottomfraction}{.85}
 \renewcommand{\textfraction}{.06}
 \renewcommand{\floatpagefraction}{.75}
-\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1ex}
-\titlespacing*{\subsection}{0pt}{2ex plus .5ex minus .2ex}{.7ex}
 \newfloat{algorithm}{tbp}{loa}
 \floatname{algorithm}{Algorithm}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
  keepspaces=true,frame=single,framerule=.3pt,rulecolor=\color{black!30},
  xleftmargin=5pt,xrightmargin=5pt,aboveskip=4pt,belowskip=4pt}
+\title{Native Rectangular Linear Assignment with Implicit Rejection:\\
+A Jonker--Volgenant Solver without Square Expansion}
+\author{Ratha SIV}
+\date{22 October 2026}
 \begin{document}
-\begin{center}
-{\LARGE\bfseries Native Rectangular Linear Assignment\\[3pt]
-with Implicit Rejection\par}
-\vspace{6pt}
-{\large A Jonker--Volgenant Solver without Square Expansion\par}
-\vspace{10pt}
-{\large Ratha SIV\par}
-\vspace{5pt}
-{\small 22 October 2026\par}
-\end{center}
-\vspace{3pt}
+\maketitle
 
 \begin{abstract}
 Tracking and matching applications often solve rectangular assignment with a uniform penalty for leaving elements unmatched. Widely used tracking code does this through a Jonker--Volgenant interface that embeds the N \ensuremath{\times} M costs in an (N+M)-square matrix: for 256 rows and 4096 columns, 144.5 MiB of costs for an 8 MiB problem. We describe a Jonker--Volgenant implementation that keeps the real matrix and represents rejection inside its shortest-path search by a constant-size terminal, one distance and one predecessor row. Building on established rectangular and optional-assignment formulations, we derive the one-sided objective it optimizes and the primal-dual certificate it satisfies. Rust (JVRUST), hybrid Rust/C++ (JVHYBRID), and C++ (JVCPP) implementations with native batching agree with exhaustive enumeration and are compared with expanded solvers and with an exact capped-cost SciPy formulation on the original dimensions. On one Intel/Windows system, a 128 \ensuremath{\times} 160 finite-limit problem takes 15.6 microseconds with JVRUST, 139.1 with SciPy on capped costs of the original dimensions, and 476.7 with square-expanded SciPy. JVRUST is faster than capped SciPy in nine of ten finite-limit formulation cases, but capped SciPy is 2.4 times faster on a congested-block case and leads at larger sizes in that congested family. Native batching reduces whole-batch latency, by 5.2 times against a Python loop for 1024 small problems with four workers. The results show where the implementation improves on existing interfaces and where cost structure favors the alternatives.
@@ -458,9 +445,9 @@ Square 128, \(L=0.5\) & 89.97 & 86.59 & 112.39 & 185.62 & 182.69 & 597.88 & 495.
 
 An implementation of the proposed solver is fastest among the configured methods in six of the seven required cases and in all five finite-limit cases. On the uniform 256 \ensuremath{\times} 320 problem, JVRUST takes 80.50 microseconds versus 596.42 for SciPy. The tall case costs more than the corresponding wide case for JVRUST and SciPy, consistent with orientation-dependent work, although this experiment does not isolate every source of the difference.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/single_runtime.pdf}
+\includegraphics[alt={Single-matrix runtimes},width=\linewidth,height=.77\textheight,keepaspectratio]{images/single_runtime.pdf}
 \caption{Required and finite-limit assignment runtimes on a logarithmic scale. Error bars show the 25th--75th percentiles across timing rounds. The block and tied cases are retained rather than reporting only favorable workloads.}
 \label{fig:1}
 \end{figure}
@@ -505,7 +492,7 @@ SciPy sequential loop & 2.762 & 7.780 & 3.253 \\
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/batch_runtime.pdf}
+\includegraphics[alt={Batch runtimes},width=\linewidth,height=.77\textheight,keepaspectratio]{images/batch_runtime.pdf}
 \caption{Whole-batch runtimes and timing-round interquartile ranges for one and four requested workers. All batch methods run within logical CPUs 0--3.}
 \label{fig:2}
 \end{figure}
@@ -541,7 +528,7 @@ SciPy & 0.152 & 144.746 \\
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/memory_peak.pdf}
+\includegraphics[alt={Additional peak working set},width=\linewidth,height=.77\textheight,keepaspectratio]{images/memory_peak.pdf}
 \caption{Additional peak working set on a logarithmic scale. The three implementations and required SciPy operate without a transformed dense cost matrix. Finite-limit SciPy uses the explicit augmented baseline defined in Section 5.}
 \label{fig:3}
 \end{figure}
@@ -598,21 +585,21 @@ The congested curve changes the ordering as size grows. JVRUST is faster than ca
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_required.pdf}
+\includegraphics[alt={Required-assignment size/runtime scaling},width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_required.pdf}
 \caption{Required-assignment runtime as a function of the sum of the original matrix dimensions. Rows show square matrices, 4:1 wide matrices, and fixed \(N=64\) with increasing M. Left panels use linear axes; right panels repeat the same measurements on log-log axes. Each point is the median of nine timing-round averages over four matrices. Bands and error bars show interquartile ranges. Costs are independent uniform [0,1).}
 \label{fig:4}
 \end{figure}
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_optional.pdf}
+\includegraphics[alt={Finite-limit size/runtime scaling},width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_optional.pdf}
 \caption{Finite-limit scaling for the same three shape families at \(L=0.5\). Square, dummy-column, and capped-cost curves use SciPy with equivalent objectives and include construction and output filtering. JVHYBRID shares JVRUST's finite-limit code and is omitted. Linear and log-log views repeat the same data; bands and error bars show timing-round interquartile ranges. These uniform inputs are distinct from those in Figure 4.}
 \label{fig:5}
 \end{figure}
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_blocks.pdf}
+\includegraphics[alt={Congested finite-limit size/runtime scaling},width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_blocks.pdf}
 \caption{Finite-limit scaling under congested costs, with \(M=5N/4\) and \(L=0.5\). Three quarters of the rows compete for one quarter of the columns; off-block costs receive an increment of 3. Linear and log-log views show the same measured medians and timing-round interquartile ranges. This structured family tests whether behavior seen with independent uniform costs persists under competition.}
 \label{fig:6}
 \end{figure}
@@ -689,7 +676,7 @@ AI coding assistants (OpenAI Codex with GPT-6 Astra and GPT-6.1 Sol, and Anthrop
 
 \FloatBarrier
 \renewcommand{\bibfont}{\small}
-\setlength{\bibsep}{3pt plus 1pt}
+\setlength{\bibsep}{1pt plus 1pt}
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 
@@ -828,7 +815,7 @@ Figure A1 repeats the congested finite-limit sweep of Figure 6 for both runs. In
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_blocks_runs.pdf}
+\includegraphics[alt={Congested finite-limit scaling in both runs},width=\linewidth,height=.77\textheight,keepaspectratio]{images/scaling_blocks_runs.pdf}
 \caption{Congested finite-limit scaling, with \(M=5N/4\) and \(L=0.5\), for JVRUST, JVCPP, and capped-cost SciPy in the Python 3.14.9 run (solid) and the Python 3.11.16 run (dashed). Each point is the median of nine timing-round averages over four matrices. Linear and log-log views show the same measurements.}
 \label{fig:A1}
 \end{figure}

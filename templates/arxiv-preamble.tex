@@ -1,0 +1,49 @@
+% arXiv PDFLaTeX / TeX Live 2025 and LaTeXML-compatible front matter.
+% This template is inlined into main.tex by build_pdf.py.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{graphicx,booktabs,tabularx,array,xcolor}
+\usepackage{caption,float,placeins,listings}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage[unicode,colorlinks=true,linkcolor=black,citecolor=black,
+urlcolor=blue!45!black]{hyperref}
+\hypersetup{
+ pdftitle={Native Rectangular Linear Assignment with Implicit Rejection: A Jonker-Volgenant Solver without Square Expansion},
+ pdfauthor={Ratha SIV},
+ pdfsubject={Implementation and experimental study},
+ pdfkeywords={linear assignment, Jonker-Volgenant, rectangular matching, implicit rejection}
+}
+\urlstyle{same}
+\Urlmuskip=0mu plus 2mu
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{2pt}
+\linespread{1.025}
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false}
+\captionsetup[table]{position=top,skip=7pt}
+\setlength{\textfloatsep}{15pt plus 3pt minus 3pt}
+\setlength{\floatsep}{13pt plus 3pt minus 3pt}
+\renewcommand{\topfraction}{.92}
+\renewcommand{\bottomfraction}{.85}
+\renewcommand{\textfraction}{.06}
+\renewcommand{\floatpagefraction}{.75}
+\newfloat{algorithm}{tbp}{loa}
+\floatname{algorithm}{Algorithm}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+ keepspaces=true,frame=single,framerule=.3pt,rulecolor=\color{black!30},
+ xleftmargin=5pt,xrightmargin=5pt,aboveskip=4pt,belowskip=4pt}
+\title{Native Rectangular Linear Assignment with Implicit Rejection:\\
+A Jonker--Volgenant Solver without Square Expansion}
+\author{Ratha SIV}
+\date{22 October 2026}
+\begin{document}
+\maketitle

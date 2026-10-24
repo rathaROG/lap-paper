@@ -1,92 +1,29 @@
-"""Typeset the Markdown manuscript using local TeX Live and vector figures.
+"""Build the paper's arXiv PDF, source ZIP, and independently verified LaTeX project.
 
-The converter supports the controlled Markdown used by this paper. It changes
-presentation, not the scientific text or archived measurements.
+Use --refresh-figures after changing measurements or plot code. The default build
+uses the existing vector figures and requires only Python's standard library and
+TeX Live. --sources-only refreshes figures and LaTeX without compiling.
 """
 from __future__ import annotations
+
 import argparse
 import csv
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import re
 import shutil
 import subprocess
+import tempfile
+import zipfile
 
 PAPER = Path(__file__).resolve().parent
 PROJECT = PAPER / "latex"
-OUTPUT = PAPER / "output" / "pdf"
-BUILD = PAPER / "tmp" / "pdfs" / "build"
 KEYS = ("zhang2022bytetrack", "gatagatlap", "jonker1987", "crouse2016", "bougleux2016",
         "jones2017", "bougleux2020", "bijsterbosch2010", "volgenant1996",
         "crouse2017tcl", "mathworks2018assign", "srcdlapjv", "laprust2026", "lapx2026",
         "lapcpp2026", "pylapsolver", "scipylsa", "vanderwiel1997", "lsape2017")
-# Figures typeset where they appear, so the float does not split a sentence across pages.
-PINNED = {"1"}
-PREAMBLE = r"""
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=23mm,headheight=14pt]{geometry}
-\usepackage{fontspec,amsmath,amssymb}
-\usepackage{unicode-math}
-\setmainfont{texgyretermes-regular.otf}[ItalicFont=texgyretermes-italic.otf,
- BoldFont=texgyretermes-bold.otf,BoldItalicFont=texgyretermes-bolditalic.otf]
-\setsansfont{texgyreheros-regular.otf}[ItalicFont=texgyreheros-italic.otf,
- BoldFont=texgyreheros-bold.otf,BoldItalicFont=texgyreheros-bolditalic.otf]
-\setmonofont{texgyrecursor-regular.otf}[Scale=MatchLowercase,
- ItalicFont=texgyrecursor-italic.otf,BoldFont=texgyrecursor-bold.otf,
- BoldItalicFont=texgyrecursor-bolditalic.otf]
-\setmathfont{texgyretermes-math.otf}
-\usepackage{microtype}
-\usepackage{graphicx,booktabs,tabularx,array,xcolor}
-\usepackage{caption,float,placeins,listings,titlesec}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage{xurl}
-\usepackage[unicode,colorlinks=true,linkcolor=black,citecolor=black,
-urlcolor=blue!45!black]{hyperref}
-\hypersetup{
- pdftitle={Native Rectangular Linear Assignment with Implicit Rejection},
- pdfauthor={Ratha SIV},
- pdfsubject={Implementation and experimental study},
- pdfkeywords={linear assignment, Jonker-Volgenant, rectangular matching, implicit rejection}
-}
-\urlstyle{same}
-\Urlmuskip=0mu plus 2mu
-\setlength{\emergencystretch}{3em}
-\setlength{\parindent}{1.2em}
-\setlength{\parskip}{2pt}
-\linespread{1.025}
-\clubpenalty=10000
-\widowpenalty=10000
-\raggedbottom
-\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false}
-\captionsetup[table]{position=top,skip=7pt}
-\setlength{\textfloatsep}{15pt plus 3pt minus 3pt}
-\setlength{\floatsep}{13pt plus 3pt minus 3pt}
-\renewcommand{\topfraction}{.92}
-\renewcommand{\bottomfraction}{.85}
-\renewcommand{\textfraction}{.06}
-\renewcommand{\floatpagefraction}{.75}
-\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1ex}
-\titlespacing*{\subsection}{0pt}{2ex plus .5ex minus .2ex}{.7ex}
-\newfloat{algorithm}{tbp}{loa}
-\floatname{algorithm}{Algorithm}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
- keepspaces=true,frame=single,framerule=.3pt,rulecolor=\color{black!30},
- xleftmargin=5pt,xrightmargin=5pt,aboveskip=4pt,belowskip=4pt}
-\begin{document}
-\begin{center}
-{\LARGE\bfseries Native Rectangular Linear Assignment\\[3pt]
-with Implicit Rejection\par}
-\vspace{6pt}
-{\large A Jonker--Volgenant Solver without Square Expansion\par}
-\vspace{10pt}
-{\large Ratha SIV\par}
-\vspace{5pt}
-{\small 22 October 2026\par}
-\end{center}
-\vspace{3pt}
-"""
 
 
 def escaped(text):
@@ -161,9 +98,9 @@ def caption_after(lines, index, kind):
     return match.group(1), inline(match.group(2)), index + 1
 
 
-def convert():
+def convert(destination=PROJECT):
     lines = (PAPER / "manuscript.md").read_text(encoding="utf-8").splitlines()
-    out = [PREAMBLE]
+    out = [(PAPER / "templates" / "arxiv-preamble.tex").read_text(encoding="utf-8")]
     i = lines.index("## Abstract") + 1
     abstract = []
     while not lines[i].startswith("**Keywords:"):
@@ -179,7 +116,7 @@ def convert():
             continue
         if line == "## References":
             # BibTeX typesets the list; any appendix follows the bibliography.
-            out += [r"\FloatBarrier", r"\renewcommand{\bibfont}{\small}", r"\setlength{\bibsep}{3pt plus 1pt}",
+            out += [r"\FloatBarrier", r"\renewcommand{\bibfont}{\small}", r"\setlength{\bibsep}{1pt plus 1pt}",
                     r"\bibliographystyle{unsrtnat}", r"\bibliography{references}", ""]
             i += 1
             while i < len(lines) and not lines[i].startswith("## "):
@@ -241,9 +178,10 @@ def convert():
             match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", line)
             image = Path(match.group(2)).stem
             number, caption, i = caption_after(lines, i + 1, "Figure")
+            alt = "alt={" + escaped(match.group(1)) + "},"
             out += [
-                r"\begin{figure}" + ("[H]" if number[0].isalpha() or number in PINNED else "[!htbp]"), r"\centering",
-                r"\includegraphics[width=\linewidth,height=.77\textheight,keepaspectratio]{images/" + image + ".pdf}",
+                r"\begin{figure}" + ("[H]" if number[0].isalpha() else "[!htbp]"), r"\centering",
+                r"\includegraphics[" + alt + r"width=\linewidth,height=.77\textheight,keepaspectratio]{images/" + image + ".pdf}",
                 r"\caption{" + caption + "}", r"\label{fig:" + number + "}",
                 r"\end{figure}", "",
             ]
@@ -272,9 +210,9 @@ def convert():
                 i += 1
             out += [inline(" ".join(paragraph)), ""]
     out += [r"\FloatBarrier", r"\end{document}", ""]
-    PROJECT.mkdir(exist_ok=True)
-    (PROJECT / "main.tex").write_text("\n".join(out), encoding="utf-8")
-    shutil.copy2(PAPER / "references.bib", PROJECT / "references.bib")
+    destination.mkdir(parents=True, exist_ok=True)
+    (destination / "main.tex").write_text("\n".join(out), encoding="utf-8")
+    shutil.copy2(PAPER / "references.bib", destination / "references.bib")
 
 
 def figures():
@@ -283,7 +221,7 @@ def figures():
     import matplotlib.pyplot as plt
     import numpy as np
     images = PROJECT / "images"
-    images.mkdir(exist_ok=True)
+    images.mkdir(parents=True, exist_ok=True)
     with (PAPER / "results" / "single_summary.csv").open(newline="") as stream:
         single = list(csv.DictReader(stream))
     with (PAPER / "results" / "batch_summary.csv").open(newline="") as stream:
@@ -383,59 +321,177 @@ def figures():
     fig.tight_layout()
     fig.savefig(images / "memory_peak.pdf", bbox_inches="tight")
     plt.close(fig)
+def sha256(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def diagnostics(log):
+    return [line for line in log.splitlines() if any(term in line for term in (
+        "Overfull", "Missing character", "undefined", "Rerun to get",
+        "LaTeX Warning", "Package natbib Warning",
+        "Package rerunfilecheck Warning",
+    ))]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--tex-bin", type=Path, default=Path(r"C:\dev\exc\texlive\2025\bin\windows"))
-    parser.add_argument("--sources-only", action="store_true")
+    parser.add_argument("--tex-bin", type=Path,
+                        help="TeX Live binary directory; defaults to PATH lookup")
+    parser.add_argument("--refresh-figures", action="store_true",
+                        help="Regenerate vector figures from the recorded measurements before building")
+    parser.add_argument("--sources-only", action="store_true",
+                        help="Regenerate figures and LaTeX without compiling or packaging")
     options = parser.parse_args()
-    convert()
-    figures()
-    from plot_scaling import generate as scaling_figures, generate_runs
-    scaling_figures()
-    generate_runs()
+    if options.refresh_figures or options.sources_only:
+        figures()
+        from plot_scaling import generate, generate_runs
+        generate()
+        generate_runs()
     if options.sources_only:
+        convert()
         print(PROJECT / "main.tex")
         return
-    BUILD.mkdir(parents=True, exist_ok=True)
-    OUTPUT.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
-    env["PATH"] = str(options.tex_bin) + os.pathsep + env["PATH"]
-    env["BIBINPUTS"] = str(PROJECT) + os.pathsep + env.get("BIBINPUTS", "")
-    engine = options.tex_bin / ("lualatex.exe" if os.name == "nt" else "lualatex")
-    bibtex = options.tex_bin / ("bibtex.exe" if os.name == "nt" else "bibtex")
-    tex_command = [str(engine), "-interaction=nonstopmode", "-halt-on-error",
-                   "-file-line-error", "-output-directory=" + str(BUILD), "main.tex"]
-    records = []
-    commands = [tex_command, [str(bibtex), "main"], tex_command, tex_command]
-    for index, command in enumerate(commands, 1):
-        result = subprocess.run(command, cwd=BUILD if index == 2 else PROJECT,
-                                env=env, text=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, errors="replace")
-        (BUILD / f"pass_{index}.log").write_text(result.stdout, encoding="utf-8")
-        records.append({"command": command, "exit_code": result.returncode})
+    if options.tex_bin:
+        env["PATH"] = str(options.tex_bin.resolve()) + os.pathsep + env["PATH"]
+    # Do not allow the standalone check to find missing sources in the repo.
+    for name in ("TEXINPUTS", "BIBINPUTS", "BSTINPUTS", "TEXMFOUTPUT"):
+        env.pop(name, None)
+    engine = shutil.which("pdflatex", path=env["PATH"])
+    bibtex = shutil.which("bibtex", path=env["PATH"])
+    if not engine or not bibtex:
+        parser.error("PDFLaTeX and BibTeX are required (use --tex-bin if needed).")
+
+    scratch = PAPER / "tmp" / "arxiv"
+    scratch.mkdir(parents=True, exist_ok=True)
+    work = Path(tempfile.mkdtemp(prefix="build-", dir=scratch))
+    source = work / "source"
+    convert(source)
+    tex = (source / "main.tex").read_text(encoding="utf-8")
+    # Catch the commands responsible for leaked font settings in the first
+    # arXiv HTML preview, even if someone later changes the source template.
+    if re.search(r"fontspec|unicode-math|\\set(?:main|sans|mono|math)font|\\today|\\pdfoutput", tex):
+        raise RuntimeError("The arXiv source contains unsupported font or output settings.")
+    for command in ("title", "author", "date", "maketitle"):
+        if not re.search(r"\\" + command + r"\b", tex):
+            raise RuntimeError(f"Missing standard front matter command: {command}")
+    members = ["main.tex", "main.bbl", "references.bib"]
+    images = sorted(set(re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", tex)))
+    if not images:
+        raise RuntimeError("The generated manuscript contains no figures.")
+    for name in images:
+        relative = PurePosixPath(name)
+        if relative.is_absolute() or ".." in relative.parts or relative.suffix != ".pdf":
+            raise RuntimeError(f"Expected a relative PDF figure path: {name}")
+        original = PROJECT
+        for part in relative.parts:
+            # Windows is case insensitive, while arXiv's filesystem is not.
+            if part not in {entry.name for entry in original.iterdir()}:
+                raise RuntimeError(f"Missing figure or filename case mismatch: {name}")
+            original = original / part
+        target = source / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(original, target)
+        members.append(name)
+    # arXiv recommends generating 00README.json in its submission interface.
+    # Select main.tex, PDFLaTeX and TeX Live 2025 there instead of uploading it.
+    commands = []
+
+    def run(command, directory, label):
+        result = subprocess.run(command, cwd=directory, env=env, text=True,
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                errors="replace")
+        (work / f"{label}.log").write_text(result.stdout, encoding="utf-8")
+        commands.append({"step": label, "command": command, "exit_code": result.returncode})
         if result.returncode:
-            print(result.stdout[-14000:])
-            raise SystemExit(result.returncode)
-        print(f"Typesetting pass {index}/{len(commands)} completed.", flush=True)
-    log = (BUILD / "main.log").read_text(encoding="utf-8", errors="replace")
-    issues = [line for line in log.splitlines() if any(term in line for term in (
-        "Overfull", "Missing character", "undefined", "Rerun to get", "LaTeX Warning"))]
-    target = OUTPUT / "native_rectangular_assignment.pdf"
-    shutil.copy2(BUILD / "main.pdf", target)
-    metadata = {
-        "engine": subprocess.check_output([str(engine), "--version"], text=True).splitlines()[0],
-        "manuscript_sha256": hashlib.sha256((PAPER / "manuscript.md").read_bytes()).hexdigest(),
-        "tex_sha256": hashlib.sha256((PROJECT / "main.tex").read_bytes()).hexdigest(),
-        "pdf_sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
-        "typesetting_passes": records,
-        "log_diagnostics": issues,
-        "scientific_measurements": "All six figures use the measured summaries in results/.",
+            raise RuntimeError(f"{label} failed; see {work / (label + '.log')}\n"
+                               + result.stdout[-6000:])
+        print(f"{label} completed.", flush=True)
+
+    tex_command = [engine, "-no-shell-escape", "-interaction=nonstopmode",
+                   "-halt-on-error", "-file-line-error", "-recorder", "main.tex"]
+    run(tex_command, source, "source-pass-1")
+    run([bibtex, "main"], source, "bibliography")
+    run(tex_command, source, "source-pass-2")
+    run(tex_command, source, "source-pass-3")
+    bib_log = (source / "main.blg").read_text(encoding="utf-8", errors="replace")
+    bib_warnings = [line for line in bib_log.splitlines() if line.startswith("Warning--")]
+    # Existing software/web references omit publication years. Preserve those
+    # entries and record the style's warnings; never invent dates to silence it.
+    if any(not line.startswith("Warning--empty year in ") for line in bib_warnings):
+        raise RuntimeError(f"BibTeX warnings; see {source / 'main.blg'}")
+
+    # Package an explicit allowlist, with the main source at the archive root.
+    candidate = work / "native_rectangular_assignment_arxiv.zip"
+    with zipfile.ZipFile(candidate, "w", zipfile.ZIP_DEFLATED) as archive:
+        for name in sorted(members):
+            info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o644 << 16
+            archive.writestr(info, (source / name).read_bytes())
+
+    # Compile only what the user will upload, in an empty directory, with no
+    # BibTeX invocation and no access through TeX's input path to this repository.
+    verified = work / "extracted"
+    with zipfile.ZipFile(candidate) as archive:
+        if archive.testzip() is not None:
+            raise RuntimeError("Archive CRC verification failed.")
+        archive.extractall(verified)
+    for index in range(1, 4):
+        run(tex_command, verified, f"archive-pass-{index}")
+    issues = diagnostics((verified / "main.log").read_text(encoding="utf-8", errors="replace"))
+    if issues:
+        raise RuntimeError("Final PDFLaTeX diagnostics:\n" + "\n".join(issues))
+    page_matches = re.findall(r"Output written on .*?\((\d+) pages?",
+                              (work / "archive-pass-3.log").read_text(encoding="utf-8"))
+    if not page_matches:
+        raise RuntimeError("Could not verify the compiled page count.")
+    bbl = (verified / "main.bbl").read_text(encoding="utf-8")
+    cited = {key.strip() for group in re.findall(r"\\cite\w*\{([^}]+)\}", tex)
+             for key in group.split(",")}
+    bibliography = set(re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}", bbl))
+    if not cited.issubset(bibliography):
+        raise RuntimeError(f"Missing bibliography entries: {sorted(cited - bibliography)}")
+
+    output = PAPER / "output" / "arxiv"
+    pdf = output / "native_rectangular_assignment.pdf"
+    output.mkdir(parents=True, exist_ok=True)
+    pdf.parent.mkdir(parents=True, exist_ok=True)
+    upload = output / candidate.name
+    shutil.copy2(candidate, upload)
+    shutil.copy2(verified / "main.pdf", pdf)
+    # Publish one canonical LaTeX project, containing the exact upload sources.
+    PROJECT.mkdir(parents=True, exist_ok=True)
+    for name in ("main.tex", "main.bbl", "references.bib"):
+        shutil.copy2(verified / name, PROJECT / name)
+    report = {
+        "compiler": "pdflatex", "texlive_version": 2025,
+        "compiler_settings": "Select main.tex, PDFLaTeX and TeX Live 2025 in arXiv's submission interface.",
+        "engine": subprocess.check_output([engine, "--version"], env=env, text=True).splitlines()[0],
+        "manuscript_sha256": sha256(PAPER / "manuscript.md"),
+        "source_project": PROJECT.relative_to(PAPER).as_posix(),
+        "archive": upload.relative_to(PAPER).as_posix(),
+        "archive_sha256": sha256(upload),
+        "archive_bytes": upload.stat().st_size,
+        "pdf": pdf.relative_to(PAPER).as_posix(), "pdf_sha256": sha256(pdf),
+        "pages": int(page_matches[-1]), "figures": len(images),
+        "references": len(bibliography),
+        "files": {name: sha256(verified / name) for name in sorted(members)},
+        "verified_from_extracted_archive": True,
+        "verification_uses_bibtex": False, "shell_escape": False,
+        "html_validation": "Not run by this script. See html_report.json when separately verified with LaTeXML.",
+        "log_diagnostics": issues, "bibliography_warnings": bib_warnings,
+        "commands": commands,
+        "build_directory": str(work.relative_to(PAPER)),
+        "guidance": ["https://info.arxiv.org/help/submit_tex.html",
+                     "https://info.arxiv.org/help/faq/texlive.html",
+                     "https://info.arxiv.org/help/00README.html",
+                     "https://info.arxiv.org/help/submit_latex_best_practices.html"],
     }
-    (PAPER / "results" / "pdf_build.json").write_text(json.dumps(metadata, indent=2) + "\n")
-    print("Output:", target)
-    print("Diagnostics:", json.dumps(issues, ensure_ascii=True))
+    (output / "build_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    print(f"Upload: {upload}\nPreview: {pdf}\n"
+          f"Verified: {report['pages']} pages, {len(images)} figures, "
+          f"{len(bibliography)} references, no final diagnostics.")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,16 @@
 
 Manuscript and reproducibility artifact for *Native Rectangular Linear Assignment with Implicit Rejection: A Jonker–Volgenant Solver without Square Expansion*.
 
-**[Read the PDF](output/pdf/native_rectangular_assignment.pdf)** · [Markdown source](manuscript.md)
+**[Read the paper](output/arxiv/native_rectangular_assignment.pdf)** · [arXiv upload ZIP](output/arxiv/native_rectangular_assignment_arxiv.zip) · [HTML preview](output/arxiv/html/index.html) · [Markdown source](manuscript.md)
+
+The arXiv version is the sole current edition. Its generated LaTeX sources are in
+`latex/`; the PDF, upload ZIP, HTML preview, and validation reports are in
+`output/arxiv/`. See [the build and submission guide](ARXIV.md) for requirements,
+verification, and arXiv settings.
+
+To rebuild from the current manuscript and saved vector figures, run
+`python build_pdf.py` with TeX Live 2025 on PATH. To check HTML conversion, run
+`python check_arxiv_html.py` with LaTeXML and Poppler available.
 
 The paper describes one solver, implemented three ways, and compares it with SciPy and three established Jonker–Volgenant families. It is an implementation and engineering study; it does not claim that rectangular assignment or implicit unmatched choices are new.
 
@@ -33,7 +42,7 @@ python rerun_measurements.py      # main, formulation and scaling suites, run se
 python report_results.py          # tables, dataset summary, Figures 1-3
 python plot_scaling.py            # Figures 4-6
 python update_manuscript_tables.py
-python build_pdf.py               # LaTeX sources, vector figures, PDF (local TeX Live)
+python build_pdf.py --refresh-figures  # arXiv LaTeX, vector figures, PDF and source ZIP
 python check_artifact.py          # consistency of data, tables, narrative values and binaries
 ```
 
@@ -67,14 +76,18 @@ The Python 3.11 recheck is saved separately in `archive/python-3.11.16/batch-rev
 | plot_scaling.py | Figures 4–6 from the scaling results |
 | update_manuscript_tables.py | Refresh the numeric result tables from the archived summaries |
 | narrative.py | Every number quoted in the text, derived from the results, with checks of the claims made about them |
-| build_pdf.py | Convert the manuscript to LaTeX, draw vector figures and typeset the PDF |
+| build_pdf.py | Build and verify the arXiv PDF and source ZIP; optionally refresh vector figures |
+| check_arxiv_html.py | Validate the upload ZIP with LaTeXML and generate a local HTML preview |
+| templates/arxiv-preamble.tex | The single PDFLaTeX/LaTeXML-compatible paper template |
+| ARXIV.md | Build requirements, validation workflow, output locations, and upload settings |
 | check_artifact.py | Check samples, summaries, tables, narrative values, script and binary hashes, without native execution |
 | results/ | Raw samples, summaries, environment, runtime and validation records, including the separate strict batch recheck |
 | archive/measurement-scripts/ | Exact historical experiment source retained for measurement provenance |
 | tests/test_batch_validation.py | Regression checks for incomplete/extra outputs, incorrect objectives, and validation-only execution |
-| figures/ | Six figures as PNG and editable SVG; vector PDFs are in latex/images/ |
+| figures/ | Six main figures and one appendix figure as PNG and editable SVG; vector PDFs are in latex/images/ |
 | archive/python-3.11.16/ | The earlier Python 3.11.16 run, summarized in Appendix A: results and logs, and the manuscript and figures built from them |
-| latex/ | Generated LaTeX project and bibliography |
+| latex/ | Canonical arXiv source project: main.tex, main.bbl, references.bib, and seven PDF figures |
+| output/arxiv/ | Current paper PDF, upload ZIP, HTML preview, and build/HTML validation reports |
 
 ## Main measured findings
 
