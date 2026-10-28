@@ -1,0 +1,5 @@
+# These files have published or package-manifest byte checksums. Preserve them
+# exactly on every checkout, regardless of the user's core.autocrlf setting.
+benchmark/real_world/** -text
+benchmark/lsape/src/** -text
+benchmark/results.zip -text

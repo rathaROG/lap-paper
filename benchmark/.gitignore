@@ -1,0 +1,25 @@
+# Files created by running the benchmarks. Sources, frozen inputs and the
+# frozen LSAPE grid manifest stay tracked.
+
+# Measurement outputs. Every suite writes only where --output points; these are
+# the locations suggested in the READMEs and docstrings, at any depth.
+runs/
+results-*/
+smoke*/
+**/results/*
+!lsape/results/rectangular-grid-v1.json
+
+# The published observations live in results.zip. Expanded results/ contains
+# new runs (full-YYYYMMDD by default) and remains ignored.
+
+# Python and test caches, including inside archived source directories
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Interrupted atomic writes inside output folders
+*.tmp
+
+# LSAPE: compiled bridge (.pyd/.obj/.lib/.exp, build.log, provenance.json,
+# compile_bridge.cmd, history/) and default verification/campaign outputs
+lsape/build/

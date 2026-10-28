@@ -1,0 +1,1437 @@
+{
+  "manifest_sha256": "875745fcdef90f08f1d57414e3c0e1bea35b5e417972ddb15f3de8ececfa4a9b",
+  "manifest": {
+    "schema_version": 1,
+    "grid_id": "lsape-rectangular-v1-67",
+    "base_seed": 20261027,
+    "case_count": 67,
+    "paper_subset_count": 12,
+    "planned_sessions": [
+      1,
+      2,
+      3
+    ],
+    "inputs_per_case": 4,
+    "rounds": 9,
+    "target_block_ms": 30.0,
+    "methods": {
+      "original": {
+        "api": "solve",
+        "diagnostic_variant": "original",
+        "label": "LSAPE-v4"
+      },
+      "one_sided_materialized": {
+        "api": "solve_one_sided",
+        "diagnostic_variant": "one_sided",
+        "label": "LSAPE-v4 [p,0]"
+      },
+      "implicit_scan": {
+        "api": "solve_implicit_scan",
+        "diagnostic_variant": "implicit_scan",
+        "label": "LSAPE-v4-1S/scan"
+      },
+      "specialized_cached": {
+        "api": "solve_specialized",
+        "diagnostic_variant": "specialized",
+        "label": "LSAPE-v4-1S/tracked"
+      },
+      "specialized_padded": {
+        "api": "solve_specialized_padded",
+        "diagnostic_variant": "specialized_padded",
+        "label": "LSAPE-v4-1S/tracked/padded"
+      }
+    },
+    "primary_comparison": "original_over_padded",
+    "comparisons": {
+      "original_over_padded": {
+        "numerator": "original",
+        "denominator": "specialized_padded"
+      },
+      "original_over_one_sided": {
+        "numerator": "original",
+        "denominator": "one_sided_materialized"
+      },
+      "one_sided_over_padded": {
+        "numerator": "one_sided_materialized",
+        "denominator": "specialized_padded"
+      },
+      "scan_over_compact": {
+        "numerator": "implicit_scan",
+        "denominator": "specialized_cached"
+      },
+      "compact_over_padded": {
+        "numerator": "specialized_cached",
+        "denominator": "specialized_padded"
+      },
+      "padded_over_compact": {
+        "numerator": "specialized_padded",
+        "denominator": "specialized_cached"
+      },
+      "original_over_compact": {
+        "numerator": "original",
+        "denominator": "specialized_cached"
+      },
+      "original_over_scan": {
+        "numerator": "original",
+        "denominator": "implicit_scan"
+      }
+    },
+    "practical_ratio_band": [
+      0.97,
+      1.03
+    ],
+    "scope": "All 67 cases retained; no optional limit-sweep block or post-measurement case selection",
+    "generator": {
+      "seed_derivation": "First 128 SHA256 bits of grid_id|base_seed|session_index|input_group|input_index",
+      "uniform": "Independent U[0,1) binary64 costs",
+      "blocks": "Generate in the wide orientation; first 3/4 of rows prefer first 1/4 of columns; add 3 in both off-diagonal blocks",
+      "threshold_ties": "h=2^(-ceil(log2(max(shape)))); C=h*floor(U/h); L=2h",
+      "pairing": "Each nonsquare case and its exact transpose share base values within session and regime",
+      "limit_regimes": "Fixed and size-dependent regimes use separate generated values and different objectives",
+      "sizes": "Fresh matrices for each shape; no nested inputs across sizes"
+    },
+    "sessions": "Three fresh processes within the current day/window; no designed or recorded reboot or independent-day replication",
+    "cases": [
+      {
+        "case": "A_square_128x128_fixed",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          128,
+          128
+        ],
+        "base_shape": [
+          128,
+          128
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "A_square_128x128_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_128x128_size_dependent",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          128,
+          128
+        ],
+        "base_shape": [
+          128,
+          128
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "size_dependent",
+        "limit": 0.015625,
+        "distribution": "uniform",
+        "input_group": "A_square_128x128_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_256x256_fixed",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          256,
+          256
+        ],
+        "base_shape": [
+          256,
+          256
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "A_square_256x256_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_256x256_size_dependent",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          256,
+          256
+        ],
+        "base_shape": [
+          256,
+          256
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "size_dependent",
+        "limit": 0.0078125,
+        "distribution": "uniform",
+        "input_group": "A_square_256x256_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_512x512_fixed",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          512,
+          512
+        ],
+        "base_shape": [
+          512,
+          512
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "A_square_512x512_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_512x512_size_dependent",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          512,
+          512
+        ],
+        "base_shape": [
+          512,
+          512
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "size_dependent",
+        "limit": 0.00390625,
+        "distribution": "uniform",
+        "input_group": "A_square_512x512_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "A_square_1024x1024_fixed",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          1024,
+          1024
+        ],
+        "base_shape": [
+          1024,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "A_square_1024x1024_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "A_square_1024x1024_size_dependent",
+        "block": "A",
+        "family": "square",
+        "shape": [
+          1024,
+          1024
+        ],
+        "base_shape": [
+          1024,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "size_dependent",
+        "limit": 0.001953125,
+        "distribution": "uniform",
+        "input_group": "A_square_1024x1024_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_128x160_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          128,
+          160
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_128x160_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_160x128_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          160,
+          128
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_128x160_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_128x160_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          128,
+          160
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.0125,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_128x160_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_160x128_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          160,
+          128
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.0125,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_128x160_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_256x320_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          256,
+          320
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_256x320_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_320x256_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          320,
+          256
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_256x320_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_256x320_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          256,
+          320
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.00625,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_256x320_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_320x256_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          320,
+          256
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.00625,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_256x320_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_512x640_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          512,
+          640
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_512x640_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "B_moderate5_640x512_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          640,
+          512
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_512x640_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "B_moderate5_512x640_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          512,
+          640
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.003125,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_512x640_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_640x512_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          640,
+          512
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.003125,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_512x640_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_1024x1280_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          1024,
+          1280
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_1024x1280_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_1280x1024_fixed",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          1280,
+          1024
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_1024x1280_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_1024x1280_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          1024,
+          1280
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.0015625,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_1024x1280_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "B_moderate5_1280x1024_size_dependent",
+        "block": "B",
+        "family": "moderate5",
+        "shape": [
+          1280,
+          1024
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.0015625,
+        "distribution": "uniform",
+        "input_group": "B_moderate5_1024x1280_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_128x160_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          128,
+          160
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_128x160_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_160x128_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          160,
+          128
+        ],
+        "base_shape": [
+          128,
+          160
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_128x160_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_256x320_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          256,
+          320
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_256x320_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_320x256_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          320,
+          256
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_256x320_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_512x640_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          512,
+          640
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_512x640_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_640x512_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          640,
+          512
+        ],
+        "base_shape": [
+          512,
+          640
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_512x640_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "C_congested5_1024x1280_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          1024,
+          1280
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_1024x1280_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "C_congested5_1280x1024_fixed",
+        "block": "C",
+        "family": "congested5",
+        "shape": [
+          1280,
+          1024
+        ],
+        "base_shape": [
+          1024,
+          1280
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "blocks",
+        "input_group": "C_congested5_1024x1280_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "D_moderate4_64x256_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          64,
+          256
+        ],
+        "base_shape": [
+          64,
+          256
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_64x256_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_256x64_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          256,
+          64
+        ],
+        "base_shape": [
+          64,
+          256
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_64x256_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_64x256_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          64,
+          256
+        ],
+        "base_shape": [
+          64,
+          256
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.0078125,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_64x256_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_256x64_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          256,
+          64
+        ],
+        "base_shape": [
+          64,
+          256
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.0078125,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_64x256_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_128x512_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          128,
+          512
+        ],
+        "base_shape": [
+          128,
+          512
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_128x512_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_512x128_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          512,
+          128
+        ],
+        "base_shape": [
+          128,
+          512
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_128x512_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_128x512_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          128,
+          512
+        ],
+        "base_shape": [
+          128,
+          512
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.00390625,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_128x512_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_512x128_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          512,
+          128
+        ],
+        "base_shape": [
+          128,
+          512
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.00390625,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_128x512_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_256x1024_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          256,
+          1024
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_256x1024_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "D_moderate4_1024x256_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          1024,
+          256
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_256x1024_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "D_moderate4_256x1024_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          256,
+          1024
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.001953125,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_256x1024_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_1024x256_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          1024,
+          256
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.001953125,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_256x1024_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_512x2048_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          512,
+          2048
+        ],
+        "base_shape": [
+          512,
+          2048
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_512x2048_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_2048x512_fixed",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          2048,
+          512
+        ],
+        "base_shape": [
+          512,
+          2048
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_512x2048_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_512x2048_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          512,
+          2048
+        ],
+        "base_shape": [
+          512,
+          2048
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.0009765625,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_512x2048_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "D_moderate4_2048x512_size_dependent",
+        "block": "D",
+        "family": "moderate4",
+        "shape": [
+          2048,
+          512
+        ],
+        "base_shape": [
+          512,
+          2048
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.0009765625,
+        "distribution": "uniform",
+        "input_group": "D_moderate4_512x2048_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_64x1024_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          1024
+        ],
+        "base_shape": [
+          64,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x1024_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_1024x64_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          1024,
+          64
+        ],
+        "base_shape": [
+          64,
+          1024
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x1024_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_64x1024_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          1024
+        ],
+        "base_shape": [
+          64,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.001953125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x1024_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_1024x64_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          1024,
+          64
+        ],
+        "base_shape": [
+          64,
+          1024
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.001953125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x1024_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_64x4096_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          4096
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x4096_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_4096x64_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          4096,
+          64
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x4096_fixed",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_64x4096_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          4096
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.00048828125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x4096_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_4096x64_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          4096,
+          64
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.00048828125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x4096_size_dependent",
+        "paper_subset": false
+      },
+      {
+        "case": "E_extreme_64x16384_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          16384
+        ],
+        "base_shape": [
+          64,
+          16384
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x16384_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "E_extreme_16384x64_fixed",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          16384,
+          64
+        ],
+        "base_shape": [
+          64,
+          16384
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "fixed",
+        "limit": 0.5,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x16384_fixed",
+        "paper_subset": true
+      },
+      {
+        "case": "E_extreme_64x16384_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          64,
+          16384
+        ],
+        "base_shape": [
+          64,
+          16384
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "size_dependent",
+        "limit": 0.0001220703125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x16384_size_dependent",
+        "paper_subset": true
+      },
+      {
+        "case": "E_extreme_16384x64_size_dependent",
+        "block": "E",
+        "family": "extreme",
+        "shape": [
+          16384,
+          64
+        ],
+        "base_shape": [
+          64,
+          16384
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "size_dependent",
+        "limit": 0.0001220703125,
+        "distribution": "uniform",
+        "input_group": "E_extreme_64x16384_size_dependent",
+        "paper_subset": true
+      },
+      {
+        "case": "F_threshold_ties_256x256_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          256,
+          256
+        ],
+        "base_shape": [
+          256,
+          256
+        ],
+        "transpose": false,
+        "orientation": "square",
+        "regime": "threshold_ties",
+        "limit": 0.0078125,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_256x256_threshold_ties",
+        "paper_subset": false
+      },
+      {
+        "case": "F_threshold_ties_256x320_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          256,
+          320
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "threshold_ties",
+        "limit": 0.00390625,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_256x320_threshold_ties",
+        "paper_subset": true
+      },
+      {
+        "case": "F_threshold_ties_320x256_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          320,
+          256
+        ],
+        "base_shape": [
+          256,
+          320
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "threshold_ties",
+        "limit": 0.00390625,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_256x320_threshold_ties",
+        "paper_subset": false
+      },
+      {
+        "case": "F_threshold_ties_256x1024_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          256,
+          1024
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "threshold_ties",
+        "limit": 0.001953125,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_256x1024_threshold_ties",
+        "paper_subset": false
+      },
+      {
+        "case": "F_threshold_ties_1024x256_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          1024,
+          256
+        ],
+        "base_shape": [
+          256,
+          1024
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "threshold_ties",
+        "limit": 0.001953125,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_256x1024_threshold_ties",
+        "paper_subset": false
+      },
+      {
+        "case": "F_threshold_ties_64x4096_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          64,
+          4096
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": false,
+        "orientation": "wide",
+        "regime": "threshold_ties",
+        "limit": 0.00048828125,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_64x4096_threshold_ties",
+        "paper_subset": false
+      },
+      {
+        "case": "F_threshold_ties_4096x64_threshold_ties",
+        "block": "F",
+        "family": "threshold_ties",
+        "shape": [
+          4096,
+          64
+        ],
+        "base_shape": [
+          64,
+          4096
+        ],
+        "transpose": true,
+        "orientation": "tall",
+        "regime": "threshold_ties",
+        "limit": 0.00048828125,
+        "distribution": "threshold_ties",
+        "input_group": "F_threshold_ties_64x4096_threshold_ties",
+        "paper_subset": false
+      }
+    ]
+  }
+}

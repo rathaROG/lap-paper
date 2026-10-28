@@ -1,0 +1,7 @@
+-r requirements-tracking.txt
+-r requirements-report.txt
+lapx==0.12.0
+lapcpp==1.1.0
+# Cached tracking imports CPU OpenCV bindings transitively. No video assets,
+# video decoding, RF-DETR, Torch or GPU are required for the cached campaign.
+# Supply local measured-version solver wheels via --find-links if necessary.

@@ -1,0 +1,222 @@
+{
+ "scope": "Every file of this standalone package except this manifest: portable scripts, tests, licences, re-frozen inputs, bundled replay matrices and provenance records.",
+ "files": {
+  "ATTRIBUTION.md": {
+   "bytes": 3615,
+   "sha256": "6ac8a33413170010df78e21c6514b1628c104df601d03ae8b8458d47dba6266f"
+  },
+  "data/inputs/mot16_04_gt.json.gz": {
+   "bytes": 532501,
+   "sha256": "3f0642c3c6e5a6398f95ed24e46e95e98d9c38f0fb3997daabde9483646a12f3"
+  },
+  "data/inputs/mot16_04_rfdetr_nano.json.gz": {
+   "bytes": 940208,
+   "sha256": "03830cb3b6ccb88fc83ecd890b741342eca165be976223a7190a9b97dba34799"
+  },
+  "data/inputs/mot20_03_gt.json.gz": {
+   "bytes": 1501836,
+   "sha256": "5e1e06ce2b02fd087a8b5a517a51a8b45aabefe29178fff58d4b23d29443adc0"
+  },
+  "data/inputs/mot20_03_rfdetr_nano.json.gz": {
+   "bytes": 1749153,
+   "sha256": "8209bab74cd43b0e7525e2f1eab52e24e03f6355daf36d0cce92d62be587f5fe"
+  },
+  "data/matrices/mot16_04_gt_centroid.npz": {
+   "bytes": 694191,
+   "sha256": "75905c84d82889413e4ffb85ad49cdc089148a5af2efffb1659045ff2807e8d2"
+  },
+  "data/matrices/mot16_04_gt_sort.npz": {
+   "bytes": 1140812,
+   "sha256": "1a63f40d321388c111180e6003a7c412d93dabb26cab45b0e9cdb7755d6729ca"
+  },
+  "data/matrices/mot16_04_rfdetr_nano_centroid.npz": {
+   "bytes": 413390,
+   "sha256": "d7cf2ec7999da3c7f937b11d106a8b16b4ad60d4f20b6ffd0ce19f5c42130590"
+  },
+  "data/matrices/mot16_04_rfdetr_nano_sort.npz": {
+   "bytes": 653267,
+   "sha256": "e678a7650dc04f65204dd0a675746316e011d18a2675a677f196916961000f89"
+  },
+  "data/matrices/mot20_03_gt_centroid.npz": {
+   "bytes": 2499454,
+   "sha256": "ccb8cd5338eb948674bb7d4198c2541c8786c48c964d48359d1524ca4ee2b2a3"
+  },
+  "data/matrices/mot20_03_gt_sort.npz": {
+   "bytes": 2858402,
+   "sha256": "ee9cd60c67578f2007a457f203789a425865647ab8962ca6dc464a1b2b6b55cf"
+  },
+  "data/matrices/mot20_03_rfdetr_nano_centroid.npz": {
+   "bytes": 684374,
+   "sha256": "3fad75924049275a7fd142012cdc2a59710eb3e15a52a07af2a13116b4c565db"
+  },
+  "data/matrices/mot20_03_rfdetr_nano_sort.npz": {
+   "bytes": 508155,
+   "sha256": "c0d6b798b4526e2964cca60f3ae89d46ba7068eac1989c5ac2be10c968780b15"
+  },
+  "data/preview/before_after_frame0500.png": {
+   "bytes": 2125076,
+   "sha256": "29041490bdab480b7225bf29b076e4a69d1a780caf5e32f0c9d8da5c8172365b"
+  },
+  "data/preview/CAPTIONS.txt": {
+   "bytes": 1064,
+   "sha256": "dccbcf67d1521003a4a70a6b27c2da36b35ab92058d3be27cb4ca6a5509cba0d"
+  },
+  "data/preview/gt_and_nano_frame0500.png": {
+   "bytes": 2297421,
+   "sha256": "69a8aa911a7900027a34cefa23ec672b89190f70ff59b0cdebafe8c392cf9a46"
+  },
+  "data/preview/manifest.json": {
+   "bytes": 3832,
+   "sha256": "e47b0b4e653229b7bf5f3473579178e7184976bf76feac31073019be8b7b9ecc"
+  },
+  "data/preview/mot16_04_frame0500.png": {
+   "bytes": 1422599,
+   "sha256": "a1db46a7ee02f66fd940cb28ed8a80abf5277d1140579d0921f4f35bb5363e20"
+  },
+  "data/preview/mot20_03_frame0500.png": {
+   "bytes": 860843,
+   "sha256": "484fcddacae193aa459805b2614f2be05d2b802f6f3856c44bd0722621aa576c"
+  },
+  "licenses/benchmark-MIT.txt": {
+   "bytes": 1086,
+   "sha256": "0b0888a97c47eeef8832a1a9c2fefa66eb0d57a35327a954c6d158ece037b5fb"
+  },
+  "licenses/pyppbox-AGPL-3.0.txt": {
+   "bytes": 35184,
+   "sha256": "e0eedba615d5cd1b986afb6c5b3a4b1ae33713e7e9dc74d19daec5e3221f9d2e"
+  },
+  "licenses/pyppbox-NOTICE.txt": {
+   "bytes": 2581,
+   "sha256": "c15529086c8841eb4bc452e2141e56b7b75c40fcecec1ca2c247bf9eadbae63d"
+  },
+  "licenses/SORT-GPL-3.0.txt": {
+   "bytes": 35823,
+   "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+  },
+  "patches/pyppbox-imgsz.patch": {
+   "bytes": 3106,
+   "sha256": "5fb82f926aebc49afcec2ddb78684e502259a79117faf9a284091419ee8400f4"
+  },
+  "provenance/core_semantics.json": {
+   "bytes": 1441,
+   "sha256": "f83632ddbf8fbacee21b85530a94a02d8d18c82f2b6166135707252135287dc4"
+  },
+  "provenance/data_manifest.json": {
+   "bytes": 7375,
+   "sha256": "486dabf55ad645b08f987fdf15e3c545bd4ad99ba8a305c4a8a8b5a0f7b694da"
+  },
+  "provenance/detection_quality.json": {
+   "bytes": 1698,
+   "sha256": "ba2caf5bbe102db200bba7fc0a4ea9d88b1db4972a066b6a1cef5b83bf9ed665"
+  },
+  "provenance/detector_selection.json": {
+   "bytes": 791,
+   "sha256": "d954ee85260f5865cc597622e25528ab3b40c8cc1fdc783fc1c7eb6748b4fd15"
+  },
+  "provenance/input_audit.json": {
+   "bytes": 12283,
+   "sha256": "19d4042e275da49f93aaf22bcbaa79e99dde3a5e50a18942a1b1398b7904ae1a"
+  },
+  "provenance/pyppbox_identity.json": {
+   "bytes": 1459,
+   "sha256": "27f4b68efbc98bb13cae424dd9f512874e6275c68f20a7d896d721ba4efa7365"
+  },
+  "README.md": {
+   "bytes": 10337,
+   "sha256": "13ae4cf66d0b7c4a89a8e8ffa832dbb2481c28c4df294d0f860985b1914458a4"
+  },
+  "realbench_campaign.py": {
+   "bytes": 27555,
+   "sha256": "47692da493dc3e5d8c1900397e2618416dc1064ab72ef02cdb3768541cd7cce7"
+  },
+  "realbench_combine.py": {
+   "bytes": 17169,
+   "sha256": "2a30245aea00d6ff89568d15d4033e4650d13d94ff75dfdbe683ef7d502dd8e9"
+  },
+  "realbench_data.py": {
+   "bytes": 24095,
+   "sha256": "872fcfb285262fc844116377d4a0e1bafe766f82c827081597643936e1782145"
+  },
+  "realbench_evaluate.py": {
+   "bytes": 8039,
+   "sha256": "0efbc882e48009a303c13d156bf1e3bb98fa0a250fec25886dc5a9be7158162e"
+  },
+  "realbench_paths.py": {
+   "bytes": 10240,
+   "sha256": "3c49f4a540a87223617ecf43375bea27a289f124a8cc115226b27ea9412a2d91"
+  },
+  "realbench_report.py": {
+   "bytes": 26880,
+   "sha256": "76b9e1e99986d58013b318f7867f5cb75ac966b0ad24c1b9133bd88529236946"
+  },
+  "realbench_tracking.py": {
+   "bytes": 15681,
+   "sha256": "113c7760fc9f3dfae7c862b70d0fd4ffc1405f179508e9ac7db4ea916239f990"
+  },
+  "requirements-all.txt": {
+   "bytes": 315,
+   "sha256": "fddffe9e232befad3c0c843b654ef7ce1d51b73c1aec1d1e231df29ecc5949a0"
+  },
+  "requirements-replay.txt": {
+   "bytes": 241,
+   "sha256": "ff4c4ab8896a0405d0a809202cc70865950bfd7b2068dde82c0d3cbb5d7b025a"
+  },
+  "requirements-report.txt": {
+   "bytes": 19,
+   "sha256": "de950d3b75e4ad1a760c121533e06390c84574f7dd0b53c0eaa742ab6d5c2f38"
+  },
+  "requirements-tracking.txt": {
+   "bytes": 608,
+   "sha256": "7732be1b01f95f3e21ffc72dab8c8703accbd50440aed50641620eb7491ad2f9"
+  },
+  "run.py": {
+   "bytes": 22978,
+   "sha256": "ce64e597aa54195d7ba3bf43637b76238a164c5030ba88dfff330d75f3ce349a"
+  },
+  "test_realbench_campaign.py": {
+   "bytes": 12097,
+   "sha256": "5944a84714a6da760e26eb165e4755ad78fa684a45a470c9681b146f2a2bb797"
+  },
+  "test_realbench_data.py": {
+   "bytes": 2559,
+   "sha256": "f9b8c2ac8d85ff037b629cc99f9c0a529fcd44b36e955718a9d633a68c64f245"
+  },
+  "test_realbench_evaluate.py": {
+   "bytes": 5996,
+   "sha256": "ef26aba59f6b9ff832098d36604fae52c108ca29859b52b3f33ebc07cad000ef"
+  },
+  "test_realbench_tracking.py": {
+   "bytes": 6715,
+   "sha256": "8a89439c2b7978db52adecc34f541819e3b73328cabc3c24cc50146c1c4e1b4f"
+  },
+  "tests/__init__.py": {
+   "bytes": 68,
+   "sha256": "989d1a43ebbda8d47f4425dbe780f128202c1809105c4f1d9d93ab3a814e04e9"
+  },
+  "tests/check_tracking_imports.py": {
+   "bytes": 2706,
+   "sha256": "a767f42d4263ad3da7aff583fc389ea3f307ba7bbe38b4b8b060a5ef73df4752"
+  },
+  "tests/package_manifest.py": {
+   "bytes": 2287,
+   "sha256": "8a26c79faf1099c68c8f7c4710d0086549f673b36fe3f8192f80a61102454563"
+  },
+  "tests/portability_smoke.py": {
+   "bytes": 5809,
+   "sha256": "3b8cb60c47018818289d4f01df5d926cd504971d2cd0a21b6504b8ecc7085ae7"
+  },
+  "tests/test_portable.py": {
+   "bytes": 2551,
+   "sha256": "cd6b0aa940259b870e67557cb9bd2597b147b6888016be4a36efb65de44eb4dc"
+  }
+ },
+ "bytes": 21197965,
+ "file_count": 52,
+ "verification": {
+  "pytest": "25 passed, 185 subtests passed (test_realbench_evaluate.py needs motmetrics from requirements-tracking.txt and was not run)",
+  "stdlib_inputs": "python -B -S run.py --verify-inputs passed against the re-frozen inputs and bundled matrices",
+  "isolated_copy": "provenance/portability_validation.json: relocated-copy input verification and bundled-matrix replay passed; tracker/report stages need requirements-tracking.txt and pyppbox",
+  "measured_core": "tests/test_portable.py AST identity of the measured solver, timing and tracker functions passed",
+  "dependency_import_check": "historical record in provenance/dependency_import_validation.json (original fresh-venv import check, paths redacted)"
+ }
+}

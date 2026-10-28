@@ -1,0 +1,412 @@
+{
+  "created_utc": "2026-10-27T10:38:38.165389+00:00",
+  "scope": "Independent validation of two frozen v2 RF768/conf.2 caches and derived previews; no inference or benchmark rerun; no raw cache or source edits",
+  "overall_passed": true,
+  "checks_passed": 51,
+  "checks_total": 51,
+  "checks": [
+    {
+      "name": "canonical_checkpoint_published_hashes",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_999_contiguous_frames",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_source_and_frame_mapping",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_source_video_complete",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_original_video_GT_mapping_hashes",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_canonical_checkpoint_metadata",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_requested_effective_768_resolution",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_actual_768_input_tensor_observed",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_checkpoint_and_model_native384_default",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_fixed_selected_settings",
+      "passed": true,
+      "details": {
+        "dt_name": "RF_DETR",
+        "model_size": "nano",
+        "conf": 0.2,
+        "imgsz": 768,
+        "person_class_id": 1,
+        "max_det": 300,
+        "repspoint_calibration": 0.25,
+        "device": 0,
+        "optimize": true,
+        "min_width_filter": 15
+      }
+    },
+    {
+      "name": "mot16_04_patched_source_hashes_current",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_patched_source_hashes_archived",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_pyppbox4_and_RFdetr1_10_1",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_source_changes_explicitly_recorded",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_reference_ids_and_boxes_exact_every_frame",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_no_reference_ID_fields_in_detections",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_geometry_sort",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_clipped_integer_boxes_minwidth15_calibrated_points_confidence",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_no_detection_cap_hits",
+      "passed": true,
+      "details": {
+        "maximum": 39,
+        "cap": 300
+      }
+    },
+    {
+      "name": "mot16_04_independent_detection_matching_matches_every_saved_frame",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_independent_full_quality_totals_rates_match",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_positive_999_decode_detector_timings",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_excluded_three_synchronized_warmups",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_clean_PNG_file_and_pixels_match_manifest",
+      "passed": true
+    },
+    {
+      "name": "mot16_04_clean_PNG_native_frame500_video_identity",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_999_contiguous_frames",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_source_and_frame_mapping",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_source_video_complete",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_original_video_GT_mapping_hashes",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_canonical_checkpoint_metadata",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_requested_effective_768_resolution",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_actual_768_input_tensor_observed",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_checkpoint_and_model_native384_default",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_fixed_selected_settings",
+      "passed": true,
+      "details": {
+        "dt_name": "RF_DETR",
+        "model_size": "nano",
+        "conf": 0.2,
+        "imgsz": 768,
+        "person_class_id": 1,
+        "max_det": 300,
+        "repspoint_calibration": 0.25,
+        "device": 0,
+        "optimize": true,
+        "min_width_filter": 15
+      }
+    },
+    {
+      "name": "mot20_03_patched_source_hashes_current",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_patched_source_hashes_archived",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_pyppbox4_and_RFdetr1_10_1",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_source_changes_explicitly_recorded",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_reference_ids_and_boxes_exact_every_frame",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_no_reference_ID_fields_in_detections",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_geometry_sort",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_clipped_integer_boxes_minwidth15_calibrated_points_confidence",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_no_detection_cap_hits",
+      "passed": true,
+      "details": {
+        "maximum": 62,
+        "cap": 300
+      }
+    },
+    {
+      "name": "mot20_03_independent_detection_matching_matches_every_saved_frame",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_independent_full_quality_totals_rates_match",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_positive_999_decode_detector_timings",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_excluded_three_synchronized_warmups",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_clean_PNG_file_and_pixels_match_manifest",
+      "passed": true
+    },
+    {
+      "name": "mot20_03_clean_PNG_native_frame500_video_identity",
+      "passed": true
+    },
+    {
+      "name": "frozen_builder_matches_archived_source",
+      "passed": true
+    },
+    {
+      "name": "explicit_source_patch_archived",
+      "passed": true
+    }
+  ],
+  "sequences": [
+    {
+      "sequence": "mot16_04",
+      "frames": 999,
+      "detections": 30621,
+      "min_detections_per_frame": 22,
+      "median_detections_per_frame": 31.0,
+      "mean_detections_per_frame": 30.65165165165165,
+      "max_detections_per_frame": 39,
+      "full_supplied_box_detection_quality": {
+        "tp": 26543,
+        "fp": 4078,
+        "fn": 25002,
+        "detections": 30621,
+        "gt": 51545,
+        "precision": 0.8668234218346886,
+        "recall": 0.5149481035987972,
+        "f1": 0.6460823211547355
+      },
+      "decode_timing": {
+        "n": 999,
+        "unit": "ms",
+        "mean": 2.9520718718718713,
+        "median": 2.8676,
+        "p95": 3.0244400000000002,
+        "max": 70.8709,
+        "total_seconds": 2.9491197999999996
+      },
+      "detector_timing": {
+        "n": 999,
+        "unit": "ms",
+        "mean": 12.568697297297298,
+        "median": 11.6138,
+        "p95": 17.91626,
+        "max": 92.1083,
+        "total_seconds": 12.5561286
+      },
+      "cache_sha256": "f9d7ccdf0a0769857e7bfbcb29bc10a007af8feb955432acfd13b3894eb618d0",
+      "source_git_status": [
+        " M docs/examples/example_15.rst",
+        " M docs/pyppbox/modules/detectors.rst",
+        " M pyppbox/config/cfg/cfg.zip",
+        " M pyppbox/config/cfg/detectors.yaml",
+        " M pyppbox/config/myconfig.py",
+        " M pyppbox/gui/ui_rfdetr.py",
+        " M pyppbox/modules/detectors/rfdetr/__init__.py",
+        " M tests/integration/test_rfdetr_gui.py",
+        " M tests/test_rfdetr.py"
+      ]
+    },
+    {
+      "sequence": "mot20_03",
+      "frames": 999,
+      "detections": 45990,
+      "min_detections_per_frame": 34,
+      "median_detections_per_frame": 46.0,
+      "mean_detections_per_frame": 46.03603603603604,
+      "max_detections_per_frame": 62,
+      "full_supplied_box_detection_quality": {
+        "tp": 44825,
+        "fp": 1165,
+        "fn": 61812,
+        "detections": 45990,
+        "gt": 106637,
+        "precision": 0.9746684061752555,
+        "recall": 0.4203512852011966,
+        "f1": 0.587379690356228
+      },
+      "decode_timing": {
+        "n": 999,
+        "unit": "ms",
+        "mean": 1.5692572572572572,
+        "median": 1.5045,
+        "p95": 1.59893,
+        "max": 55.7643,
+        "total_seconds": 1.567688
+      },
+      "detector_timing": {
+        "n": 999,
+        "unit": "ms",
+        "mean": 11.819883283283284,
+        "median": 10.931,
+        "p95": 16.99721,
+        "max": 134.9853,
+        "total_seconds": 11.808063400000002
+      },
+      "cache_sha256": "24ed20365da348bf9179a9d903131521f3b2c741edaaf23ec9958ae0f80b1a38",
+      "source_git_status": [
+        " M docs/examples/example_15.rst",
+        " M docs/pyppbox/modules/detectors.rst",
+        " M pyppbox/config/cfg/cfg.zip",
+        " M pyppbox/config/cfg/detectors.yaml",
+        " M pyppbox/config/myconfig.py",
+        " M pyppbox/gui/ui_rfdetr.py",
+        " M pyppbox/modules/detectors/rfdetr/__init__.py",
+        " M tests/integration/test_rfdetr_gui.py",
+        " M tests/test_rfdetr.py"
+      ]
+    }
+  ],
+  "verified_file_hashes": [
+    {
+      "path": "<dataset-root>/mot16_04_gt_24fps_lossless.mp4",
+      "bytes": 461302976,
+      "sha256": "0e84bb9939cfaa0cd0e1fd3081296d3c36a5f3b36325312f23897a08ae1db317"
+    },
+    {
+      "path": "<dataset-root>/gt/mot16_04_gt_pyppbox_nonoise.txt",
+      "bytes": 2949007,
+      "sha256": "e9a13f08b9680d31682dca789dfc1ee13fa2c1852aded58486975ec6b4892412"
+    },
+    {
+      "path": "<dataset-root>/gt/gt_map.txt",
+      "bytes": 454,
+      "sha256": "c5591d6d6631c99b8818756859bfe685d6491bd9800fdbe1627f9ee236e1c1f9"
+    },
+    {
+      "path": "<assets>/rf-detr-nano.pth",
+      "bytes": 366287238,
+      "sha256": "d8d6b9ee57d4d0ed2b1f305163624712a0532cb7bce0c747317984fc5457440d"
+    },
+    {
+      "path": "<pyppbox-root>/pyppbox/utils/gttools.py",
+      "bytes": 14800,
+      "sha256": "5213a980799a3609bd158a966e7de6572502f0d316253a21db0aaafeb052f26a"
+    },
+    {
+      "path": "<pyppbox-root>/pyppbox/utils/persontools.py",
+      "bytes": 9085,
+      "sha256": "d9c1a0bca3b94ac343434bad93e920ed369a01f0dfe3f8f791b7f324fd1fa089"
+    },
+    {
+      "path": "<pyppbox-root>/pyppbox/modules/detectors/rfdetr/__init__.py",
+      "bytes": 7732,
+      "sha256": "c1e3a8fb9b5bac198446a57924c2158cafa5d63a02bef5e71a68a2c6a26bdbba"
+    },
+    {
+      "path": "<pyppbox-root>/pyppbox/config/myconfig.py",
+      "bytes": 88911,
+      "sha256": "71d0ca23a880b8900b1870de7c837aad395f24728edb955e80b6fe9ca774bbd5"
+    },
+    {
+      "path": "<dataset-root>/mot20_03_gt_24fps_lossless.mp4",
+      "bytes": 397540089,
+      "sha256": "9bc83af66e9f56a41698a5902363dae0397eb7e0bf87fa28dcaa0c9479608b8d"
+    },
+    {
+      "path": "<dataset-root>/gt/mot20_03_gt_pyppbox_nonoise.txt",
+      "bytes": 18137800,
+      "sha256": "ff2fc299baefa1889a146c23fbfd2486bfe09709ef3c5e744f92a16c8cc020f5"
+    }
+  ],
+  "source_patch": {
+    "file": "<runs>/20261027_rfdetr768_conf020_v2/provenance/pyppbox_local_changes.patch",
+    "sha256": "4003fcb0b8607a76114fe556fa686a6e3ae7400cd243b171415d8a35a00d1da4"
+  },
+  "preview_manifest": {
+    "path": "<runs>/20261027_rfdetr768_conf020_v2/preview/manifest.json",
+    "sha256": "e72c18a859fdf8fa2b896ae553574feb28d36951c1eb5991e64a1727f4dcfd63"
+  },
+  "quality_method": "Independent per-frame maximum-cardinality IoU>=.5 matching, then maximum IoU; mincost1-IoU allowed/1000 disallowed; supplied original boxes and original reference IDs verified independently; no identity/temporal score",
+  "limitations": [
+    "Original video-to-GT alignment was previously checked at first/middle/last frame; source images are unavailable for pixel-level original correspondence",
+    "Converted GT lacks original class/visibility/ignore metadata; these are supplied-box detection measures",
+    "Detector timing statistics summarize a single cached synchronized pass, not repeated detector trials",
+    "Settings were selected using overlapping benchmark-clip pilot frames, not held-out detector validation"
+  ]
+}

@@ -1,0 +1,7 @@
+Clean frames: MOT16-04 and MOT20-03, benchmark frame500 (one-based), decoded index499, time20.791667s at24fps. Native PNGs are exact copies of previously exported clean decoded pixels. No AI generation, enhancement, resizing, overlays or color adjustment was applied to clean frames.
+
+gt_and_nano_frame0500.png: Rows show MOT16-04 then MOT20-03. Left: supplied GT in green. Right: frozen v2 RF-DETR Nano detections in orange, imgsz768/conf0.2/person class1/minimum width15/max300. Boxes are drawn in original coordinates before illustrative panel downsampling.
+
+before_after_frame0500.png: Same rows and frames. Left: previous frozen v1 Nano384/conf0.4 in orange. Right: frozen v2 Nano768/conf0.2 in green. Both use identical canonical weights/class1/minimum width15/max300. MOT16 detection count10 to36 (GT56); MOT20 detection count12 to49 (GT112).
+
+Previews were created after the benchmark and do not contribute to timing or scoring. Detection counts are illustrative; supplied-box metrics are not official class/ignore-filtered MOTChallenge evaluation.

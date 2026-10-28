@@ -1,0 +1,53 @@
+diff --git a/pyppbox/config/myconfig.py b/pyppbox/config/myconfig.py
+index 91c01fa..ae3a78b 100644
+--- a/pyppbox/config/myconfig.py
++++ b/pyppbox/config/myconfig.py
+@@ -479,11 +479,13 @@ class DCFGRFDETR(BaseCGF):
+     """RF-DETR settings for Nano, Small, Medium, and Large detection models.
+ 
+     Defaults select Nano on GPU 0 with a local checkpoint. An empty model_file
+-    enables automatic downloading; omitted paths follow model_size."""
++    enables automatic downloading; omitted paths follow model_size. ``imgsz=None``
++    retains the variant's native square resolution; an explicit size must be a
++    positive integer multiple of 32 and is applied before inference optimization."""
+ 
+     DEFAULTS = dict(dt_name='RF_DETR', conf=0.4, model_size='nano', device=0,
+                     max_det=100, model_file='data/modules/rf_detr/rf-detr-nano.pth', person_class_id=1,
+-                    optimize=True, repspoint_calibration=0.25)
++                    optimize=True, repspoint_calibration=0.25, imgsz=None)
+ 
+     MODEL_FILES = dict(nano='rf-detr-nano.pth', small='rf-detr-small.pth',
+                        medium='rf-detr-medium.pth', large='rf-detr-large-2026.pth')
+@@ -534,6 +536,10 @@ class DCFGRFDETR(BaseCGF):
+             values[name] = float(_number(values[name], name, 0, 1))
+         for name, minimum in (('max_det', 1), ('person_class_id', 0)):
+             values[name] = _number(values[name], name, minimum, integer=True)
++        if values['imgsz'] is not None:
++            values['imgsz'] = _number(values['imgsz'], 'imgsz', 1, integer=True)
++            if values['imgsz'] % 32:
++                raise ValueError('imgsz must be a positive integer multiple of 32, or null for native resolution.')
+         optimize = values['optimize']
+         if isinstance(optimize, str) and optimize.lower() in ('true', 'false'):
+             optimize = optimize.lower() == 'true'
+@@ -1254,6 +1260,7 @@ class MyCFGHeaders(object):
+                 "# dt_name: RF_DETR\n"
+                 "# conf: 0.4\n"
+                 "# model_size: nano\n"
++                "# imgsz: null\n"
+                 "# device: 0\n"
+                 "# max_det: 100\n"
+                 "# model_file: data/modules/rf_detr/rf-detr-nano.pth\n"
+diff --git a/pyppbox/modules/detectors/rfdetr/__init__.py b/pyppbox/modules/detectors/rfdetr/__init__.py
+index 105a46e..8beed30 100644
+--- a/pyppbox/modules/detectors/rfdetr/__init__.py
++++ b/pyppbox/modules/detectors/rfdetr/__init__.py
+@@ -42,6 +42,9 @@ class MyRFDETR:
+                 options['device'] = f'cuda:{cfg.device}' if isinstance(cfg.device, int) else cfg.device
+             if cfg.model_file:
+                 options['pretrain_weights'] = cfg.model_file
++            if getattr(cfg, 'imgsz', None) is not None:
++                # Set the model's resolution before optimizing its fixed input shape.
++                options['resolution'] = cfg.imgsz
+             self.model = model_class(**options)
+             if cfg.optimize:
+                 self.model.inference(compile=False, inplace=True)

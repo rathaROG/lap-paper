@@ -1,0 +1,20 @@
+{
+  "version": "4.0.0",
+  "git_commit": "f3f1e8e671d7cad7e0df2f2469ae0f5ee6c27258",
+  "upstream": "https://github.com/rathaumons/pyppbox",
+  "tracker_sha256": {
+    "modules/trackers/centroid/__init__.py": "f43020247cb3cb106c014e4b907d60ac9660172fb0b144e2ddd02c6eac63fed6",
+    "modules/trackers/sort/__init__.py": "6315b40292df1cf4dfeeb4b36aa71a9367cbd570c2ffe96102185e3c6c8e515c",
+    "modules/trackers/sort/origin/sort.py": "d9e0dfb87f3909e06d9929f45bfa20d93fba07d8f528ff848700f0226ebd1033",
+    "utils/persontools.py": "d9c1a0bca3b94ac343434bad93e920ed369a01f0dfe3f8f791b7f324fd1fa089"
+  },
+  "RF_regeneration_patch": "patches/pyppbox-imgsz.patch",
+  "note": "Tracker source identity is unchanged by the optional imgsz patch. All copied upstream source in collection provenance retains its original AGPL/GPL headers.",
+  "tracker_text_sha256": {
+    "modules/trackers/centroid/__init__.py": "c9c2cf52097406ab15181f9eb93f5bfa2d4f3b05724e3410452945c8b8450ce3",
+    "modules/trackers/sort/__init__.py": "eb1fbd959d37cf0bfacafefab45588d620cf158054e74e1c7752301d56b0e82f",
+    "modules/trackers/sort/origin/sort.py": "fbef52065288166bf7b2db89afe6ce815c52042a5603fbb91d208b31ed8c7f0b",
+    "utils/persontools.py": "538238dda24c9625f948d3b5e00c3142452605b7656b54eb4a48f18a441d855f"
+  },
+  "line_ending_policy": "Raw measured hashes retained; UTF-8 text hashes additionally allow CRLF/LF normalization of otherwise identical pinned source."
+}

@@ -1,0 +1,13 @@
+-r requirements-replay.txt
+filterpy==1.4.5
+laprust==1.1.0
+motmetrics==1.4.0
+pandas==3.1.0
+PyYAML==6.0.3
+opencv-python-headless==4.13.0.92
+# Also install/select pyppbox 4.0.0 at the exact source commit in README.md.
+# yaml/cv2 are transitive pyppbox import dependencies even for cached tracking.
+# Select one OpenCV flavor in an isolated environment; this recipe uses CPU
+# headless bindings. No video assets/decoding, weights, Torch, RF-DETR or GPU
+# are needed for the cached tracker stage. Supply a local laprust 1.1.0 wheel
+# with --find-links if the pinned measured version is not on your package index.

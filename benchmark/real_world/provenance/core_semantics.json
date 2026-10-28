@@ -1,0 +1,24 @@
+{
+  "basis": "AST identities from the original measured GT campaign source snapshots, excluding location/environment helpers",
+  "ast_sha256": {
+    "realbench_tracking.py": {
+      "_backend": "da1e67c3aa10d9687849f1aef71b9f8ddaba9dd07330762377af1038c7aaab08",
+      "solve_pairs": "d90a217a9488fde41c19c2b3defd3e5fc73fe2fcb8cf2041cf9ce2783d422769",
+      "validate_pairs": "01bae904c67aafbc6565c85189ac76433c692ff21047fcac575ba502173c0183",
+      "_assignment_hook": "9e742d1e312e9a54197e830d06b3ebc916752971138dbf148bcb17796e9f024a",
+      "_make_tracker": "d636ac7e82c7b8e3abb01b04879a3d4526bf33f82e7347fbee939ae5eea5f9d9",
+      "_people": "acf63db3fe42465e1800879dc57b18ab112a2bdfcb84849ee9ef43f69520e120",
+      "_Profile": "6c114e33e7aa8deac5aa0cce505cefc9c243b973b2acd81e8b79ccab12ff3c57",
+      "run_tracking": "e3f62269b6759ed0d9662588d8b842eae3a668fc959317ecf5d5da7c3fc28713"
+    },
+    "realbench_campaign.py": {
+      "without_gc": "dd91eca904166f753d996e80580c787a8501473d01573f8d8f5371ca199a1753",
+      "statistics": "e9dd1a1c7f6a49a05e835273dab612386c2f79f6c11ba25685cac1fb74df215c",
+      "replay_block": "c61dfe49aee4d11c6d1b853ea8b0eb813d03dcdba90abe8ea10092c9d203a002"
+    },
+    "realbench_evaluate.py": {
+      "iou_distances": "ba069fba111df49535fc006bb13654ab13143ebef95895a8056e2c3e2296cd22",
+      "evaluate": "3c1780bdffd66c9ce46bb380a7d74f63356b77e6c5d255d7e9a2695984cc7c19"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "Detection-only supplied-box IoU>=0.5 matching; maximize valid cardinality, then IoU; no identity or temporal continuity. Same method used for both versions. Not official class/ignore-filtered MOTChallenge scoring.",
+  "matching_source": "realbench_detector_pilot.detection_metrics",
+  "matching_source_sha256": "30788ed13b3e9e058cca209b4a0498ad0dab02e5cf3dfdeb3adf3e911a9448d7",
+  "summary": [
+    {
+      "version": "v1_384_conf040",
+      "sequence": "mot16_04",
+      "frames": 999,
+      "tp": 12573,
+      "fp": 896,
+      "fn": 38972,
+      "detections": 13469,
+      "gt": 51545,
+      "precision": 0.933476872819066,
+      "recall": 0.2439227859152197,
+      "f1": 0.386778232380718
+    },
+    {
+      "version": "v1_384_conf040",
+      "sequence": "mot20_03",
+      "frames": 999,
+      "tp": 9945,
+      "fp": 169,
+      "fn": 96692,
+      "detections": 10114,
+      "gt": 106637,
+      "precision": 0.9832904884318766,
+      "recall": 0.09326031302455996,
+      "f1": 0.17036256648765322
+    },
+    {
+      "version": "v2_768_conf020",
+      "sequence": "mot16_04",
+      "frames": 999,
+      "tp": 26543,
+      "fp": 4078,
+      "fn": 25002,
+      "detections": 30621,
+      "gt": 51545,
+      "precision": 0.8668234218346886,
+      "recall": 0.5149481035987972,
+      "f1": 0.6460823211547355
+    },
+    {
+      "version": "v2_768_conf020",
+      "sequence": "mot20_03",
+      "frames": 999,
+      "tp": 44825,
+      "fp": 1165,
+      "fn": 61812,
+      "detections": 45990,
+      "gt": 106637,
+      "precision": 0.9746684061752555,
+      "recall": 0.4203512852011966,
+      "f1": 0.587379690356228
+    }
+  ]
+}

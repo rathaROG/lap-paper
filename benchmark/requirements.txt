@@ -1,0 +1,11 @@
+# Timing suites (base, formulations, scaling, extended).
+# Compatible dependencies. The measured environments are pinned completely in
+# requirements-py311.txt and requirements-py314.txt; use those to match the paper.
+lapx==0.12.0
+laprust==1.1.0
+lapcpp==1.1.0
+numpy>=2.4
+scipy>=1.17
+psutil>=7
+threadpoolctl>=3.7
+# real_world/ and lsape/ have their own requirement files and README.

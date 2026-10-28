@@ -1,0 +1,27 @@
+{
+  "selected_settings": {
+    "imgsz": 768,
+    "conf": 0.2,
+    "max_det": 300,
+    "min_width_filter": 15
+  },
+  "criterion": "The 768/0.2 candidate had the highest supplied-box detection F1 among sampled candidates for both clips; no solver-speed ranking was used as the selection criterion.",
+  "pilot_frames": [
+    1,
+    250,
+    500,
+    750,
+    999
+  ],
+  "pilot_resolutions": [
+    384,
+    768,
+    1024
+  ],
+  "pilot_confidences": [
+    0.2,
+    0.4
+  ],
+  "pilot_results_sha256": "54e218ff70b8442c0d50b53ce7ea3bf0ef5f70e4a9255dda50ba2ab1968c6fe2",
+  "selection_scope": "Exploratory detector calibration after the v1 campaign and before revised solver timings. Sampled frames overlap the benchmark clips; this is not held-out detector validation."
+}

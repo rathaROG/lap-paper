@@ -1,0 +1,141 @@
+{
+ "schema_version": 1,
+ "source_collection": "real-world-python-3.11.17-20261027-lapx-0.12.0",
+ "encoding": "Input JSON stored in deterministic gzip (level 9, mtime 0, no file name). Local paths in metadata were replaced by placeholders; frames are unchanged. published_* fields keep the identities measured in the paper's collection.",
+ "files": {
+  "inputs/mot16_04_gt.json.gz": {
+   "bytes": 532501,
+   "sha256": "3f0642c3c6e5a6398f95ed24e46e95e98d9c38f0fb3997daabde9483646a12f3",
+   "uncompressed_bytes": 4919033,
+   "uncompressed_sha256": "0d6344065d87ae15dfbef6a16971ba216c9f4c5ce2c8ee94dd9e67c55907d363",
+   "published_bytes": 532582,
+   "published_sha256": "eb861817bbf29919627218a8e37c4e722f6e720a68d26d344dbc82a81229b2e8",
+   "published_uncompressed_bytes": 4919477,
+   "published_uncompressed_sha256": "235e35c6b2e121fabf42256796a5b0d1a3a7144192f7db5fe1ea16297af89d65",
+   "redacted_paths": 9
+  },
+  "inputs/mot16_04_rfdetr_nano.json.gz": {
+   "bytes": 940208,
+   "sha256": "03830cb3b6ccb88fc83ecd890b741342eca165be976223a7190a9b97dba34799",
+   "uncompressed_bytes": 4141863,
+   "uncompressed_sha256": "6d9d00dca710da939ba0dd0a387a3a5454571371f9fd974338747bd736ca536b",
+   "published_bytes": 940287,
+   "published_sha256": "8cebc01983908dffbe9c45d49ec2fcdf3e1b887882e8ffbac68a2054d45800fd",
+   "published_uncompressed_bytes": 4142359,
+   "published_uncompressed_sha256": "f9d7ccdf0a0769857e7bfbcb29bc10a007af8feb955432acfd13b3894eb618d0",
+   "redacted_paths": 10
+  },
+  "inputs/mot20_03_gt.json.gz": {
+   "bytes": 1501836,
+   "sha256": "5e1e06ce2b02fd087a8b5a517a51a8b45aabefe29178fff58d4b23d29443adc0",
+   "uncompressed_bytes": 9976297,
+   "uncompressed_sha256": "a957288db2396d64885401cffe921f0bf32324a21e102388e39123cd883b4e9d",
+   "published_bytes": 1501923,
+   "published_sha256": "2167436994754f567aca148dcf27d390a658ab5e7479f44bdb75a9f85c53c88b",
+   "published_uncompressed_bytes": 9976741,
+   "published_uncompressed_sha256": "a099ff5a6aaba2d7cdddf411488c0ac207be2dd4e3ba97838edd916496c53ba8",
+   "redacted_paths": 9
+  },
+  "inputs/mot20_03_rfdetr_nano.json.gz": {
+   "bytes": 1749153,
+   "sha256": "8209bab74cd43b0e7525e2f1eab52e24e03f6355daf36d0cce92d62be587f5fe",
+   "uncompressed_bytes": 7143573,
+   "uncompressed_sha256": "13ff21fc63f66dbda233cfaf714d6072031115afc2bb9022f2f1a0dfff772eef",
+   "published_bytes": 1749226,
+   "published_sha256": "efa5a311e7320ff65d3ec78fa7be6b6c7139f5f77bbc3395a14aeda1b79c7642",
+   "published_uncompressed_bytes": 7144069,
+   "published_uncompressed_sha256": "24ed20365da348bf9179a9d903131521f3b2c741edaaf23ec9958ae0f80b1a38",
+   "redacted_paths": 10
+  },
+  "preview/before_after_frame0500.png": {
+   "bytes": 2125076,
+   "sha256": "29041490bdab480b7225bf29b076e4a69d1a780caf5e32f0c9d8da5c8172365b"
+  },
+  "preview/CAPTIONS.txt": {
+   "bytes": 1064,
+   "sha256": "dccbcf67d1521003a4a70a6b27c2da36b35ab92058d3be27cb4ca6a5509cba0d"
+  },
+  "preview/gt_and_nano_frame0500.png": {
+   "bytes": 2297421,
+   "sha256": "69a8aa911a7900027a34cefa23ec672b89190f70ff59b0cdebafe8c392cf9a46"
+  },
+  "preview/manifest.json": {
+   "bytes": 3832,
+   "sha256": "e47b0b4e653229b7bf5f3473579178e7184976bf76feac31073019be8b7b9ecc",
+   "published_bytes": 4140,
+   "published_sha256": "e72c18a859fdf8fa2b896ae553574feb28d36951c1eb5991e64a1727f4dcfd63",
+   "redacted_paths": 6
+  },
+  "preview/mot16_04_frame0500.png": {
+   "bytes": 1422599,
+   "sha256": "a1db46a7ee02f66fd940cb28ed8a80abf5277d1140579d0921f4f35bb5363e20"
+  },
+  "preview/mot20_03_frame0500.png": {
+   "bytes": 860843,
+   "sha256": "484fcddacae193aa459805b2614f2be05d2b802f6f3856c44bd0722621aa576c"
+  },
+  "matrices/mot16_04_gt_centroid.npz": {
+   "bytes": 694191,
+   "sha256": "75905c84d82889413e4ffb85ad49cdc089148a5af2efffb1659045ff2807e8d2",
+   "source": "matrices/mot16_04_gt_centroid.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot16_04_gt_sort.npz": {
+   "bytes": 1140812,
+   "sha256": "1a63f40d321388c111180e6003a7c412d93dabb26cab45b0e9cdb7755d6729ca",
+   "source": "matrices/mot16_04_gt_sort.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot16_04_rfdetr_nano_centroid.npz": {
+   "bytes": 413390,
+   "sha256": "d7cf2ec7999da3c7f937b11d106a8b16b4ad60d4f20b6ffd0ce19f5c42130590",
+   "source": "matrices/mot16_04_rfdetr_nano_centroid.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot16_04_rfdetr_nano_sort.npz": {
+   "bytes": 653267,
+   "sha256": "e678a7650dc04f65204dd0a675746316e011d18a2675a677f196916961000f89",
+   "source": "matrices/mot16_04_rfdetr_nano_sort.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot20_03_gt_centroid.npz": {
+   "bytes": 2499454,
+   "sha256": "ccb8cd5338eb948674bb7d4198c2541c8786c48c964d48359d1524ca4ee2b2a3",
+   "source": "matrices/mot20_03_gt_centroid.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot20_03_gt_sort.npz": {
+   "bytes": 2858402,
+   "sha256": "ee9cd60c67578f2007a457f203789a425865647ab8962ca6dc464a1b2b6b55cf",
+   "source": "matrices/mot20_03_gt_sort.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot20_03_rfdetr_nano_centroid.npz": {
+   "bytes": 684374,
+   "sha256": "3fad75924049275a7fd142012cdc2a59710eb3e15a52a07af2a13116b4c565db",
+   "source": "matrices/mot20_03_rfdetr_nano_centroid.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  },
+  "matrices/mot20_03_rfdetr_nano_sort.npz": {
+   "bytes": 508155,
+   "sha256": "c0d6b798b4526e2964cca60f3ae89d46ba7068eac1989c5ac2be10c968780b15",
+   "source": "matrices/mot20_03_rfdetr_nano_sort.npz in observations.zip of the published collection real-world-python-3.11.17-20261027-lapx-0.12.0"
+  }
+ },
+ "matrices": "Captured SciPy-path assignment corpora (float32) replayed for Table C3; extracted byte-for-byte from the published collection archive and checked against its file manifest.",
+ "path_redaction": {
+  "applied_utc": "2026-10-29T07:55:37+00:00",
+  "rule": "Absolute local paths inside JSON string values were replaced by a placeholder for their root plus the relative remainder with '/' separators. No other byte of the JSON text changed; decoded documents differ only in those strings. Every path entry keeps its recorded SHA-256, so file identity is unchanged.",
+  "placeholders": {
+   "<dataset-root>": "supplied recoded MOT video/GT directory (mix_v1.0)",
+   "<pyppbox-root>": "pinned pyppbox checkout",
+   "<assets>": "local detector checkpoint and preview assets",
+   "<venv>": "generating Python environment",
+   "<runs>": "local generation run directory",
+   "<laprust-dist>": "locally built laprust wheels",
+   "<pip-cache>": "pip wheel cache"
+  },
+  "files": [
+   "inputs/mot16_04_gt.json.gz",
+   "inputs/mot16_04_rfdetr_nano.json.gz",
+   "inputs/mot20_03_gt.json.gz",
+   "inputs/mot20_03_rfdetr_nano.json.gz",
+   "preview/manifest.json",
+   "../provenance/dependency_import_validation.json",
+   "../provenance/input_audit.json"
+  ]
+ }
+}
