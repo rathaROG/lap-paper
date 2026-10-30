@@ -24,7 +24,7 @@ A ratio above 1 favors the denominator.
 
 ## Workflow
 
-Requires Windows x64, MSVC (Visual Studio 2022 C++ tools; set `VCVARS64` if they are not found automatically), Python with NumPy and SciPy. The paper used Python 3.11.17, NumPy 2.4.6 and SciPy 1.17.1.
+Requires Windows x64, MSVC (Visual Studio 2022 C++ tools; set `VCVARS64` if they are not found automatically), Python with NumPy and SciPy. The current paper uses a fresh 29 October 2026 campaign with Python 3.11.18, NumPy 2.4.6, SciPy 1.17.1 and MSVC 19.44.35229. The original 27 October campaign remains archived separately. These kernels are independent of the JV package versions.
 
 ```powershell
 python -B build_bridge.py
@@ -63,15 +63,35 @@ F = sum(selected costs) + h(n+m−2K),   P = sum(selected costs) + p(n−K),   F
 
 Costs and L must be finite, nonnegative binary64 values no larger than DBL_MAX/[16(n+m+1)]. The bridge requires round-to-nearest with FTZ/DAZ disabled, and rejects calls otherwise.
 
-## Paper results (27 October 2026, one Windows host)
+## Current paper results (29 October 2026, one Windows host)
 
 For the primary comparison O/P over all 67 cases:
-- 39 cases are above 1.03 (favoring P);
-- 16 are below 0.97 (favoring O);
-- 12 fall in the practical band [0.97, 1.03].
+- 38 cases are above 1.03 (favoring P);
+- 18 are below 0.97 (favoring O);
+- 11 fall in the practical band [0.97, 1.03].
 
-The matched-layout U/P ratio exceeds 1.03 in 66 cases. The cache-only S/T ratio shows no consistent benefit. These counts describe one host, compiler, grid and timing contract; they are not significance tests.
+The matched-layout U/P ratio exceeds 1.03 in all 67 cases. All 67 cache-only S/T estimates lie inside the descriptive 3% band; this is not an equivalence test. These counts describe one host, compiler, grid and timing contract; they are not significance tests.
 
 ## Source provenance and licence
 
 `src/lsape-v4.zip` is the July 2017 LSAPE v4 release by Sébastien Bougleux. It matched a fresh download from the author-hosted URL on 27 October 2026 (`src/upstream_download_check.json`, SHA-256 `2861b207…`). `src/upstream-v4/` is that archive extracted unchanged, under the CeCILL-C licence it ships with (`Licence_CeCILL-C_V1-*.txt`). `src/specialized/hungarian-lsape-uniform.hh` is the attributed adaptation, and its header documents its derivation and changes.
+
+## Saved current evidence
+
+[`../lsape-windows-20261029.zip`](../lsape-windows-20261029.zip) retains the
+fresh build and its input/binary hashes, the 10,190-case strict verification,
+all three raw session reports, 9,045 timing-round averages, summary CSVs, the
+independent saved-data audit and the source/precision review. Tables 10 and 11
+are regenerated from this collection.
+
+The rerun deliberately keeps the original five-arm implementations unchanged.
+The JV float32-working-arithmetic and rectangular-initialization fixes do not
+transfer directly: this bridge already converts to float64, while the kernel
+uses Hungarian tree growth rather than JV reduction retries. Source inspection
+and finite validation do not establish general floating-point exactness.
+
+From the parent `benchmark/` directory, `python verify_results.py` verifies the
+archive and recomputes paired-log estimates, session ranges and band counts
+without running a solver. `lsape_publication.py` regenerates table projections
+from a completed summary; `package_lsape.py` packages a completed campaign and
+refuses to replace an existing archive.

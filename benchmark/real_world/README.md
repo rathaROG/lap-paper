@@ -10,13 +10,13 @@
 - `patches/pyppbox-imgsz.patch`: optional RF input-regeneration patch; unnecessary for frozen-input tracker/replay stages.
 - `data/matrices/*.npz`: the eight captured assignment corpora (7,539 float32 matrices, 9 MiB) replayed for Table C3, listed with their SHA256 in `provenance/data_manifest.json`. Replay reads them directly. Tests check the solver, tracker-update and replay measurement boundaries.
 
-The paper's timing rounds, predictions, profiles, metrics and summaries are included in [`../results.zip`](../results.zip), at `real_world/observations.zip`. The archive manifest records file checksums. Ground-truth and detector configurations use separate measurement sessions and their timing samples are not pooled. See [`../RESULTS.md`](../RESULTS.md) for verification. New runs produce separate observations.
+The current paper's timing rounds, predictions, profiles, metrics and summaries are included in [`../application-windows-20261029.zip`](../application-windows-20261029.zip), at `real_world/observations.zip`. This cached tracking/replay campaign uses Python 3.11.18 with LAPX 0.13.0 and laprust/lapcpp 1.2.0. The archive manifest records file checksums. The current eight GT/RF pipelines were measured together in one campaign, with all 72 method/pipeline settings shuffled within each of nine rounds. Each pipeline retains its own timing samples and within-pipeline ratios. Samples are not pooled across pipelines or campaigns. See [`../RESULTS.md`](../RESULTS.md) for verification. New runs produce separate observations.
 
 Recorded locations use role placeholders such as `<dataset-root>`, `<pyppbox-root>` or `<python>`. Files are identified by SHA-256. Programs resolve bundled data relative to this directory; external datasets, pyppbox checkouts, checkpoints, collections and output locations are explicit options.
 
 ## Verify the bundled inputs
 
-From this directory, using Python 3.11:
+From this directory, using Python 3.11.18:
 
 ```sh
 python -B run.py --verify-inputs
@@ -30,14 +30,14 @@ Command examples use POSIX shell line continuation. In PowerShell, put each comm
 
 ## CPU-only assignment replay
 
-Install `requirements-replay.txt` in your own environment. SciPy alone is a usable baseline; install `lapx==0.12.0`, `laprust==1.1.0`, or `lapcpp==1.1.0` for the solver families you select. The recorded environment is not installed or changed automatically.
+Install `requirements-replay.txt` in your own environment. SciPy alone is a usable baseline; install `lapx==0.13.0`, `laprust==1.2.0`, or `lapcpp==1.2.0` for the solver families you select. The recorded environment is not installed or changed automatically.
 
 ```sh
 python -B run.py --replay-only --output /path/to/new-replay \
   --solvers scipy lapjvh laprust --cases mot16_04_gt_centroid
 ```
 
-`lapjvh` is LAPX's JVHYBRID (hybrid Rust/C++) interface; `laprust` is the Rust family also exposed as `lap.lapjvr`. The published nine-method panel uses `lapjv lapjvx lapjvxa lapjvh laprust lapcpp scipy lapjvs lapjvc`. The original full campaign additionally validates the Rust alias outside timing. Replay never silently substitutes SciPy for a missing/failed backend.
+`lapjvh` is LAPX's JVHYBRID (hybrid Rust/C++) interface; `laprust` is the Rust family also exposed as `lap.lapjvr`. The published nine-method panel uses `lapjv lapjvx lapjvxa lapjvh laprust lapcpp scipy lapjvs lapjvc`. The full campaign additionally validates the Rust alias outside timing. Replay never silently substitutes SciPy for a missing/failed backend.
 
 Defaults are nine shuffled rounds, seed 20261027, CPU 0, one visible library thread, calibrated 30 ms target blocks, full selected corpora, and separate float32/float64 panels. Float64 widens the same captured float32 application costs; it does not rebuild tracking costs in double precision. Use `--cpu -1` only when affinity is unavailable and report the difference.
 
@@ -57,7 +57,7 @@ Cached tracking still needs PyYAML and OpenCV bindings: importing `Person` reach
 
 The stock SORT module imports `laprust`, so that dependency is required for tracker runs even when SciPy is the selected hook. It is optional for assignment-only replay when another family is selected. Source checks allow CRLF/LF line-ending differences while preserving the original measured hashes.
 
-Use the pinned solver versions. If your package index lacks a matching wheel, provide it through your index or `--find-links`:
+Use the current pinned solver versions. If your package index lacks a matching current wheel, provide it through your index or `--find-links`:
 
 ```sh
 python -m pip install --find-links /path/to/measured-solver-wheels -r requirements-tracking.txt
@@ -96,6 +96,21 @@ python -B run.py --report-only --collection /path/to/new-campaign --output /path
 ```
 
 Report generation reads saved summary data and uses `requirements-report.txt`; it does not rerun measurements. `--collection` is required and must point at a tracker, replay or campaign output from this package. Use a fresh output directory for every stage; existing artifacts are rejected.
+
+For a completed full campaign, the manuscript tables can be regenerated and
+packaged without running any solver or tracker. From the parent `benchmark/`
+directory:
+
+```sh
+python application_publication.py --results /path/to/completed-campaign
+python package_application.py --observations /path/to/completed-campaign
+```
+
+The projection contains Tables 12 and C1-C4 and numerical-validation counts.
+Packaging verifies every original campaign file against its recorded manifest,
+then creates `application-windows-20261029.zip` without changing the raw folder.
+It refuses to replace an existing archive. The main `verify_results.py`
+independently reconstructs these table values from the packaged raw observations.
 
 ## Optional video/detector regeneration
 

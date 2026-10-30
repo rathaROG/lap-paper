@@ -1,5 +1,3 @@
-# These files have published or package-manifest byte checksums. Preserve them
-# exactly on every checkout, regardless of the user's core.autocrlf setting.
-benchmark/real_world/** -text
-benchmark/lsape/src/** -text
-benchmark/results.zip -text
+# Sources, figures, publication outputs and evidence contain byte checksums.
+# Preserve every file exactly across platforms and core.autocrlf settings.
+* -text whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof

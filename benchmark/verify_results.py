@@ -2,17 +2,17 @@
 
     python benchmark/verify_results.py
 
-The audit checks manifest.json, ZIP members, recorded sample coverage,
-summary arithmetic and the paper's measured numeric tables. No solver or
-measurement program is imported or executed.
-An expanded results directory or results.zip can be audited; ZIP contents are
-checked and unpacked into a temporary directory that is removed afterwards.
+The audit checks the four current controlled Windows, controlled Linux,
+application and LSAPE bundles, including their manifests, sample coverage,
+summary arithmetic and the paper's numeric tables and figure identities.
+No solver or measurement program is imported or executed. ZIP contents are
+checked and unpacked into temporary directories that are removed afterwards.
 """
 from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
-from contextlib import contextmanager
+from contextlib import ExitStack, contextmanager
 import csv
 import hashlib
 import io
@@ -27,20 +27,14 @@ import sys
 from tempfile import TemporaryDirectory
 import zipfile
 
+import audit_controlled_update
+import audit_lsape_update
+
 
 HERE = Path(__file__).resolve().parent
-CONTROLLED = (
-    "python-3.14.9-20261026-lapx-0.12.0",
-    "python-3.11.17-20261026-lapx-0.12.0",
-    "linux-python-3.14.9-20261027-lapx-0.12.0",
-    "linux-python-3.11.17-20261027-lapx-0.12.0",
-)
-TIMING_FILES = ("results/single_samples.csv", "results/batch_samples.csv",
-                "results/formulations/samples.csv", "results/scaling/samples.csv",
-                "extended/samples.csv")
-SUMMARY_FILES = ("results/single_summary.csv", "results/batch_summary.csv",
-                 "results/formulations/summary.csv", "results/scaling/summary.csv",
-                 "extended/summary.csv")
+UPDATED_SUMMARY_FILES = ("base/single_summary.csv", "base/batch_summary.csv",
+                         "formulations/summary.csv", "scaling/summary.csv",
+                         "extended/summary.csv")
 SINGLE_CASES = ("square128", "square512", "wide64x512", "tall512x64", "near256x320",
                 "blocks256x320", "ties128x160", "optional128x160", "optional256x320",
                 "tight128x160", "negative128x160", "optional_square128")
@@ -71,15 +65,27 @@ def local(root, name):
     return result
 
 
-def default_results():
-    archive = HERE / "results.zip"
-    if archive.is_file():
-        return archive
-    expanded = HERE / "results"
-    return expanded if (expanded / "manifest.json").is_file() else archive
+def default_windows_results():
+    archive = HERE / "controlled-windows-20261029.zip"
+    return archive if archive.is_file() else None
 
 
-def extract_results(archive_path, root):
+def default_linux_results():
+    archive = HERE / "controlled-linux-20261029.zip"
+    return archive if archive.is_file() else None
+
+
+def default_application_results():
+    archive = HERE / "application-windows-20261029.zip"
+    return archive if archive.is_file() else None
+
+
+def default_lsape_results():
+    archive = HERE / "lsape-windows-20261029.zip"
+    return archive if archive.is_file() else None
+
+
+def extract_results(archive_path, root, require_manifest=True):
     """Validate every ZIP destination before writing any member to disk."""
     with zipfile.ZipFile(archive_path) as archive:
         planned, seen, files = [], set(), set()
@@ -115,8 +121,9 @@ def extract_results(archive_path, root):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 with archive.open(info) as reader, target.open("xb") as writer:
                     shutil.copyfileobj(reader, writer)
-    require((root / "manifest.json").is_file(),
-            "Results archive must contain manifest.json at its root")
+    if require_manifest:
+        require((root / "manifest.json").is_file(),
+                "Results archive must contain manifest.json at its root")
 
 
 @contextmanager
@@ -180,37 +187,6 @@ def verify_manifest(root):
     return {"files": len(manifest["files"]), "archive_members": members}
 
 
-def verify_controlled(root):
-    timing_count = memory_count = settings = 0
-    for name in CONTROLLED:
-        folder = root / "collections" / name
-        collection_count = 0
-        for sample_path, summary_path in zip(TIMING_FILES, SUMMARY_FILES):
-            samples, summaries = rows(folder / sample_path), rows(folder / summary_path)
-            groups = defaultdict(list)
-            for row in samples:
-                # Samples store each round's per-call mean;
-                # cycles/instances describe calibration and must not divide it again.
-                value = float(row["nanoseconds"])
-                require(math.isfinite(value) and value > 0, "Invalid saved timing")
-                groups[row["case"], row["solver"]].append(value)
-            require(len(groups) == len(summaries), "Timing summary coverage differs")
-            for row in summaries:
-                values = groups[row["case"], row["solver"]]
-                require(len(values) == 9, "Expected nine saved timing rounds")
-                for field, value in zip(("median_ns", "q25_ns", "q75_ns"), quartiles(values)):
-                    close(row[field], value, name + "/" + summary_path)
-            collection_count += len(samples)
-            settings += len(groups)
-        require(collection_count == 8946, "Controlled timing count differs: " + name)
-        memory = read(folder / "results/memory.json") + read(folder / "extended/memory_samples.json")
-        require(len(memory) == 415, "Controlled memory count differs: " + name)
-        timing_count += collection_count
-        memory_count += len(memory)
-    return {"environments": 4, "timing_samples": timing_count,
-            "memory_observations": memory_count, "summary_groups_recomputed": settings}
-
-
 def verify_lsape(root):
     folder = root / "lsape"
     projection = read(folder / "timing_rounds.json")
@@ -258,6 +234,8 @@ def verify_real_world(root):
             for field, value in zip(("median_tracker_ns_per_frame", "q25_tracker_ns_per_frame", "q75_tracker_ns_per_frame"), quartiles(values)):
                 close(row[field], value, "Real-world tracker summary")
         replay_groups, replay_count = defaultdict(list), 0
+        objective_checks = nonzero_gaps = 0
+        maximum_gap = 0
         matrix_count = 0
         for name in archive.namelist():
             if name.startswith("replay/") and name.endswith(".json"):
@@ -267,6 +245,9 @@ def verify_real_world(root):
                     replay_count += 1
                 for validation in data["validation"].values():
                     require(validation["objective_mismatch_count"] == 0, "Recorded real-world objective mismatch")
+                    objective_checks += validation["matrices"]
+                    nonzero_gaps += validation["objective_nonzero_gap_count"]
+                    maximum_gap = max(maximum_gap, validation["objective_max_abs_gap"])
             elif name.startswith("matrices/") and name.endswith(".npz"):
                 with zipfile.ZipFile(io.BytesIO(archive.read(name))) as matrices:
                     matrix_count += len(matrices.namelist())
@@ -277,19 +258,23 @@ def verify_real_world(root):
                 close(row[field], value, "Real-world replay summary")
         require(replay_count == 1296 and matrix_count == 7539, "Real-world replay sample/matrix count differs")
     return {"tracking_samples": 648, "replay_samples": replay_count, "captured_matrices": matrix_count,
-            "tracking_summary_rows": 72, "replay_summary_rows": 144, "recorded_objective_mismatches": 0}
+            "tracking_summary_rows": 72, "replay_summary_rows": 144, "recorded_objective_mismatches": 0,
+            "objective_checks": objective_checks, "recorded_nonzero_objective_gaps": nonzero_gaps,
+            "maximum_absolute_objective_gap": maximum_gap}
 
 
 def table_data(folder):
     """Read the saved summaries needed for the controlled paper tables."""
+    summary_files = UPDATED_SUMMARY_FILES
+    prefix = ""
     result = {name: {(row["case"], row["solver"]): float(row["median_ns"]) for row in rows(folder / relative)}
-              for name, relative in zip(("single", "batch", "formulations", "scaling", "extended"), SUMMARY_FILES)}
+              for name, relative in zip(("single", "batch", "formulations", "scaling", "extended"), summary_files)}
     result.update(
-        formulation_specs=read(folder / "results/formulations/datasets.json"),
-        scaling_specs=read(folder / "results/scaling/datasets.json"),
+        formulation_specs=read(folder / (prefix + "formulations/datasets.json")),
+        scaling_specs=read(folder / (prefix + "scaling/datasets.json")),
         extended_specs=read(folder / "extended/plan.json")["timing"],
         memory={(row["case"], row["solver"]): row["additional_peak"] / 2**20
-                for row in read(folder / "results/memory.json")})
+                for row in read(folder / "base/memory.json")})
     return result
 
 
@@ -352,28 +337,38 @@ def native_overview(data):
             for method in ("jvrust", "jvcpp", "jvhybrid")] + [max(ratio for _, ratio in comparisons)]
 
 
-def expected_paper_tables(root):
-    windows314, windows311, linux314, linux311 = [table_data(root / "collections" / name) for name in CONTROLLED]
+def controlled_paper_tables(windows, linux):
+    windows314, windows311 = windows
+    linux314, linux311 = linux
     expected = environment_tables(windows314, windows311)
-    linux = environment_tables(linux314, linux311)
-    expected.update({label: linux[source] for label, source in
+    linux_tables = environment_tables(linux314, linux311)
+    expected.update({label: linux_tables[source] for label, source in
                      (("B1", "4"), ("B2", "A1"), ("B3", "5"), ("B4", "A2"), ("B5", "7"), ("B6", "A3"))})
-    expected["B7"] = ([native_overview(data) for data in (windows314, windows311, linux314, linux311)], 3)
+    expected["B7"] = ([native_overview(data) for data in (windows314, windows311, linux314, linux311)], [0, 0, 0, 3])
+    return expected
+
+
+def expected_paper_tables(windows, linux, application, lsape):
+    """Project every measured table from the four declared current bundles."""
+    controlled = [tuple(table_data(root / name) for name in ("py314-results", "py311-results"))
+                  for root in (windows, linux)]
+    expected = controlled_paper_tables(*controlled)
     lsape_rows = []
-    for row in rows(root / "lsape/paper_table.csv"):
+    lsape_root = lsape
+    for row in rows(lsape_root / "lsape/paper_table.csv"):
         values = [float(row["O_ms"]), float(row["smaller_side_unmatched_pct"])]
         values.extend(float(row[prefix + "_" + field]) for prefix in ("O_U", "U_P", "O_P", "P_T")
                       for field in ("median_estimate", "min_session", "max_session"))
         lsape_rows.append(values)
     require(len(lsape_rows) == 12, "LSAPE paper row coverage differs")
     expected["10"] = (lsape_rows, [3, 2] + [2] * 12)
-    block_rows = [row for row in rows(root / "lsape/block_counts.csv")
+    block_rows = [row for row in rows(lsape_root / "lsape/block_counts.csv")
                   if row["comparison"] == "original_over_padded"]
     require([row["block"] for row in block_rows] == list("ABCDEF"), "LSAPE paper block coverage differs")
     counts = [[int(row[field]) for field in ("cases", "denominator_faster", "denominator_slower",
                                              "point_within_practical_band")] for row in block_rows]
     expected["11"] = (counts + [[sum(row[column] for row in counts) for column in range(4)]], 0)
-    application_tables = read(root / "real_world/projections.json")["tables"]
+    application_tables = read(application / "real_world/projections.json")["tables"]
     require(set(application_tables) == {"12", "C1", "C2", "C3", "C4"}, "Real-world paper table coverage differs")
     expected.update({label: (table["numeric_values"], table["places"])
                      for label, table in application_tables.items()})
@@ -418,33 +413,192 @@ def check_paper_tables(tex, expected):
     return len(expected)
 
 
-def verify_paper_tables(root):
+def verify_paper_tables(windows, linux, application, lsape):
     paper = HERE.parent / "latex/main.tex"
-    if not paper.is_file():
-        return None
-    return check_paper_tables(paper.read_text(encoding="utf-8"), expected_paper_tables(root))
+    require(paper.is_file(), "Authoritative paper source is missing")
+    return check_paper_tables(paper.read_text(encoding="utf-8"),
+                             expected_paper_tables(windows, linux, application, lsape))
 
 
-def _verify_directory(root):
-    result = {"status": "passed", "measurements_rerun": False,
-              "manifest": verify_manifest(root), "controlled": verify_controlled(root),
-              "lsape": verify_lsape(root), "real_world": verify_real_world(root)}
-    result["paper_tables_recomputed"] = verify_paper_tables(root)
-    return result
+def verify_updated_controlled(root, platform, observations=None):
+    """Recompute current observations and check the declared runtime and harness."""
+    require(platform in ("Windows", "Linux"), "Unknown controlled platform")
+    manifest = verify_manifest(root)
+    audited = [audit_controlled_update.audit(root / name) for name in ("py311-results", "py314-results")]
+    left, right = audited[0][1], audited[1][1]
+    require(left.keys() == right.keys() and len(left) == 3925,
+            "Current controlled objective coverage differs")
+    require(all(left[key] == right[key] for key in left),
+            "Current controlled objectives or recorded cardinalities differ")
+    require(audited[0][2] == audited[1][2], "Current controlled schedules differ")
+    for name, observed, version, numpy, scipy in zip(
+            ("py311-results", "py314-results"), audited, ("3.11.18", "3.14.10"),
+            ("2.4.6", "2.5.4"), ("1.17.1", "1.18.1")):
+        require(observed[0]["python"].startswith(version + " "),
+                "Current controlled interpreter version differs")
+        require(observed[0]["numpy"] == numpy and observed[0]["scipy"] == scipy,
+                "Current controlled numerical-library versions differ")
+        for suite in ("base", "formulations", "scaling", "extended"):
+            env = read(root / name / suite / "environment.json")
+            require(env["platform"].startswith(platform + "-"),
+                    "Current controlled platform differs")
+            require(env["script_sha256"] == digest((HERE / suite / "run.py").read_bytes()),
+                    "Current controlled harness source differs: " + suite)
+    if observations is not None:
+        observations.extend(audited)
+    return {"manifest": manifest, "environments": 2,
+            "timing_samples": sum(item[0]["timing_samples"] for item in audited),
+            "memory_observations": sum(item[0]["memory_observations"] for item in audited),
+            "exact_objectives_compared": len(left),
+            "summary_groups_recomputed": sum(item[0]["settings"] for item in audited),
+            "scope": "Current controlled " + platform + " observations; saved-data audit without re-solving."}
 
 
-def verify(root=None):
-    with results_directory(default_results() if root is None else root) as directory:
-        return _verify_directory(directory)
+def verify_updated_windows(root):
+    return verify_updated_controlled(root, "Windows")
+
+
+def verify_updated_linux(root):
+    return verify_updated_controlled(root, "Linux")
+
+
+def verify_updated_figures(root, platform="windows", other_roots=None):
+    """Check declared sources and exports of regenerated publication plots."""
+    path = HERE / ("publication-" + platform + "-20261029-figures.json")
+    require(path.is_file(), "Publication figure manifest is missing: " + platform)
+    manifest = read(path)
+    bundles = manifest.get("source_bundles", {platform: manifest.get("source_bundle")})
+    for bundle in bundles.values():
+        require(bundle is not None and digest(local(HERE, bundle["path"]).read_bytes()) == bundle["sha256"],
+                "Publication source bundle checksum differs")
+    for name, expected in manifest["scripts"].items():
+        require(digest(local(HERE, name).read_bytes()) == expected,
+                "Publication generator checksum differs: " + name)
+    for name, expected in manifest["inputs"].items():
+        source, relative = root, name
+        if platform == "linux":
+            scope, separator, relative = name.partition("/")
+            require(separator and other_roots is not None and scope in ("windows", "linux"),
+                    "Publication figure input scope differs: " + name)
+            source = other_roots[scope]
+        require(digest(local(source, relative).read_bytes()) == expected,
+                "Publication figure input checksum differs: " + name)
+    outputs = 0
+    require(len(manifest["figures"]) == (15 if platform == "windows" else 3),
+            "Publication figure coverage differs")
+    for figure in manifest["figures"].values():
+        for name, expected in figure["outputs"].items():
+            require(digest(local(HERE.parent, name).read_bytes()) == expected,
+                    "Publication figure output checksum differs: " + name)
+            outputs += 1
+    require(outputs == (60 if platform == "windows" else 12), "Publication figure export coverage differs")
+    return {"figures": len(manifest["figures"]), "output_files": outputs,
+            "inputs": len(manifest["inputs"])}
+
+
+def verify_application_update(root):
+    """Audit fresh tracker/replay observations and their publication projection."""
+    manifest = verify_manifest(root)
+    result = verify_real_world(root)
+    with zipfile.ZipFile(root / "real_world/observations.zip") as archive:
+        summary = json.loads(archive.read("summary.json"))
+    environment = summary["environment"]
+    require(environment["python"].startswith("3.11.18 "), "Current application Python version differs")
+    require({name: environment["packages"][name] for name in audit_controlled_update.PACKAGES}
+            == audit_controlled_update.PACKAGES, "Current application solver versions differ")
+    require(summary["reproducibility"]["all_repeated_prediction_hashes_identical"] is True and
+            summary["reproducibility"]["all_instrumented_predictions_match"] is True,
+            "Application repeated trajectories or profiled outputs differ")
+    saved_projection = read(root / "real_world/projections.json")
+    tables = saved_projection["tables"]
+    require(set(tables) == {"12", "C1", "C2", "C3", "C4"}, "Current application table coverage differs")
+    import application_publication
+    with TemporaryDirectory(prefix="lap-paper-application-audit-") as directory:
+        observations = Path(directory)
+        extract_results(root / "real_world/observations.zip", observations, require_manifest=False)
+        projected = application_publication.project_campaign(observations)
+    for field in ("tables", "numerical_validation", "source_summary_sha256", "input_identities", "capture_identities"):
+        require(saved_projection[field] == projected[field],
+                "Current application projection differs from saved observations: " + field)
+    return {"manifest": manifest, **result, "python": environment["python"],
+            "packages": {name: environment["packages"][name] for name in audit_controlled_update.PACKAGES},
+            "scope": "Current cached tracking and common-cost replay; detector inference was not rerun."}
+
+
+def verify_lsape_update(root):
+    """Audit fresh LSAPE sessions and the projections used for Tables 10-11."""
+    manifest = verify_manifest(root)
+    folder = root / "lsape"
+    raw = audit_lsape_update.audit(folder)
+    for name in ("summary.json", "all_cases.csv", "all_case_methods.csv", "paper_table.csv", "block_counts.csv"):
+        require(digest((folder / name).read_bytes()) == digest((folder / "summary" / name).read_bytes()),
+                "Current LSAPE publication copy differs from raw summary: " + name)
+    timing = read(folder / "timing_rounds.json")
+    for index, session in enumerate(timing["sessions"], 1):
+        report = read(folder / f"session-{index}/report.json")
+        expected = [{"case": case["case"], "round_average_us": {
+            method: stats["round_average_us"] for method, stats in case["methods"].items()}}
+            for case in report["cases"]]
+        require(session["session_index"] == index and session["cases"] == expected and
+                timing["manifest"] == report["manifest"], "Current LSAPE round projection differs from raw session")
+    summary = verify_lsape(root)
+    if (folder / "projections.json").is_file():
+        import lsape_publication
+        projected = lsape_publication.project_summary(folder / "summary", folder / "verification/report.json")
+        require(read(folder / "projections.json")["tables"] == projected["tables"],
+                "Current LSAPE paper projection differs from raw summary")
+    return {"manifest": manifest, **summary, "independent_raw_audit": raw}
+
+
+def verify(windows_results=None, linux_results=None, application_results=None, lsape_results=None):
+    selected = {
+        "windows": default_windows_results() if windows_results is None else windows_results,
+        "linux": default_linux_results() if linux_results is None else linux_results,
+        "application": default_application_results() if application_results is None else application_results,
+        "lsape": default_lsape_results() if lsape_results is None else lsape_results,
+    }
+    for name, path in selected.items():
+        require(path is not None, "Required current results bundle is missing: " + name)
+    with ExitStack() as stack:
+        roots = {name: stack.enter_context(results_directory(path)) for name, path in selected.items()}
+        observations = []
+        report = {"status": "passed", "measurements_rerun": False}
+        report["updated_windows"] = verify_updated_controlled(roots["windows"], "Windows", observations)
+        report["updated_linux"] = verify_updated_controlled(roots["linux"], "Linux", observations)
+        require(len(observations) == 4, "Four current controlled environments are required")
+        comparisons = 0
+        for index, (left_report, left, left_schedule) in enumerate(observations):
+            for right_report, right, right_schedule in observations[index + 1:]:
+                require(left.keys() == right.keys() and all(left[key] == right[key] for key in left),
+                        "Four-environment objectives or recorded cardinalities differ")
+                require(left_schedule == right_schedule, "Four-environment schedules differ")
+                require(left_report["input_digests"] == right_report["input_digests"],
+                        "Four-environment frozen inputs differ")
+                comparisons += 1
+        report["cross_environment"] = {"environment_pairs": comparisons,
+            "exact_objectives_per_pair": 3925, "nonzero_objective_differences": 0,
+            "recorded_cardinality_differences": 0, "same_schedules": True, "same_frozen_inputs": True}
+        report["updated_application"] = verify_application_update(roots["application"])
+        report["updated_lsape"] = verify_lsape_update(roots["lsape"])
+        report["paper_tables_recomputed"] = verify_paper_tables(**roots)
+        report["updated_figures"] = verify_updated_figures(roots["windows"])
+        report["updated_linux_figures"] = verify_updated_figures(roots["linux"], "linux", roots)
+        return report
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--results", type=Path, default=default_results(),
-                        help="Saved results directory or ZIP (default: results.zip, or results/ containing manifest.json)")
+    parser.add_argument("--windows-results", type=Path, default=None,
+                        help="Current Windows bundle or directory (default: controlled-windows-20261029.zip)")
+    parser.add_argument("--linux-results", type=Path, default=None,
+                        help="Current Linux bundle or directory (default: controlled-linux-20261029.zip)")
+    parser.add_argument("--application-results", type=Path, default=None,
+                        help="Current tracker/replay bundle (default: application-windows-20261029.zip)")
+    parser.add_argument("--lsape-results", type=Path, default=None,
+                        help="Current LSAPE bundle (default: lsape-windows-20261029.zip)")
     args = parser.parse_args()
     try:
-        report = verify(args.results)
+        report = verify(args.windows_results, args.linux_results, args.application_results, args.lsape_results)
     except OSError as error:
         print("Result verification failed:", error.strerror or type(error).__name__, file=sys.stderr)
         return 1

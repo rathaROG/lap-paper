@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "measurements_rerun": false,
+  "updated_windows": {
+    "manifest": {
+      "files": 1499,
+      "archive_members": 0
+    },
+    "environments": 2,
+    "timing_samples": 17892,
+    "memory_observations": 830,
+    "exact_objectives_compared": 3925,
+    "summary_groups_recomputed": 1988,
+    "scope": "Current controlled Windows observations; saved-data audit without re-solving."
+  },
+  "updated_linux": {
+    "manifest": {
+      "files": 1430,
+      "archive_members": 0
+    },
+    "environments": 2,
+    "timing_samples": 17892,
+    "memory_observations": 830,
+    "exact_objectives_compared": 3925,
+    "summary_groups_recomputed": 1988,
+    "scope": "Current controlled Linux observations; saved-data audit without re-solving."
+  },
+  "cross_environment": {
+    "environment_pairs": 6,
+    "exact_objectives_per_pair": 3925,
+    "nonzero_objective_differences": 0,
+    "recorded_cardinality_differences": 0,
+    "same_schedules": true,
+    "same_frozen_inputs": true
+  },
+  "updated_application": {
+    "manifest": {
+      "files": 10,
+      "archive_members": 928
+    },
+    "tracking_samples": 648,
+    "replay_samples": 1296,
+    "captured_matrices": 7539,
+    "tracking_summary_rows": 72,
+    "replay_summary_rows": 144,
+    "recorded_objective_mismatches": 0,
+    "objective_checks": 150780,
+    "recorded_nonzero_objective_gaps": 0,
+    "maximum_absolute_objective_gap": 0,
+    "python": "3.11.18 (main, Oct 29 2026, 13:13:31) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "lapx": "0.13.0",
+      "laprust": "1.2.0",
+      "lapcpp": "1.2.0"
+    },
+    "scope": "Current cached tracking and common-cost replay; detector inference was not rerun."
+  },
+  "updated_lsape": {
+    "manifest": {
+      "files": 195,
+      "archive_members": 0
+    },
+    "cases": 67,
+    "sessions": 3,
+    "timing_round_averages": 9045,
+    "independent_raw_audit": {
+      "status": "passed",
+      "sessions": 3,
+      "cases": 67,
+      "timing_round_averages": 9045,
+      "timed_input_identities": 804,
+      "recorded_timing_certificates": 4020,
+      "paired_log_summaries_recomputed": 536,
+      "block_counts_recomputed": 48,
+      "strict_cases": 10190,
+      "strict_certificates": 50950,
+      "binary_sha256": "70c8f0379a892d3598c56bb7414e4d3c0229dc82a498fcafbcf068067d0802f8",
+      "manifest_sha256": "875745fcdef90f08f1d57414e3c0e1bea35b5e417972ddb15f3de8ececfa4a9b",
+      "scope": "Saved-data/provenance arithmetic audit; recorded certificates are not an independent solver re-execution. Exploratory bootstrap intervals are retained, not resampled by this auditor."
+    }
+  },
+  "paper_tables_recomputed": 23,
+  "updated_figures": {
+    "figures": 15,
+    "output_files": 60,
+    "inputs": 24
+  },
+  "updated_linux_figures": {
+    "figures": 3,
+    "output_files": 12,
+    "inputs": 32
+  }
+}

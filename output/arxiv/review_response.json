@@ -1,0 +1,543 @@
+{
+  "status": "all_six_findings_addressed",
+  "original_review_date": "2026-10-29",
+  "updated_date": "2026-10-30",
+  "update_scope": "Read-only verification of the latest pylapy-test source and saved results; update this report without rerunning tests, solvers or measurements.",
+  "review_source_sha256": "350bb30a2de4348a1a7d11422a044533da9b2409c7c8f060600f16472f40763a",
+  "findings": [
+    {
+      "id": 1,
+      "severity": "P2",
+      "status": "addressed",
+      "files": [
+        "tmp2/pylapy-test/benchmark/core.py",
+        "tmp2/pylapy-test/benchmark/test_core.py",
+        "tmp2/pylapy-test/benchmark/benchmark_cost_extension.py"
+      ],
+      "resolution": "Correct endpoint penalty to eta/2 in pylapy-test commit 70fa1196aca1c7d0b026ebc919ac4dcce5564c99. The four fabricated-pair checks passed during the original review; they were not rerun for this update. The cost-extension saved results and plots have since been refreshed: 2,923 passing settings, 180 unsupported combinations and zero recorded objective mismatches."
+    },
+    {
+      "id": 2,
+      "severity": "P2",
+      "status": "addressed",
+      "files": [
+        "lap-paper/latex/main.tex:1575"
+      ],
+      "resolution": "RF Centroid native IDF1 is equal to SciPy for MOT16 and slightly lower for MOT20; native MOTA is slightly lower on both. Nine-method table ranges remain unchanged."
+    },
+    {
+      "id": 3,
+      "severity": "P3",
+      "status": "addressed",
+      "files": [
+        "tmp2/pylapy-test/benchmark/benchmark.md",
+        "tmp2/pylapy-test/src/pylapy/cost_extension.py",
+        "tmp2/pylapy-test/src/pylapy/solver.py",
+        "tmp2/pylapy-test/src/pylapy/sparse.py",
+        "tmp2/pylapy-test/src/pylapy/__init__.py"
+      ],
+      "resolution": "The benchmark narrative now identifies the seeded 30 October cost-extension run, its environment and selected SciPy timing rerun. Other studies retain earlier measurements with unknown runtime identities and input seeds. Adapter identities, workload-dependent rankings and tolerance limitations are explicit. Library docstrings now use eta/2 per unmatched endpoint and remove stale solver-failure and universal-safety claims."
+    },
+    {
+      "id": 4,
+      "severity": "P3",
+      "status": "addressed",
+      "files": [
+        "lap-paper/latex/main.tex:377"
+      ],
+      "resolution": "Scope checked finite conversion overflow to float64-to-float32; describe preliminary NumPy conversion of other real numeric types and the wider-type limitation."
+    },
+    {
+      "id": 5,
+      "severity": "P3",
+      "status": "addressed",
+      "files": [
+        "lap-paper/benchmark/check_publication_html.py",
+        "lap-paper/benchmark/test_publication_html.py",
+        "lap-paper/output/arxiv/html/index.html"
+      ],
+      "resolution": "Preview-only LaTeXML binding preserves all seven explicit semantic equation tags; matching visible HTML labels and formula-container identities are checked. Six focused tests pass."
+    },
+    {
+      "id": 6,
+      "severity": "P3",
+      "status": "addressed",
+      "files": [
+        "lap-paper/latex/main.tex:383"
+      ],
+      "resolution": "Scope int64 pair outputs to the controlled assignment timing suites; application int32 wording remains valid."
+    }
+  ],
+  "additional_clarifications": [
+    {
+      "topic": "Free-column tie attribution",
+      "paper_line": 325,
+      "primary_source": "https://link.springer.com/content/pdf/10.1007/s10479-010-0757-3.pdf",
+      "note": "Existing Bijsterbosch-Volgenant citation added directly beside the tie policy after primary-source verification."
+    },
+    {
+      "topic": "Rounded objective agreement is not an exact-arithmetic certificate",
+      "paper_line": 983,
+      "evidence": "benchmark/numerical-regression-evidence-20261028.json",
+      "evidence_sha256": "8343b6aa855c202ca66a853f75395c746bdfff47a2507937765aacc2abd4c644",
+      "note": "Saved 28 October development payload, separate from current measured wheels; four saved rectangular records reconstructed by exact rational arithmetic, without solver calls."
+    }
+  ],
+  "validation": {
+    "date": "2026-10-29",
+    "scope": "Original review validation; test counts, saved-data audit and visual checks below are historical. The 30 October read-only verification is recorded in pylapy_update.validation.",
+    "benchmarks_rerun": false,
+    "new_solver_experiments": false,
+    "packages_installed": false,
+    "focused_html_tests_passed": 6,
+    "fabricated_pair_objective_tests_passed": 4,
+    "saved_data_audit": "passed: four current bundles, 23 measured tables and 18 regenerated figure sets",
+    "pdf_pages": 54,
+    "pdf_diagnostics": [],
+    "pdf_visual_review": "all pages at 65 dpi, revised pages independently at 115 dpi",
+    "html_equation_labels": {
+      "1": "S3.Ex1",
+      "2": "S3.Ex2",
+      "3": "S3.Ex4",
+      "4": "S3.Ex6",
+      "5": "S3.Ex7",
+      "6": "S3.Ex8",
+      "7": "S3.Ex9"
+    },
+    "html_conversion_diagnostics": [],
+    "html_live_browser_visual_review": "Unavailable; structural semantic/visible-container checks passed. Native browser actions stopped when the current URL could not be established safely."
+  },
+  "unchanged_measurements": {
+    "scope": "Paper measurement bundles remain unchanged. The latest Pylapy cost-extension results are recorded separately in pylapy_update.",
+    "paper_bundles": {
+      "controlled-windows-20261029.zip": "757a4797dad30885adfe19155cdee76a3ec9378c4241cef917a513d98f351442",
+      "controlled-linux-20261029.zip": "50e2f6a0ea56e9f6d86a83759619924e1cddd674c3476d42f9baa8440675a793",
+      "application-windows-20261029.zip": "963acd4c732602712c43edd51895632cebde1cd09916918db4564fd8c309ed94",
+      "lsape-windows-20261029.zip": "41e258d588fc28a4c31e39e04fcd8f0abc1ff68d9b3f00965aad14413aa7a295"
+    }
+  },
+  "historical_pylapy_snapshot": {
+    "date": "2026-10-29",
+    "scope": "Pylapy JSON and SVG files were unchanged during the original review. This historical identity does not describe the refreshed 30 October checkout.",
+    "pylapy_saved_json_files": 5,
+    "pylapy_saved_svg_files": 74,
+    "pylapy_aggregate_before_after_sha256": "359f6f215ea6c474a5f72e819ff638ca24a5bf0cd54ad61431a71684049e5dae"
+  },
+  "pylapy_update": {
+    "date": "2026-10-30",
+    "repository": "tmp2/pylapy-test",
+    "commit": "70fa1196aca1c7d0b026ebc919ac4dcce5564c99",
+    "commit_subject": "Fix cost-extension objective and refresh benchmark results",
+    "working_tree_clean": true,
+    "cost_extension": {
+      "results": "tmp2/pylapy-test/benchmark/results/cost_extension.json",
+      "metadata": "tmp2/pylapy-test/benchmark/results/cost_extension.metadata.json",
+      "metadata_sha256": "74dffbd09538073227f85bcf60ada303500baca9348bb58b047b14eee03f34b5",
+      "results_sha256_lf": "dabedb5a55a75ead43099008ecb2e8128168e138b8e94467a378dd00704a2530",
+      "objective": "sum(selected costs) + eta * (n + m - 2*K) / 2",
+      "records": 3103,
+      "passed": 2923,
+      "unsupported": 180,
+      "objective_mismatches": 0,
+      "environment": {
+        "os": "Windows",
+        "python": "3.11.17",
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "lapx": "0.13.0",
+        "numba": "0.68.1",
+        "matplotlib": "3.11.2"
+      },
+      "seed": 20261030,
+      "samples_per_configuration": 3,
+      "repeats": 3,
+      "warmups": 1,
+      "tolerance": {
+        "rtol": 1e-06,
+        "atol": 1e-09
+      },
+      "single_point_rerun": {
+        "method": "scipy",
+        "extension": "fill_row_pad_zero",
+        "n": 20,
+        "squareness": 1.0,
+        "gated": false,
+        "same_inputs_reported": true,
+        "scope": "The final saved data combine the main session with one later timing rerun on the three original matrices, as documented in the run metadata; no rerun was performed for this report update."
+      },
+      "interpretation": "Zero recorded tolerance-check mismatches do not establish exact-arithmetic optimality. Fresh timing curves can differ from earlier saved curves; the checker correction alone is outside the timed solver calls."
+    },
+    "other_studies": {
+      "measurements_rerun": false,
+      "unchanged_from_previous_review_commit": "a1b9141b3c94d2e4cc5d04cc1d61c2d96aa09b9f",
+      "json_data_compared": [
+        "shape_extension",
+        "method_comparison",
+        "sparse_extension"
+      ],
+      "provenance_limitation": "These studies retain earlier measurements with unknown runtime identities and input seeds; they do not become controlled before/after comparisons through this update."
+    },
+    "source_changes": "The changed Pylapy library modules contain documentation changes only after excluding docstrings from their parsed syntax trees; solver execution logic is unchanged. The benchmark objective helper is corrected and its regression-check file is committed.",
+    "current_saved_files": {
+      "json_files_in_benchmark_results_including_metadata": 6,
+      "svg_files_in_benchmark_images": 74
+    },
+    "manuscript_adjustment_required": false,
+    "manuscript_assessment": "The paper does not use Pylapy benchmark curves or measurements. Its controlled, application and LSAPE evidence bundles and source/PDF/arXiv package hashes remain unchanged and match the identities in this report.",
+    "validation": {
+      "scope": "Read-only source/history inspection, saved JSON arithmetic and hash verification on 30 October 2026.",
+      "benchmarks_rerun": false,
+      "new_solver_experiments": false,
+      "tests_rerun": false,
+      "packages_installed": false,
+      "metadata_counts_recomputed": true,
+      "result_hash_verified": true,
+      "other_study_json_data_verified_unchanged": true,
+      "solver_library_executable_syntax_verified_unchanged": true,
+      "paper_bundle_hashes_verified": true,
+      "paper_artifact_hashes_verified": true
+    }
+  },
+  "artifacts": {
+    "source": "latex/main.tex",
+    "source_sha256": "319aa00e98a766db468b3cb16dc0403fec8345c75a7a995001d75f477628fdbf",
+    "pdf": "output/pdf/native_rectangular_assignment.pdf",
+    "pdf_sha256": "b00d600c54231fcc129d7c8e2cfea7a34b445ca2d8d315faaa1f625436965187",
+    "archive": "output/arxiv/native_rectangular_assignment_arxiv.zip",
+    "archive_sha256": "42a3ce999f26356e2434c75c5dcf4c595070437019a71177f8e1d8fcdcf8973e"
+  },
+  "path_portability": {
+    "date": "2026-10-30",
+    "scope": "Published working-tree metadata and recursively inspected evidence archives; private roots replaced by portable labels. Generic OS defaults and synthetic redaction-test fixtures remain intentional.",
+    "html_build_paths_redacted": true,
+    "archive_updates": {
+      "controlled-windows-20261029.zip": {
+        "sha256_before": "64b7a72f80ccd23e423beb337a4ce2a2df0f31a762973216ad1b3d8a27b20903",
+        "sha256_after": "757a4797dad30885adfe19155cdee76a3ec9378c4241cef917a513d98f351442",
+        "bytes_before": 2098245,
+        "bytes_after": 2097085,
+        "changed_metadata": [
+          {
+            "path": "audit.json",
+            "sha256_before": "dfd86c85474e796149b778d8679ebc919b02ae9509e3a0f6a7e810eff633373a",
+            "sha256_after": "d954518d6ff30acdf18839696f89469b43c2c8b36279bab48aae17b639c8fbd9",
+            "bytes_before": 8057,
+            "bytes_after": 7762
+          },
+          {
+            "path": "audit.log",
+            "sha256_before": "dfd86c85474e796149b778d8679ebc919b02ae9509e3a0f6a7e810eff633373a",
+            "sha256_after": "d954518d6ff30acdf18839696f89469b43c2c8b36279bab48aae17b639c8fbd9",
+            "bytes_before": 8057,
+            "bytes_after": 7762
+          },
+          {
+            "path": "campaign-status.json",
+            "sha256_before": "3648ac699a064b3731d47899f02ce5a15f20cfa7cf68bab8cd8ac59c76ddda53",
+            "sha256_after": "ba6e8e0c2bad9916b066f428a2d6529a5d41356a91dbe17c6416663a8a310d7d",
+            "bytes_before": 3035,
+            "bytes_after": 2631
+          },
+          {
+            "path": "preservation-after.json",
+            "sha256_before": "cbbf423f837b81cb1bebaf388d7aaea69975b601efdc8b4c6456774a3f56c740",
+            "sha256_after": "b3dc63663b22ede1587eee9e33d0f870ee5b9d746b3c80ed8e2b8225f0cfbbf2",
+            "bytes_before": 1140,
+            "bytes_after": 1058
+          },
+          {
+            "path": "preservation-before.json",
+            "sha256_before": "f4af8c9ba3db5850ae200a03f013e19f2b3de20f93b53b7e5a5d42b80fdb0585",
+            "sha256_after": "453018ae80f8ad72cbcc5429cb8fca6e17e5dda2f602bf24a22d4c338d9f6b5b",
+            "bytes_before": 832,
+            "bytes_after": 727
+          },
+          {
+            "path": "py311-audit.json",
+            "sha256_before": "d1e8e6990431764e7d050a8196862840daa14d1c703c42d750c2367fd27f2469",
+            "sha256_after": "4acfc1fd9d21b060a03d8c0b3834e63beb42917fb09eb11d5fb1be5e202977d4",
+            "bytes_before": 3840,
+            "bytes_after": 3695
+          },
+          {
+            "path": "py311-audit.log",
+            "sha256_before": "d1e8e6990431764e7d050a8196862840daa14d1c703c42d750c2367fd27f2469",
+            "sha256_after": "4acfc1fd9d21b060a03d8c0b3834e63beb42917fb09eb11d5fb1be5e202977d4",
+            "bytes_before": 3840,
+            "bytes_after": 3695
+          },
+          {
+            "path": "py311-preflight/preflight.json",
+            "sha256_before": "50f56e3dbfe1fe35ff1eb416356d40e0338630a4e48885009417a5c0d6da11fd",
+            "sha256_after": "e12f9282e487388a52a4eb7cb1b3379470ef50b5534dd3cf82735f9984020d4a",
+            "bytes_before": 4171,
+            "bytes_after": 3483
+          },
+          {
+            "path": "py311-preflight/provenance.json",
+            "sha256_before": "a80465c95d0d04cdd3925671efecb4d9ae8d31cb319bb5ea3b4f97d01d13b191",
+            "sha256_after": "ab82ba742ba26bf1924e8524825e2fedcc22086cf833795499585be08ab132b7",
+            "bytes_before": 5102,
+            "bytes_after": 4743
+          },
+          {
+            "path": "py311-summary.json",
+            "sha256_before": "81b245522b8cc9d99f0e19a7800627ba90fb7b2040199040aad7385a24c3f61e",
+            "sha256_after": "0561c5f79b1000f18a4405bcae8655b4fc1c2684f8ab8016cae783d9e40b5eaf",
+            "bytes_before": 40892,
+            "bytes_after": 39826
+          },
+          {
+            "path": "py311-summary.log",
+            "sha256_before": "81b245522b8cc9d99f0e19a7800627ba90fb7b2040199040aad7385a24c3f61e",
+            "sha256_after": "0561c5f79b1000f18a4405bcae8655b4fc1c2684f8ab8016cae783d9e40b5eaf",
+            "bytes_before": 40892,
+            "bytes_after": 39826
+          },
+          {
+            "path": "py314-audit.json",
+            "sha256_before": "5d7d94f1880a18522dc1deeec1eed2e719ba2c1d741bc0da02df29b6ffc204f0",
+            "sha256_after": "574c105c076370138c4df78ba9db3537008afe8019c3219ed06bb42ea9d70707",
+            "bytes_before": 3857,
+            "bytes_after": 3712
+          },
+          {
+            "path": "py314-audit.log",
+            "sha256_before": "5d7d94f1880a18522dc1deeec1eed2e719ba2c1d741bc0da02df29b6ffc204f0",
+            "sha256_after": "574c105c076370138c4df78ba9db3537008afe8019c3219ed06bb42ea9d70707",
+            "bytes_before": 3857,
+            "bytes_after": 3712
+          },
+          {
+            "path": "py314-preflight/environment.json",
+            "sha256_before": "0fcf75328796510538e6415ef35402777dedd66836ae0ffe1fdb0e170e3a9076",
+            "sha256_after": "90bab7682a72adc0c576d00e8a2c1a3f427954e94f868a6004d825d1534d11e2",
+            "bytes_before": 4451,
+            "bytes_after": 3880
+          },
+          {
+            "path": "py314-preflight/precision-lapcpp.log",
+            "sha256_before": "78905db4c52ee4d1ce6bcc93b4985c311abd0950dd238b43e61328b012dc6b03",
+            "sha256_after": "3e6b010a9c5c2234ffb1c463f89884a6fac12c62ee8987c040fd134fcec57311",
+            "bytes_before": 682,
+            "bytes_after": 648
+          },
+          {
+            "path": "py314-preflight/precision-laprust.log",
+            "sha256_before": "6d5e7a0e646005b64e587bbfecede9aaf66f6fb261791d78acba0dc4237309b4",
+            "sha256_after": "ffa4eb02304c47cb3c11e7c2ec293dc45cecba74e64dbea138f9a7ae6df7e16c",
+            "bytes_before": 682,
+            "bytes_after": 648
+          },
+          {
+            "path": "py314-preflight/precision-lapx.log",
+            "sha256_before": "b37a5881914f283ff3489d2609def058cbb253e8a0187a8f08fffbd2e7ba4e57",
+            "sha256_after": "07091c16b844c67bea904f73f36e395cc0384953333ae218c0bd3a0de1a6492a",
+            "bytes_before": 1371,
+            "bytes_after": 1269
+          },
+          {
+            "path": "py314-preflight/preflight-final.json",
+            "sha256_before": "947ea4c747b656b152d5504cf837776e13a91df3f6004b82e8bb76149e273ace",
+            "sha256_after": "35981d4e0fd91228999860480e34455c367b48830449bf6aeabcc6b055353b96",
+            "bytes_before": 4084,
+            "bytes_after": 3876
+          },
+          {
+            "path": "py314-preflight/readiness.json",
+            "sha256_before": "24b2c63a7f7127cd8ef4c631327c0ad240a8e7bd333eb71bac9f3a9cb963bcce",
+            "sha256_after": "7e78987df0a81e159dc7a8e140d0612fd8de8f26dcdc779df1fa0b163dddc764",
+            "bytes_before": 5348,
+            "bytes_after": 4734
+          },
+          {
+            "path": "summary.json",
+            "sha256_before": "d6fd130acada479717eb62cc782c671af35c748b91bcf1f0954477a1fb0992ef",
+            "sha256_after": "2d66313920fff51c87f8a78299352b9d03fe4b17b8db37826d5760fe9feffec7",
+            "bytes_before": 81695,
+            "bytes_after": 79567
+          },
+          {
+            "path": "summary.log",
+            "sha256_before": "d6fd130acada479717eb62cc782c671af35c748b91bcf1f0954477a1fb0992ef",
+            "sha256_after": "2d66313920fff51c87f8a78299352b9d03fe4b17b8db37826d5760fe9feffec7",
+            "bytes_before": 81695,
+            "bytes_after": 79567
+          }
+        ],
+        "unchanged_member_payloads_verified": 1478,
+        "unchanged_nested_observations": false
+      },
+      "controlled-linux-20261029.zip": {
+        "sha256_before": "bc94fca67bfbbc2dd44e32dc1a664759690432b9b3650d0ebdd32632217c3c2c",
+        "sha256_after": "50e2f6a0ea56e9f6d86a83759619924e1cddd674c3476d42f9baa8440675a793",
+        "bytes_before": 1883115,
+        "bytes_after": 1883059,
+        "changed_metadata": [
+          {
+            "path": "campaign/independent-four-environment-review.json",
+            "sha256_before": "96f6b522a7dc57be7685a857957ebe02b84d82cfabd69693d6fab5a91c3bf9cb",
+            "sha256_after": "10072552634ca13e7f2890148096dd340346e882d0430c4b84c386e6174674e0",
+            "bytes_before": 34655,
+            "bytes_after": 33473
+          }
+        ],
+        "unchanged_member_payloads_verified": 1429,
+        "unchanged_nested_observations": false
+      },
+      "application-windows-20261029.zip": {
+        "sha256_before": "dc88cec62dc6e05c8a27b9634c4f119c9db1387c36f2018d0953063582637863",
+        "sha256_after": "963acd4c732602712c43edd51895632cebde1cd09916918db4564fd8c309ed94",
+        "bytes_before": 51444676,
+        "bytes_after": 51444610,
+        "changed_metadata": [
+          {
+            "path": "real_world/audits/tracking-preservation-after.json",
+            "sha256_before": "44de24cebd41ebf98c38a953586748927aab0bba15f9eb61126bbd84edb2a660",
+            "sha256_after": "bccb368f85f8781a15128a8ae7e13b95560631e6a30ce46a9523d18429002b62",
+            "bytes_before": 2887,
+            "bytes_after": 2773
+          }
+        ],
+        "unchanged_member_payloads_verified": 9,
+        "unchanged_nested_observations": true
+      },
+      "lsape-windows-20261029.zip": {
+        "sha256_before": "c5978095c40cd792c43a114c1c0b5efb453ec3a97747772c3be74551672c968f",
+        "sha256_after": "41e258d588fc28a4c31e39e04fcd8f0abc1ff68d9b3f00965aad14413aa7a295",
+        "bytes_before": 4463150,
+        "bytes_after": 4417529,
+        "removed_compiler_intermediates": [
+          {
+            "path": "lsape/experiment/build/_lsape_native.exp",
+            "bytes": 877,
+            "sha256": "49da990e24e83b636e9b063fbb908dc7a66fc89a995b99a7bcf0c06e3350883e",
+            "reason": "Unused compiler intermediate embeds a private build directory; final module and all measurement/source/provenance payloads remain unchanged."
+          },
+          {
+            "path": "lsape/experiment/build/lsape_bridge.obj",
+            "bytes": 164495,
+            "sha256": "ed8436ebbcd3878f7597d9668f34842be6e3ec18bfbeeb9811570786d25a5bf1",
+            "reason": "Unused compiler intermediate embeds a private build directory; final module and all measurement/source/provenance payloads remain unchanged."
+          }
+        ],
+        "unchanged_member_payloads_verified": 195,
+        "final_compiled_module_unchanged": true
+      }
+    },
+    "preservation": "Only audit/preflight/preservation-record paths and manifest identities changed; two unused LSAPE compiler intermediates containing private build directories were omitted. All retained measurement, objective, captured-input, final compiled solver and measured-source payloads are byte-identical. Historical hashes inside audit records still identify the originally recorded files.",
+    "paper_source_pdf_and_submission_zip_unchanged": true,
+    "validation": {
+      "saved_results_verifier": "passed: four bundles, 23 numeric tables and 18 figure sets; no solver or measurement execution",
+      "html_path_tests_passed": 9,
+      "actual_machine_path_scan": "passed: working tree and recursively expanded ZIP/GZIP payloads, including raw and UTF-16 binary strings; Git internals excluded",
+      "benchmarks_rerun": false,
+      "new_solver_experiments": false,
+      "packages_installed": false,
+      "scan_counts": {
+        "payloads": 19608,
+        "zip_containers": 28,
+        "third_party_description_exclusions": 2,
+        "gzip_containers": 4
+      },
+      "pdf_scan": {
+        "files": 41,
+        "decoded_streams": 1864,
+        "machine_path_hits": 0
+      },
+      "intentional_examples": "Synthetic redaction-test paths, generic OS defaults and public third-party package README path examples are retained; none are local machine provenance."
+    },
+    "historical_scope": "Path-redaction verification predates this editorial revision. Its unchanged-source/PDF/submission statement applies to that earlier phase; current artifact identities are in artifacts and editorial_review_20261030."
+  },
+  "editorial_review_20261030": {
+    "status": "all_six_changes_applied_and_rebuilt",
+    "date": "2026-10-30",
+    "baseline_commit": "3953f8231ab97b1607244ed606b0400ef103f10e",
+    "review_document": "User-supplied lap-paper-review.md",
+    "review_document_sha256": "4dfa070bab12747ba9569c74521dee0d59e0fb1d4906384510536a155c9428b4",
+    "findings": [
+      {
+        "id": "causal-attribution",
+        "file": "latex/main.tex:547",
+        "resolution": "Replace principal-cause attribution with the supported observation that speedups do not require a large unmatched fraction; retain the qualified within-SciPy formulation comparison."
+      },
+      {
+        "id": "motmetrics-year",
+        "file": "latex/references.bib:224",
+        "resolution": "Use release year 2022 for motmetrics 1.4.0 and retain the 27 October 2026 access date; rebuild bibliography and outputs."
+      },
+      {
+        "id": "conditional-certificate",
+        "file": "latex/main.tex:70",
+        "resolution": "Describe a sufficient primal-dual optimality certificate for the exact-arithmetic formulation."
+      },
+      {
+        "id": "capped-decoding-ties",
+        "file": "latex/main.tex:276",
+        "resolution": "Contrast inclusive Bougleux decoding with Proposition 3 and capped-adapter equality rejection, preserving optimal penalized objectives while allowing different pairs/cardinalities; native rounding qualifications remain unchanged."
+      },
+      {
+        "id": "abstract-clarity",
+        "file": "latex/main.tex:52",
+        "resolution": "Reduce the abstract from 281 to 229 words, name JVRUST/JVCPP, and retain capped-baseline losses, application limits and development-family policy selection."
+      },
+      {
+        "id": "application-conclusion",
+        "file": "latex/main.tex:1004",
+        "resolution": "Include smaller Centroid gains and near-equal SORT medians on two clips, without a general accuracy or detector-plus-tracker acceleration claim; shorten repetitive conclusion text to resolve orphan lines and a lone-reference page."
+      }
+    ],
+    "validation": {
+      "bibliography_rebuilt": true,
+      "source_pdf_rebuilt": true,
+      "submission_archive_compiled_independently": true,
+      "archive_compilation_uses_bibtex": false,
+      "html_rebuilt_from_submission_archive": true,
+      "pdf_pages": 56,
+      "figures": 20,
+      "tables": 27,
+      "references": 27,
+      "source_and_html_tables_unchanged": 27,
+      "saved_numeric_tables_verified": 23,
+      "saved_figure_sets_verified": 18,
+      "html_equation_labels_verified": 7,
+      "html_path_tests_passed": 9,
+      "measurement_bundle_hashes_unchanged": true,
+      "pdf_visual_review": "All 56 pages at overview scale; revised pages 1, 2, 7, 18, 39, 40, 41 at 100 dpi. Orphan conclusion and lone-reference page resolved.",
+      "html_review": "Structural checks; no live-browser inspection.",
+      "path_portability_check": "passed: working tree, recursively expanded ZIP/GZIP members and decoded PDF streams; no machine-specific paths",
+      "benchmarks_rerun": false,
+      "new_solver_experiments": false,
+      "packages_installed": false,
+      "path_scan_counts": {
+        "payloads": 19608,
+        "zip_containers": 28,
+        "public_package_description_exclusions": 2,
+        "gzip_containers": 4,
+        "pdfs": 41,
+        "decoded_pdf_streams": 1866
+      }
+    },
+    "baseline_commit_scope": "Original reviewed commit before the editorial revisions were folded into its amended replacement.",
+    "review_document_identity_scope": "The original review hash records the document that prompted the changes; the updated reviewer sign-off has its own identity below.",
+    "reviewer_revision_check": {
+      "date": "2026-10-30",
+      "document": "User-supplied lap-paper-review.md",
+      "document_sha256": "a35d1decb2c88860b634d49bcfae82492f638d88921c81f515069400634cec98",
+      "status": "all_six_items_resolved_no_open_corrections",
+      "assessed_source_sha256": "319aa00e98a766db468b3cb16dc0403fec8345c75a7a995001d75f477628fdbf",
+      "assessed_pdf_sha256": "b00d600c54231fcc129d7c8e2cfea7a34b445ca2d8d315faaa1f625436965187",
+      "assessed_archive_sha256": "42a3ce999f26356e2434c75c5dcf4c595070437019a71177f8e1d8fcdcf8973e",
+      "reviewer_reported_checks": {
+        "saved_evidence_verifier": "passed: 23 measured tables and 18 figure identities",
+        "submission_archive_members": 23,
+        "all_archive_contents_match_repository": true,
+        "pdf_pages": 56,
+        "pdf_visual_review": "All pages at overview scale; tie clarification, conclusion and references checked in detail.",
+        "no_new_mathematical_or_material_claim_scope_problem": true,
+        "no_benchmarks_or_fresh_solver_experiments": true
+      },
+      "assessment": "Submission-ready within the stated software-integration and descriptive-performance scope; previously documented numerical, provenance and generalization limits still apply."
+    }
+  }
+}

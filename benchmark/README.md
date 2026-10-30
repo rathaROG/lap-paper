@@ -1,6 +1,6 @@
 # Benchmarks
 
-These are standalone measurement programs for every measured result in the paper. Each folder runs independently with the declared packages and bundled inputs.
+These are standalone measurement programs for every measured result in the paper. The current Windows and Linux campaigns use LAPX 0.13.0 and laprust/lapcpp 1.2.0 on Python 3.14.10 and 3.11.18. Appendix B reports the fresh Linux measurements; Appendix C uses a fresh cached tracking/replay campaign with the current solvers. Each folder runs independently with its declared packages and bundled inputs.
 
 ## What reproduces what
 
@@ -13,11 +13,11 @@ These are standalone measurement programs for every measured result in the paper
 | [`real_world/`](real_world/README.md) | Table 12; C1–C4 | tracker updates on two frozen MOT excerpts; assignment replay of 7,539 captured matrices | replay: minutes |
 | [`lsape/`](lsape/README.md) | Tables 9–11 | MSVC build, strict verification, 67-case × 3-session campaign, paired summary | ~20 min total |
 
-The cross-environment results (Tables A4 and B7, Figures A1, B1 and B2) compare runs of these same suites in four environments. To reproduce them, run the suites in each environment and compare their summaries. Figures 1 and 2 are explanatory diagrams.
+Table A4 and Figures A1-A2 compare the two current Windows environments. Table B7 and Figures B1-B3 compare all four current Windows/Linux environments, using LAPX 0.13.0 and laprust/lapcpp 1.2.0 throughout. The environments differ in interpreter, native wheels, numerical libraries and CPU selection; these are descriptive comparisons, not isolated operating-system effects. Figures 1 and 2 are explanatory diagrams.
 
 ## Quick start
 
-Use Python 3.14.9 for the main-text environment. From this directory:
+Use Python 3.14.10 for the main-text environment. From this directory:
 
 ```bash
 python -m pip install -r requirements-py314.txt
@@ -28,7 +28,7 @@ python extended/run.py --check-inputs
 python run_all.py
 ```
 
-For the Python 3.11.17 replication, install `requirements-py311.txt` instead.
+For the Python 3.11.18 replication, install `requirements-py311.txt` instead.
 
 `--check-inputs` regenerates the inputs without solving anything and compares them with the paper's measurement records. That covers all 1,212 timing and memory inputs: 48 single, 3 batch, 40 formulation, 188 scaling, 528 extended timing and 405 extended memory. Each line should report `identical to the paper`.
 
@@ -48,10 +48,10 @@ Use the requirements file matching the measured interpreter:
 
 | Interpreter | Requirements | NumPy | SciPy |
 | --- | --- | --- | --- |
-| Python 3.14.9 | [`requirements-py314.txt`](requirements-py314.txt) | 2.5.4 | 1.18.1 |
-| Python 3.11.17 | [`requirements-py311.txt`](requirements-py311.txt) | 2.4.6 | 1.17.1 |
+| Windows/Linux Python 3.14.10 | [`requirements-py314.txt`](requirements-py314.txt) | 2.5.4 | 1.18.1 |
+| Windows/Linux Python 3.11.18 | [`requirements-py311.txt`](requirements-py311.txt) | 2.4.6 | 1.17.1 |
 
-Both files pin LAPX 0.12.0, laprust 1.1.0, lapcpp 1.1.0, psutil 7.2.2 and threadpoolctl 3.7.0, as recorded for the Windows and Linux measurements. Use matching solver wheels through your package index or `--find-links` when required. Each run records the versions and native-module hashes it used.
+Both recipes pin LAPX 0.13.0, laprust 1.2.0, lapcpp 1.2.0, psutil 7.2.2 and threadpoolctl 3.7.0. Use matching solver wheels through your package index or `--find-links` when required. Each run records the versions and native-module hashes it used.
 
 `requirements.txt` is a compatibility recipe with broader numerical-library ranges; it does not select an exact measured environment.
 
@@ -69,7 +69,7 @@ The timing suites need Windows or Linux: CPU affinity comes from psutil, and pea
 - **Summaries.** Each case/method summary is the median and interquartile range of its nine round means. These ranges are descriptive, not confidence intervals.
 - **Memory.** Each trial runs in a fresh process, with the input resident before the baseline is taken. The recorded value is the high-water increment (Windows peak working set, Linux high-water RSS), not an allocation count. Windows and Linux values are not directly comparable.
 
-**CPU selection.** By default, single-problem timing uses the first allowed CPU and batches use the first four, as in the paper's Windows runs (CPU 0 and CPUs 0–3). Override this with `--cpu` / `--batch-cpus`, or with `LAP_BENCH_SINGLE_CPU` / `LAP_BENCH_CPUS`, which the paper's Linux runs used to select CPUs 0, 2, 4 and 6. On hybrid processors choose performance cores, and report what you used.
+**CPU selection.** By default, single-problem timing uses the first allowed CPU and batches use the first four, as in the paper's Windows runs (CPU 0 and CPUs 0–3). Override this with `--cpu` / `--batch-cpus`, or with `LAP_BENCH_SINGLE_CPU` / `LAP_BENCH_CPUS`. The fresh Linux runs used `--cpu 0 --batch-cpus 0 2 4 6`. These are recorded logical CPU identifiers; the saved rerun metadata does not establish their physical-core or performance-core mapping. On hybrid processors inspect the topology and report the selected CPUs.
 
 ## Solvers
 
@@ -92,5 +92,33 @@ Native calls use `extend_cost=True`, `cost_limit=L`, `precision="float64"` and `
 - **Input checks.** `--check-inputs` verifies that the fixed seeds and generators reproduce the input hashes recorded for the paper. Each suite records its package versions, binary identities, CPU placement and measurement settings.
 - **Real-world replay.** `real_world/` bundles the eight captured assignment corpora (9 MiB, checked against the published archive manifest), so replay needs no archive. Tracker updates still need the pinned pyppbox checkout described there.
 - **LSAPE build.** `lsape/` locates MSVC by itself and builds for the running Python.
-- **Paper results.** [`results.zip`](results.zip) contains the saved measurements and summaries reported in the paper; see [`RESULTS.md`](RESULTS.md). `python verify_results.py` checks its file hashes, sample coverage, summary arithmetic and paper table values. New runs write separate observations under `results/full-YYYYMMDD/` by default.
-- **Portable records.** Saved records use role placeholders for local paths and identify files by version and SHA-256. Input checksums are listed in `real_world/provenance/data_manifest.json`.
+- **Paper results.** The four current archives are [`controlled-windows-20261029.zip`](controlled-windows-20261029.zip), [`controlled-linux-20261029.zip`](controlled-linux-20261029.zip), [`application-windows-20261029.zip`](application-windows-20261029.zip), and [`lsape-windows-20261029.zip`](lsape-windows-20261029.zip). See [`RESULTS.md`](RESULTS.md). `python verify_results.py` checks every archive, recomputes all 23 measured numeric tables and verifies the 18 regenerated publication figures. No superseded archive is required. New measurements write separately under `results/full-YYYYMMDD/` by default.
+- **Portable records.** Harness-generated records use role placeholders for local paths and identify files by version and SHA-256. The Linux bundle also retains the supplied terminal transcript as provenance. Input checksums are listed in `real_world/provenance/data_manifest.json`.
+
+## Regenerate controlled publication outputs
+
+Install the optional `requirements-publication.txt` recipe, then run:
+
+```sh
+python update_publication.py
+python linux_publication.py
+```
+
+These read the immutable current controlled bundles and export table-value
+fragments and the 18 affected publication figures, with input and output
+checksums. They do not execute a solver or alter manuscript prose. Use
+`--tables-only` where supported for standard-library table generation without
+plotting dependencies.
+
+For a Linux rerun in each matching environment, use a new output directory:
+
+```sh
+python run_all.py --output runs/linux-py311 --cpu 0 --batch-cpus 0 2 4 6
+# Activate Python 3.14.10, then:
+python run_all.py --output runs/linux-py314 --cpu 0 --batch-cpus 0 2 4 6
+python audit_controlled_update.py runs/linux-py311 runs/linux-py314 --output runs/linux-audit.json
+```
+
+Select CPU identifiers allowed on the machine. The saved one-second CPU-load
+snapshots describe utilization; they do not prove process isolation or stable
+frequency. Each environment is a single nine-round campaign.

@@ -1,0 +1,442 @@
+{
+  "scope": "Archived 28 October development-build numerical witness, separate from the four current performance campaigns. No solver or measurement was executed while preparing this evidence record. Results are not claimed as a rerun of current published wheels.",
+  "original_location": "bench-pylapy/float32-fix-review-20261028",
+  "source_files": {
+    "residual-fixed.json": {
+      "bytes": 2242,
+      "sha256": "6bb571f8b48d89af31c8a8a80c2df17f7a5ab2991d693fe101acc99a77dae37f"
+    },
+    "residual_probe.py": {
+      "bytes": 1298,
+      "sha256": "afaa79f3387121ddce7fdc83a29bb844eb4dd881bdb2d877ee4ffaf0414843e2"
+    },
+    "source-snapshot.json": {
+      "bytes": 10477,
+      "sha256": "a2dd005262c82444f2bced8d1775bd970aa848ad935658aa3bc1f8d4e3626634"
+    },
+    "payload-manifest.json": {
+      "bytes": 1956,
+      "sha256": "643ecca05f91898d4bedee51702823c5854cf13ee367bf7cfc1c88cb463a7680"
+    },
+    "scoped-build-result.json": {
+      "bytes": 979,
+      "sha256": "58bc080083b1c2680a36a84c9901fb2359972b2800b84ba880348603b35150a2"
+    }
+  },
+  "development_source_head": "efc1fd5c129dda81ae162a05c3a6ea3ae18e6d7f",
+  "development_source_was_dirty": true,
+  "development_source_hashes": {
+    "tests/test_float32_working_precision.py": "e1b906e0ae9e021e023c54e138db1b1bb1441eb42205204bd75d6cdf3396046f",
+    ".github/cibuildwheel-linux-arm.toml": "1d0cd5d82510f1bc52ba3d64f16636771df40f42b4d82d0ad33a47a4fcce8caf",
+    ".github/constraints/numpy-armv7-build.txt": "10ca47a09b5d81ebd3d8259d21781a0419295e1d92f93618db0950d3cfc297d4",
+    ".github/tests/README.md": "620bdc06172ba39b0c28a6178d1cbc83dcb631e28f5be14624089344e355976b",
+    ".github/tests/check_rh_wheel.py": "b197a164d63e39e391827f9ec8cba3610956d4d9247da20a2a7c90d30019fafa",
+    ".github/tests/pytest.ini": "41e50fa495bf2391eb2b441373cc57cdda5da2008d3f02cdf1129635ccb37b6a",
+    ".github/tests/requirements.txt": "264e5b9aa0dea0c49b6311cb81cee5f372fa390e7b20f6f827d4edb948d8d09c",
+    ".github/tests/test_setup.py": "2380e772196d363b86ea47d65fa02c9b41f056e37a7735e02e84fb360d8f138b",
+    ".github/workflows/benchmark_batch.yaml": "f1f12d287e521d6e78f941280599763549965649139786a8057bd3d59bb08b30",
+    ".github/workflows/benchmark_single.yaml": "0092330ae2696718532201690538ff78a676e51547e253798cad072026dbb1f6",
+    ".github/workflows/benchmark_tracking.yaml": "6338626cb1b1fc04838386bf7cbd199034214186cbb4ffc16292bad93fcdf110",
+    ".github/workflows/prepublish.yaml": "bfa343b22797973b359c95e45decab06dbc60854b607e8eec42182706c0740ff",
+    ".github/workflows/publish.yaml": "832adb40c4954b10f3e471f87b165334870208a9eaadb96767d0398db2a7487d",
+    ".github/workflows/rh.yaml": "cfe6e2c7f44793f2449bdc9c01e4895ac4aa3b773626b3d7c5880892629a2fd8",
+    ".github/workflows/tests.yaml": "aa3cb4a2ee71495e306e9d8f6002c52f8e3b3dd74c62842461eb19d5d95b474b",
+    ".github/workflows/tests_plus.yaml": "1fdadfe205cf8f4ed616d956ff5f7a8b62b4d01de32215e4736b2aaac1235087",
+    ".gitignore": "533accf763e44fce27298f2da6c743f6263ffef85cfb8d863e11e464534cbddb",
+    "LICENSE": "08077a53a25b26f75951daadfa801ae88fa268e98520dbd88ed1014a2c2ea227",
+    "MANIFEST.in": "e659646ccbc58caf93a71f9476baf3308b067bf9be77cc30c9550f0137004d88",
+    "NOTICE": "f89471ec43eda7ea4cf74c1858e767585c3f4d27f60bca23ea71fd14d16bb681",
+    "README.md": "2224851f000fcfb70b6c39725e519f457a0fbb2358d1ddcefa0a5e2b749e34ed",
+    "benchmark.md": "c2bfb11d9d1b1c8d73cb5cdc0f6bc9f1aba34d55d9d7d0c3a6dae55c72414bba",
+    "benchmarks/README.md": "3bb7ced3f62ce3f0b0c0a6ec2765126dda241e63d55e6d8b77f7cd6d12161deb",
+    "benchmarks/benchmark_batch.py": "ffada0ee851994aa5bd3eac563e9b8bae2dd90f9fbd899825916c5b061946c18",
+    "benchmarks/benchmark_single.py": "2736f694a0c1cae43d0e7ef7ee802980991ce4aca0ef678b1e2d4cdfd4e9344f",
+    "benchmarks/benchmark_tracking.py": "65c6edf7b50b54fb401ae8fdd9bcbad090bff3f18007c5b6e0c033dfffc485f4",
+    "lap/__init__.py": "a23f5b42f9d6381fd4f763808d83c702cf63807cdc49c55eeb6c4c6a12d4c8a5",
+    "lap/_batch_utils.py": "30b02c0b83c4605250a2e63801b598a19040c9d8d6ad62cf7b30bd00629ce9a7",
+    "lap/_lapjv.pyi": "93f60625b3b04c18cee12b1d6aad4b5c423977494b66d8c7e5b073e75f2e0f16",
+    "lap/_lapjv_rh.pyi": "fc69de9c1dc5be9b8db13d82477e592be42cd2db51b9ddf4d44d023f3b715044",
+    "lap/_lapjvc.pyi": "a3802b1abe449e85db719b193397d9b2313745998442f7ad66c9cc3e247a8824",
+    "lap/_lapjvs_batch_wp.py": "4924145a891605ca862f61e2bef3b1a30d9fa707a7db54d57133e2305c9d8cbb",
+    "lap/_lapjvs_wp.py": "d4a4c2bddda88ae74464076ca3ba53af8783827ac5a7b3a254226c13e1442f1e",
+    "lap/_lapjvx.pyi": "cc4ed467b3662ee115928e6e32dc75058bd8a2d44e0eef3e1dce26d5403a93a4",
+    "lap/_lapjvx_batch_wp.py": "5fc40bdde8612b4cdf18bd4a25e64024eae8f40214cad2b2839a1daed9a6b177",
+    "lap/_lapmod_batch_wp.py": "4fa0a290e496a2df363871c0b02810b73eb2aefcc474f0513f29087bfb97f09b",
+    "lap/_lapmod_wp.py": "bc6d767db75655fe3b88d0fe9fb8dc6015a6cfd8d08c13445fedf32609982f92",
+    "lap/py.typed": "35a9c8614ef572c6da93e20351e0b5602e16a7fa3b27424842a476a28190feb1",
+    "pyproject.toml": "fcd8b5ef5023bfc23d8c3c64c34f52f2172e13bde781d05d331ce8dfe144208d",
+    "setup.py": "845c63ed238eb1554f194747239160499a7aaf057eb58d0e119463ac849d7d55",
+    "src/_lapjv/LICENSE": "cb0b32a32cc78efe54a7771c5eecfa67c7f245c8428d585266461b689bb69c8b",
+    "src/_lapjv/_lapjv.pyx": "fdfd09ac53723ca8b4dae6643b874a952affd20c226abaeaab64dd0314ee49c8",
+    "src/_lapjv/_lapjvx.pyx": "66c0cb81e2e5bbb7df36f46290f2ce0cbe3ce80c8faef959c28dd784e8fb88a0",
+    "src/_lapjv/lapjv.cpp": "ca817389094b1893a48ee02d46ff3d26beb03488ac8232f5d33131993ace1235",
+    "src/_lapjv/lapjv.h": "614baade7169f1eade9b7b8d0f2dac7ee421c08e9ff434ee239740883a992a3b",
+    "src/_lapjv/lapmod.cpp": "049d5e18b5dbec2d99209d45047bc462f613d8c48aeecd5b867e04ccaec88e66",
+    "src/_lapjvc/LICENSE": "4ba9f0d36520358eacf9a8b176e360cd3bf4b3af5f703791b36ab4c05a3d4bba",
+    "src/_lapjvc/dense.hpp": "c24099220a484b05be310bfb4661962f301f44ab74d7f85e57461aefbdb7829f",
+    "src/_lapjvc/dense_wrap.hpp": "dcbc353443459199614a304ddc56670a85cc019e6b0adb9493c7d7b54f88d579",
+    "src/_lapjvc/lapjvc.cpp": "674d843b6ae23f73942d29fe83119fb9f5c0332a3adf402be308545d0f1aec79",
+    "src/_lapjvr/Cargo.lock": "911bd5e7034ec0a9d9a7da21d4d86a6ee5b55b7fc715ad2017ecb269756fb31c",
+    "src/_lapjvr/Cargo.toml": "95e06615a8ac6afab40831877af7fab66419f383c3b9c440f22d5aca028bdfe4",
+    "src/_lapjvr/INTEGRATION.md": "0acad2dd84b3e6e02cd8e3c90084facdc0c71edb95f9053543ea89b06af013d4",
+    "src/_lapjvr/LICENSE": "8d7dd588e81968d0af7179c860edb91a3cf722e9626069b44a80b579a1c6de3c",
+    "src/_lapjvr/README.md": "a3190eae3325596c6ab4e8ed1b8018c677147167e41979490ee9cf19f746f595",
+    "src/_lapjvr/THIRD_PARTY_NOTICES": "f9f6bdb406f14f0022f520e5e6621f98b06b07b6a772aa312a69d95418f7e472",
+    "src/_lapjvr/_lapjv_rh.pyx": "025c61668b3db8406c06681f11d58f12bfa27975ee38fb2ce7c360f228659e11",
+    "src/_lapjvr/build.rs": "1810f7eb3edcc8116f7e8bf1e962aff1a0c62b7fd3a1ada49dd969dfafdd8038",
+    "src/_lapjvr/examples/profile.rs": "8ba8930db84e0b4ec75501813d9c72479753289d1bf7af3a3b649f0352f0bf96",
+    "src/_lapjvr/lapjvr.h": "0ec7eab6ec5247e14c795314b7998a07ad1be9b534f6ec2ba4149cbf15bc1545",
+    "src/_lapjvr/src/cpp_completion.cpp": "9f3a9211f4e11c453a26bed54b58a4f2b4404499e78aa2099dd37f7f97f188a6",
+    "src/_lapjvr/src/cpp_completion.rs": "450de6224cc72afcc5b935b4b45d4da3bc5d780c6c4cf31a34b09323537bc12a",
+    "src/_lapjvr/src/ffi.rs": "ec6f6229320d2b17c23d0b1f82ba8ce187e436af2c4856df4b81310b3fb31f40",
+    "src/_lapjvr/src/lib.rs": "d48ee14acae5fd6b094e74b431ea31b04c72a1773c71c9cbe66ac3d0d9b72b4d",
+    "src/_lapjvr/src/profile.rs": "7bf4c9412c01e6a4a9a0cd45c6fc332a36dc9b7659f8361298af587656cb5449",
+    "src/_lapjvr/src/rectangular.rs": "8d3ea093fceced40793cf6901d053f2316237030dd7a38d45a05f10b3e4e488b",
+    "src/_lapjvr/src/square.rs": "681a7d3c1e627fd81f576fe54f0d86918aca187868b39b8cab3888465a87bc48",
+    "src/_lapjvs/LICENSE": "8d7dd588e81968d0af7179c860edb91a3cf722e9626069b44a80b579a1c6de3c",
+    "src/_lapjvs/lapjvs.cpp": "83be5d7907a7c7ae8f757b6399a179337b8f0960888dc60a9ee3bc57056e9d26",
+    "src/_lapjvs/lapjvs.h": "4774a37120d3820b761c0f7c039c8c27677e48a098b35433a7bc5e2b197b3501",
+    "tests/LICENSE": "cb0b32a32cc78efe54a7771c5eecfa67c7f245c8428d585266461b689bb69c8b",
+    "tests/README.md": "8e08e389921d91811de6367c4850f2ed251cbeb16597a8be95e89c431eff39df",
+    "tests/conftest.py": "aa586d0ce3bf62c1e555d3bffcb2bc3c42c1dedd650722ffc646e55b4b2966d6",
+    "tests/cost_eps.csv.gz": "1b691b1995f646d0742d5a00e3036dfa01aaa8f0e02854b63356196791826610",
+    "tests/lapjvr_cases.py": "397787cb0218badb37399f8b9559ee881828ac1dca91b649e2a52cc63f9a6771",
+    "tests/pytest.ini": "308cbfb6b8e8bbfa7ea442f7e9c2cd07eb1cfca1d9cf65ce47e81d94b7479cd2",
+    "tests/test_arr_loop.py": "bff2fe831ba8b44dd89e36ef48936d00644d5686e7e679ff5cd6ef85e4955e11",
+    "tests/test_batch_solvers.py": "c6ba3253f184d03d23eccbd802aafd2091fcf6a12c26fda85dc67f80c7a08505",
+    "tests/test_batch_solvers_extended.py": "7eb6e2ba30b5dfc1288e10373386c0e80b2266475feef09be46b9722e022e12a",
+    "tests/test_batch_threads.py": "887f509c3db1ef804db6717ba48e2409492c40fbf06e41a2d6e57380be324ae2",
+    "tests/test_input_contracts.py": "9defea91a27e94433b66993dd6d18f9c3c25832b61b23b8dfc6639f4ddfe6786",
+    "tests/test_lapjv.py": "85898546cdede5ce7491d2b3908794af207c48a73f8c05253a7ceff2d75cd825",
+    "tests/test_lapjv_rh.py": "d3687c34740e409f74c07e3b26a450c100651291e91e82feeccb4c915e0eebf3",
+    "tests/test_lapjvr.py": "c819eb192361c7550d630cbd9924537cfd5d77703dae224ee7bfdcee4e74f189",
+    "tests/test_lapjvx.py": "d23a158e5037be8a825653b38c2a10254de9cc506a80ad01b79d937476151b2f",
+    "tests/test_lapjvxa_sa.py": "d068b0a5e19a22852fe85c3ac092699c5f3dc196aad31d38c3569d1daa5fe1f0",
+    "tests/test_lapmod.py": "069b6069fafaef441108188063f0cf54415f5ab4428bb9635fdacede0eb01116",
+    "tests/test_lapmod_batch.py": "bf9c6d49a497ba64a5207c96ca9b0eb3dcae53cd3e642f0b00090eea3fab4709",
+    "tests/test_lapx_issue_20_all_solvers.py": "c57cbe5b4f0f2a113a23aacf52c408fa0806dc138fa667717bc59ae679514247",
+    "tests/test_large_cost_consistency.py": "ba6d0f25443402d16c5910247272b9b6303b40a8b75f28bc64b3054c0666f7c9",
+    "tests/test_native_stability.py": "27c422670a9fd95a0a85cd9df641400c6501b69f2e2a0a53b39c3edd5521e98e",
+    "tests/test_requirements.txt": "cffa37900788aae1e1e9b29ad2cfcd01f52a73b04efed2698f792530561a09a8",
+    "tests/test_single_solvers.py": "1ec6196017a8c26edf811c51ca51258959e01024ebfee51dfbd2743fe2634bad",
+    "tests/test_single_solvers_extended.py": "00a2b00b028a5cbba06a7df197b7a645a530146a9b7a429ffddc3521d25fac37",
+    "tests/test_smoke.py": "6cecb5bf4165a92ce61521704a2a33df2c4bd59223ea3b59788c98f0247064e0",
+    "tests/test_upstream_lap_issue_20_21_all_solvers.py": "1799da5ae6c7dcd05bfdda3a7804a9dbea042aaa627ea314e649416174e3d5cd",
+    "tests/test_utils.py": "0156a082f719a03a1d0e7ec2aee6bc9bd3d6467621150747cf11b999614d929f",
+    "tests/test_wrapper_stability.py": "bdd6e3b2575668b786f785dd02b0d43441062ccdcb071d6726d59413fbe4adaf",
+    "tests/typing/return_cost.py": "27fd790db89a83137df267d1dc9e90442573a2d405e42716803d991c95439ef1"
+  },
+  "payload_identity": {
+    "fresh": [
+      "lap._lapjvs",
+      "lap._lapjv_rh"
+    ],
+    "legacy_modules": "Unchanged saved original payload; not rebuilt because unrelated LAPJVC needs unavailable pybind11.",
+    "files": {
+      "lap\\py.typed": "35a9c8614ef572c6da93e20351e0b5602e16a7fa3b27424842a476a28190feb1",
+      "lap\\_batch_utils.py": "30b02c0b83c4605250a2e63801b598a19040c9d8d6ad62cf7b30bd00629ce9a7",
+      "lap\\_lapjv.cp311-win_amd64.pyd": "691c5c792300c9849d60bca7d7fd3a7792cf0b44eac2784a1b2d61e639bc3bc6",
+      "lap\\_lapjv.pyi": "93f60625b3b04c18cee12b1d6aad4b5c423977494b66d8c7e5b073e75f2e0f16",
+      "lap\\_lapjvc.cp311-win_amd64.pyd": "76297f0da96900bbb20103d0e0b6c0dc50ab22c84ebbd5b6938e0b9327dbafa4",
+      "lap\\_lapjvc.pyi": "a3802b1abe449e85db719b193397d9b2313745998442f7ad66c9cc3e247a8824",
+      "lap\\_lapjvs.cp311-win_amd64.pyd": "1f5bd6f49bfd3f08011a454d429ddfff00eae2782c480297d156b7dcf5669c04",
+      "lap\\_lapjvs_batch_wp.py": "4924145a891605ca862f61e2bef3b1a30d9fa707a7db54d57133e2305c9d8cbb",
+      "lap\\_lapjvs_wp.py": "d4a4c2bddda88ae74464076ca3ba53af8783827ac5a7b3a254226c13e1442f1e",
+      "lap\\_lapjvx.cp311-win_amd64.pyd": "96ea06681a01b7b781f363e5ac98238a25abd8511189187e5e7adcd8253ebc4d",
+      "lap\\_lapjvx.pyi": "cc4ed467b3662ee115928e6e32dc75058bd8a2d44e0eef3e1dce26d5403a93a4",
+      "lap\\_lapjvx_batch_wp.py": "5fc40bdde8612b4cdf18bd4a25e64024eae8f40214cad2b2839a1daed9a6b177",
+      "lap\\_lapjv_rh.cp311-win_amd64.pyd": "65b010207ab93e4c2839744f6d2300ffe0a5db5d9c9a707ad227ba8ffd041b2f",
+      "lap\\_lapjv_rh.pyi": "fc69de9c1dc5be9b8db13d82477e592be42cd2db51b9ddf4d44d023f3b715044",
+      "lap\\_lapmod_batch_wp.py": "4fa0a290e496a2df363871c0b02810b73eb2aefcc474f0513f29087bfb97f09b",
+      "lap\\_lapmod_wp.py": "bc6d767db75655fe3b88d0fe9fb8dc6015a6cfd8d08c13445fedf32609982f92",
+      "lap\\__init__.py": "a23f5b42f9d6381fd4f763808d83c702cf63807cdc49c55eeb6c4c6a12d4c8a5"
+    },
+    "completed_utc": "2026-10-28T00:44:10.621203+00:00"
+  },
+  "saved_probe_source": "\"\"\"Compare exact extreme-scale residuals against the saved old payload.\"\"\"\nfrom fractions import Fraction\nimport json\nfrom pathlib import Path\nimport sys\nimport numpy as np\nfrom scipy.optimize import linear_sum_assignment\n\nROOT=Path(__file__).resolve().parent\npayload=ROOT/'payload' if sys.argv[1]=='fixed' else ROOT.parent/'gated-geometric/payloads/current'\nsys.path.insert(0,str(payload));import lap\nhigh=float(2**48);small=2**-12\nrecords=[]\nfor shape,a in [('rectangular',np.array([[high,2*small,high],[high,small,high]],dtype=np.float32)),\n                ('square',np.array([[high,high],[small,2*small]],dtype=np.float32))]:\n    expected=Fraction.from_float(high)+Fraction.from_float(small)\n    for name in ['lapjvsa','lapjvr','lapjvh','scipy']:\n        if name=='scipy':pairs=np.column_stack(linear_sum_assignment(a))\n        else:\n            kwargs=dict(extend_cost=True,return_cost=False)\n            if name!='lapjvsa':kwargs['output']='pairs'\n            pairs=getattr(lap,name)(a,**kwargs)\n        actual=sum((Fraction.from_float(float(a[i,j])) for i,j in pairs),Fraction())\n        records.append(dict(build=sys.argv[1],family=name,shape=shape,high=high,small=small,\n                            pairs=pairs.tolist(),exact_gap=str(actual-expected)))\nprint(json.dumps(records,indent=2))\n",
+  "saved_records": [
+    {
+      "build": "fixed",
+      "family": "lapjvsa",
+      "shape": "rectangular",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "1/4096"
+    },
+    {
+      "build": "fixed",
+      "family": "lapjvr",
+      "shape": "rectangular",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "1/4096"
+    },
+    {
+      "build": "fixed",
+      "family": "lapjvh",
+      "shape": "rectangular",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "1/4096"
+    },
+    {
+      "build": "fixed",
+      "family": "scipy",
+      "shape": "rectangular",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "1/4096"
+    },
+    {
+      "build": "fixed",
+      "family": "lapjvsa",
+      "shape": "square",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "exact_gap": "1/4096"
+    },
+    {
+      "build": "fixed",
+      "family": "lapjvr",
+      "shape": "square",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "0"
+    },
+    {
+      "build": "fixed",
+      "family": "lapjvh",
+      "shape": "square",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "0"
+    },
+    {
+      "build": "fixed",
+      "family": "scipy",
+      "shape": "square",
+      "high": 281474976710656.0,
+      "small": 0.000244140625,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "exact_gap": "0"
+    }
+  ],
+  "exact_arithmetic_reconstruction": {
+    "input_storage": "Exactly representable float32 entries, as recorded by the saved probe source",
+    "high": "2^48",
+    "small": "2^-12",
+    "matrix": [
+      [
+        "281474976710656",
+        "1/2048",
+        "281474976710656"
+      ],
+      [
+        "281474976710656",
+        "1/4096",
+        "281474976710656"
+      ]
+    ],
+    "enumerated_assignments": [
+      {
+        "columns": [
+          0,
+          1
+        ],
+        "exact_cost": "1152921504606846977/4096"
+      },
+      {
+        "columns": [
+          0,
+          2
+        ],
+        "exact_cost": "562949953421312"
+      },
+      {
+        "columns": [
+          1,
+          0
+        ],
+        "exact_cost": "576460752303423489/2048"
+      },
+      {
+        "columns": [
+          1,
+          2
+        ],
+        "exact_cost": "576460752303423489/2048"
+      },
+      {
+        "columns": [
+          2,
+          0
+        ],
+        "exact_cost": "562949953421312"
+      },
+      {
+        "columns": [
+          2,
+          1
+        ],
+        "exact_cost": "1152921504606846977/4096"
+      }
+    ],
+    "exact_optimum": "1152921504606846977/4096",
+    "saved_rectangular_record_checks": [
+      {
+        "family": "lapjvsa",
+        "saved_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "exact_selected_cost": "576460752303423489/2048",
+        "exact_optimum": "1152921504606846977/4096",
+        "exact_gap": "1/4096",
+        "rounded_binary64_total": 281474976710656.0,
+        "rounded_binary64_optimum": 281474976710656.0
+      },
+      {
+        "family": "lapjvr",
+        "saved_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "exact_selected_cost": "576460752303423489/2048",
+        "exact_optimum": "1152921504606846977/4096",
+        "exact_gap": "1/4096",
+        "rounded_binary64_total": 281474976710656.0,
+        "rounded_binary64_optimum": 281474976710656.0
+      },
+      {
+        "family": "lapjvh",
+        "saved_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "exact_selected_cost": "576460752303423489/2048",
+        "exact_optimum": "1152921504606846977/4096",
+        "exact_gap": "1/4096",
+        "rounded_binary64_total": 281474976710656.0,
+        "rounded_binary64_optimum": 281474976710656.0
+      },
+      {
+        "family": "scipy",
+        "saved_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "exact_selected_cost": "576460752303423489/2048",
+        "exact_optimum": "1152921504606846977/4096",
+        "exact_gap": "1/4096",
+        "rounded_binary64_total": 281474976710656.0,
+        "rounded_binary64_optimum": 281474976710656.0
+      }
+    ]
+  },
+  "saved_records_original_text": "[\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvsa\",\r\n    \"shape\": \"rectangular\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"1/4096\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvr\",\r\n    \"shape\": \"rectangular\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"1/4096\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvh\",\r\n    \"shape\": \"rectangular\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"1/4096\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"scipy\",\r\n    \"shape\": \"rectangular\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"1/4096\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvsa\",\r\n    \"shape\": \"square\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        0\r\n      ],\r\n      [\r\n        1,\r\n        1\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"1/4096\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvr\",\r\n    \"shape\": \"square\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"0\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"lapjvh\",\r\n    \"shape\": \"square\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"0\"\r\n  },\r\n  {\r\n    \"build\": \"fixed\",\r\n    \"family\": \"scipy\",\r\n    \"shape\": \"square\",\r\n    \"high\": 281474976710656.0,\r\n    \"small\": 0.000244140625,\r\n    \"pairs\": [\r\n      [\r\n        0,\r\n        1\r\n      ],\r\n      [\r\n        1,\r\n        0\r\n      ]\r\n    ],\r\n    \"exact_gap\": \"0\"\r\n  }\r\n]\r\n",
+  "development_git_status": " M README.md\n M lap/_lapjv_rh.pyi\n M lap/_lapjvs_batch_wp.py\n M lap/_lapjvs_wp.py\n M src/_lapjvr/README.md\n M src/_lapjvr/_lapjv_rh.pyx\n M src/_lapjvr/src/lib.rs\n M src/_lapjvr/src/rectangular.rs\n M src/_lapjvs/lapjvs.cpp\n M src/_lapjvs/lapjvs.h\n M tests/README.md\n M tests/test_lapjvr.py\n?? tests/test_float32_working_precision.py\n",
+  "development_source_recorded_utc": "2026-10-28T00:42:27.370630+00:00"
+}

@@ -1,0 +1,367 @@
+{
+  "archive_sha256": "42a3ce999f26356e2434c75c5dcf4c595070437019a71177f8e1d8fcdcf8973e",
+  "converter": "latexml (LaTeXML version 0.8.8)",
+  "source": "Unmodified main.tex and main.bbl extracted from the upload ZIP",
+  "figure_rendering": "Original PDF figures rendered by Poppler for the local HTML preview only",
+  "bibliography": "Supplied main.bbl via LaTeXML nobibtex; preview-only numeric refnum labels use the converter's number tags to correct its natbib numbers/number bug",
+  "bibliography_order": [
+    "zhang2022bytetrack",
+    "gatagatlap",
+    "jonker1987",
+    "crouse2016",
+    "bougleux2016",
+    "jones2017",
+    "bougleux2020",
+    "bijsterbosch2010",
+    "volgenant1996",
+    "crouse2017tcl",
+    "mathworks2018assign",
+    "scipylsa",
+    "srcdlapjv",
+    "laprust2026",
+    "lapx2026",
+    "lapcpp2026",
+    "pylapsolver",
+    "vanderwiel1997",
+    "lsape2017",
+    "lapjvprecision2026",
+    "milan2016mot16",
+    "dendorfer2020mot20",
+    "bewley2016sort",
+    "pyppbox2026",
+    "rfdetr2025software",
+    "motmetrics2026",
+    "siv2022posetreid"
+  ],
+  "equation_numbering": "Preview-only LaTeXML binding routes display delimiters through equation* so explicit source tags remain semantic XML and visible HTML labels",
+  "numbered_equations": {
+    "1": "S3.Ex1",
+    "2": "S3.Ex2",
+    "3": "S3.Ex4",
+    "4": "S3.Ex6",
+    "5": "S3.Ex7",
+    "6": "S3.Ex8",
+    "7": "S3.Ex9"
+  },
+  "all_seven_equation_numbers_visible": true,
+  "equation_binding_sha256": "1272824a624aabefc52a6740d9eed1c6f9823b0a245c8ddf69531dcb936193e2",
+  "xml": "output/arxiv/latexml.xml",
+  "xml_sha256": "5e7d3c35b252d9578d44c1c403f6c031d72b9bb1005b2880cd1ce55647e16c15",
+  "source_comment_whitespace_normalized": true,
+  "local_build_paths_redacted": true,
+  "counts": {
+    "figures": 20,
+    "tables": 27,
+    "references": 27,
+    "algorithms": 1,
+    "math_expressions": 478
+  },
+  "diagnostics": [],
+  "parsed_math_expressions_including_alternatives": 519,
+  "font_settings_leaked": false,
+  "all_internal_links_resolve": true,
+  "all_figures_have_alt_text": true,
+  "preview": "output/arxiv/html/index.html",
+  "preview_sha256": "52763bb7ede5790426bf4b047c137347f3ce67b1356d38470606405149d2aff5",
+  "build_directory": "lap-paper/tmp/pdfs/html/html-41wkvsfy",
+  "commands": [
+    {
+      "step": "conversion",
+      "command": [
+        "perl.exe",
+        "latexml",
+        "--strict",
+        "--preload=[nobibtex]latexml.sty",
+        "--preload=[BUILD]/paper-equation-tags.ltxml",
+        "--destination=[BUILD]/main.xml",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-1",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/formulation_map.pdf",
+        "[BUILD]/html/images/formulation_map"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-2",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/rejection_paths.pdf",
+        "[BUILD]/html/images/rejection_paths"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-3",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/single_runtime.pdf",
+        "[BUILD]/html/images/single_runtime"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-4",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/batch_runtime.pdf",
+        "[BUILD]/html/images/batch_runtime"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-5",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/memory_peak.pdf",
+        "[BUILD]/html/images/memory_peak"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-6",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/scaling_required.pdf",
+        "[BUILD]/html/images/scaling_required"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-7",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/scaling_optional.pdf",
+        "[BUILD]/html/images/scaling_optional"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-8",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/scaling_blocks.pdf",
+        "[BUILD]/html/images/scaling_blocks"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-9",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/large_square.pdf",
+        "[BUILD]/html/images/large_square"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-10",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/large_rectangles.pdf",
+        "[BUILD]/html/images/large_rectangles"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-11",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/extreme_rectangles.pdf",
+        "[BUILD]/html/images/extreme_rectangles"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-12",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/structure_required.pdf",
+        "[BUILD]/html/images/structure_required"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-13",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/structure_optional.pdf",
+        "[BUILD]/html/images/structure_optional"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-14",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/rejection_sweep.pdf",
+        "[BUILD]/html/images/rejection_sweep"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-15",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/memory_sweeps.pdf",
+        "[BUILD]/html/images/memory_sweeps"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-16",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/environment_consistency.pdf",
+        "[BUILD]/html/images/environment_consistency"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-17",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/ranking_exceptions.pdf",
+        "[BUILD]/html/images/ranking_exceptions"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-18",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/linux_platform_overview.pdf",
+        "[BUILD]/html/images/linux_platform_overview"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-19",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/linux_batch_comparison.pdf",
+        "[BUILD]/html/images/linux_batch_comparison"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "figure-20",
+      "command": [
+        "pdftoppm.EXE",
+        "-r",
+        "144",
+        "-png",
+        "-singlefile",
+        "[BUILD]/source/images/linux_memory_context.pdf",
+        "[BUILD]/html/images/linux_memory_context"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "postprocess",
+      "command": [
+        "perl.exe",
+        "latexmlpost",
+        "--format=html5",
+        "--presentationmathml",
+        "--keepXMath",
+        "--sourcedirectory=[BUILD]/source",
+        "--css=[BUILD]/paper-preview.css",
+        "--destination=[BUILD]/html/index.html",
+        "[BUILD]/web.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": "version",
+      "command": [
+        "perl.exe",
+        "latexml",
+        "--VERSION"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "scope": "Local LaTeXML validation; arXiv's deployed version and styling may differ."
+}

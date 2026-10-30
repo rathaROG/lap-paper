@@ -1,0 +1,187 @@
+{
+  "measurement_date": "2026-10-29",
+  "primary": "Windows Python 3.14.10",
+  "replication": "Windows Python 3.11.18",
+  "packages": {
+    "lapx": "0.13.0",
+    "laprust": "1.2.0",
+    "lapcpp": "1.2.0"
+  },
+  "rendering_environment": {
+    "python": "3.11.18 (main, Oct 29 2026, 13:13:31) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2"
+  },
+  "source_bundle": {
+    "path": "controlled-windows-20261029.zip",
+    "sha256": "757a4797dad30885adfe19155cdee76a3ec9378c4241cef917a513d98f351442"
+  },
+  "scripts": {
+    "update_publication.py": "2f57d18f76389c735c1b2d73d5ca9b2e33969e8ce34dc8d39257ca06a3ba04bd",
+    "publication_extended.py": "78fddfa119a383c29ac6cb1e337a210058a850524d6ba51279b6a3416dba7b12",
+    "publication_scaling.py": "0c11e3b1f8136eab7290b33ce81c02450f51c1cd58a4cbdb2aba7d5a16d07c77"
+  },
+  "inputs": {
+    "py314-results/base/single_summary.csv": "384a7f7ccf62592707989722170a05111d1ae37fd3204642accd8fc35b867207",
+    "py314-results/base/batch_summary.csv": "334b891fb1a9e2e7f8bf847f3c3d2a39d290166c3cfebf51444de8033458f13d",
+    "py314-results/base/memory.json": "c1a47266d456af7cb82f10bd3052c5365033acd690394b6d9eb9b2111913d4f1",
+    "py314-results/formulations/summary.csv": "ecd336f592997fdb07a721f670f3e4eb576b3219cb20496bfbfbf5d39a0f6fee",
+    "py314-results/formulations/datasets.json": "f22b655e9cd748853ba33282ab55d974ce7fccddbe1b14d4a46df3a11cee215c",
+    "py314-results/scaling/summary.csv": "d34a29aea5be908cfb8ee51768e1527e8ab6ae41685c17d383be44001cbf3cad",
+    "py314-results/scaling/datasets.json": "e5372e9530386d4a60aaba87df5fba6a4e2b6723c47e0774d78ae43b8855119b",
+    "py314-results/scaling/environment.json": "a04f939b2873563701cf9be01c87c8f50a844dd193097755e2c83dfc76b8e53a",
+    "py314-results/extended/summary.csv": "2b26bf4a1fc226389463aba4f684baeae7672714d3a4c9f8c90cc7bad90688d0",
+    "py314-results/extended/plan.json": "65edfd24a9abbccf5537c24445d37029d58a84b84113eb9a5cdcb90fa6787bd1",
+    "py314-results/extended/checks.json": "608f76addd1e5194635951e5165c3c5ca9cccf329e6b243ec9f1ffbd9ec885cd",
+    "py314-results/extended/memory_summary.csv": "9bfbbb50d77fb26eac7a57c11121ca359abec76d3d26540955dff78abc975cbb",
+    "py311-results/base/single_summary.csv": "ba068ba0a1da2c460c37bdc7573ec57cc444ae417eddb7a8c98bd1d8e7dadc49",
+    "py311-results/base/batch_summary.csv": "e79970e8ec1806e3ea80636ffa00481bd2b7865f38face39b0c924201c033985",
+    "py311-results/base/memory.json": "77949d35d4c69e5a0dc1665463de202737031359546c6e85a6d7a24b210e209a",
+    "py311-results/formulations/summary.csv": "e8b44dbcb9654740c22bb54d292ba394af23f021e0328fdcaa075a9af037f37e",
+    "py311-results/formulations/datasets.json": "f22b655e9cd748853ba33282ab55d974ce7fccddbe1b14d4a46df3a11cee215c",
+    "py311-results/scaling/summary.csv": "dd43c0b1a4916892dcccc6712d3f9997bd7b9a326fbe7e068e85eb6da0f91574",
+    "py311-results/scaling/datasets.json": "e5372e9530386d4a60aaba87df5fba6a4e2b6723c47e0774d78ae43b8855119b",
+    "py311-results/scaling/environment.json": "0142e8ce526757dc51259bc1aa6e9a547bbf4f246e4d0ddf1f0c3f3c9cf58328",
+    "py311-results/extended/summary.csv": "35ae9f59ff497269eb0e75444025fe8c2e85d5b5493b446c006c0ed463781813",
+    "py311-results/extended/plan.json": "65edfd24a9abbccf5537c24445d37029d58a84b84113eb9a5cdcb90fa6787bd1",
+    "py311-results/extended/checks.json": "608f76addd1e5194635951e5165c3c5ca9cccf329e6b243ec9f1ffbd9ec885cd",
+    "py311-results/extended/memory_summary.csv": "63cebd851fae9e59cdb94c01b02aab5ea1953c9a49993f4483d61442bdd8571c"
+  },
+  "figures": {
+    "single_runtime": {
+      "note": "Windows Python 3.14.10; medians and timing-round IQRs; finite-limit JVS/JVC/SciPy use square expansion.",
+      "outputs": {
+        "figures/single_runtime.pdf": "af51a41d200e6a5a3bd4049b7dfde2840dcdfae5a628d7d6b23d62bb51bcbb2a",
+        "figures/single_runtime.png": "957b14b432d646e2cd16aea725ca0df340e3a0a7d2c3f27e0567d10e7d87b228",
+        "figures/single_runtime.svg": "018f70a4c7d23244f70d4e1892d13582b82a06d978e6bbd75b4abc1287afe93e",
+        "latex/images/single_runtime.pdf": "af51a41d200e6a5a3bd4049b7dfde2840dcdfae5a628d7d6b23d62bb51bcbb2a"
+      }
+    },
+    "batch_runtime": {
+      "note": "Windows Python 3.14.10; whole-batch medians and timing-round IQRs; 1/4 requested workers.",
+      "outputs": {
+        "figures/batch_runtime.pdf": "aa92c1579dfef32a3fd813930123ec9c28012fe7fa99816c84e0c75e2cc35f67",
+        "figures/batch_runtime.png": "10da77f57b4163d8798c899b29b20005c13036143a77845bd0b271ba068f527a",
+        "figures/batch_runtime.svg": "2097e1f0a09485c306294cbea1967572f03893a12dfe18c7e41a5f0d432df60d",
+        "latex/images/batch_runtime.pdf": "aa92c1579dfef32a3fd813930123ec9c28012fe7fa99816c84e0c75e2cc35f67"
+      }
+    },
+    "memory_peak": {
+      "note": "Windows Python 3.14.10; one fresh process per condition; increments are not allocation counts.",
+      "outputs": {
+        "figures/memory_peak.pdf": "875d2cdb68570e4719bb8d2092ec8c0b6cae3db9e7abe4c8b8d863ce17765134",
+        "figures/memory_peak.png": "cf1f353ec1d200e0040d86f94bcd7c62c3b329a6eaa10892bf0e491db4ee1865",
+        "figures/memory_peak.svg": "afed64fa1dbcc2338725055dd0f1f229c98eccc42fa5fa49497d41ed38f7d3fd",
+        "latex/images/memory_peak.pdf": "875d2cdb68570e4719bb8d2092ec8c0b6cae3db9e7abe4c8b8d863ce17765134"
+      }
+    },
+    "scaling_required": {
+      "note": "Windows Python 3.14.10; medians and timing-round IQRs; bounded initializer B=min(c,4).",
+      "outputs": {
+        "figures/scaling_required.pdf": "000614999811c79a34338b7e27876b3380bc3b065f99b1ccacc4a6656f6cda18",
+        "figures/scaling_required.png": "ad91a767d7cc34db229b17ea2504026cc0e4885eee9f18ae16ce624286f42490",
+        "figures/scaling_required.svg": "9a45e27309622283ffe6d1a3b2e743169210283c560b6db10bf8c2c79d933174",
+        "latex/images/scaling_required.pdf": "000614999811c79a34338b7e27876b3380bc3b065f99b1ccacc4a6656f6cda18"
+      }
+    },
+    "scaling_optional": {
+      "note": "Windows Python 3.14.10; medians and timing-round IQRs; bounded initializer B=min(c,4).",
+      "outputs": {
+        "figures/scaling_optional.pdf": "61d0ab5728b3921f16083f48eb3fe4fdc959e59b1d305d841f66ba3a54795ebd",
+        "figures/scaling_optional.png": "1e811ef7cfe87acc8d7cd47072bd6ca7b422799671fc0bc9b393e38f876b88a0",
+        "figures/scaling_optional.svg": "d5027772b0b8ec105434cbc09977908c822b1b83883aebe4d22fb7fbf3b1c7dd",
+        "latex/images/scaling_optional.pdf": "61d0ab5728b3921f16083f48eb3fe4fdc959e59b1d305d841f66ba3a54795ebd"
+      }
+    },
+    "scaling_blocks": {
+      "note": "Windows Python 3.14.10; medians and timing-round IQRs; bounded initializer B=min(c,4).",
+      "outputs": {
+        "figures/scaling_blocks.pdf": "1cbd6f869a9bafb8577c0443c354dfa8d1a48db192d1b6aca9bffec9c946a4eb",
+        "figures/scaling_blocks.png": "52b1135bb2ee6cea11aede127baac8db43d4ce3845e7c20d75830a97ea4628d5",
+        "figures/scaling_blocks.svg": "10d2237a20ffbdfd628a1ab6955528248a2c34eec36459a69ca1a29c7c7dc083",
+        "latex/images/scaling_blocks.pdf": "1cbd6f869a9bafb8577c0443c354dfa8d1a48db192d1b6aca9bffec9c946a4eb"
+      }
+    },
+    "large_square": {
+      "note": "Windows Python 3.14.10. Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.",
+      "outputs": {
+        "figures/paper/large_square.pdf": "d4bb5e3be284d6c7863a4e9660fe62aaa202264d17e8c258e786fd6fa514807b",
+        "figures/paper/large_square.png": "4efb27f43e4e8901cb5e5e3ce138df6b6f2438ff841e5c0bc894c0d11116bfeb",
+        "figures/paper/large_square.svg": "4faf321c5aa4b1ea1c7f4f3d369780c08b1ad24b27b3bc501923c51fe1b07818",
+        "latex/images/large_square.pdf": "d4bb5e3be284d6c7863a4e9660fe62aaa202264d17e8c258e786fd6fa514807b"
+      }
+    },
+    "large_rectangles": {
+      "note": "Windows Python 3.14.10. Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+      "outputs": {
+        "figures/paper/large_rectangles.pdf": "ae3326b48e8418cea30380f3fd6c8dd680b23863ea50b301124f75f67308f5d1",
+        "figures/paper/large_rectangles.png": "0f3928b24f0dc142f2a6bbcdb0700da5250573a9ce41a282b8bbc45ad477d6c1",
+        "figures/paper/large_rectangles.svg": "f81c43194aab44c7a7cd6cebe9bc556409f1abe12e332512ccce045304bfd3b2",
+        "latex/images/large_rectangles.pdf": "ae3326b48e8418cea30380f3fd6c8dd680b23863ea50b301124f75f67308f5d1"
+      }
+    },
+    "extreme_rectangles": {
+      "note": "Windows Python 3.14.10. Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nWide/tall inputs are exact transposes.",
+      "outputs": {
+        "figures/paper/extreme_rectangles.pdf": "10c690082e34126d6a32f17baabe0a24d3113434c9c0e6e508dc0282a1eb3964",
+        "figures/paper/extreme_rectangles.png": "80298e9eeb69f71fd83ce5f72ab227007285147240fbe358ddb0f342c28e01a3",
+        "figures/paper/extreme_rectangles.svg": "87b8d290b9b201ed6198875cba6be87f1893c8999be96455a448afd6f82c5165",
+        "latex/images/extreme_rectangles.pdf": "10c690082e34126d6a32f17baabe0a24d3113434c9c0e6e508dc0282a1eb3964"
+      }
+    },
+    "structure_required": {
+      "note": "Windows Python 3.14.10. Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+      "outputs": {
+        "figures/paper/structure_required.pdf": "db2dfbc9189e079baf42344719813a1f05c7046f62fffaed48fef350193873de",
+        "figures/paper/structure_required.png": "fc9a11a7cf75d7151959a90c541ca51fd091bcab5ff886bbe1a667a900d84811",
+        "figures/paper/structure_required.svg": "7589e1c64f52144487f31706cb145215dfb9a75493c14974d789a91ce85c5e50",
+        "latex/images/structure_required.pdf": "db2dfbc9189e079baf42344719813a1f05c7046f62fffaed48fef350193873de"
+      }
+    },
+    "structure_optional": {
+      "note": "Windows Python 3.14.10. Four paired float64 inputs; nine shuffled rounds. Medians and timing-round IQRs. Focused solver subset; gaps denote exclusions.\nInputs are paired across each sweep. Forbidden cases retain a feasible diagonal. Optional L: blocks 0.5; forbidden 2/M; ties 0.25.",
+      "outputs": {
+        "figures/paper/structure_optional.pdf": "4774067aaa8c292fa6dbbc9c71aa00a27755822a0c9f9c7d5bdce0f22c7eeedb",
+        "figures/paper/structure_optional.png": "c22038b3d6595b563e592e6412b628c7b2191b5b51793a940b7980ebe9244447",
+        "figures/paper/structure_optional.svg": "8eb86dba2b9c6efc236b3b0f55b329796348c1a2e8f5b5a4ba32a08ed9ccafe2",
+        "latex/images/structure_optional.pdf": "4774067aaa8c292fa6dbbc9c71aa00a27755822a0c9f9c7d5bdce0f22c7eeedb"
+      }
+    },
+    "rejection_sweep": {
+      "note": "Windows Python 3.14.10. Same four cost matrices and forbidden masks at every limit. Top: median and timing-round IQR. Bottom: mean unmatched fraction.\nDifferent optimal pair sets/cardinalities at ties are permitted; objectives are checked. The limit axis includes zero using a symmetric-log scale.",
+      "outputs": {
+        "figures/paper/rejection_sweep.pdf": "1fb6537b34752b89141b330b7c72f6371d523036f408aec0dfb8c4d1405ff542",
+        "figures/paper/rejection_sweep.png": "a6f8a71098c5855b3f2bf64c239a1fb91bb65cbff6ed1536774982dc2fd696b7",
+        "figures/paper/rejection_sweep.svg": "25bcfd1f116daf3454d580edb1f2d380196481f3290d7acc2b808bef6b7d814b",
+        "latex/images/rejection_sweep.pdf": "1fb6537b34752b89141b330b7c72f6371d523036f408aec0dfb8c4d1405ff542"
+      }
+    },
+    "memory_sweeps": {
+      "note": "Windows Python 3.14.10. Median and IQR across five fresh processes per condition. Input already resident. High-water increments are not allocation counts.\nThe vertical scale is linear from zero to 0.25 MiB and logarithmic above it; zero increments remain visible. Compact SciPy formulations are included.",
+      "outputs": {
+        "figures/paper/memory_sweeps.pdf": "def6a74809a18cdbcaa188d9991c79c2485959e962c6b63072db0dff7562b47d",
+        "figures/paper/memory_sweeps.png": "652553b63a58db6f9e12f51f70afe097abadba6cb3084db98aa341880d725c46",
+        "figures/paper/memory_sweeps.svg": "4fb5c2944e9eac288d95c7172699e01cfbff3c58287cef1eeb0563d64c3fe216",
+        "latex/images/memory_sweeps.pdf": "def6a74809a18cdbcaa188d9991c79c2485959e962c6b63072db0dff7562b47d"
+      }
+    },
+    "environment_consistency": {
+      "note": "Latest Windows runs; 1 of 201 JVRUST median orderings reverse. Ratios use within-environment medians.",
+      "outputs": {
+        "figures/paper/environment_consistency.pdf": "ab78d9b2eab28f80f4deda0b6ad791fd631467701008dd085d7b04a70a9cca91",
+        "figures/paper/environment_consistency.png": "b538f908f220e34f066ea8692a384c79268f301adcc54bf6255302a0cba23b9f",
+        "figures/paper/environment_consistency.svg": "14da6a8c2d11dbe5b1ef315fab5dd286ab3141fc0ae4155a7676717e13dacbf3",
+        "latex/images/environment_consistency.pdf": "ab78d9b2eab28f80f4deda0b6ad791fd631467701008dd085d7b04a70a9cca91"
+      }
+    },
+    "ranking_exceptions": {
+      "note": "All four latest native/SciPy ordering reversals: JVRUST one, JVCPP three. Medians and timing-round IQRs; axes start at zero.",
+      "outputs": {
+        "figures/paper/ranking_exceptions.pdf": "ce721d842ee396c3e8a1f41ec66373f0a1040519da5391f51793c47a30edcb72",
+        "figures/paper/ranking_exceptions.png": "aa53ec5920a771d1273a4f42814525d2a70be494110f02a3a6d4d1a0e333faca",
+        "figures/paper/ranking_exceptions.svg": "3547e75f8afa974ed70911aae6e1c8def038514094b38b91e888e79e911ed69f",
+        "latex/images/ranking_exceptions.pdf": "ce721d842ee396c3e8a1f41ec66373f0a1040519da5391f51793c47a30edcb72"
+      }
+    }
+  }
+}
