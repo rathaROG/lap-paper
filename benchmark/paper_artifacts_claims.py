@@ -42,7 +42,7 @@ def audit_empirical_claims(repo, roots):
         for method in ("jvrust","jvcpp","jvhybrid"):
             for objective in ("required","optional"):
                 values=[p["ratio"] for p in paired if p["method"]==method and cases[p["case_id"]]["kind"]=="single" and cases[p["case_id"]]["objective"]==objective and p["reference"]==cases[p["case_id"]]["metadata"]["primary_comparator"]]
-                if values:out["native"][objective+":"+method]=dict(n=len(values),classifications=count(values))
+                if values:out["native"][objective+":"+method]=dict(n=len(values),classifications=count(values),median_ratio=median(values))
         out["hard_optional_congestion_ratios"]={method:next(p["ratio"] for p in paired if p["method"]==method and p["case_id"]=="extended:041_congestion_optional_256x320") for method in ("jvrust","jvcpp")}
         out["hard_optional_congestion_native_extra_latency_percent"]={method:100*(1/value-1) for method,value in out["hard_optional_congestion_ratios"].items()}
         for language in ("rust","cpp"):
@@ -97,7 +97,7 @@ def generate(repo: Path) -> dict:
            "Read recorded versions and CPU model; join each selected logical CPU to core_id and highest efficiency_class; wall_seconds/60 for minutes.", artifact="s1_light_protocol_audit.json")
     source("native", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json"),
            "paired[]: complete canonical jvrust/jvcpp/jvhybrid, case.kind=single, reference=case.metadata.primary_comparator; split by environment/objective",
-           "Reference/method ratio: classify <0.97 loss, [0.97,1.03] tie, >1.03 win. Required count=102 per method; optional count=166 for Rust/CPP. No environment pooling.", artifact="campaign_summary.json:environments.*.native; F1_overview_ccdf.csv; S_native_family_counts.csv; S_native_exceptions.csv")
+           "Reference/method ratio: classify <0.97 loss, [0.97,1.03] tie, >1.03 win. Required count=102 per method; optional count=166 for Rust/CPP. Compute case-median ratios within each environment/objective; JVRUST median ranges round to3.67-4.66 required and4.72-5.23 optional. No environment pooling.", artifact="campaign_summary.json:environments.*.native; F1_overview_ccdf.csv; S_native_family_counts.csv; S_native_exceptions.csv")
     source("geometry", all_paths("/campaign-session/manifest.json") + all_paths("/campaign-summary.json"),
            "cases[family=geometry].{rows,cols,objective,metadata.q,metadata.motion,metadata.delta,metadata.limit_over_delta,metadata.gate_over_delta,methods}; estimates[].seconds; paired[].ratio",
            "Main square sweep selects (q,motion)=(.9,.25),required or optional L/delta=1.5 with no gate;20 cases/environment. Companion panels retain (.6,1) and5:4. Fixed256x320 heatmap retains all36settings,4environments,2methods=288cells. Methods absent above1024rows remain not planned.", artifact="chart_points.csv:geometry/A2; F3_geometry.csv; F3_geometry_5to4_companion.csv; A2_geometry_sensitivity.csv; A2_geometry_panel.csv")
@@ -118,7 +118,7 @@ def generate(repo: Path) -> dict:
            "26 cases;260 native ratio points across environments. Separate family/objective/limit/method/environment curves; varying declared structure parameter only.", artifact="chart_points.csv:structure; F7_structure_lines_data.csv; F7_structure_lines_assertions.json")
     source("batch", all_paths("/campaign-summary.json"),
            "batch_contrasts[].{case_id,contrast,method,reference,ratio,ratio_definition,seconds,reference_seconds}; estimates[].round_means_seconds",
-           "Use saved ratio for worker/dispatch; invert solver-state and orientation lifetime contrasts for recreation/retained direction. Total-worker lifetime contrast is supplement-only; no pooling.", artifact="F6_batch_dot_values.csv; S5_batch_contrasts.csv; S5_batch_timing.csv; campaign_summary.json:environments.*.batch")
+           "Use saved ratio for worker/dispatch; invert solver-state and orientation lifetime contrasts for recreation/retained direction. Worker-count contrasts use matched inputs in distinct placement-process attempts; within-placement contrasts use the same attempt. Total-worker lifetime contrast is supplement-only; no pooling.", artifact="F6_batch_dot_values.csv; S5_batch_contrasts.csv; S5_batch_timing.csv; campaign_summary.json:environments.*.batch")
     source("orientation", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json") + all_paths("/campaign-session/sources/benchmark/campaign/datasets.py"),
            "large_rectangle/extreme_rectangle pairs share input_group,objective,limit,gate; reversed dimensions and transpose flags; estimates[].seconds from separate attempts",
            "tall.seconds/wide.seconds;12 case pairs(6 shapes×2 objectives),74 method pairs/environment. Optional64×16384 values selected by shape and objective; export preserves both attempt/input identities.", artifact="F9_orientation_dot_values.csv; F9_orientation_not_planned.csv; F12_orientation_pairs.csv")
@@ -190,7 +190,7 @@ def generate(repo: Path) -> dict:
             if "LSAPE" in subsection:return ["applications","lsape","accuracy"]
             if "Geometry" in subsection:return ["geometry","layout","policy","counters"]
             if "Validation" in subsection:return ["validation","batch","memory"]
-            if "coverage" in subsection:return ["protocol","native","reporting"]
+            if "coverage" in subsection:return ["protocol","native","batch","reporting"]
             return ["environment","protocol","reporting"]
         if section=="Results":
             keys=[("Coverage","native"),("Geometry","geometry"),("Representation","layout"),("Initialization","counters"),("Sparse","sparse"),("Ordered","structure"),("Batching","batch"),("Applications","applications"),("LSAPE","lsape"),("Orientation","orientation"),("Memory","memory")]
@@ -206,7 +206,7 @@ def generate(repo: Path) -> dict:
         if section=="Limitations and threats to validity":return ["protocol","environment","geometry","validation","applications","lsape","memory","reference_sensitivity","reporting"]
         if section=="Classification tables":return ["native","lsape"]
         if section=="Scaling and geometric sensitivity":return ["scaling","geometry"]
-        if section=="Conceptual rejection paths and limit sweep":return ["rejection","implementation"]
+        if section=="Rejection-limit sweep":return ["rejection"]
         if section=="Memory-counter visibility":return ["memory"]
         if section=="Application workload and accuracy":return ["applications","accuracy","workloads"]
         if section=="Protocol sensitivity and indexed supplement":return ["sensitivity","reporting"]

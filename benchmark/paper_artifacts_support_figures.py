@@ -127,8 +127,8 @@ def lsape_strip(plotted):
                 color=STYLE[denominator]['color']
                 for i,value in enumerate(values):
                     jitter=((i*37)%9-4)*.021
-                    ax.plot([value],[ybase+jitter],marker=STYLE[denominator]['marker'],ms=2.5,
-                            mec=color,mew=.55,mfc=color if env=='W311' else 'white',ls='none',alpha=.8)
+                    ax.plot([value],[ybase+jitter],
+                            **env_marker(env,color,2.5,STYLE[denominator]['marker']),alpha=.8)
                 ax.text(1.025,ybase,f"{env}: {counted['win']}/{counted['tie']}/{counted['loss']}",
                         transform=blended_transform_factory(ax.transAxes,ax.transData),ha='left',va='center',fontsize=6.8)
                 for block,family in LSAPE_FAMILIES:
@@ -142,9 +142,9 @@ def lsape_strip(plotted):
         ax.spines['left'].set_visible(False)
         ax.set_xlabel('Numerator time / denominator time (log; >1: denominator faster)',fontsize=7)
         ax.text(1.025,1.04,'Wins / ties / losses',transform=ax.transAxes,fontsize=6.8,ha='left')
-        fig.legend(handles=[Line2D([],[],marker='o',ms=3.5,ls='none',mfc=fill,mec='#444444',
-                                   label=env+' '+desc) for env,fill,desc in
-                            [('W311','#444444','filled'),('W314','white','open')]],
+        fig.legend(handles=[Line2D([],[],**env_marker(env,'#444444',3.5),
+                                   label=env+' '+desc) for env,desc in
+                            [('W311','smaller / upper lane'),('W314','larger / lower lane')]],
                    loc='upper center',bbox_to_anchor=(.58,.995),ncol=2,fontsize=7)
         fig.subplots_adjust(left=.34,right=.81,top=.82,bottom=.20)
         save(fig,'F8_lsape_strip');plt.close(fig)
@@ -294,7 +294,7 @@ def orientation_dots(data):
 def generate_behavior(repo,data):
     result=dict(batch=batch_dots(data),orientation=orientation_dots(data),
         atlas_figures=[dict(name='S_batch_reuse_one_worker',title='Workspace reuse with one worker',
-            scope='Each marker is one workload, method and environment. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.')],
+            scope='Each marker is one workload, method and environment. Filled/open markers identify Linux/Windows; smaller/larger markers identify Python 3.11/3.14. Within each method, lanes run L311, L314, W311, W314 from top to bottom. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.')],
         atlas_tables=[dict(path='S_applications_api.tex',title='Application APIs',scope='All per-API replay and update ratios, with environments separate.')])
     (DATA/'support_atlas.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result

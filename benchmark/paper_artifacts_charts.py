@@ -10,7 +10,9 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FixedLocator, FuncFormatter, NullFormatter, NullLocator
-from paper_artifacts_common import REPO, DATA, FIGURES, TABLES, STYLE, ENVS, save, writecsv, classification
+from paper_artifacts_common import (REPO, DATA, FIGURES, TABLES, STYLE, ENVS,
+                                    ENV_LINESTYLES, environment_marker,
+                                    save, writecsv, classification)
 WIDTH=6.46
 INK,MUTED,GRID,TIE='#222222','#626262','#e6e6e6','#e9e8e4'
 RC={'font.family':'DejaVu Sans','font.size':7,'axes.labelsize':7,'axes.titlesize':7.5,
@@ -28,15 +30,11 @@ def method_legend(ax, methods, marker_only=False, **kwargs):
     handles=[Line2D([],[],color=STYLE[m]['color'],marker=STYLE[m]['marker'],ms=3,lw=.9,
                     ls='none' if marker_only else '-',label=STYLE[m]['label']) for m in methods]
     return ax.legend(handles=handles,fontsize=6.3,handlelength=1.5,**kwargs)
-def linux(env):
-    return env.startswith("L")
-
 def env_line(env):
-    return dict(ls="-" if linux(env) else (0, (3, 1.6)), lw=.8)
+    return dict(ls=ENV_LINESTYLES[env], lw=.8)
 
 def env_marker(env, colour, size=3.4, marker="o"):
-    return dict(marker=marker, ms=size, mec=colour, mew=.7,
-                mfc=colour if linux(env) else "white", ls="none")
+    return dict(**environment_marker(env, colour, size, marker), ls="none")
 
 def ratio_axis(axis, lo, hi, which="x"):
     lo=min(lo,.9);hi=max(hi,1.1)
@@ -58,13 +56,13 @@ def ratio_axis(axis, lo, hi, which="x"):
 
 def env_key(fig, x, y, kind="line"):
     if kind == "line":
-        handles = [Line2D([], [], color=MUTED, **env_line("L311"), label="Linux (3.11, 3.14)"),
-                   Line2D([], [], color=MUTED, **env_line("W311"), label="Windows (3.11, 3.14)")]
+        handles = [Line2D([], [], color=MUTED, **env_line(env), label=env)
+                   for env, *_ in ENVS]
     else:
-        handles = [Line2D([], [], **env_marker("L311", MUTED), label="Linux (3.11, 3.14)"),
-                   Line2D([], [], **env_marker("W311", MUTED), label="Windows (3.11, 3.14)")]
-    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(x, min(y,.99)), ncol=2, fontsize=6.5,
-               handlelength=2.4, columnspacing=1.4)
+        handles = [Line2D([], [], **env_marker(env, MUTED), label=env)
+                   for env, *_ in ENVS]
+    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(x, min(y,.99)), ncol=4, fontsize=7,
+               handlelength=2.4, columnspacing=1.0)
 
 def ratio(d, case_id, method, reference=None):
     reference = reference or d["cases"][case_id]["metadata"]["primary_comparator"]
@@ -124,7 +122,7 @@ def geometry(data, q=.9, motion=.25, name="F2_geometry_lines", rectangle=False):
                 pts = [(c["rows"], d["seconds"][(c["id"], method)], ratio(d, c["id"], method))
                        for c in cs if (c["id"], method) in d["seconds"]]
                 xs = [p[0] for p in pts]
-                mark = dict(marker=st["marker"], ms=2.7, mew=.45, mec=st["color"], mfc=st["color"] if linux(env) else "white")
+                mark = environment_marker(env, st["color"], 2.7, st["marker"])
                 top.plot(xs, [p[1] * 1e3 for p in pts], color=st["color"], **mark, **env_line(env))
                 if not method.startswith("scipy:capped") and method != "scipy":
                     bottom.plot(xs, [p[2] for p in pts], color=st["color"], **mark, **env_line(env))
@@ -227,7 +225,7 @@ def structure(data):
                                 key=lambda c: c["input_group"]["parameters"][key])
                     xs = [c["input_group"]["parameters"][key] for c in cs]
                     ax.plot(xs, [ratio(d, c["id"], m) for c in cs], color=STYLE[m]["color"],
-                            marker=STYLE[m]["marker"], ms=2.8, mew=.45, mec=STYLE[m]["color"], mfc=STYLE[m]["color"] if linux(env) else "white", **env_line(env))
+                            **environment_marker(env, STYLE[m]["color"], 2.8, STYLE[m]["marker"]), **env_line(env))
             if family=="ties":ax.set_xscale("log",base=2);ax.xaxis.set_minor_locator(NullLocator())
             ax.set_xticks(xs, [fmt(x) for x in xs])
             if family=="forbidden":ax.tick_params(axis="x",labelrotation=45)
@@ -334,7 +332,7 @@ def rejection_lines(data):
             for env in data:
                 rr=sorted([r for r in rows if r['environment']==env and r['distribution']==dist and r['method']==method],key=lambda r:float(r['limit']))
                 assert len(rr)==11
-                st=STYLE[method];kwargs={**env_line(env),'marker':st['marker'],'ms':2.6,'mew':.4,'mec':st['color'],'mfc':st['color'] if linux(env) else 'white'}
+                st=STYLE[method];kwargs={**env_line(env),**environment_marker(env,st['color'],2.6,st['marker'])}
                 axes[0,j].plot([float(r['limit']) for r in rr],[float(r['microseconds']) for r in rr],color=st['color'],**kwargs)
                 if method=='jvrust':axes[1,j].plot([float(r['limit']) for r in rr],[float(r['mean_rejected_rows_percent']) for r in rr],color=st['color'],**kwargs)
         axes[0,j].set_title(('Congested blocks' if dist=='blocks' else 'Uniform'),loc='left',fontweight='bold');axes[0,j].set_yscale('log');axes[0,j].yaxis.set_major_formatter(FuncFormatter(lambda v,_:f'{v:g}'));axes[0,j].yaxis.set_minor_formatter(NullFormatter())
@@ -434,7 +432,7 @@ def line_family(data,ids,name,title):
                                 for cid,present in zip(ids,planned)],mask=~planned)
                 rr=np.ma.array([ratio(d,cid,m) if present else 0
                                 for cid,present in zip(ids,planned)],mask=~planned)
-                kwargs=dict(color=st['color'],marker=st['marker'],ms=2.8,mew=.45,mec=st['color'],mfc=st['color'] if linux(env) else 'white',**env_line(env))
+                kwargs=dict(color=st['color'],**environment_marker(env,st['color'],2.8,st['marker']),**env_line(env))
                 axes[0,col].plot(xs,ts,**kwargs)
                 if m!=ref:axes[1,col].plot(xs,rr,**kwargs);ratios_all.extend(rr.compressed())
                 times.extend(ts.compressed())
@@ -463,7 +461,7 @@ def scaling_atlas(data):
     atlas=[]
     for i,(group,ids) in enumerate(groups.items(),1):
         name=f'S_scaling_lines_{i:02d}';line_family(data,ids,name,group)
-        atlas.append(dict(name=name,title=group.replace('_',' ').capitalize(),scope=f'{len(ids)} saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.'))
+        atlas.append(dict(name=name,title=group.replace('_',' ').capitalize(),scope=f'{len(ids)} saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment, distinguished by four keyed line styles. Only planned observations are drawn. Exact values are in A1_scaling.csv.'))
     return atlas
 
 
@@ -482,7 +480,7 @@ def policy_atlas(data):
                 for env,d in data.items():
                     a=axes[row,0];b=axes[row,1]
                     values=[1/ratio(d,c['id'],f'policy:{lang}:{arm}',f'policy:{lang}:reference') for arm in ['budget1','budget2','reference','budget8']]
-                    a.plot([1,2,4,8],values,color=colour,marker='o',ms=3,mec=colour,mew=.5,mfc=colour if linux(env) else 'white',**env_line(env))
+                    a.plot([1,2,4,8],values,color=colour,**environment_marker(env,colour,3),**env_line(env))
                     noms=['no_reductions','ties_off','cutoff_off','ties_cutoff_off']
                     for j,arm in enumerate(noms):
                         v=ratio(d,c['id'],f'policy:{lang}:{arm}',f'policy:{lang}:reference')
@@ -495,7 +493,7 @@ def policy_atlas(data):
                 axes[row,1].set_yticklabels([])
             env_key(fig,.5,.995);fig.subplots_adjust(left=.10,right=.99,top=.91,bottom=.09)
             name=f'S_policy_lines_{lang}_{page}';save(fig,name);plt.close(fig)
-            atlas.append(dict(name=name,title=f'{language_label} policy cases, page {page}/8',scope='One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.'))
+            atlas.append(dict(name=name,title=f'{language_label} policy cases, page {page}/8',scope='One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Nominal-intervention positions run L311, L314, W311, W314 from left to right. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.'))
     return atlas
 
 
@@ -516,7 +514,7 @@ def layout_atlas(data):
             ax.spines['left'].set_visible(False);ax.tick_params(axis='y',length=0);ax.set_xlabel('Matching SciPy / complete representation time (log)')
             env_key(fig,.59,.99,'marker');fig.subplots_adjust(left=.33,right=.98,top=.83,bottom=.17)
             name=f'S_layout_strip_{category}_{backend}';save(fig,name);plt.close(fig)
-            atlas.append(dict(name=name,title=f'{category.capitalize()} representations: {backend}',scope=f'All {len(cases)} eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.'))
+            atlas.append(dict(name=name,title=f'{category.capitalize()} representations: {backend}',scope=f'All {len(cases)} eligible workloads per layout. Each marker is one workload/environment. Within each layout, lanes run L311, L314, W311, W314 from top to bottom. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.'))
     return atlas
 
 
@@ -544,7 +542,7 @@ def write_atlas(repo=REPO):
 \date{}
 \begin{document}
 \maketitle
-This supplement shows ordered workload families and named controlled comparisons from the four saved light sessions. Each curve or marker represents one environment. Linux curves are solid and markers filled; Windows curves are dashed and markers open. The two Python versions are drawn separately and may coincide. Colors identify methods consistently with the main paper. Gray bands mark ratios in $[0.97,1.03]$; classifications use unrounded values. Missing observations mean ``not planned'', never zero. Policy ratios are intervention/reference (above one is slower); other ratio axes state their direction. Exact case values, attempt identities and saved validation outcomes remain in the indexed CSV exports; environments are never averaged.
+This supplement shows ordered workload families and named controlled comparisons from the four saved light sessions. Each curve or marker represents one environment. The four line styles identify L311 (solid), L314 (dashed), W311 (dotted) and W314 (dash-dot). Markers are filled for Linux and open for Windows; smaller markers identify Python 3.11 and larger markers Python 3.14. Each figure keys the environments explicitly. Coincident values can still overlap. Colors identify methods consistently with the main paper. Gray bands mark ratios in $[0.97,1.03]$; classifications use unrounded values. Missing observations mean ``not planned'', never zero. Policy ratios are intervention/reference (above one is slower); other ratio axes state their direction. Exact case values, attempt identities and saved validation outcomes remain in the indexed CSV exports; environments are never averaged.
 \input{generated/supplementary_chart_atlas.tex}
 \end{document}
 '''
@@ -572,11 +570,11 @@ def generate_charts(runs):
     common.TYPOGRAPHY.clear()
     data=data_from_runs(runs);atlas=[]
     titles={
-        'F1_overview_ccdf':'Complementary empirical distributions of matching SciPy/method ratios. Each curve is one solver and one environment over its planned cases. Required natives n=102 and optional natives/sparse n=166; required JVX/JVS n=88 and optional JVX n=145. Linux is solid; Windows dashed. Ratios below the gray tie band are losses.',
+        'F1_overview_ccdf':'Complementary empirical distributions of matching SciPy/method ratios. Each curve is one solver and one environment over its planned cases. Required natives n=102 and optional natives/sparse n=166; required JVX/JVS n=88 and optional JVX n=145. Line styles identify L311 solid, L314 dashed, W311 dotted and W314 dash-dot. Ratios below the gray tie band are losses.',
         'F2_geometry_lines':'Square geometry at q=0.9 and motion standard deviation 0.25δ. Required assignment is left; optional assignment with L=1.5δ and no gate is right. Top: complete-call milliseconds. Bottom: matching SciPy/method ratios. Each curve is one method/environment. JVX/JVS (required) and JVX/square SciPy (optional) are not planned above 1024 rows.',
-        'F3_representations_strip':'The 14 optional formulation workloads, with one marker per case/environment in each representation row. Ratios are capped SciPy/complete representation time. Filled Linux and open Windows markers preserve all observations; the congested-block workload at 256×320 is labelled.',
+        'F3_representations_strip':'The 14 optional formulation workloads, with one marker per case/environment in each representation row. Ratios are capped SciPy/complete representation time. Filled/open markers identify Linux/Windows and smaller/larger markers identify Python 3.11/3.14. Within-row lanes run L311, L314, W311, W314 from top to bottom; the congested-block workload at 256×320 is labelled.',
         'F_structure_lines':'Congestion, forbidden-entry and quantized-tie sweeps, required above and optional below. Each line is one native method/environment, and ordered x positions retain the generator sweep values. The marked case 041 contains the Windows JVRUST and Linux JVCPP losses. Wall time alone does not identify their internal work.',
-        'F4_policy_forest':'Each row is an intervention, separated into four environment lanes. Markers are within-environment medians across eligible cases; thick bars are interquartile ranges and thin lines the full range. Parentheses give case counts. Ratios are intervention/release-policy time: above one is slower. Initializer bypass is a nominal intervention, not a budget value.',
+        'F4_policy_forest':'Each row is an intervention, separated into L311, L314, W311, W314 lanes from top to bottom. Filled/open markers identify Linux/Windows and smaller/larger markers identify Python 3.11/3.14. Markers are within-environment medians across eligible cases; thick bars are interquartile ranges and thin lines the full range. Parentheses give case counts. Ratios are intervention/release-policy time: above one is slower. Initializer bypass is a nominal intervention, not a budget value.',
         'F5_sparse_scatter':'All 166 optional workloads for CSGRAPH and LAPMOD, separated by environment. Each point compares the same sparse complete-call time with capped SciPy (x) and JVRUST (y). Upper-right points beat both references. Graph construction is timed.',
         'A2_sensitivity_heatmap':'The only heatmap: optional 256×320 geometry, four survival/motion settings crossed with three gates and three limits. Each setting has four environment rows in L311,L314,W311,W314 order. Printed values are capped SciPy/method ratios, JVRUST left and CSGRAPH right. Values are individual environment observations, not pooled summaries.',
         'F11_rejection_lines':'Uniform and congested-block rejection-limit sweeps. Linked upper panels show complete-call latency, lower panels the unmatched fraction from five saved validation cardinalities. Each line is one environment. The shaded block interval has K=144 throughout while native latency changes; no new solve determines these cardinalities.'}

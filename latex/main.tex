@@ -54,7 +54,7 @@ A Jonker--Volgenant Solver without Square Expansion}
 \maketitle
 
 \begin{abstract}
-Rectangular assignment with a uniform unmatched penalty is often implemented by expanding the cost matrix. We integrate established rectangular Jonker--Volgenant principles, implicit rejection, float64 working arithmetic and reusable workspaces in Rust (JVRUST), hybrid Rust/C++ (JVHYBRID) and C++ (JVCPP) implementations. A single campaign evaluates laprust/lapcpp 1.2.0 and LAPX 0.13.0 in four Windows/Linux and Python environments. Each environment contains 302 cases, 3,286 complete timing conditions and 91 memory conditions, using five inputs and three timing rounds. Against the matching compact SciPy reference, all three native implementations exceed a 3\% advantage on all 102 required cases; JVRUST and JVCPP do so on 163--165 and 163--166 of 166 optional cases, respectively, with ties and losses retained. Geometry sweeps, representation controls, policy ablations, work counters, sparse solvers and orientation pairs qualify these results by workload and interface. Assignment-replay gains are attenuated in tracker updates, and equal replay objectives do not imply identical tracking outputs. A separate 67-case Windows LSAPE study distinguishes formulation, specialization, layout and rejection tracking within Hungarian code. The contribution is software integration and reproducible performance characterization, without algorithmic priority, significance claims or a universal solver ranking. The initialization policy was developed using related workload families; these measurements are not a held-out test of heuristic optimality.
+Rectangular assignment with a uniform unmatched penalty is often implemented by expanding the cost matrix. We integrate established rectangular Jonker--Volgenant principles and implicit rejection with float64 working arithmetic and reusable workspaces in Rust (JVRUST), hybrid Rust/C++ (JVHYBRID) and C++ (JVCPP). A campaign evaluates laprust/lapcpp 1.2.0 and LAPX 0.13.0 in four Windows/Linux and Python environments. Each environment contains 302 cases: 3,286 complete-call timing conditions with five inputs and three rounds, plus 91 memory conditions with five fresh-process trials. Against the matching compact SciPy reference, all three native implementations exceed a 3\% advantage on all 102 required cases; JVRUST and JVCPP do so on 163--165 and 163--166 of 166 optional cases, respectively. Controlled comparisons qualify these gains by representation, initialization, sparsity, batching and orientation. Assignment-replay gains attenuate in tracker updates, and equal replay objectives do not imply identical tracking outputs. A separate 67-case Windows LSAPE study examines related transformations within Hungarian code. The contribution is software integration and reproducible performance characterization. Adverse results are retained; no algorithmic priority, statistical significance or universal solver ranking is claimed. The initialization policy was developed using related workload families, so the campaign is not a held-out test of heuristic optimality.
 \end{abstract}
 \noindent{\small \textbf{Keywords:} linear assignment; Jonker--Volgenant; rectangular matching; implicit rejection; rejection penalties; research software; Rust; C++; Python}
 
@@ -69,10 +69,10 @@ Rectangular JV, outsourcing and assignment with insertion and deletion costs alr
 
 The paper contributes a self-contained derivation and optimality certificate for uniform-penalty assignment; implementations combining bounded reductions, a reusable rejection terminal and batch workspaces; and an empirical study with explicit representation, policy, work, orientation and application controls. Four environments retain separate measurements and a practical $\pm3\%$ tie band. The study includes unfavorable cases, planned coverage limits and the distinction between assignment latency and tracker-update latency. A separate LSAPE experiment examines related transformations within Hungarian code, without comparing JV and LSAPE runtimes.
 
-Sections 2--4 give the background, formulation and implementation. Section~\ref{sec:design} specifies the saved campaign, Section~\ref{sec:results} reports its results, and the discussion and limitations delimit their interpretation. Appendices organize additional evidence by workload and measurement question. The indexed supplement retains absolute values and provenance for every plotted observation.
+Sections~\ref{sec:background}--\ref{sec:implementation} give the background, formulation and implementation. Section~\ref{sec:design} specifies the saved campaign, Section~\ref{sec:results} reports its results, and the discussion and limitations delimit their interpretation. Appendices organize additional evidence by workload and measurement question. The indexed supplement retains absolute values and provenance for every plotted observation.
 
 \FloatBarrier
-\section{Background and related work}
+\section{Background and related work}\label{sec:background}
 
 \subsection{Assignment algorithms and implementation lineage}
 
@@ -82,19 +82,19 @@ We use completion to mean the augmenting-path phase that finishes a partial matc
 
 The baselines are established Jonker--Volgenant families, evaluated through their LAPX implementations \cite{lapx2026}. JVX (\texttt{lapjv}, \texttt{lapjvx}, \texttt{lapjvxa}) uses the gatagat/lap-derived dense core \cite{gatagatlap}; the dense campaign times \texttt{lapjvxa}, which returns assignment pairs. JVS (\texttt{lapjvs}, \texttt{lapjvsa}) uses the src-d/lapjv-derived implementation \cite{srcdlapjv}. These implementations have different initialization and numeric details. Their shared use of augmenting paths does not imply identical kernels.
 
-SciPy \cite{virtanen2020scipy} supplies a native rectangular solver documented as a modified Jonker--Volgenant algorithm without initialization, referencing Crouse's treatment \cite{crouse2016,scipylsa}. Rectangular solving without square padding already exists independently of the proposed solver. Initialized rectangular JV also predates this work: Volgenant's RJV omits square column reduction and applies augmenting row reduction from zero column potentials \cite{volgenant1996}. Bijsterbosch and Volgenant refine RJV and specialize it for k-cardinality and outsourcing, including a capped-cost comparison on the original dimensions and a single relevant external option per person \cite{bijsterbosch2010}. That unexpanded outsourcing formulation originates with Vander Wiel and Sahinidis, whose shortest augmenting path algorithm treats external assignment through a single unrestricted arc \cite{vanderwiel1997}. These initialized rectangular and outsourcing searches are direct predecessors of the state and rejection handling studied here. The contribution concerns software integration and performance evaluation, without priority for these individual principles.
+SciPy \cite{virtanen2020scipy} supplies a native rectangular solver documented as a modified Jonker--Volgenant algorithm without initialization, referencing Crouse's treatment \cite{crouse2016,scipylsa}. Initialized rectangular JV also predates this work: Volgenant's RJV omits square column reduction and applies augmenting row reduction from zero column potentials \cite{volgenant1996}. Bijsterbosch and Volgenant refine RJV and specialize it for k-cardinality and outsourcing, including a capped-cost comparison on the original dimensions and a single relevant external option per person \cite{bijsterbosch2010}. That unexpanded outsourcing formulation originates with Vander Wiel and Sahinidis, whose shortest augmenting path algorithm treats external assignment through a single unrestricted arc \cite{vanderwiel1997}. These initialized rectangular and outsourcing searches are direct predecessors of the state and rejection handling studied here.
 
 \subsection{Optional assignment and compact representations}
 
-Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using a null element on each side rather than a full square expansion \cite{bougleux2016}. Their augmenting paths can terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.
+Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using element-specific insertion and removal costs and a null element on each side \cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.
 
 Jones, Chawdhary, and King adapt Volgenant--Jonker methods to graph-edit matching \cite{jones2017}. Their compact representation avoids explicitly storing the redundant zero and infinite regions of the expanded matrix, using only (n+1)(m+1)-1 entries. Bougleux and colleagues subsequently describe a compact reduction from assignment with error correction to a rectangular assignment problem without cost constraints of the earlier reductions \cite{bougleux2020}.
 
-Bougleux and Brun \cite{bougleux2016} address assignment with element-specific insertion and removal costs through a compact null-element representation and an adapted Hungarian algorithm. The present solver specializes the penalty structure: a common cost \(L/2\) per unmatched endpoint yields a one-sided objective with rejection cost \(L\) per unmatched smaller-side row, up to an additive constant (Section 3.3). We realize this specialization within a Jonker--Volgenant implementation combining rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \texttt{lap.lapjv}, and native batching. Null-terminal augmenting paths already occur in \cite{bougleux2016}; we do not claim a new optional-assignment objective, a new null-terminal principle, or an asymptotic improvement over that approach. Table~\ref{tab:methods} defines the measured interfaces and LSAPE arms. Section~\ref{sec:lsape-results} measures the one-sided adaptation within LSAPE-v4; it does not compare our JV implementation against LSAPE or reproduce the 2016 experiments. The native JV code descends from the JVS lineage; no algorithmic priority is claimed.
+The present solver specializes the penalty structure: a common cost \(L/2\) per unmatched endpoint yields a one-sided objective with rejection cost \(L\) per unmatched smaller-side row, up to an additive constant (Section~\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.
 
-Application interfaces also accept non-assignment costs. MATLAB's \texttt{assignjv}, \texttt{assignmunkres}, and \texttt{assignauction} take a scalar cost of non-assignment charged per unmatched endpoint \cite{mathworks2018assign}. The Tracker Component Library includes a Jonker--Volgenant routine for missed detections that never builds the augmented matrix but keeps search state for one virtual row per target \cite{crouse2017tcl}. The implementation combines a constant-size rejection terminal with rectangular reductions, the threshold arguments of \texttt{lap.lapjv}, and native batch execution.
+Application interfaces also accept non-assignment costs. MATLAB's \texttt{assignjv}, \texttt{assignmunkres}, and \texttt{assignauction} take a scalar cost of non-assignment charged per unmatched endpoint \cite{mathworks2018assign}. The Tracker Component Library includes a Jonker--Volgenant routine for missed detections that never builds the augmented matrix but keeps search state for one virtual row per target \cite{crouse2017tcl}.
 
-The compact reduction in \cite{bougleux2020} is also an executable comparison point. For uniform endpoint penalties, its cost factorization reduces, up to a constant shift, to capping real costs at the combined rejection price. Section 3.5 gives a self-contained argument for this specialization, including finite signed costs, and Section~\ref{sec:representations} evaluates it with SciPy. This provides a baseline without square expansion; it does not reproduce every optimization in the authors' LSAPE software.
+The compact reduction in \cite{bougleux2020} is also an executable comparison point. For uniform endpoint penalties, its cost factorization reduces, up to a constant shift, to capping real costs at the combined rejection price. Section~\ref{sec:compact} gives a self-contained argument for this specialization, including finite signed costs, and Section~\ref{sec:representations} evaluates it with SciPy. This provides a baseline without square expansion; it does not reproduce every optimization in the authors' LSAPE software.
 
 \subsection{Interfaces and transformed problems}
 
@@ -103,7 +103,7 @@ JVRUST, JVHYBRID and JVCPP provide native required rectangular assignment and fi
 The optional sparse comparisons include SciPy's \texttt{min\_weight\_full\_bipartite\_matching} (CSGRAPH) \cite{scipycsgraph} and LAPX's \texttt{lapmod} (LAPMOD). Their measured adapters construct admissible sparse edges and rejection structure from the same dense input. The layout adaptations credit Pylapy \cite{pylapy2026}; the benchmark source retains its MIT notice and identifies the adapted revision. Thus their complete-call times include representation construction. Table~\ref{tab:methods} distinguishes these numerical contracts from the separate LSAPE arms.
 
 \FloatBarrier
-\section{Problem formulation}
+\section{Problem formulation}\label{sec:formulation}
 
 \subsection{Required rectangular assignment}
 
@@ -120,7 +120,8 @@ x_{ij}\in\{0,1\}.
 
 The solver must match all r rows if this is feasible. Surplus columns remain unused. If the original matrix is tall, the returned indices are mapped back to the original orientation.
 
-\subsection{Finite-limit assignment}
+\noindent\begin{minipage}{\linewidth}
+\subsection{Finite-limit assignment}\label{sec:finite-limit}
 
 Let L be a finite limit and A a matching with K pairs. The finite-limit objective is
 
@@ -129,6 +130,7 @@ F(A)=\sum_{(i,j)\in A}C_{ij}
      +\frac{L}{2}(r+c-2K).
 \tag{2}
 \]
+\end{minipage}
 
 Each unmatched vertex incurs L/2. In the square augmentation used by JVX, the real costs occupy the upper-left block. Real-to-dummy and dummy-to-real blocks cost L/2, while the dummy-to-dummy block is zero.
 
@@ -142,7 +144,7 @@ Two real pairs cost 1.8. Selecting only the zero-cost pair leaves two unmatched 
 
 At equality, a real edge of cost L can tie with rejecting both endpoints. The objective does not impose maximum cardinality among equal-cost optima. Applications that require a particular inclusive-threshold or cardinality rule must specify it separately.
 
-\subsection{One-sided rejection equivalence}
+\subsection{One-sided rejection equivalence}\label{sec:one-sided}
 
 \noindent\begin{minipage}{\linewidth}
 \textbf{Proposition 1.} In exact arithmetic, minimizing (2) is equivalent to minimizing
@@ -211,7 +213,7 @@ For required rectangular assignment, rejection variables and the constraints \(u
 
 These propositions establish the formulation and a final optimality certificate. They are not a formal verification of every implementation transition or a floating-point error bound.
 
-\subsection{Compact equivalent formulations}
+\subsection{Compact equivalent formulations}\label{sec:compact}
 
 The one-sided objective also permits two formulations for an ordinary required rectangular solver. First, append r dummy columns of cost L to the oriented real matrix. The resulting r \ensuremath{\times} (c+r) problem assigns every row either to a real column or to one of the distinct dummy columns. Removing dummy pairs recovers an optimal finite-limit matching under (3).
 
@@ -227,19 +229,19 @@ Second, no additional columns are necessary when rejection costs are uniform. De
 
 \textbf{Proof.} For any required matching B, let A be its retained subset. Every discarded pair costs L in the capped problem, so the capped cost of B is exactly P(A). Conversely, any finite-limit matching A can be extended to r pairs because c\ensuremath{\geq}r. Each of the added pairs costs at most L after capping, and each original pair costs at most its original cost. Thus some required matching has capped cost at most P(A). Taking minima in both directions proves equality of the optimal values and optimality of the retained subset. The argument holds for finite real L and finite admissible costs, including negative values; forbidden original pairs are discarded. \hfill\ensuremath{\blacksquare}
 
-This is the uniform-penalty case of the substitution factorization underlying \cite{bougleux2020}, stated here to make the comparison reproducible. Under this specialization, Bougleux et al.\ (Theorem 1, Eqs. (7)--(9)) retain selected substitutions at equality, whereas Proposition 3 and the capped SciPy adapter discard them. Both conventions preserve the optimal penalized objective in exact arithmetic, but may return different pairs and cardinalities. Capping occurs before optimization. It is therefore different from solving the original required problem and then discarding expensive pairs, which fails in the example in Section 3.2. The capped and dummy-column baselines are equivalent in exact arithmetic; their floating-point behavior is assessed separately by the validation experiments.
+This is the uniform-penalty case of the substitution factorization underlying \cite{bougleux2020}, stated here to make the comparison reproducible. Under this specialization, Bougleux et al.\ (Theorem 1, Eqs. (7)--(9)) retain selected substitutions at equality, whereas Proposition 3 and the capped SciPy adapter discard them. Both conventions preserve the optimal penalized objective in exact arithmetic, but may return different pairs and cardinalities. Capping occurs before optimization. It is therefore different from solving the original required problem and then discarding expensive pairs, which fails in the example in Section~\ref{sec:finite-limit}. The capped and dummy-column baselines are equivalent in exact arithmetic; their floating-point behavior is assessed separately by the validation experiments.
 
 Table~\ref{tab:methods} gives the representation dimensions and objectives. A reusable terminal is a search option, not a capacity-one dummy column. These dimensions describe buffers, not measured process memory.
 
 \FloatBarrier
-\section{Implementation}
+\section{Implementation}\label{sec:implementation}
 
 \subsection{Shared architecture and three implementations}
 
 Each implementation consists of a thin Python extension and a native core. The extension validates shape, real numeric type, precision, and limit options, prepares a contiguous working representation where necessary, and invokes the core. The single-matrix and batch interfaces, return contracts, and error behavior are identical across the three implementations. JVRUST is provided by laprust 1.2.0 and the \texttt{lapjvr} family in LAPX 0.13.0; JVHYBRID by LAPX \texttt{lapjvh}; and JVCPP by lapcpp 1.2.0 \cite{laprust2026,lapx2026,lapcpp2026}.
 
 
-Interface compatibility here means that the single-matrix entry points accept the \texttt{extend\_cost}, \texttt{cost\_limit}, and \texttt{return\_cost} arguments of \texttt{lap.lapjv} with the same objective: the finite limit prices unmatched endpoints, and the reported total excludes those penalties. They return matched row and column index arrays, or pairs, rather than lap's full-length per-row and per-column assignment vectors, so callers of lap need a small output adaptation. Compatibility does not imply identical assignments when optima tie, or identical behavior across precision modes. At \(C_{ij}=L\), matching and rejection tie in exact arithmetic. Native reductions and search prefer rejection on computed ties, whereas the evaluated padded \texttt{lap.lapjv} can retain the edge. This is not a strict \(C_{ij}<L\) output guarantee: the rounded effective penalty \(p\) in Section 4.5 can differ from the supplied \(L\).
+Interface compatibility here means that the single-matrix entry points accept the \texttt{extend\_cost}, \texttt{cost\_limit}, and \texttt{return\_cost} arguments of \texttt{lap.lapjv} with the same objective: the finite limit prices unmatched endpoints, and the reported total excludes those penalties. They return matched row and column index arrays, or pairs, rather than lap's full-length per-row and per-column assignment vectors, so callers of lap need a small output adaptation. Compatibility does not imply identical assignments when optima tie, or identical behavior across precision modes. At \(C_{ij}=L\), matching and rejection tie in exact arithmetic. Native reductions and search prefer rejection on computed ties, whereas the evaluated padded \texttt{lap.lapjv} can retain the edge. This is not a strict \(C_{ij}<L\) output guarantee: the rounded effective penalty \(p\) in Section~\ref{sec:numeric} can differ from the supplied \(L\).
 
 The native dispatcher selects the square kernel only for square inputs with an infinite limit. The square kernel's initialization and reductions are followed by an augmentation phase that completes the matching. JVRUST executes this phase in Rust. JVHYBRID calls a C++ completion kernel that operates on Rust-owned workspace and preserves the completion strategy and operation order. JVCPP implements the whole algorithm in C++, including the same C++ completion routine. This design permits two comparisons: of completion kernels within otherwise identical Rust code (JVRUST against JVHYBRID), and of complete Rust and C++ implementations of one algorithm (JVRUST against JVCPP).
 
@@ -265,10 +267,14 @@ Let D be the distance of the selected endpoint. The root's potential increases b
 
 If rejection is selected, the number of real pairs need not increase: the path can replace one row's real assignment and leave another row unmatched.
 
-Figure~\ref{fig:paths} in the appendix illustrates these two search endpoints.
+Figure~\ref{fig:paths} illustrates the two endpoints, and Algorithm~\ref{alg:1} places them within the complete rectangular solve.
 
-
-Algorithm 1 summarizes the distinction between this representation and explicit matrix augmentation.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.50\textheight,keepaspectratio]{images/rejection_paths.pdf}
+\caption{Conceptual paths to a free real column or reusable rejection terminal. A free-column endpoint adds a real pair; a rejection endpoint can transfer unmatched status without increasing cardinality. This illustrates the algorithm rather than an observed execution trace.}
+\label{fig:paths}
+\end{figure}
 
 \begin{algorithm}[!htbp]
 \caption{High-level native rectangular control flow with implicit rejection. The implementation additionally specifies reduction budgets, finite-value checks, tie handling, and workspace reuse.}
@@ -287,6 +293,7 @@ Map real pairs back to the original matrix orientation.
 \end{lstlisting}
 \end{algorithm}
 
+\FloatBarrier
 \subsection{Storage, batching, and operation bounds}
 
 For contiguous wide inputs in the selected cost dtype, the real cost matrix can be borrowed. Solver state is \(\mathcal{O}(r+c)\), with float64 numerical workspace even when costs are float32; widening this linear workspace does not require a dense float64 cost copy. Pair output is \(\mathcal{O}(r)\). Tall inputs may require an \(\mathcal{O}(rc)\) orientation copy, and dtype or layout conversion can also require a dense copy. Including these costs, storage remains \(\mathcal{O}(rc+r+c)\), rather than requiring a c-square or (r+c)-square cost matrix.
@@ -295,7 +302,7 @@ Batch input storage is shared with the call. Each active worker retains its own 
 
 Each bounded row-reduction pass performs \(\mathcal{O}(rB)\) scans of at most c real costs; the additional free-column tie scan has the same order. Since \(B\leq4\), the two passes cost \(\mathcal{O}(rc)\). Each final augmenting search visits at most r occupied real columns before reaching a terminal, scanning up to c candidates at each step. Across r roots, augmentation costs \(\mathcal{O}(r^2c)\). Thus \(\mathcal{O}(rc+r^2c)\) is a conservative bound for this release's rectangular solve, excluding separately described conversion and output work. The required-only cutoff can reduce initialization work but is unnecessary for this bound. This is an implementation bound, not an asymptotic improvement over established rectangular assignment methods.
 
-\subsection{Numeric and interface contract}
+\subsection{Numeric and interface contract}\label{sec:numeric}
 
 All three native implementations retain selected float32/float64 cost storage while using float64 potentials, distances, minima, and reduced-cost arithmetic on required square, rectangular, and finite-limit paths. LAPX's JVS implementation also widens its numerical working state. The wider working arithmetic reduces cancellation when large costs coexist with small assignment differences; it cannot restore distinctions lost during input conversion or guarantee exact optimization for arbitrary dynamic ranges. Finite float64-to-float32 conversion overflow is checked. Other accepted real numeric dtypes first undergo NumPy conversion to float64 without an equivalent explicit overflow check; on platforms with wider real types, a finite value outside binary64 range can become positive infinity at that stage. A motivating upstream report \cite{lapjvprecision2026} gives the exactly representable float32 matrix \(\left(\begin{smallmatrix}2^{24}&2^{24}\\1/8&1/4\end{smallmatrix}\right)\): choosing the diagonal costs \(2^{24}+1/4\), while the off-diagonal costs \(2^{24}+1/8\). Accumulating selected original costs in float64 exposes the difference that float32 arithmetic can conceal. This witness motivates regression coverage without establishing robustness for every numerical scale.
 
@@ -335,9 +342,9 @@ Non-geometric synthetic costs start from independent $U_{ij}\sim\mathrm{Uniform}
 
 The frozen generator preserves legacy PCG64 streams and offsets; it does not derive every input from one common seed. Extended families use seed 20261024 with a group-key hash and input index; geometry and supplemental inputs use seed 20261030 with the full SHA-256 group-key digest and input index. The manifests and source snapshots retain the legacy seeds, stream offsets and exact construction rules. Input hashes identify the actual measured corpus.
 
-Every assignment timing condition uses five frozen inputs, three rounds and a 20 ms target block. The estimate is the median of three round means, with equal weight to each input within a round. The reported reference/method ratio divides these estimates from the same successful paired attempt; it is not a median of input-wise ratios. Required cases use ordinary SciPy and optional cases use capped SciPy as their primary comparator. JVHYBRID's canonical coverage is required-only; its absence in optional panels is planned.
+Every assignment timing condition uses five frozen inputs, three rounds and a 20 ms target block. The estimate is the median of three round means, with equal weight to each input within a round. Single-matrix ratios divide reference and method estimates from the same successful paired attempt; they are not medians of input-wise ratios. Batch comparisons within one placement also use the same attempt. Worker-count contrasts compare matched inputs in separate process attempts under their respective CPU placements. Required cases use ordinary SciPy and optional cases use capped SciPy as their primary comparator. JVHYBRID's canonical coverage is required-only; its absence in optional panels is planned.
 
-Ratios below 0.97 are losses, values in $[0.97,1.03]$ are practical ties, and values above 1.03 are wins. This band is descriptive. We neither pool environments nor interpret timing-round spread as independent-session uncertainty. Derived tall/wide contrasts join two matched-corpus case attempts and are explicitly distinct from the saved same-attempt ratios. All estimates, references, input identities, attempts, status and reasons remain in the indexed supplement.
+Ratios below 0.97 are losses, values in $[0.97,1.03]$ are practical ties, and values above 1.03 are wins. This band is descriptive. We neither pool environments nor interpret timing-round spread as independent-session uncertainty. Derived tall/wide contrasts also join distinct matched-corpus case attempts. All estimates, references, input identities, attempts, status and reasons remain in the indexed supplement.
 
 \subsection{Geometry, representations and controlled policies}
 
@@ -380,14 +387,14 @@ With $h=\mathrm{float64}(L/2)$ and $p=h+h$, equal endpoint costs $(h,h)$ and one
 \FloatBarrier
 \subsection{Coverage and native comparisons}
 
-Figure~\ref{fig:native} shows the full distribution of matching-SciPy/method ratios for native, legacy dense and sparse solvers on their planned single-matrix cases. Each curve is one solver and environment; its height is the fraction of that solver's admitted cases with a ratio at least as large as the horizontal coordinate. This retains losses as well as the extent of an advantage. All three native methods win all 102 required comparisons under the stated band. Tables~\ref{tab:nativefamilies} and~\ref{tab:nativeexceptions} give the native family counts and exact non-win workloads.
+Figure~\ref{fig:native} shows the full distribution of matching-SciPy/method ratios for native, legacy dense and sparse solvers on their planned single-matrix cases. Each curve is one solver and environment; its height is the fraction of that solver's admitted cases with a ratio at least as large as the horizontal coordinate. This retains losses as well as the extent of an advantage. All three native methods win all 102 required comparisons under the stated band. Across the four separately summarized environments, JVRUST's median ratio ranges from $3.67$ to $4.66$ for required assignment and $4.72$ to $5.23$ for optional assignment. These are medians over the selected cases within each environment, not pooled estimates. Tables~\ref{tab:nativefamilies} and~\ref{tab:nativeexceptions} give the native family counts and exact non-win workloads.
 
 For optional assignment, JVRUST's wins/ties/losses are $165/1/0$, $165/1/0$, $163/2/1$ and $164/1/1$ in L311/L314/W311/W314. JVCPP's corresponding counts are $163/2/1$, $163/2/1$, $165/1/0$ and $166/0/0$. The denominator is 166 capped-SciPy comparisons in every environment. All optional native ties and losses occur on congested-block inputs in three declared families: formulations, scaling and congestion. The only losses are on the hardest congestion-sweep case, case 041: JVRUST's ratios are approximately $0.984$, $0.985$, $0.916$ and $0.926$; JVCPP's are $0.956$, $0.943$, $1.023$ and $1.036$. The W311 Rust loss corresponds to about 9.2\% extra latency relative to capped SciPy. The other exceptions are practical ties on the optional $256\times320$ formulation and $128\times160$ scaling inputs. Native rejection does not imply universal dominance over an original-dimension formulation.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F1_overview_ccdf.pdf}
-\caption{Complementary empirical distributions of matching-SciPy/method complete-call ratios. One curve represents one method and environment over that method's planned cases; reduced denominators are stated in the panel legends. Required and optional objectives remain separate. Color identifies method; Linux curves are solid and Windows curves dashed, with both Python versions drawn individually. The vertical rule is parity and the gray band is $[0.97,1.03]$. Environments are not averaged.}
+\caption{Complementary empirical distributions of matching-SciPy/method complete-call ratios. One curve represents one method and environment over that method's planned cases; reduced denominators are stated in the panel legends. Required and optional objectives remain separate. Color identifies method; solid, dashed, dotted and dash-dot lines identify L311, L314, W311 and W314, respectively. The vertical rule is parity and the gray band is $[0.97,1.03]$. Environments are not averaged.}
 \label{fig:native}
 \end{figure}
 
@@ -399,19 +406,19 @@ Figure~\ref{fig:geometry} links absolute runtime and relative latency over the s
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F2_geometry_lines.pdf}
-\caption{Square geometry with $q=0.9$ and motion standard deviation $0.25\delta$: complete-call ms above, matching-SciPy/method ratios below. Required assignment and optional assignment with $L=1.5\delta$ and no gate are separate columns. Each line is one environment; Linux is solid and Windows dashed, with method-specific colors and symbols. JVX/JVS are not planned above 1024 rows in the required panel, including unpadded squares; optional JVX and square-expanded SciPy obey the same cutoff. No scaling exponent is fitted.}
+\caption{Square geometry with $q=0.9$ and motion standard deviation $0.25\delta$: complete-call ms above, matching-SciPy/method ratios below. Required assignment and optional assignment with $L=1.5\delta$ and no gate are separate columns. Method-specific colors and symbols combine with solid/dashed/dotted/dash-dot lines for L311/L314/W311/W314. JVX/JVS are not planned above 1024 rows in the required panel, including unpadded squares; optional JVX and square-expanded SciPy obey the same cutoff. No scaling exponent is fitted.}
 \label{fig:geometry}
 \end{figure}
 
 \FloatBarrier
 \subsection{Representation and padded layout}\label{sec:representations}
 
-The equivalent objectives in Section 3 do not require identical storage or work. Figure~\ref{fig:representations} shows five complete-call implementations on all 14 optional formulation workloads; the congested-block input is labelled because it contains the native near-parity exceptions. The supplement retains the diagonal-dummy variant and all 624 controlled layout conditions per environment. An expanded-versus-native gap includes construction and a different solver trajectory; it cannot be attributed entirely to padding allocation. Capped SciPy controls dimensions while retaining different initialization, search and interface work. Constructor-only measurements and buffer dimensions remain secondary evidence.
+The equivalent objectives in Section~\ref{sec:formulation} do not require identical storage or work. Figure~\ref{fig:representations} shows five complete-call implementations on all 14 optional formulation workloads; the congested-block input is labelled because it contains the native near-parity exceptions. The supplement retains the diagonal-dummy variant and all 624 controlled layout conditions per environment. An expanded-versus-native gap includes construction and a different solver trajectory; it cannot be attributed entirely to padding allocation. Capped SciPy controls dimensions while retaining different initialization, search and interface work. Constructor-only measurements and buffer dimensions remain secondary evidence.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F3_representations_strip.pdf}
-\caption{Distribution over the 14 optional formulation workloads for each displayed implementation, relative to capped SciPy. One marker is one workload/environment ratio; filled markers denote Linux and open markers Windows. Deterministic offsets separate coincident observations without changing their horizontal values. The labelled congested-block workload retains the native practical ties. The diagonal-dummy and controlled-layout comparisons remain in the supplement.}
+\caption{Distribution over the 14 optional formulation workloads for each displayed implementation, relative to capped SciPy. One marker is one workload/environment ratio; filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Deterministic offsets separate coincident observations without changing their horizontal values. The labelled congested-block workload retains the native practical ties. The diagonal-dummy and controlled-layout comparisons remain in the supplement.}
 \label{fig:representations}
 \end{figure}
 
@@ -428,7 +435,7 @@ The counters in Table~\ref{tab:counters} show how initialization substitutes for
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F4_policy_forest.pdf}
-\caption{Policy distributions within each language and environment. For each intervention, a marker gives the median intervention/budget-4-reference latency ratio over eligible cases; the thick bar is the interquartile range and the thin line the observed minimum--maximum. These are descriptive spreads over different workloads, not confidence intervals. Linux markers are filled and Windows markers open; each Python version remains a separate estimate. Values above one mean a slower intervention. Table~\ref{tab:counters} uses separately instrumented calls.}
+\caption{Policy distributions within each language and environment. For each intervention, a marker gives the median intervention/budget-4-reference latency ratio over eligible cases; the thick bar is the interquartile range and the thin line the observed minimum--maximum. These are descriptive spreads over different workloads, not confidence intervals. Filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Values above one mean a slower intervention. Table~\ref{tab:counters} uses separately instrumented calls.}
 \label{fig:policy}
 \end{figure}
 
@@ -444,7 +451,7 @@ The counters in Table~\ref{tab:counters} show how initialization substitutes for
 \end{table}
 
 \FloatBarrier
-\subsection{Sparse methods against two references}
+\subsection{Sparse methods against two references}\label{sec:sparse}
 
 Beating dense capped SciPy does not imply beating the native implementation. Figure~\ref{fig:sparse} therefore compares each sparse method with both capped SciPy and JVRUST on every optional case. Sparse construction is included, so a solver can benefit from admissible sparsity yet lose once the complete interface is measured. CSGRAPH wins against capped SciPy on 53, 56, 47 and 55 of 166 cases, but against JVRUST on only 2, 2, 0 and 0. LAPMOD's corresponding win counts are 56, 55, 58 and 58 against capped SciPy and 2, 2, 3 and 3 against JVRUST. Retaining both axes exposes cases that a single dense-reference speedup would describe too favorably. Finite-after-gate diagnostics are not substituted for the actual below-limit admissible-edge density.
 
@@ -469,7 +476,7 @@ The rejection-limit appendix links complete-call latency to realized unmatched-r
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F_structure_lines.pdf}
-\caption{Ordered native-solver sweeps at $256\times320$. Columns vary congested row fraction, forbidden-entry probability and quantization levels; rows separate required and optional assignment. One curve is one method/environment, with all other case parameters fixed. Color identifies method, Linux is solid and Windows dashed. Ratios above one favor the native method over required or capped SciPy. The case-041 annotation retains both Rust/Windows and C++/Linux losses.}
+\caption{Ordered native-solver sweeps at $256\times320$. Columns vary congested row fraction, forbidden-entry probability and quantization levels; rows separate required and optional assignment. One curve is one method/environment, with all other case parameters fixed. Color identifies method; solid/dashed/dotted/dash-dot lines identify L311/L314/W311/W314. Ratios above one favor the native method over required or capped SciPy. The case-041 annotation retains both Rust/Windows and C++/Linux losses.}
 \label{fig:structure}
 \end{figure}
 
@@ -481,7 +488,7 @@ Figure~\ref{fig:batch} separates loop-to-batch dispatch, worker count and worksp
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{images/current/F6_batch_dots.pdf}
-\caption{Named batch contrasts with workload rows. Each marker is a method/environment ratio: loop/one-worker batch, one/four workers, recreated/retained scratch ($W1/W0$), or recreated/retained orientation storage ($W2/W1$), as labelled. Colors identify methods; Linux is filled and Windows open. The workspace panel uses W0 for worker scaling and four workers for reuse. All three standard and 14 workspace workloads remain visible; one-worker reuse and the remaining contrasts are supplementary. Values below one retain regressions.}
+\caption{Named batch contrasts with workload rows. Each marker is a method/environment ratio: loop/one-worker batch, one/four workers, recreated/retained scratch ($W1/W0$), or recreated/retained orientation storage ($W2/W1$), as labelled. Colors identify methods; filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. The workspace panel uses W0 for worker scaling and four workers for reuse. All three standard and 14 workspace workloads remain visible; one-worker reuse and the remaining contrasts are supplementary. Values below one retain regressions.}
 \label{fig:batch}
 \end{figure}
 
@@ -509,7 +516,7 @@ These results characterize the Hungarian adaptation and its measurement boundary
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F8_lsape_strip.pdf}
-\caption{All 67 LSAPE cases in each contrast and Windows environment, with the frozen primary $O/P$ first. Each point is the median of three process estimates for one case; W311 markers are filled and W314 markers open. Color and shape identify the denominator arm: $P$ black squares, $U$ amber triangles and $T$ blue diamonds. Deterministic vertical spread separates points without changing ratios. Counts beside each row use unrounded values and the practical band. Ratios above one favor the denominator arm. The complete export retains process ranges and all eight saved contrasts.}
+\caption{All 67 LSAPE cases in each contrast and Windows environment, with the frozen primary $O/P$ first. Each point is the median of three process estimates for one case; smaller/larger open markers denote W311/W314 in separately keyed lanes. Color and shape identify the denominator arm: $P$ black squares, $U$ amber triangles and $T$ blue diamonds. Deterministic vertical spread separates points without changing ratios. Counts beside each row use unrounded values and the practical band. Ratios above one favor the denominator arm. The complete export retains process ranges and all eight saved contrasts.}
 \label{fig:lsape}
 \end{figure}
 
@@ -523,7 +530,7 @@ For the optional $64\times16384$ pair, JVRUST tall/wide ratios are approximately
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{images/current/F9_orientation_dots.pdf}
-\caption{Tall/wide complete-call ratios by method, with required and optional objectives separated. One marker is one of six matched shape pairs in one environment; shape symbols distinguish the pairs, colors identify methods, and fill distinguishes Linux from Windows. Both Python versions are drawn separately. Ratios above one mean a slower tall call. All 74 planned method-pair comparisons per environment are retained, with unavailable shape/method pairs identified as not planned. Wide and tall timings come from distinct attempts with matched underlying values.}
+\caption{Tall/wide complete-call ratios by method, with required and optional objectives separated. One marker is one of six matched shape pairs in one environment; shape symbols distinguish the pairs and colors identify methods. Filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Ratios above one mean a slower tall call. All 74 planned method-pair comparisons per environment are retained, with unavailable shape/method pairs identified as not planned. Wide and tall timings come from distinct attempts with matched underlying values.}
 \label{fig:orientation}
 \end{figure}
 
@@ -556,7 +563,7 @@ For applications, the assignment objective, tie convention, represented precisio
 \FloatBarrier
 \section{Limitations and threats to validity}
 
-There is one primary session per environment, on one recorded processor model. The study does not estimate variation across days, machines or compilers. Frequency, power-management behavior and background activity remain uncontrolled. Three rounds over five frozen inputs give descriptive within-session estimates, not population confidence intervals or significance tests. Within-attempt rounds cannot detect a persistent attempt-level shift. The seven post-hoc reference discrepancies in Section~6.5 show why reference stability matters, but interpreter, build and collection session change together; the data cannot identify a causal attempt effect. All primary observations and classifications are retained. The practical tie band is a reporting convention, and a tie does not prove numerical or performance equivalence.
+There is one primary session per environment, on one recorded processor model. The study does not estimate variation across days, machines or compilers. Frequency, power-management behavior and background activity remain uncontrolled. Three rounds over five frozen inputs give descriptive within-session estimates, not population confidence intervals or significance tests. Within-attempt rounds cannot detect a persistent attempt-level shift. The seven post-hoc reference discrepancies in Section~\ref{sec:sparse} show why reference stability matters, but interpreter, build and collection session change together; the data cannot identify a causal attempt effect. All primary observations and classifications are retained. The practical tie band is a reporting convention, and a tie does not prove numerical or performance equivalence.
 
 The initialization heuristic was selected using related workload families. Controlled ablations characterize the selected panel, but do not establish a held-out optimum or universal policy. The synthetic geometry is tracking-like rather than a sample from the application corpus. The light profile deliberately omits two geometry settings outside the complete panels and stops selected baselines above 1024 rows. No missing observation is extrapolated. The separate full-session sensitivity check supports a bounded reporting choice, not statistical equivalence of protocols.
 
@@ -569,12 +576,14 @@ Memory counters have platform-specific semantics and prior-peak headroom. Neithe
 \FloatBarrier
 \section{Conclusion}
 
-Native rectangular rejection integrates established assignment principles without requiring square expansion. In each of four environments, the measured Rust, hybrid and C++ implementations win all 102 required comparisons against rectangular SciPy under a 3\% practical band. Optional results remain favorable on most of the 166 cases, with congested-block ties and losses in the formulation, scaling and congestion families against capped SciPy. Representation, policy, work, sparse, batch and orientation controls make these results conditional on the workload and complete interface. Application replay gains attenuate in tracker updates, and the LSAPE controls remain a separate within-Hungarian experiment. The reproducible saved-data figures and indexed evidence support these measured claims without implying algorithmic priority, universal superiority or unmeasured application benefits.
+Native rectangular rejection integrates established assignment principles without requiring square expansion. In each of four environments, the measured Rust, hybrid and C++ implementations win all 102 required comparisons against rectangular SciPy under a 3\% practical band. JVRUST's median reference/method ratio ranges from $3.67$ to $4.66$ for required assignment and $4.72$ to $5.23$ for optional assignment, with each environment summarized separately. Optional gains remain workload-dependent: congested-block inputs produce ties and losses, including 9.2\% extra JVRUST latency in the worst measured Windows comparison with capped SciPy. The controls show why representation, initialization, input structure, orientation and interface work all matter when selecting an implementation. Application replay gains attenuate in tracker updates, while the LSAPE study remains a separate within-Hungarian experiment. The saved-data figures and indexed evidence support these descriptive results without implying algorithmic priority, universal superiority or unmeasured application benefits.
 
 \FloatBarrier
 \section*{Data and software availability}
 
-The paper repository is \href{https://github.com/rathaROG/lap-paper}{github.com/rathaROG/lap-paper}. The primary data are the four \texttt{paper-run-light} roots under \texttt{benchmark/runs/}: \path{linux-py3.11.18-20261031-0455}, \path{linux-py3.14.10-20261031-0630}, \path{windows-py3.11.18-20261030-2322} and \path{windows-py3.14.10-20261031-0322}. The accompanying \path{benchmark/evidence/} bundle packages the files needed for regeneration, together with all primary raw timing/validation logs, in five checksummed archives. Its manifest identifies each file, digest and source root; the fifth archive supports only the separate full-session sensitivity analysis. These are saved observations and metadata, not executable benchmark builds. Native module hashes and controlled build identities distinguish release interfaces from policy and diagnostic variants.
+The repository for this work is \href{https://github.com/rathaROG/lap-paper}{github.com/rathaROG/lap-paper}. Publication of the repository update and arXiv replacement accompanying this revised manuscript is pending; the public versions currently describe the earlier study. The source and evidence described below accompany this local revision.
+
+The primary data are the four \texttt{paper-run-light} roots under \texttt{benchmark/runs/}: \path{linux-py3.11.18-20261031-0455}, \path{linux-py3.14.10-20261031-0630}, \path{windows-py3.11.18-20261030-2322} and \path{windows-py3.14.10-20261031-0322}. The accompanying \path{benchmark/evidence/} bundle packages the files needed for regeneration, together with all primary raw timing/validation logs, in five checksummed archives. Its manifest identifies each file, digest and source root; the fifth archive supports only the separate full-session sensitivity analysis. These are saved observations and metadata, not executable benchmark builds. Native module hashes and controlled build identities distinguish release interfaces from policy and diagnostic variants.
 
 After installing \path{benchmark/requirements-artifacts.txt}, run \texttt{python} \path{benchmark/paper_evidence.py} \texttt{extract} to restore and verify the saved files. Then \texttt{python} \path{benchmark/generate_paper_artifacts.py} from the repository root regenerates the empirical figures, table fragments and indexed supplement using saved observations only. Outputs are under \texttt{latex/images/current/}, \texttt{latex/generated/} and \texttt{benchmark/paper-artifacts/}. The companion \path{latex/supplementary_figures.tex} builds the paginated figure atlas; its output is \path{output/pdf/supplementary_figures.pdf}. The separate \path{linux-py3.11.18-20261030-1434/paper-run} session is used only for the supplementary protocol sensitivity; none of its timings enters the four-environment plots. No solver execution is required to reproduce the reported projections.
 
@@ -620,16 +629,9 @@ Figure~\ref{fig:sensitivity} uses a heatmap for the crossed $256\times320$ geome
 \end{figure}
 
 \FloatBarrier
-\section{Conceptual rejection paths and limit sweep}
+\section{Rejection-limit sweep}
 
-The diagram below is an algorithm illustration, not an observed execution trace. The measured limit sweep in Figure~\ref{fig:rejection} reuses saved costs within each family and reads realized cardinality from validation records. No matrix is regenerated and no solver is rerun to obtain the plotted unmatched fractions. In the congested-block $256\times320$ case, every saved input has 144 matches at both $L=0.05$ and $L=0.5$, leaving 43.75\% of smaller-side rows unmatched. JVRUST latency nevertheless changes from 68.94 to 706.63 $\mu$s in L311, 68.91 to 710.73 $\mu$s in L314, 67.93 to 773.42 $\mu$s in W311, and 68.08 to 771.40 $\mu$s in W314. These within-environment changes exceed tenfold at identical cardinality; they do not isolate the rejected fraction as the cause.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=\linewidth,height=.50\textheight,keepaspectratio]{images/rejection_paths.pdf}
-\caption{Conceptual paths to a free real column or reusable rejection terminal. A free-column endpoint adds a real pair; a rejection endpoint can transfer unmatched status without increasing cardinality.}
-\label{fig:paths}
-\end{figure}
+The measured limit sweep in Figure~\ref{fig:rejection} reuses saved costs within each family and reads realized cardinality from validation records. No matrix is regenerated and no solver is rerun to obtain the plotted unmatched fractions. In the congested-block $256\times320$ case, every saved input has 144 matches at both $L=0.05$ and $L=0.5$, leaving 43.75\% of smaller-side rows unmatched. JVRUST latency nevertheless changes from 68.94 to 706.63 $\mu$s in L311, 68.91 to 710.73 $\mu$s in L314, 67.93 to 773.42 $\mu$s in W311, and 68.08 to 771.40 $\mu$s in W314. These within-environment changes exceed tenfold at identical cardinality; they do not isolate the rejected fraction as the cause.
 
 
 
@@ -637,7 +639,7 @@ The diagram below is an algorithm illustration, not an observed execution trace.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth,height=.68\textheight,keepaspectratio]{images/current/F11_rejection_lines.pdf}
-\caption{Linked rejection-limit sweeps for uniform and congested-block inputs. Runtime panels retain complete-call latency separately by method and environment; companion panels show the smaller-side unmatched fraction derived from the five saved input cardinalities. Linux lines are solid and Windows dashed. The common limit axis is linear from zero through 0.0005 and logarithmic above it. Constant cardinality does not imply constant latency; no solver or input generator was rerun to obtain these values.}
+\caption{Linked rejection-limit sweeps for uniform and congested-block inputs. Runtime panels retain complete-call latency separately by method and environment; companion panels show the smaller-side unmatched fraction derived from the five saved input cardinalities. Solid/dashed/dotted/dash-dot lines identify L311/L314/W311/W314. The common limit axis is linear from zero through 0.0005 and logarithmic above it. Constant cardinality does not imply constant latency; no solver or input generator was rerun to obtain these values.}
 \label{fig:rejection}
 \end{figure}
 

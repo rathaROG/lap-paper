@@ -20,9 +20,10 @@
         "four",
         "302",
         "3,286",
-        "91",
         "five",
         "three",
+        "91",
+        "five",
         "all",
         "three",
         "3",
@@ -34,7 +35,7 @@
         "67"
       ],
       "section": "Abstract",
-      "statement": "Rectangular assignment with a uniform unmatched penalty is often implemented by expanding the cost matrix. We integrate established rectangular Jonker--Volgenant principles, implicit rejection, float64 working arithmetic and reusable workspaces in Rust (JVRUST), hybrid Rust/C++ (JVHYBRID) and C++ (JVCPP) implementations. A single campaign evaluates laprust/lapcpp 1.2.0 and LAPX 0.13.0 in four Windows/Linux and Python environments. Each environment contains 302 cases, 3,286 complete timing conditions and 91 memory conditions, using five inputs and three timing rounds. Against the matching compact SciPy reference, all three native implementations exceed a 3\\% advantage on all 102 required cases; JVRUST and JVCPP do so on 163--165 and 163--166 of 166 optional cases, respectively, with ties and losses retained. Geometry sweeps, representation controls, policy ablations, work counters, sparse solvers and orientation pairs qualify these results by workload and interface. Assignment-replay gains are attenuated in tracker updates, and equal replay objectives do not imply identical tracking outputs. A separate 67-case Windows LSAPE study distinguishes formulation, specialization, layout and rejection tracking within Hungarian code. The contribution is software integration and reproducible performance characterization, without algorithmic priority, significance claims or a universal solver ranking. The initialization policy was developed using related workload families; these measurements are not a held-out test of heuristic optimality.",
+      "statement": "Rectangular assignment with a uniform unmatched penalty is often implemented by expanding the cost matrix. We integrate established rectangular Jonker--Volgenant principles and implicit rejection with float64 working arithmetic and reusable workspaces in Rust (JVRUST), hybrid Rust/C++ (JVHYBRID) and C++ (JVCPP). A campaign evaluates laprust/lapcpp 1.2.0 and LAPX 0.13.0 in four Windows/Linux and Python environments. Each environment contains 302 cases: 3,286 complete-call timing conditions with five inputs and three rounds, plus 91 memory conditions with five fresh-process trials. Against the matching compact SciPy reference, all three native implementations exceed a 3\\% advantage on all 102 required cases; JVRUST and JVCPP do so on 163--165 and 163--166 of 166 optional cases, respectively. Controlled comparisons qualify these gains by representation, initialization, sparsity, batching and orientation. Assignment-replay gains attenuate in tracker updates, and equal replay objectives do not imply identical tracking outputs. A separate 67-case Windows LSAPE study examines related transformations within Hungarian code. The contribution is software integration and reproducible performance characterization. Adverse results are retained; no algorithmic priority, statistical significance or universal solver ranking is claimed. The initialization policy was developed using related workload families, so the campaign is not a held-out test of heuristic optimality.",
       "subsection": ""
     },
     {
@@ -101,11 +102,10 @@
       "id": "M0005",
       "line": 72,
       "numeric_tokens": [
-        "2--4",
         "every"
       ],
       "section": "Introduction",
-      "statement": "Sections 2--4 give the background, formulation and implementation. Section~\\ref{sec:design} specifies the saved campaign, Section~\\ref{sec:results} reports its results, and the discussion and limitations delimit their interpretation. Appendices organize additional evidence by workload and measurement question. The indexed supplement retains absolute values and provenance for every plotted observation.",
+      "statement": "Sections~\\ref{sec:background}--\\ref{sec:implementation} give the background, formulation and implementation. Section~\\ref{sec:design} specifies the saved campaign, Section~\\ref{sec:results} reports its results, and the discussion and limitations delimit their interpretation. Appendices organize additional evidence by workload and measurement question. The indexed supplement retains absolute values and provenance for every plotted observation.",
       "subsection": ""
     },
     {
@@ -121,7 +121,7 @@
         "zero"
       ],
       "section": "Background and related work",
-      "statement": "SciPy \\cite{virtanen2020scipy} supplies a native rectangular solver documented as a modified Jonker--Volgenant algorithm without initialization, referencing Crouse's treatment \\cite{crouse2016,scipylsa}. Rectangular solving without square padding already exists independently of the proposed solver. Initialized rectangular JV also predates this work: Volgenant's RJV omits square column reduction and applies augmenting row reduction from zero column potentials \\cite{volgenant1996}. Bijsterbosch and Volgenant refine RJV and specialize it for k-cardinality and outsourcing, including a capped-cost comparison on the original dimensions and a single relevant external option per person \\cite{bijsterbosch2010}. That unexpanded outsourcing formulation originates with Vander Wiel and Sahinidis, whose shortest augmenting path algorithm treats external assignment through a single unrestricted arc \\cite{vanderwiel1997}. These initialized rectangular and outsourcing searches are direct predecessors of the state and rejection handling studied here. The contribution concerns software integration and performance evaluation, without priority for these individual principles.",
+      "statement": "SciPy \\cite{virtanen2020scipy} supplies a native rectangular solver documented as a modified Jonker--Volgenant algorithm without initialization, referencing Crouse's treatment \\cite{crouse2016,scipylsa}. Initialized rectangular JV also predates this work: Volgenant's RJV omits square column reduction and applies augmenting row reduction from zero column potentials \\cite{volgenant1996}. Bijsterbosch and Volgenant refine RJV and specialize it for k-cardinality and outsourcing, including a capped-cost comparison on the original dimensions and a single relevant external option per person \\cite{bijsterbosch2010}. That unexpanded outsourcing formulation originates with Vander Wiel and Sahinidis, whose shortest augmenting path algorithm treats external assignment through a single unrestricted arc \\cite{vanderwiel1997}. These initialized rectangular and outsourcing searches are direct predecessors of the state and rejection handling studied here.",
       "subsection": "Assignment algorithms and implementation lineage"
     },
     {
@@ -143,7 +143,7 @@
         "2016"
       ],
       "section": "Background and related work",
-      "statement": "Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using a null element on each side rather than a full square expansion \\cite{bougleux2016}. Their augmenting paths can terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \\cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.",
+      "statement": "Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using element-specific insertion and removal costs and a null element on each side \\cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \\cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -177,15 +177,13 @@
       "numeric_tokens": [
         "2",
         "one",
-        "3.3",
         "one",
         "one",
         "one",
-        "4",
-        "2016"
+        "4"
       ],
       "section": "Background and related work",
-      "statement": "Bougleux and Brun \\cite{bougleux2016} address assignment with element-specific insertion and removal costs through a compact null-element representation and an adapted Hungarian algorithm. The present solver specializes the penalty structure: a common cost \\(L/2\\) per unmatched endpoint yields a one-sided objective with rejection cost \\(L\\) per unmatched smaller-side row, up to an additive constant (Section 3.3). We realize this specialization within a Jonker--Volgenant implementation combining rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \\texttt{lap.lapjv}, and native batching. Null-terminal augmenting paths already occur in \\cite{bougleux2016}; we do not claim a new optional-assignment objective, a new null-terminal principle, or an asymptotic improvement over that approach. Table~\\ref{tab:methods} defines the measured interfaces and LSAPE arms. Section~\\ref{sec:lsape-results} measures the one-sided adaptation within LSAPE-v4; it does not compare our JV implementation against LSAPE or reproduce the 2016 experiments. The native JV code descends from the JVS lineage; no algorithmic priority is claimed.",
+      "statement": "The present solver specializes the penalty structure: a common cost \\(L/2\\) per unmatched endpoint yields a one-sided objective with rejection cost \\(L\\) per unmatched smaller-side row, up to an additive constant (Section~\\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \\texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -201,7 +199,7 @@
         "one"
       ],
       "section": "Background and related work",
-      "statement": "Application interfaces also accept non-assignment costs. MATLAB's \\texttt{assignjv}, \\texttt{assignmunkres}, and \\texttt{assignauction} take a scalar cost of non-assignment charged per unmatched endpoint \\cite{mathworks2018assign}. The Tracker Component Library includes a Jonker--Volgenant routine for missed detections that never builds the augmented matrix but keeps search state for one virtual row per target \\cite{crouse2017tcl}. The implementation combines a constant-size rejection terminal with rectangular reductions, the threshold arguments of \\texttt{lap.lapjv}, and native batch execution.",
+      "statement": "Application interfaces also accept non-assignment costs. MATLAB's \\texttt{assignjv}, \\texttt{assignmunkres}, and \\texttt{assignauction} take a scalar cost of non-assignment charged per unmatched endpoint \\cite{mathworks2018assign}. The Tracker Component Library includes a Jonker--Volgenant routine for missed detections that never builds the augmented matrix but keeps search state for one virtual row per target \\cite{crouse2017tcl}.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -214,11 +212,10 @@
       "id": "M0011",
       "line": 97,
       "numeric_tokens": [
-        "3.5",
         "every"
       ],
       "section": "Background and related work",
-      "statement": "The compact reduction in \\cite{bougleux2020} is also an executable comparison point. For uniform endpoint penalties, its cost factorization reduces, up to a constant shift, to capping real costs at the combined rejection price. Section 3.5 gives a self-contained argument for this specialization, including finite signed costs, and Section~\\ref{sec:representations} evaluates it with SciPy. This provides a baseline without square expansion; it does not reproduce every optimization in the authors' LSAPE software.",
+      "statement": "The compact reduction in \\cite{bougleux2020} is also an executable comparison point. For uniform endpoint penalties, its cost factorization reduces, up to a constant shift, to capping real costs at the combined rejection price. Section~\\ref{sec:compact} gives a self-contained argument for this specialization, including finite signed costs, and Section~\\ref{sec:representations} evaluates it with SciPy. This provides a baseline without square expansion; it does not reproduce every optimization in the authors' LSAPE software.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -274,7 +271,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0015",
-      "line": 127,
+      "line": 128,
       "numeric_tokens": [
         "2",
         "2",
@@ -290,7 +287,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0016",
-      "line": 133,
+      "line": 135,
       "numeric_tokens": [
         "2.",
         "2,",
@@ -306,7 +303,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0017",
-      "line": 135,
+      "line": 137,
       "numeric_tokens": [
         "2"
       ],
@@ -320,7 +317,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0018",
-      "line": 137,
+      "line": 139,
       "numeric_tokens": [
         "0",
         "0.9",
@@ -337,7 +334,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0019",
-      "line": 141,
+      "line": 143,
       "numeric_tokens": [
         "Two",
         "1.8.",
@@ -356,7 +353,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0020",
-      "line": 148,
+      "line": 150,
       "numeric_tokens": [
         "1.",
         "2"
@@ -371,7 +368,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0021",
-      "line": 150,
+      "line": 152,
       "numeric_tokens": [
         "3"
       ],
@@ -385,7 +382,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0022",
-      "line": 160,
+      "line": 162,
       "numeric_tokens": [
         "2"
       ],
@@ -399,7 +396,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0023",
-      "line": 164,
+      "line": 166,
       "numeric_tokens": [
         "zero"
       ],
@@ -413,7 +410,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0024",
-      "line": 166,
+      "line": 168,
       "numeric_tokens": [
         "every"
       ],
@@ -427,7 +424,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0025",
-      "line": 168,
+      "line": 170,
       "numeric_tokens": [
         "all"
       ],
@@ -441,7 +438,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0026",
-      "line": 174,
+      "line": 176,
       "numeric_tokens": [],
       "section": "Problem formulation",
       "statement": "For an effective row penalty p, introduce a rejection variable \\(z_{i}\\):",
@@ -453,7 +450,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0027",
-      "line": 176,
+      "line": 178,
       "numeric_tokens": [
         "1,",
         "1,",
@@ -470,7 +467,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0028",
-      "line": 187,
+      "line": 189,
       "numeric_tokens": [
         "one"
       ],
@@ -484,7 +481,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0029",
-      "line": 189,
+      "line": 191,
       "numeric_tokens": [
         "0.",
         "5"
@@ -499,7 +496,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0030",
-      "line": 196,
+      "line": 198,
       "numeric_tokens": [
         "2.",
         "0"
@@ -514,7 +511,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0031",
-      "line": 200,
+      "line": 202,
       "numeric_tokens": [
         "1",
         "6"
@@ -529,7 +526,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0032",
-      "line": 208,
+      "line": 210,
       "numeric_tokens": [
         "Every",
         "zero"
@@ -544,7 +541,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0033",
-      "line": 210,
+      "line": 212,
       "numeric_tokens": [
         "zero"
       ],
@@ -558,7 +555,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0034",
-      "line": 212,
+      "line": 214,
       "numeric_tokens": [
         "every"
       ],
@@ -572,7 +569,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0035",
-      "line": 216,
+      "line": 218,
       "numeric_tokens": [
         "one",
         "two",
@@ -590,7 +587,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0036",
-      "line": 220,
+      "line": 222,
       "numeric_tokens": [
         "7"
       ],
@@ -604,7 +601,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0037",
-      "line": 226,
+      "line": 228,
       "numeric_tokens": [
         "3.",
         "all",
@@ -622,7 +619,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0038",
-      "line": 228,
+      "line": 230,
       "numeric_tokens": [
         "Every"
       ],
@@ -636,16 +633,15 @@
       ],
       "file": "latex/main.tex",
       "id": "M0039",
-      "line": 230,
+      "line": 232,
       "numeric_tokens": [
         "1,",
         "7",
         "9",
-        "3",
-        "3.2."
+        "3"
       ],
       "section": "Problem formulation",
-      "statement": "This is the uniform-penalty case of the substitution factorization underlying \\cite{bougleux2020}, stated here to make the comparison reproducible. Under this specialization, Bougleux et al.\\ (Theorem 1, Eqs. (7)--(9)) retain selected substitutions at equality, whereas Proposition 3 and the capped SciPy adapter discard them. Both conventions preserve the optimal penalized objective in exact arithmetic, but may return different pairs and cardinalities. Capping occurs before optimization. It is therefore different from solving the original required problem and then discarding expensive pairs, which fails in the example in Section 3.2. The capped and dummy-column baselines are equivalent in exact arithmetic; their floating-point behavior is assessed separately by the validation experiments.",
+      "statement": "This is the uniform-penalty case of the substitution factorization underlying \\cite{bougleux2020}, stated here to make the comparison reproducible. Under this specialization, Bougleux et al.\\ (Theorem 1, Eqs. (7)--(9)) retain selected substitutions at equality, whereas Proposition 3 and the capped SciPy adapter discard them. Both conventions preserve the optimal penalized objective in exact arithmetic, but may return different pairs and cardinalities. Capping occurs before optimization. It is therefore different from solving the original required problem and then discarding expensive pairs, which fails in the example in Section~\\ref{sec:finite-limit}. The capped and dummy-column baselines are equivalent in exact arithmetic; their floating-point behavior is assessed separately by the validation experiments.",
       "subsection": "Compact equivalent formulations"
     },
     {
@@ -654,7 +650,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0040",
-      "line": 232,
+      "line": 234,
       "numeric_tokens": [
         "one"
       ],
@@ -670,7 +666,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0041",
-      "line": 239,
+      "line": 241,
       "numeric_tokens": [
         "three",
         "1.2.0",
@@ -689,12 +685,10 @@
       ],
       "file": "latex/main.tex",
       "id": "M0042",
-      "line": 242,
-      "numeric_tokens": [
-        "4.5"
-      ],
+      "line": 244,
+      "numeric_tokens": [],
       "section": "Implementation",
-      "statement": "Interface compatibility here means that the single-matrix entry points accept the \\texttt{extend\\_cost}, \\texttt{cost\\_limit}, and \\texttt{return\\_cost} arguments of \\texttt{lap.lapjv} with the same objective: the finite limit prices unmatched endpoints, and the reported total excludes those penalties. They return matched row and column index arrays, or pairs, rather than lap's full-length per-row and per-column assignment vectors, so callers of lap need a small output adaptation. Compatibility does not imply identical assignments when optima tie, or identical behavior across precision modes. At \\(C_{ij}=L\\), matching and rejection tie in exact arithmetic. Native reductions and search prefer rejection on computed ties, whereas the evaluated padded \\texttt{lap.lapjv} can retain the edge. This is not a strict \\(C_{ij}<L\\) output guarantee: the rounded effective penalty \\(p\\) in Section 4.5 can differ from the supplied \\(L\\).",
+      "statement": "Interface compatibility here means that the single-matrix entry points accept the \\texttt{extend\\_cost}, \\texttt{cost\\_limit}, and \\texttt{return\\_cost} arguments of \\texttt{lap.lapjv} with the same objective: the finite limit prices unmatched endpoints, and the reported total excludes those penalties. They return matched row and column index arrays, or pairs, rather than lap's full-length per-row and per-column assignment vectors, so callers of lap need a small output adaptation. Compatibility does not imply identical assignments when optima tie, or identical behavior across precision modes. At \\(C_{ij}=L\\), matching and rejection tie in exact arithmetic. Native reductions and search prefer rejection on computed ties, whereas the evaluated padded \\texttt{lap.lapjv} can retain the edge. This is not a strict \\(C_{ij}<L\\) output guarantee: the rounded effective penalty \\(p\\) in Section~\\ref{sec:numeric} can differ from the supplied \\(L\\).",
       "subsection": "Shared architecture and three implementations"
     },
     {
@@ -705,7 +699,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0043",
-      "line": 244,
+      "line": 246,
       "numeric_tokens": [
         "two",
         "one"
@@ -722,7 +716,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0044",
-      "line": 246,
+      "line": 248,
       "numeric_tokens": [
         "All"
       ],
@@ -738,7 +732,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0045",
-      "line": 250,
+      "line": 252,
       "numeric_tokens": [
         "zero",
         "zero"
@@ -755,7 +749,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0046",
-      "line": 254,
+      "line": 256,
       "numeric_tokens": [
         "two",
         "4",
@@ -774,7 +768,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0047",
-      "line": 260,
+      "line": 262,
       "numeric_tokens": [],
       "section": "Implementation",
       "statement": "For finite-limit matching, the search compares real-column paths with a rejection terminal. A real edge has reduced cost \\(C_{ij}-u_i-v_j\\). Leaving a row unmatched has reduced cost \\(p-u_i\\). The implementation stores the best terminal distance and its predecessor row using the variables \\texttt{dummy\\_distance} and \\texttt{dummy\\_row}.",
@@ -788,7 +782,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0048",
-      "line": 262,
+      "line": 264,
       "numeric_tokens": [
         "0",
         "one",
@@ -806,7 +800,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0049",
-      "line": 264,
+      "line": 266,
       "numeric_tokens": [
         "Every",
         "zero",
@@ -824,7 +818,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0050",
-      "line": 266,
+      "line": 268,
       "numeric_tokens": [
         "one"
       ],
@@ -840,12 +834,12 @@
       ],
       "file": "latex/main.tex",
       "id": "M0051",
-      "line": 268,
+      "line": 270,
       "numeric_tokens": [
         "two"
       ],
       "section": "Implementation",
-      "statement": "Figure~\\ref{fig:paths} in the appendix illustrates these two search endpoints.",
+      "statement": "Figure~\\ref{fig:paths} illustrates the two endpoints, and Algorithm~\\ref{alg:1} places them within the complete rectangular solve.",
       "subsection": "Implicit rejection terminal"
     },
     {
@@ -856,23 +850,7 @@
       ],
       "file": "latex/main.tex",
       "id": "M0052",
-      "line": 271,
-      "numeric_tokens": [
-        "1"
-      ],
-      "section": "Implementation",
-      "statement": "Algorithm 1 summarizes the distinction between this representation and explicit matrix augmentation.",
-      "subsection": "Implicit rejection terminal"
-    },
-    {
-      "evidence_keys": [
-        "implementation",
-        "arithmetic",
-        "validation"
-      ],
-      "file": "latex/main.tex",
-      "id": "M0053",
-      "line": 280,
+      "line": 286,
       "numeric_tokens": [
         "every"
       ],
@@ -887,8 +865,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0054",
-      "line": 292,
+      "id": "M0053",
+      "line": 299,
       "numeric_tokens": [
         "64",
         "32",
@@ -905,8 +883,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0055",
-      "line": 294,
+      "id": "M0054",
+      "line": 301,
       "numeric_tokens": [
         "4096",
         "one"
@@ -922,8 +900,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0056",
-      "line": 296,
+      "id": "M0055",
+      "line": 303,
       "numeric_tokens": [
         "4",
         "two",
@@ -941,8 +919,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0057",
-      "line": 300,
+      "id": "M0056",
+      "line": 307,
       "numeric_tokens": [
         "All",
         "three",
@@ -985,8 +963,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0058",
-      "line": 302,
+      "id": "M0057",
+      "line": 309,
       "numeric_tokens": [
         "2",
         "64",
@@ -1005,8 +983,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0059",
-      "line": 306,
+      "id": "M0058",
+      "line": 313,
       "numeric_tokens": [
         "All",
         "64"
@@ -1022,8 +1000,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0060",
-      "line": 313,
+      "id": "M0059",
+      "line": 320,
       "numeric_tokens": [
         "one",
         "3.11.18",
@@ -1058,8 +1036,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0061",
-      "line": 315,
+      "id": "M0060",
+      "line": 322,
       "numeric_tokens": [
         "9",
         "13900",
@@ -1081,8 +1059,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0062",
-      "line": 317,
+      "id": "M0061",
+      "line": 324,
       "numeric_tokens": [
         "One",
         "66.23,",
@@ -1106,8 +1084,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0063",
-      "line": 321,
+      "id": "M0062",
+      "line": 328,
       "numeric_tokens": [
         "Every"
       ],
@@ -1119,11 +1097,12 @@
       "evidence_keys": [
         "protocol",
         "native",
+        "batch",
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0064",
-      "line": 332,
+      "id": "M0063",
+      "line": 339,
       "numeric_tokens": [
         "302",
         "268",
@@ -1145,11 +1124,12 @@
       "evidence_keys": [
         "protocol",
         "native",
+        "batch",
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0065",
-      "line": 334,
+      "id": "M0064",
+      "line": 341,
       "numeric_tokens": [
         "0,1",
         "2",
@@ -1175,11 +1155,12 @@
       "evidence_keys": [
         "protocol",
         "native",
+        "batch",
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0066",
-      "line": 336,
+      "id": "M0065",
+      "line": 343,
       "numeric_tokens": [
         "64",
         "every",
@@ -1196,40 +1177,42 @@
       "evidence_keys": [
         "protocol",
         "native",
+        "batch",
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0067",
-      "line": 338,
+      "id": "M0066",
+      "line": 345,
       "numeric_tokens": [
         "Every",
         "five",
         "three",
         "20",
-        "three"
+        "three",
+        "one"
       ],
       "section": "Experimental design",
-      "statement": "Every assignment timing condition uses five frozen inputs, three rounds and a 20 ms target block. The estimate is the median of three round means, with equal weight to each input within a round. The reported reference/method ratio divides these estimates from the same successful paired attempt; it is not a median of input-wise ratios. Required cases use ordinary SciPy and optional cases use capped SciPy as their primary comparator. JVHYBRID's canonical coverage is required-only; its absence in optional panels is planned.",
+      "statement": "Every assignment timing condition uses five frozen inputs, three rounds and a 20 ms target block. The estimate is the median of three round means, with equal weight to each input within a round. Single-matrix ratios divide reference and method estimates from the same successful paired attempt; they are not medians of input-wise ratios. Batch comparisons within one placement also use the same attempt. Worker-count contrasts compare matched inputs in separate process attempts under their respective CPU placements. Required cases use ordinary SciPy and optional cases use capped SciPy as their primary comparator. JVHYBRID's canonical coverage is required-only; its absence in optional panels is planned.",
       "subsection": "Workload coverage and estimators"
     },
     {
       "evidence_keys": [
         "protocol",
         "native",
+        "batch",
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0068",
-      "line": 340,
+      "id": "M0067",
+      "line": 347,
       "numeric_tokens": [
         "0.97",
         "0.97,1.03",
         "1.03",
-        "two",
         "All"
       ],
       "section": "Experimental design",
-      "statement": "Ratios below 0.97 are losses, values in $[0.97,1.03]$ are practical ties, and values above 1.03 are wins. This band is descriptive. We neither pool environments nor interpret timing-round spread as independent-session uncertainty. Derived tall/wide contrasts join two matched-corpus case attempts and are explicitly distinct from the saved same-attempt ratios. All estimates, references, input identities, attempts, status and reasons remain in the indexed supplement.",
+      "statement": "Ratios below 0.97 are losses, values in $[0.97,1.03]$ are practical ties, and values above 1.03 are wins. This band is descriptive. We neither pool environments nor interpret timing-round spread as independent-session uncertainty. Derived tall/wide contrasts also join distinct matched-corpus case attempts. All estimates, references, input identities, attempts, status and reasons remain in the indexed supplement.",
       "subsection": "Workload coverage and estimators"
     },
     {
@@ -1240,8 +1223,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0069",
-      "line": 344,
+      "id": "M0068",
+      "line": 351,
       "numeric_tokens": [
         "zero",
         "0.25,1",
@@ -1275,8 +1258,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0070",
-      "line": 346,
+      "id": "M0069",
+      "line": 353,
       "numeric_tokens": [
         "1024",
         "4096",
@@ -1292,8 +1275,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0071",
-      "line": 352,
+      "id": "M0070",
+      "line": 359,
       "numeric_tokens": [],
       "section": "Experimental design",
       "statement": "\\caption{Methods, representations and controlled LSAPE arms. Here $r\\le c$ denotes oriented JV dimensions; LSAPE retains original $n,m$. Definitions are not measured memory or speed claims.}",
@@ -1306,8 +1289,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0072",
-      "line": 363,
+      "id": "M0071",
+      "line": 370,
       "numeric_tokens": [
         "4,195",
         "2,864",
@@ -1334,8 +1317,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0073",
-      "line": 365,
+      "id": "M0072",
+      "line": 372,
       "numeric_tokens": [
         "one",
         "four"
@@ -1351,8 +1334,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0074",
-      "line": 367,
+      "id": "M0073",
+      "line": 374,
       "numeric_tokens": [
         "Every",
         "five",
@@ -1371,8 +1354,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0075",
-      "line": 371,
+      "id": "M0074",
+      "line": 378,
       "numeric_tokens": [
         "999",
         "16",
@@ -1410,8 +1393,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0076",
-      "line": 373,
+      "id": "M0075",
+      "line": 380,
       "numeric_tokens": [
         "2017",
         "4",
@@ -1435,8 +1418,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0077",
-      "line": 375,
+      "id": "M0076",
+      "line": 382,
       "numeric_tokens": [
         "64",
         "2",
@@ -1459,17 +1442,22 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0078",
-      "line": 383,
+      "id": "M0077",
+      "line": 390,
       "numeric_tokens": [
         "one",
         "All",
         "three",
         "all",
-        "102"
+        "102",
+        "four",
+        "3.67",
+        "4.66",
+        "4.72",
+        "5.23"
       ],
       "section": "Results",
-      "statement": "Figure~\\ref{fig:native} shows the full distribution of matching-SciPy/method ratios for native, legacy dense and sparse solvers on their planned single-matrix cases. Each curve is one solver and environment; its height is the fraction of that solver's admitted cases with a ratio at least as large as the horizontal coordinate. This retains losses as well as the extent of an advantage. All three native methods win all 102 required comparisons under the stated band. Tables~\\ref{tab:nativefamilies} and~\\ref{tab:nativeexceptions} give the native family counts and exact non-win workloads.",
+      "statement": "Figure~\\ref{fig:native} shows the full distribution of matching-SciPy/method ratios for native, legacy dense and sparse solvers on their planned single-matrix cases. Each curve is one solver and environment; its height is the fraction of that solver's admitted cases with a ratio at least as large as the horizontal coordinate. This retains losses as well as the extent of an advantage. All three native methods win all 102 required comparisons under the stated band. Across the four separately summarized environments, JVRUST's median ratio ranges from $3.67$ to $4.66$ for required assignment and $4.72$ to $5.23$ for optional assignment. These are medians over the selected cases within each environment, not pooled estimates. Tables~\\ref{tab:nativefamilies} and~\\ref{tab:nativeexceptions} give the native family counts and exact non-win workloads.",
       "subsection": "Coverage and native comparisons"
     },
     {
@@ -1477,8 +1465,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0079",
-      "line": 385,
+      "id": "M0078",
+      "line": 392,
       "numeric_tokens": [
         "165",
         "1",
@@ -1537,15 +1525,19 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0080",
-      "line": 390,
+      "id": "M0079",
+      "line": 397,
       "numeric_tokens": [
         "One",
         "one",
+        "311,",
+        "314,",
+        "311",
+        "314,",
         "0.97,1.03"
       ],
       "section": "Results",
-      "statement": "\\caption{Complementary empirical distributions of matching-SciPy/method complete-call ratios. One curve represents one method and environment over that method's planned cases; reduced denominators are stated in the panel legends. Required and optional objectives remain separate. Color identifies method; Linux curves are solid and Windows curves dashed, with both Python versions drawn individually. The vertical rule is parity and the gray band is $[0.97,1.03]$. Environments are not averaged.}",
+      "statement": "\\caption{Complementary empirical distributions of matching-SciPy/method complete-call ratios. One curve represents one method and environment over that method's planned cases; reduced denominators are stated in the panel legends. Required and optional objectives remain separate. Color identifies method; solid, dashed, dotted and dash-dot lines identify L311, L314, W311 and W314, respectively. The vertical rule is parity and the gray band is $[0.97,1.03]$. Environments are not averaged.}",
       "subsection": "Coverage and native comparisons"
     },
     {
@@ -1553,8 +1545,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0081",
-      "line": 397,
+      "id": "M0080",
+      "line": 404,
       "numeric_tokens": [
         "0.9",
         "0.25",
@@ -1580,17 +1572,20 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0082",
-      "line": 402,
+      "id": "M0081",
+      "line": 409,
       "numeric_tokens": [
         "0.9",
         "0.25",
         "1.5",
-        "one",
+        "311",
+        "314",
+        "311",
+        "314.",
         "1024"
       ],
       "section": "Results",
-      "statement": "\\caption{Square geometry with $q=0.9$ and motion standard deviation $0.25\\delta$: complete-call ms above, matching-SciPy/method ratios below. Required assignment and optional assignment with $L=1.5\\delta$ and no gate are separate columns. Each line is one environment; Linux is solid and Windows dashed, with method-specific colors and symbols. JVX/JVS are not planned above 1024 rows in the required panel, including unpadded squares; optional JVX and square-expanded SciPy obey the same cutoff. No scaling exponent is fitted.}",
+      "statement": "\\caption{Square geometry with $q=0.9$ and motion standard deviation $0.25\\delta$: complete-call ms above, matching-SciPy/method ratios below. Required assignment and optional assignment with $L=1.5\\delta$ and no gate are separate columns. Method-specific colors and symbols combine with solid/dashed/dotted/dash-dot lines for L311/L314/W311/W314. JVX/JVS are not planned above 1024 rows in the required panel, including unpadded squares; optional JVX and square-expanded SciPy obey the same cutoff. No scaling exponent is fitted.}",
       "subsection": "Geometry scaling"
     },
     {
@@ -1598,10 +1593,9 @@
         "layout"
       ],
       "file": "latex/main.tex",
-      "id": "M0083",
-      "line": 409,
+      "id": "M0082",
+      "line": 416,
       "numeric_tokens": [
-        "3",
         "five",
         "all",
         "14",
@@ -1609,7 +1603,7 @@
         "624"
       ],
       "section": "Results",
-      "statement": "The equivalent objectives in Section 3 do not require identical storage or work. Figure~\\ref{fig:representations} shows five complete-call implementations on all 14 optional formulation workloads; the congested-block input is labelled because it contains the native near-parity exceptions. The supplement retains the diagonal-dummy variant and all 624 controlled layout conditions per environment. An expanded-versus-native gap includes construction and a different solver trajectory; it cannot be attributed entirely to padding allocation. Capped SciPy controls dimensions while retaining different initialization, search and interface work. Constructor-only measurements and buffer dimensions remain secondary evidence.",
+      "statement": "The equivalent objectives in Section~\\ref{sec:formulation} do not require identical storage or work. Figure~\\ref{fig:representations} shows five complete-call implementations on all 14 optional formulation workloads; the congested-block input is labelled because it contains the native near-parity exceptions. The supplement retains the diagonal-dummy variant and all 624 controlled layout conditions per environment. An expanded-versus-native gap includes construction and a different solver trajectory; it cannot be attributed entirely to padding allocation. Capped SciPy controls dimensions while retaining different initialization, search and interface work. Constructor-only measurements and buffer dimensions remain secondary evidence.",
       "subsection": "Representation and padded layout"
     },
     {
@@ -1617,15 +1611,17 @@
         "layout"
       ],
       "file": "latex/main.tex",
-      "id": "M0084",
-      "line": 414,
+      "id": "M0083",
+      "line": 421,
       "numeric_tokens": [
         "14",
         "One",
-        "one"
+        "one",
+        "3.11",
+        "3.14."
       ],
       "section": "Results",
-      "statement": "\\caption{Distribution over the 14 optional formulation workloads for each displayed implementation, relative to capped SciPy. One marker is one workload/environment ratio; filled markers denote Linux and open markers Windows. Deterministic offsets separate coincident observations without changing their horizontal values. The labelled congested-block workload retains the native practical ties. The diagonal-dummy and controlled-layout comparisons remain in the supplement.}",
+      "statement": "\\caption{Distribution over the 14 optional formulation workloads for each displayed implementation, relative to capped SciPy. One marker is one workload/environment ratio; filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Deterministic offsets separate coincident observations without changing their horizontal values. The labelled congested-block workload retains the native practical ties. The diagonal-dummy and controlled-layout comparisons remain in the supplement.}",
       "subsection": "Representation and padded layout"
     },
     {
@@ -1633,8 +1629,8 @@
         "policy"
       ],
       "file": "latex/main.tex",
-      "id": "M0085",
-      "line": 421,
+      "id": "M0084",
+      "line": 428,
       "numeric_tokens": [
         "3.6",
         "4.1",
@@ -1657,8 +1653,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0086",
-      "line": 424,
+      "id": "M0085",
+      "line": 431,
       "numeric_tokens": [
         "256",
         "320",
@@ -1678,14 +1674,16 @@
         "policy"
       ],
       "file": "latex/main.tex",
-      "id": "M0087",
-      "line": 431,
+      "id": "M0086",
+      "line": 438,
       "numeric_tokens": [
         "4",
+        "3.11",
+        "3.14.",
         "one"
       ],
       "section": "Results",
-      "statement": "\\caption{Policy distributions within each language and environment. For each intervention, a marker gives the median intervention/budget-4-reference latency ratio over eligible cases; the thick bar is the interquartile range and the thin line the observed minimum--maximum. These are descriptive spreads over different workloads, not confidence intervals. Linux markers are filled and Windows markers open; each Python version remains a separate estimate. Values above one mean a slower intervention. Table~\\ref{tab:counters} uses separately instrumented calls.}",
+      "statement": "\\caption{Policy distributions within each language and environment. For each intervention, a marker gives the median intervention/budget-4-reference latency ratio over eligible cases; the thick bar is the interquartile range and the thin line the observed minimum--maximum. These are descriptive spreads over different workloads, not confidence intervals. Filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Values above one mean a slower intervention. Table~\\ref{tab:counters} uses separately instrumented calls.}",
       "subsection": "Initialization policies and measured work"
     },
     {
@@ -1693,8 +1691,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0088",
-      "line": 437,
+      "id": "M0087",
+      "line": 444,
       "numeric_tokens": [
         "five",
         "all",
@@ -1711,8 +1709,8 @@
         "sparse"
       ],
       "file": "latex/main.tex",
-      "id": "M0089",
-      "line": 449,
+      "id": "M0088",
+      "line": 456,
       "numeric_tokens": [
         "every",
         "53,",
@@ -1743,8 +1741,8 @@
         "reference_sensitivity"
       ],
       "file": "latex/main.tex",
-      "id": "M0090",
-      "line": 451,
+      "id": "M0089",
+      "line": 458,
       "numeric_tokens": [
         "seven",
         "30",
@@ -1766,8 +1764,8 @@
         "sparse"
       ],
       "file": "latex/main.tex",
-      "id": "M0091",
-      "line": 456,
+      "id": "M0090",
+      "line": 463,
       "numeric_tokens": [
         "All",
         "166",
@@ -1784,8 +1782,8 @@
         "structure"
       ],
       "file": "latex/main.tex",
-      "id": "M0092",
-      "line": 463,
+      "id": "M0091",
+      "line": 470,
       "numeric_tokens": [
         "90",
         "041,"
@@ -1799,19 +1797,23 @@
         "structure"
       ],
       "file": "latex/main.tex",
-      "id": "M0093",
-      "line": 472,
+      "id": "M0092",
+      "line": 479,
       "numeric_tokens": [
         "256",
         "320",
         "One",
         "one",
         "all",
+        "311",
+        "314",
+        "311",
+        "314.",
         "one",
         "041"
       ],
       "section": "Results",
-      "statement": "\\caption{Ordered native-solver sweeps at $256\\times320$. Columns vary congested row fraction, forbidden-entry probability and quantization levels; rows separate required and optional assignment. One curve is one method/environment, with all other case parameters fixed. Color identifies method, Linux is solid and Windows dashed. Ratios above one favor the native method over required or capped SciPy. The case-041 annotation retains both Rust/Windows and C++/Linux losses.}",
+      "statement": "\\caption{Ordered native-solver sweeps at $256\\times320$. Columns vary congested row fraction, forbidden-entry probability and quantization levels; rows separate required and optional assignment. One curve is one method/environment, with all other case parameters fixed. Color identifies method; solid/dashed/dotted/dash-dot lines identify L311/L314/W311/W314. Ratios above one favor the native method over required or capped SciPy. The case-041 annotation retains both Rust/Windows and C++/Linux losses.}",
       "subsection": "Ordered cost structure and rejection"
     },
     {
@@ -1819,8 +1821,8 @@
         "batch"
       ],
       "file": "latex/main.tex",
-      "id": "M0094",
-      "line": 479,
+      "id": "M0093",
+      "line": 486,
       "numeric_tokens": [
         "one",
         "four",
@@ -1863,8 +1865,8 @@
         "batch"
       ],
       "file": "latex/main.tex",
-      "id": "M0095",
-      "line": 484,
+      "id": "M0094",
+      "line": 491,
       "numeric_tokens": [
         "one",
         "one",
@@ -1873,6 +1875,8 @@
         "0",
         "2",
         "1",
+        "3.11",
+        "3.14.",
         "0",
         "four",
         "All",
@@ -1882,7 +1886,7 @@
         "one"
       ],
       "section": "Results",
-      "statement": "\\caption{Named batch contrasts with workload rows. Each marker is a method/environment ratio: loop/one-worker batch, one/four workers, recreated/retained scratch ($W1/W0$), or recreated/retained orientation storage ($W2/W1$), as labelled. Colors identify methods; Linux is filled and Windows open. The workspace panel uses W0 for worker scaling and four workers for reuse. All three standard and 14 workspace workloads remain visible; one-worker reuse and the remaining contrasts are supplementary. Values below one retain regressions.}",
+      "statement": "\\caption{Named batch contrasts with workload rows. Each marker is a method/environment ratio: loop/one-worker batch, one/four workers, recreated/retained scratch ($W1/W0$), or recreated/retained orientation storage ($W2/W1$), as labelled. Colors identify methods; filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. The workspace panel uses W0 for worker scaling and four workers for reuse. All three standard and 14 workspace workloads remain visible; one-worker reuse and the remaining contrasts are supplementary. Values below one retain regressions.}",
       "subsection": "Batching and workspace lifetime"
     },
     {
@@ -1890,8 +1894,8 @@
         "applications"
       ],
       "file": "latex/main.tex",
-      "id": "M0096",
-      "line": 491,
+      "id": "M0095",
+      "line": 498,
       "numeric_tokens": [
         "four",
         "four",
@@ -1908,8 +1912,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0097",
-      "line": 493,
+      "id": "M0096",
+      "line": 500,
       "numeric_tokens": [
         "135,702",
         "7,539",
@@ -1927,8 +1931,8 @@
         "applications"
       ],
       "file": "latex/main.tex",
-      "id": "M0098",
-      "line": 498,
+      "id": "M0097",
+      "line": 505,
       "numeric_tokens": [
         "eight",
         "32",
@@ -1950,8 +1954,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0099",
-      "line": 505,
+      "id": "M0098",
+      "line": 512,
       "numeric_tokens": [
         "all",
         "67",
@@ -2004,8 +2008,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0100",
-      "line": 507,
+      "id": "M0099",
+      "line": 514,
       "numeric_tokens": [
         "2016"
       ],
@@ -2018,8 +2022,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0101",
-      "line": 512,
+      "id": "M0100",
+      "line": 519,
       "numeric_tokens": [
         "All",
         "67",
@@ -2032,7 +2036,7 @@
         "eight"
       ],
       "section": "Results",
-      "statement": "\\caption{All 67 LSAPE cases in each contrast and Windows environment, with the frozen primary $O/P$ first. Each point is the median of three process estimates for one case; W311 markers are filled and W314 markers open. Color and shape identify the denominator arm: $P$ black squares, $U$ amber triangles and $T$ blue diamonds. Deterministic vertical spread separates points without changing ratios. Counts beside each row use unrounded values and the practical band. Ratios above one favor the denominator arm. The complete export retains process ranges and all eight saved contrasts.}",
+      "statement": "\\caption{All 67 LSAPE cases in each contrast and Windows environment, with the frozen primary $O/P$ first. Each point is the median of three process estimates for one case; smaller/larger open markers denote W311/W314 in separately keyed lanes. Color and shape identify the denominator arm: $P$ black squares, $U$ amber triangles and $T$ blue diamonds. Deterministic vertical spread separates points without changing ratios. Counts beside each row use unrounded values and the practical band. Ratios above one favor the denominator arm. The complete export retains process ranges and all eight saved contrasts.}",
       "subsection": "Controlled LSAPE results"
     },
     {
@@ -2040,8 +2044,8 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0102",
-      "line": 519,
+      "id": "M0101",
+      "line": 526,
       "numeric_tokens": [
         "every",
         "two",
@@ -2056,8 +2060,8 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0103",
-      "line": 521,
+      "id": "M0102",
+      "line": 528,
       "numeric_tokens": [
         "64",
         "16384",
@@ -2079,19 +2083,21 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0104",
-      "line": 526,
+      "id": "M0103",
+      "line": 533,
       "numeric_tokens": [
         "One",
         "one",
         "six",
         "one",
+        "3.11",
+        "3.14.",
         "one",
         "All",
         "74"
       ],
       "section": "Results",
-      "statement": "\\caption{Tall/wide complete-call ratios by method, with required and optional objectives separated. One marker is one of six matched shape pairs in one environment; shape symbols distinguish the pairs, colors identify methods, and fill distinguishes Linux from Windows. Both Python versions are drawn separately. Ratios above one mean a slower tall call. All 74 planned method-pair comparisons per environment are retained, with unavailable shape/method pairs identified as not planned. Wide and tall timings come from distinct attempts with matched underlying values.}",
+      "statement": "\\caption{Tall/wide complete-call ratios by method, with required and optional objectives separated. One marker is one of six matched shape pairs in one environment; shape symbols distinguish the pairs and colors identify methods. Filled/open markers denote Linux/Windows, and smaller/larger markers denote Python 3.11/3.14. Ratios above one mean a slower tall call. All 74 planned method-pair comparisons per environment are retained, with unavailable shape/method pairs identified as not planned. Wide and tall timings come from distinct attempts with matched underlying values.}",
       "subsection": "Orientation sensitivity"
     },
     {
@@ -2099,8 +2105,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0105",
-      "line": 533,
+      "id": "M0104",
+      "line": 540,
       "numeric_tokens": [
         "every",
         "256",
@@ -2123,8 +2129,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0106",
-      "line": 537,
+      "id": "M0105",
+      "line": 544,
       "numeric_tokens": [
         "five",
         "zero",
@@ -2150,8 +2156,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0107",
-      "line": 550,
+      "id": "M0106",
+      "line": 557,
       "numeric_tokens": [
         "None",
         "one",
@@ -2174,19 +2180,18 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0108",
-      "line": 559,
+      "id": "M0107",
+      "line": 566,
       "numeric_tokens": [
         "one",
         "one",
         "Three",
         "five",
         "seven",
-        "6.5",
         "All"
       ],
       "section": "Limitations and threats to validity",
-      "statement": "There is one primary session per environment, on one recorded processor model. The study does not estimate variation across days, machines or compilers. Frequency, power-management behavior and background activity remain uncontrolled. Three rounds over five frozen inputs give descriptive within-session estimates, not population confidence intervals or significance tests. Within-attempt rounds cannot detect a persistent attempt-level shift. The seven post-hoc reference discrepancies in Section~6.5 show why reference stability matters, but interpreter, build and collection session change together; the data cannot identify a causal attempt effect. All primary observations and classifications are retained. The practical tie band is a reporting convention, and a tie does not prove numerical or performance equivalence.",
+      "statement": "There is one primary session per environment, on one recorded processor model. The study does not estimate variation across days, machines or compilers. Frequency, power-management behavior and background activity remain uncontrolled. Three rounds over five frozen inputs give descriptive within-session estimates, not population confidence intervals or significance tests. Within-attempt rounds cannot detect a persistent attempt-level shift. The seven post-hoc reference discrepancies in Section~\\ref{sec:sparse} show why reference stability matters, but interpreter, build and collection session change together; the data cannot identify a causal attempt effect. All primary observations and classifications are retained. The practical tie band is a reporting convention, and a tie does not prove numerical or performance equivalence.",
       "subsection": ""
     },
     {
@@ -2202,8 +2207,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0109",
-      "line": 561,
+      "id": "M0108",
+      "line": 568,
       "numeric_tokens": [
         "two",
         "1024"
@@ -2225,8 +2230,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0110",
-      "line": 563,
+      "id": "M0109",
+      "line": 570,
       "numeric_tokens": [
         "64",
         "every"
@@ -2248,8 +2253,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0111",
-      "line": 565,
+      "id": "M0110",
+      "line": 572,
       "numeric_tokens": [
         "two",
         "two",
@@ -2273,8 +2278,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0112",
-      "line": 567,
+      "id": "M0111",
+      "line": 574,
       "numeric_tokens": [
         "zero"
       ],
@@ -2290,17 +2295,22 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0113",
-      "line": 572,
+      "id": "M0112",
+      "line": 579,
       "numeric_tokens": [
         "four",
         "all",
         "102",
         "3",
-        "166"
+        "3.67",
+        "4.66",
+        "4.72",
+        "5.23",
+        "9.2",
+        "all"
       ],
       "section": "Conclusion",
-      "statement": "Native rectangular rejection integrates established assignment principles without requiring square expansion. In each of four environments, the measured Rust, hybrid and C++ implementations win all 102 required comparisons against rectangular SciPy under a 3\\% practical band. Optional results remain favorable on most of the 166 cases, with congested-block ties and losses in the formulation, scaling and congestion families against capped SciPy. Representation, policy, work, sparse, batch and orientation controls make these results conditional on the workload and complete interface. Application replay gains attenuate in tracker updates, and the LSAPE controls remain a separate within-Hungarian experiment. The reproducible saved-data figures and indexed evidence support these measured claims without implying algorithmic priority, universal superiority or unmeasured application benefits.",
+      "statement": "Native rectangular rejection integrates established assignment principles without requiring square expansion. In each of four environments, the measured Rust, hybrid and C++ implementations win all 102 required comparisons against rectangular SciPy under a 3\\% practical band. JVRUST's median reference/method ratio ranges from $3.67$ to $4.66$ for required assignment and $4.72$ to $5.23$ for optional assignment, with each environment summarized separately. Optional gains remain workload-dependent: congested-block inputs produce ties and losses, including 9.2\\% extra JVRUST latency in the worst measured Windows comparison with capped SciPy. The controls show why representation, initialization, input structure, orientation and interface work all matter when selecting an implementation. Application replay gains attenuate in tracker updates, while the LSAPE study remains a separate within-Hungarian experiment. The saved-data figures and indexed evidence support these descriptive results without implying algorithmic priority, universal superiority or unmeasured application benefits.",
       "subsection": ""
     },
     {
@@ -2308,8 +2318,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0114",
-      "line": 577,
+      "id": "M0113",
+      "line": 586,
       "numeric_tokens": [
         "four",
         "3.11.18",
@@ -2336,8 +2346,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0115",
-      "line": 579,
+      "id": "M0114",
+      "line": 588,
       "numeric_tokens": [
         "3.11.18",
         "20261030",
@@ -2354,8 +2364,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0116",
-      "line": 589,
+      "id": "M0115",
+      "line": 598,
       "numeric_tokens": [
         "6",
         "6.1",
@@ -2371,8 +2381,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0117",
-      "line": 602,
+      "id": "M0116",
+      "line": 611,
       "numeric_tokens": [
         "79",
         "5",
@@ -2390,8 +2400,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0118",
-      "line": 613,
+      "id": "M0117",
+      "line": 622,
       "numeric_tokens": [
         "256",
         "320",
@@ -2408,8 +2418,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0119",
-      "line": 618,
+      "id": "M0118",
+      "line": 627,
       "numeric_tokens": [
         "256",
         "320",
@@ -2425,12 +2435,11 @@
     },
     {
       "evidence_keys": [
-        "rejection",
-        "implementation"
+        "rejection"
       ],
       "file": "latex/main.tex",
-      "id": "M0120",
-      "line": 625,
+      "id": "M0119",
+      "line": 634,
       "numeric_tokens": [
         "256",
         "320",
@@ -2452,8 +2461,8 @@
         "771.40",
         "314."
       ],
-      "section": "Conceptual rejection paths and limit sweep",
-      "statement": "The diagram below is an algorithm illustration, not an observed execution trace. The measured limit sweep in Figure~\\ref{fig:rejection} reuses saved costs within each family and reads realized cardinality from validation records. No matrix is regenerated and no solver is rerun to obtain the plotted unmatched fractions. In the congested-block $256\\times320$ case, every saved input has 144 matches at both $L=0.05$ and $L=0.5$, leaving 43.75\\% of smaller-side rows unmatched. JVRUST latency nevertheless changes from 68.94 to 706.63 $\\mu$s in L311, 68.91 to 710.73 $\\mu$s in L314, 67.93 to 773.42 $\\mu$s in W311, and 68.08 to 771.40 $\\mu$s in W314. These within-environment changes exceed tenfold at identical cardinality; they do not isolate the rejected fraction as the cause.",
+      "section": "Rejection-limit sweep",
+      "statement": "The measured limit sweep in Figure~\\ref{fig:rejection} reuses saved costs within each family and reads realized cardinality from validation records. No matrix is regenerated and no solver is rerun to obtain the plotted unmatched fractions. In the congested-block $256\\times320$ case, every saved input has 144 matches at both $L=0.05$ and $L=0.5$, leaving 43.75\\% of smaller-side rows unmatched. JVRUST latency nevertheless changes from 68.94 to 706.63 $\\mu$s in L311, 68.91 to 710.73 $\\mu$s in L314, 67.93 to 773.42 $\\mu$s in W311, and 68.08 to 771.40 $\\mu$s in W314. These within-environment changes exceed tenfold at identical cardinality; they do not isolate the rejected fraction as the cause.",
       "subsection": ""
     },
     {
@@ -2461,15 +2470,19 @@
         "rejection"
       ],
       "file": "latex/main.tex",
-      "id": "M0121",
-      "line": 640,
+      "id": "M0120",
+      "line": 642,
       "numeric_tokens": [
         "five",
+        "311",
+        "314",
+        "311",
+        "314.",
         "zero",
         "0.0005"
       ],
-      "section": "Conceptual rejection paths and limit sweep",
-      "statement": "\\caption{Linked rejection-limit sweeps for uniform and congested-block inputs. Runtime panels retain complete-call latency separately by method and environment; companion panels show the smaller-side unmatched fraction derived from the five saved input cardinalities. Linux lines are solid and Windows dashed. The common limit axis is linear from zero through 0.0005 and logarithmic above it. Constant cardinality does not imply constant latency; no solver or input generator was rerun to obtain these values.}",
+      "section": "Rejection-limit sweep",
+      "statement": "\\caption{Linked rejection-limit sweeps for uniform and congested-block inputs. Runtime panels retain complete-call latency separately by method and environment; companion panels show the smaller-side unmatched fraction derived from the five saved input cardinalities. Solid/dashed/dotted/dash-dot lines identify L311/L314/W311/W314. The common limit axis is linear from zero through 0.0005 and logarithmic above it. Constant cardinality does not imply constant latency; no solver or input generator was rerun to obtain these values.}",
       "subsection": ""
     },
     {
@@ -2477,8 +2490,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0122",
-      "line": 647,
+      "id": "M0121",
+      "line": 649,
       "numeric_tokens": [
         "all",
         "455",
@@ -2506,8 +2519,8 @@
         "workloads"
       ],
       "file": "latex/main.tex",
-      "id": "M0123",
-      "line": 659,
+      "id": "M0122",
+      "line": 661,
       "numeric_tokens": [
         "All"
       ],
@@ -2520,8 +2533,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0124",
-      "line": 674,
+      "id": "M0123",
+      "line": 676,
       "numeric_tokens": [
         "All",
         "16",
@@ -2538,8 +2551,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0125",
-      "line": 686,
+      "id": "M0124",
+      "line": 688,
       "numeric_tokens": [
         "3.11",
         "374",
@@ -2559,8 +2572,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0126",
-      "line": 688,
+      "id": "M0125",
+      "line": 690,
       "numeric_tokens": [
         "three",
         "five",
@@ -2586,8 +2599,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0127",
-      "line": 690,
+      "id": "M0126",
+      "line": 692,
       "numeric_tokens": [
         "1",
         "2",
@@ -2607,8 +2620,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0128",
-      "line": 700,
+      "id": "M0127",
+      "line": 702,
       "numeric_tokens": [
         "166",
         "all",
@@ -2623,8 +2636,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0129",
-      "line": 712,
+      "id": "M0128",
+      "line": 714,
       "numeric_tokens": [
         "Every",
         "one",
@@ -2640,8 +2653,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0130",
-      "line": 724,
+      "id": "M0129",
+      "line": 726,
       "numeric_tokens": [
         "three"
       ],
@@ -2657,7 +2670,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0131",
+      "id": "M0130",
       "line": 4,
       "numeric_tokens": [
         "311",
@@ -2677,7 +2690,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0132",
+      "id": "M0131",
       "line": 6,
       "numeric_tokens": [
         "3.11.18",
@@ -2697,7 +2710,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0133",
+      "id": "M0132",
       "line": 8,
       "numeric_tokens": [
         "4",
@@ -2719,7 +2732,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0134",
+      "id": "M0133",
       "line": 9,
       "numeric_tokens": [
         "4",
@@ -2739,7 +2752,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0135",
+      "id": "M0134",
       "line": 10,
       "numeric_tokens": [
         "4",
@@ -2758,7 +2771,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0136",
+      "id": "M0135",
       "line": 11,
       "numeric_tokens": [
         "4",
@@ -2778,7 +2791,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0137",
+      "id": "M0136",
       "line": 12,
       "numeric_tokens": [
         "4",
@@ -2797,7 +2810,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0138",
+      "id": "M0137",
       "line": 13,
       "numeric_tokens": [
         "4",
@@ -2816,7 +2829,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0139",
+      "id": "M0138",
       "line": 14,
       "numeric_tokens": [
         "3,286",
@@ -2840,7 +2853,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0140",
+      "id": "M0139",
       "line": 15,
       "numeric_tokens": [
         "4",
@@ -2859,7 +2872,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0141",
+      "id": "M0140",
       "line": 16,
       "numeric_tokens": [
         "4",
@@ -2879,7 +2892,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0142",
+      "id": "M0141",
       "line": 17,
       "numeric_tokens": [
         "4",
@@ -2899,7 +2912,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0143",
+      "id": "M0142",
       "line": 18,
       "numeric_tokens": [
         "4",
@@ -2918,7 +2931,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0144",
+      "id": "M0143",
       "line": 19,
       "numeric_tokens": [
         "67",
@@ -2938,7 +2951,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0145",
+      "id": "M0144",
       "line": 20,
       "numeric_tokens": [
         "4",
@@ -2959,7 +2972,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0146",
+      "id": "M0145",
       "line": 6,
       "numeric_tokens": [
         "64",
@@ -2977,7 +2990,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0147",
+      "id": "M0146",
       "line": 10,
       "numeric_tokens": [
         "64"
@@ -2993,7 +3006,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0148",
+      "id": "M0147",
       "line": 11,
       "numeric_tokens": [],
       "section": "Generated table/appendix fragment",
@@ -3007,7 +3020,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0149",
+      "id": "M0148",
       "line": 12,
       "numeric_tokens": [],
       "section": "Generated table/appendix fragment",
@@ -3021,7 +3034,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0150",
+      "id": "M0149",
       "line": 13,
       "numeric_tokens": [
         "2",
@@ -3039,7 +3052,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0151",
+      "id": "M0150",
       "line": 16,
       "numeric_tokens": [
         "4,"
@@ -3055,7 +3068,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0152",
+      "id": "M0151",
       "line": 20,
       "numeric_tokens": [
         "64",
@@ -3072,7 +3085,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0153",
+      "id": "M0152",
       "line": 21,
       "numeric_tokens": [
         "32",
@@ -3090,7 +3103,7 @@
         "lsape"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0154",
+      "id": "M0153",
       "line": 22,
       "numeric_tokens": [
         "64",
@@ -3105,7 +3118,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0155",
+      "id": "M0154",
       "line": 5,
       "numeric_tokens": [
         "512",
@@ -3126,7 +3139,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0156",
+      "id": "M0155",
       "line": 6,
       "numeric_tokens": [
         "1",
@@ -3148,7 +3161,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0157",
+      "id": "M0156",
       "line": 7,
       "numeric_tokens": [
         "128",
@@ -3169,7 +3182,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0158",
+      "id": "M0157",
       "line": 8,
       "numeric_tokens": [
         "524.8",
@@ -3190,7 +3203,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0159",
+      "id": "M0158",
       "line": 9,
       "numeric_tokens": [
         "1",
@@ -3212,7 +3225,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0160",
+      "id": "M0159",
       "line": 4,
       "numeric_tokens": [
         "2",
@@ -3227,7 +3240,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0161",
+      "id": "M0160",
       "line": 5,
       "numeric_tokens": [
         "311",
@@ -3244,7 +3257,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0162",
+      "id": "M0161",
       "line": 7,
       "numeric_tokens": [
         "256",
@@ -3268,7 +3281,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0163",
+      "id": "M0162",
       "line": 8,
       "numeric_tokens": [
         "8",
@@ -3290,7 +3303,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0164",
+      "id": "M0163",
       "line": 9,
       "numeric_tokens": [
         "8",
@@ -3312,7 +3325,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0165",
+      "id": "M0164",
       "line": 10,
       "numeric_tokens": [
         "128",
@@ -3334,7 +3347,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0166",
+      "id": "M0165",
       "line": 12,
       "numeric_tokens": [
         "256",
@@ -3358,7 +3371,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0167",
+      "id": "M0166",
       "line": 13,
       "numeric_tokens": [
         "8",
@@ -3380,7 +3393,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0168",
+      "id": "M0167",
       "line": 14,
       "numeric_tokens": [
         "8",
@@ -3402,7 +3415,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0169",
+      "id": "M0168",
       "line": 15,
       "numeric_tokens": [
         "8.5",
@@ -3424,7 +3437,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0170",
+      "id": "M0169",
       "line": 16,
       "numeric_tokens": [
         "144.5",
@@ -3446,7 +3459,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0171",
+      "id": "M0170",
       "line": 18,
       "numeric_tokens": [
         "4096",
@@ -3470,7 +3483,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0172",
+      "id": "M0171",
       "line": 19,
       "numeric_tokens": [
         "8",
@@ -3492,7 +3505,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0173",
+      "id": "M0172",
       "line": 20,
       "numeric_tokens": [
         "8",
@@ -3514,7 +3527,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0174",
+      "id": "M0173",
       "line": 21,
       "numeric_tokens": [
         "128",
@@ -3536,7 +3549,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0175",
+      "id": "M0174",
       "line": 23,
       "numeric_tokens": [
         "4096",
@@ -3560,7 +3573,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0176",
+      "id": "M0175",
       "line": 24,
       "numeric_tokens": [
         "8",
@@ -3582,7 +3595,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0177",
+      "id": "M0176",
       "line": 25,
       "numeric_tokens": [
         "8",
@@ -3604,7 +3617,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0178",
+      "id": "M0177",
       "line": 26,
       "numeric_tokens": [
         "8.5",
@@ -3626,7 +3639,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0179",
+      "id": "M0178",
       "line": 27,
       "numeric_tokens": [
         "144.5",
@@ -3648,7 +3661,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0180",
+      "id": "M0179",
       "line": 6,
       "numeric_tokens": [
         "16",
@@ -3669,7 +3682,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0181",
+      "id": "M0180",
       "line": 7,
       "numeric_tokens": [
         "16",
@@ -3690,7 +3703,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0182",
+      "id": "M0181",
       "line": 8,
       "numeric_tokens": [
         "16",
@@ -3711,7 +3724,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0183",
+      "id": "M0182",
       "line": 9,
       "numeric_tokens": [
         "16",
@@ -3732,7 +3745,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0184",
+      "id": "M0183",
       "line": 10,
       "numeric_tokens": [
         "20",
@@ -3753,7 +3766,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0185",
+      "id": "M0184",
       "line": 11,
       "numeric_tokens": [
         "20",
@@ -3774,7 +3787,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0186",
+      "id": "M0185",
       "line": 12,
       "numeric_tokens": [
         "20",
@@ -3795,7 +3808,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0187",
+      "id": "M0186",
       "line": 13,
       "numeric_tokens": [
         "20",
@@ -3816,7 +3829,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0188",
+      "id": "M0187",
       "line": 4,
       "numeric_tokens": [
         "1"
@@ -3830,7 +3843,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0189",
+      "id": "M0188",
       "line": 6,
       "numeric_tokens": [
         "16",
@@ -3849,7 +3862,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0190",
+      "id": "M0189",
       "line": 7,
       "numeric_tokens": [
         "16",
@@ -3868,7 +3881,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0191",
+      "id": "M0190",
       "line": 8,
       "numeric_tokens": [
         "16",
@@ -3887,7 +3900,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0192",
+      "id": "M0191",
       "line": 9,
       "numeric_tokens": [
         "16",
@@ -3906,7 +3919,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0193",
+      "id": "M0192",
       "line": 10,
       "numeric_tokens": [
         "16",
@@ -3925,7 +3938,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0194",
+      "id": "M0193",
       "line": 11,
       "numeric_tokens": [
         "16",
@@ -3944,7 +3957,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0195",
+      "id": "M0194",
       "line": 12,
       "numeric_tokens": [
         "16",
@@ -3963,7 +3976,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0196",
+      "id": "M0195",
       "line": 13,
       "numeric_tokens": [
         "16",
@@ -3982,7 +3995,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0197",
+      "id": "M0196",
       "line": 14,
       "numeric_tokens": [
         "20",
@@ -4001,7 +4014,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0198",
+      "id": "M0197",
       "line": 15,
       "numeric_tokens": [
         "20",
@@ -4020,7 +4033,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0199",
+      "id": "M0198",
       "line": 16,
       "numeric_tokens": [
         "20",
@@ -4039,7 +4052,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0200",
+      "id": "M0199",
       "line": 17,
       "numeric_tokens": [
         "20",
@@ -4058,7 +4071,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0201",
+      "id": "M0200",
       "line": 18,
       "numeric_tokens": [
         "20",
@@ -4077,7 +4090,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0202",
+      "id": "M0201",
       "line": 19,
       "numeric_tokens": [
         "20",
@@ -4096,7 +4109,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0203",
+      "id": "M0202",
       "line": 20,
       "numeric_tokens": [
         "20",
@@ -4115,7 +4128,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0204",
+      "id": "M0203",
       "line": 21,
       "numeric_tokens": [
         "20",
@@ -4134,7 +4147,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0205",
+      "id": "M0204",
       "line": 3,
       "numeric_tokens": [
         "2",
@@ -4155,7 +4168,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0206",
+      "id": "M0205",
       "line": 6,
       "numeric_tokens": [
         "5",
@@ -4193,7 +4206,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0207",
+      "id": "M0206",
       "line": 7,
       "numeric_tokens": [
         "5",
@@ -4231,7 +4244,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0208",
+      "id": "M0207",
       "line": 8,
       "numeric_tokens": [
         "27",
@@ -4269,7 +4282,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0209",
+      "id": "M0208",
       "line": 9,
       "numeric_tokens": [
         "4",
@@ -4307,7 +4320,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0210",
+      "id": "M0209",
       "line": 10,
       "numeric_tokens": [
         "6",
@@ -4345,7 +4358,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0211",
+      "id": "M0210",
       "line": 11,
       "numeric_tokens": [
         "6",
@@ -4383,7 +4396,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0212",
+      "id": "M0211",
       "line": 12,
       "numeric_tokens": [
         "5",
@@ -4421,7 +4434,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0213",
+      "id": "M0212",
       "line": 13,
       "numeric_tokens": [
         "4",
@@ -4459,7 +4472,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0214",
+      "id": "M0213",
       "line": 14,
       "numeric_tokens": [
         "4",
@@ -4497,7 +4510,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0215",
+      "id": "M0214",
       "line": 15,
       "numeric_tokens": [
         "2",
@@ -4535,7 +4548,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0216",
+      "id": "M0215",
       "line": 16,
       "numeric_tokens": [
         "22",
@@ -4573,7 +4586,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0217",
+      "id": "M0216",
       "line": 17,
       "numeric_tokens": [
         "76",
@@ -4611,7 +4624,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0218",
+      "id": "M0217",
       "line": 3,
       "numeric_tokens": [
         "311",
@@ -4628,7 +4641,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0219",
+      "id": "M0218",
       "line": 5,
       "numeric_tokens": [
         "256",
@@ -4647,7 +4660,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0220",
+      "id": "M0219",
       "line": 6,
       "numeric_tokens": [
         "256",
@@ -4666,7 +4679,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0221",
+      "id": "M0220",
       "line": 7,
       "numeric_tokens": [
         "128",
@@ -4685,7 +4698,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0222",
+      "id": "M0221",
       "line": 8,
       "numeric_tokens": [
         "128",
@@ -4704,7 +4717,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0223",
+      "id": "M0222",
       "line": 9,
       "numeric_tokens": [
         "041,",
@@ -4724,7 +4737,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0224",
+      "id": "M0223",
       "line": 10,
       "numeric_tokens": [
         "041,",
@@ -4744,7 +4757,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0225",
+      "id": "M0224",
       "line": 6,
       "numeric_tokens": [
         "311",
@@ -4774,7 +4787,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0226",
+      "id": "M0225",
       "line": 7,
       "numeric_tokens": [
         "314",
@@ -4804,7 +4817,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0227",
+      "id": "M0226",
       "line": 9,
       "numeric_tokens": [
         "5",
@@ -4836,7 +4849,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0228",
+      "id": "M0227",
       "line": 10,
       "numeric_tokens": [
         "5",
@@ -4868,7 +4881,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0229",
+      "id": "M0228",
       "line": 12,
       "numeric_tokens": [
         "5",
@@ -4900,7 +4913,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0230",
+      "id": "M0229",
       "line": 13,
       "numeric_tokens": [
         "5",
@@ -4932,7 +4945,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0231",
+      "id": "M0230",
       "line": 15,
       "numeric_tokens": [
         "4",
@@ -4964,7 +4977,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0232",
+      "id": "M0231",
       "line": 16,
       "numeric_tokens": [
         "4",
@@ -4996,7 +5009,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0233",
+      "id": "M0232",
       "line": 18,
       "numeric_tokens": [
         "311",
@@ -5026,7 +5039,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0234",
+      "id": "M0233",
       "line": 19,
       "numeric_tokens": [
         "314",
@@ -5056,7 +5069,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0235",
+      "id": "M0234",
       "line": 21,
       "numeric_tokens": [
         "311",
@@ -5086,7 +5099,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0236",
+      "id": "M0235",
       "line": 22,
       "numeric_tokens": [
         "314",
@@ -5165,7 +5178,7 @@
       ]
     },
     "batch": {
-      "derivation": "Use saved ratio for worker/dispatch; invert solver-state and orientation lifetime contrasts for recreation/retained direction. Total-worker lifetime contrast is supplement-only; no pooling.",
+      "derivation": "Use saved ratio for worker/dispatch; invert solver-state and orientation lifetime contrasts for recreation/retained direction. Worker-count contrasts use matched inputs in distinct placement-process attempts; within-placement contrasts use the same attempt. Total-worker lifetime contrast is supplement-only; no pooling.",
       "fields_or_selection": "batch_contrasts[].{case_id,contrast,method,reference,ratio,ratio_definition,seconds,reference_seconds}; estimates[].round_means_seconds",
       "generator_output": "F6_batch_dot_values.csv; S5_batch_contrasts.csv; S5_batch_timing.csv; campaign_summary.json:environments.*.batch",
       "kind": "saved_measurements",
@@ -5293,7 +5306,7 @@
       ]
     },
     "native": {
-      "derivation": "Reference/method ratio: classify <0.97 loss, [0.97,1.03] tie, >1.03 win. Required count=102 per method; optional count=166 for Rust/CPP. No environment pooling.",
+      "derivation": "Reference/method ratio: classify <0.97 loss, [0.97,1.03] tie, >1.03 win. Required count=102 per method; optional count=166 for Rust/CPP. Compute case-median ratios within each environment/objective; JVRUST median ranges round to3.67-4.66 required and4.72-5.23 optional. No environment pooling.",
       "fields_or_selection": "paired[]: complete canonical jvrust/jvcpp/jvhybrid, case.kind=single, reference=case.metadata.primary_comparator; split by environment/objective",
       "generator_output": "campaign_summary.json:environments.*.native; F1_overview_ccdf.csv; S_native_family_counts.csv; S_native_exceptions.csv",
       "kind": "saved_measurements",
@@ -5578,6 +5591,7 @@
             "tie": 2,
             "win": 163
           },
+          "median_ratio": 4.56860938750611,
           "n": 166
         },
         "optional:jvrust": {
@@ -5585,24 +5599,28 @@
             "tie": 1,
             "win": 165
           },
+          "median_ratio": 4.716028907472053,
           "n": 166
         },
         "required:jvcpp": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.5677181743722906,
           "n": 102
         },
         "required:jvhybrid": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.956489711880812,
           "n": 102
         },
         "required:jvrust": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.666051079742183,
           "n": 102
         }
       },
@@ -5748,6 +5766,7 @@
             "tie": 2,
             "win": 163
           },
+          "median_ratio": 4.5762861422532115,
           "n": 166
         },
         "optional:jvrust": {
@@ -5755,24 +5774,28 @@
             "tie": 1,
             "win": 165
           },
+          "median_ratio": 4.74088779502098,
           "n": 166
         },
         "required:jvcpp": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.1937781539179326,
           "n": 102
         },
         "required:jvhybrid": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.064104098517766,
           "n": 102
         },
         "required:jvrust": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.7095671334847964,
           "n": 102
         }
       },
@@ -5941,6 +5964,7 @@
             "tie": 1,
             "win": 165
           },
+          "median_ratio": 4.859703347139371,
           "n": 166
         },
         "optional:jvrust": {
@@ -5949,24 +5973,28 @@
             "tie": 2,
             "win": 163
           },
+          "median_ratio": 5.038098248956958,
           "n": 166
         },
         "required:jvcpp": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 3.969004348856063,
           "n": 102
         },
         "required:jvhybrid": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.5044246901295875,
           "n": 102
         },
         "required:jvrust": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.474983986645203,
           "n": 102
         }
       },
@@ -6132,6 +6160,7 @@
           "classifications": {
             "win": 166
           },
+          "median_ratio": 4.859481734911627,
           "n": 166
         },
         "optional:jvrust": {
@@ -6140,24 +6169,28 @@
             "tie": 1,
             "win": 164
           },
+          "median_ratio": 5.225512493512498,
           "n": 166
         },
         "required:jvcpp": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.066053924309177,
           "n": 102
         },
         "required:jvhybrid": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.642909819307275,
           "n": 102
         },
         "required:jvrust": {
           "classifications": {
             "win": 102
           },
+          "median_ratio": 4.659422963641825,
           "n": 102
         }
       },
@@ -6225,14 +6258,14 @@
       }
     }
   },
-  "manuscript_sha256": "11f89d0033bc600371c21e0db21475152771d5a66c4e2fb5307e26401f766b10",
+  "manuscript_sha256": "3664a48e8a5f7c35027113b5fd1c80cbfab0292bb56b97ceb2079345610f46a3",
   "primary_roots": {
     "L311": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light",
     "L314": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light",
     "W311": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light",
     "W314": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light"
   },
-  "quantitative_records": 236,
+  "quantitative_records": 235,
   "scope": "Quantitative paragraphs (including symbolic formulas),displayed equations,captions and generated numeric table rows; technical preamble,automatic numbering and citation-key digits excluded. Each record identifies sources for all quantities in its excerpt. This editorial index does not replace the underlying observations or constitute automatic proof.",
   "unmapped_records": []
 }

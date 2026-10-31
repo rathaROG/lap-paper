@@ -4,17 +4,23 @@ Paper and benchmark code for *Native Rectangular Linear Assignment with Implicit
 
 **[arXiv:2610.35948](https://arxiv.org/abs/2610.35948)** · [Paper PDF](output/pdf/native_rectangular_assignment.pdf) · [LaTeX source](latex/main.tex) · [arXiv source ZIP](output/arxiv/lap-paper-arxiv.zip)
 
+**Publication status:** this checkout contains the revised manuscript prepared
+for the next arXiv update. The linked arXiv v1 and public repository have not yet
+been updated to this revision. Local regeneration does not publish or upload it.
+
 The manuscript reports the four saved light-profile environments from 30–31
 October 2026, with separate application and Windows LSAPE evidence.
 
 Regenerate figures, tables and source-indexed supplementary data without running
-a benchmark:
+a benchmark. PDF and ZIP creation also requires `latexmk`, PDFLaTeX and BibTeX
+(the saved build uses TeX Live 2025):
 
 ```sh
 python -m pip install -r benchmark/requirements-artifacts.txt
 python benchmark/paper_evidence.py extract
 python benchmark/generate_paper_artifacts.py
-latexmk -pdf latex/main.tex
+python benchmark/package_arxiv.py
+latexmk -pdf latex/supplementary_figures.tex
 ```
 
 The [frozen evidence bundle](benchmark/evidence/README.md) contains five
@@ -23,23 +29,31 @@ session. Extraction restores the saved files under `benchmark/runs/`; the
 generator then reads them without executing solvers. Its
 [artifact guide](benchmark/paper-artifacts/README.md) identifies the primary
 inputs and supplementary exports. Exact values for every case remain in those
-indexed exports; the optional figure-atlas source is
+indexed exports. The final command builds the optional figure atlas from
 `latex/supplementary_figures.tex`.
 
 The configured LaTeX build writes the main paper to
-`output/pdf/native_rectangular_assignment.pdf`. Keep only that paper in
-`output/pdf/`; the submission archive is `output/arxiv/lap-paper-arxiv.zip`.
-Both the PDF and ZIP are final deliverables to include in version control.
+`output/pdf/native_rectangular_assignment.pdf` and the atlas to
+`output/pdf/supplementary_figures.pdf`. Each document has a separate build name
+and auxiliary files, so building the atlas cannot replace the main paper.
+The submission archive is `output/arxiv/lap-paper-arxiv.zip`.
+The main PDF, atlas PDF and ZIP are final deliverables to include in version control.
 Within `output/`, only `output/build/` is ignored; it contains temporary LaTeX
 files and compilation logs.
 
-For arXiv, include the generated `latex/main.bbl` with `main.tex`. After changing
-the bibliography, rebuild and copy `output/build/native_rectangular_assignment.bbl`
-to `latex/main.bbl`. Put `main.tex`, `main.bbl` and `references.bib` at the upload
-archive root, with only the figures and table fragments used by the paper in
-their `images/` and `generated/` subdirectories.
-Refresh `output/arxiv/lap-paper-arxiv.zip` after changing the manuscript,
-bibliography, figures or tables, so it matches the final PDF.
+`python benchmark/package_arxiv.py` rebuilds the main PDF with `latexmk`, copies
+its generated bibliography to `latex/main.bbl`, and refreshes the source ZIP.
+The archive contains `main.tex`, `main.bbl` and `references.bib` at its root,
+plus the local figures and table fragments recorded as actual build inputs.
+Unused figures, the separate atlas and temporary files are excluded. Entry
+metadata is fixed, and every archived file is checked against its source.
+Run this command again after changing the manuscript, bibliography, figures
+or tables. For a PDF-only rebuild, use `latexmk -pdf latex/main.tex`.
+
+Before publishing, upload the matching repository revision and frozen evidence,
+update the publication-status statements here and in the manuscript, rebuild
+the PDF and ZIP, and submit the arXiv replacement with matching author metadata.
+Keep a tag or commit identifying that release.
 
 ## Benchmarks
 
@@ -86,7 +100,9 @@ benchmark guide for its precise coverage and the geometry baseline cutoff.
 | `latex/main.bbl` | Generated bibliography included for arXiv submission |
 | `latex/images/` | Figures included by the manuscript |
 | `output/pdf/native_rectangular_assignment.pdf` | Final main-paper PDF; not ignored |
+| `output/pdf/supplementary_figures.pdf` | Supplementary figure atlas; not ignored |
 | `output/arxiv/lap-paper-arxiv.zip` | arXiv source upload, including `main.bbl`; not ignored |
+| `benchmark/package_arxiv.py` | Rebuild the main PDF and package its recorded source dependencies |
 | `output/build/` | Temporary LaTeX files and logs; ignored |
 | `benchmark/README.md` | Entry point for the benchmark suites |
 | `benchmark/evidence/` | Frozen observations and checksum manifest for regeneration |

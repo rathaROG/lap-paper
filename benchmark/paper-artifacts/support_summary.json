@@ -422,7 +422,7 @@
     "atlas_figures": [
       {
         "name": "S_batch_reuse_one_worker",
-        "scope": "Each marker is one workload, method and environment. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.",
+        "scope": "Each marker is one workload, method and environment. Filled/open markers identify Linux/Windows; smaller/larger markers identify Python 3.11/3.14. Within each method, lanes run L311, L314, W311, W314 from top to bottom. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.",
         "title": "Workspace reuse with one worker"
       }
     ],

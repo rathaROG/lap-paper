@@ -23,6 +23,16 @@ ENVS = [
     ("W311", "Windows 3.11.18", "windows-py3.11.18-20261030-2322", ":"),
     ("W314", "Windows 3.14.10", "windows-py3.14.10-20261031-0322", "-."),
 ]
+ENV_LINESTYLES = {env: line for env, _, _, line in ENVS}
+ENV_MARKER_SCALES = {env: 1.0 if env.endswith("311") else 1.4 for env, *_ in ENVS}
+
+
+def environment_marker(env, colour, size=3.4, marker="o"):
+    """Keep method/shape symbols while identifying both OS and interpreter."""
+    return dict(marker=marker, ms=size * ENV_MARKER_SCALES[env], mec=colour,
+                mew=.65, mfc=colour if env.startswith("L") else "white")
+
+
 STYLE = json.loads((REPO / "benchmark/paper_artifact_panels/style_mapping.json").read_text(encoding='utf-8'))
 TYPOGRAPHY={}
 SUPPRESS_FIGURES=False
