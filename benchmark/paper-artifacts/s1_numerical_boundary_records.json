@@ -1,0 +1,794 @@
+[
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:scipy:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "L314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:scipy:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W311",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:scipy:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvs:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:diag_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent_transpose",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:jvx:fill_row_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  },
+  {
+    "campaign_rule": "each input must separately pass reference/feasibility validation",
+    "case": "threshold_adjacent",
+    "diagnostic_tolerance": {
+      "absolute_tolerance": 5.329070518200751e-15,
+      "interpretation": "diagnostic classification; not exact optimality or a solver error bound",
+      "policy": "tagged_boundary_8eps_rplus1_original_scale_v1",
+      "scale": 1.5
+    },
+    "environment": "W314",
+    "exact_actual": "3/2",
+    "exact_gap": "1/9007199254740992",
+    "exact_optimum": "13510798882111487/9007199254740992",
+    "method": "cost:scipy:diag_col_pad_inf",
+    "reason": "Exact represented objective 3/2 != optimum 13510798882111487/9007199254740992",
+    "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+    "status": "numerical_boundary_limitation"
+  }
+]

@@ -1,0 +1,61 @@
+environment,block,family,comparison,label,cases,win,tie,loss
+W311,A,Square,original_over_padded,O/P,8,0,1,7
+W311,B,5:4 uniform,original_over_padded,O/P,16,4,2,10
+W311,C,5:4 congested,original_over_padded,O/P,8,8,0,0
+W311,D,4:1,original_over_padded,O/P,16,13,3,0
+W311,E,Extreme,original_over_padded,O/P,12,10,2,0
+W311,F,Threshold ties,original_over_padded,O/P,7,3,4,0
+W311,A,Square,original_over_one_sided,O/U,8,0,0,8
+W311,B,5:4 uniform,original_over_one_sided,O/U,16,4,0,12
+W311,C,5:4 congested,original_over_one_sided,O/U,8,8,0,0
+W311,D,4:1,original_over_one_sided,O/U,16,5,1,10
+W311,E,Extreme,original_over_one_sided,O/U,12,3,3,6
+W311,F,Threshold ties,original_over_one_sided,O/U,7,0,1,6
+W311,A,Square,one_sided_over_padded,U/P,8,8,0,0
+W311,B,5:4 uniform,one_sided_over_padded,U/P,16,16,0,0
+W311,C,5:4 congested,one_sided_over_padded,U/P,8,8,0,0
+W311,D,4:1,one_sided_over_padded,U/P,16,16,0,0
+W311,E,Extreme,one_sided_over_padded,U/P,12,12,0,0
+W311,F,Threshold ties,one_sided_over_padded,U/P,7,7,0,0
+W311,A,Square,padded_over_compact,P/T,8,0,4,4
+W311,B,5:4 uniform,padded_over_compact,P/T,16,0,9,7
+W311,C,5:4 congested,padded_over_compact,P/T,8,0,5,3
+W311,D,4:1,padded_over_compact,P/T,16,0,10,6
+W311,E,Extreme,padded_over_compact,P/T,12,0,8,4
+W311,F,Threshold ties,padded_over_compact,P/T,7,0,7,0
+W311,A,Square,scan_over_compact,S/T,8,0,7,1
+W311,B,5:4 uniform,scan_over_compact,S/T,16,0,16,0
+W311,C,5:4 congested,scan_over_compact,S/T,8,0,8,0
+W311,D,4:1,scan_over_compact,S/T,16,0,16,0
+W311,E,Extreme,scan_over_compact,S/T,12,0,12,0
+W311,F,Threshold ties,scan_over_compact,S/T,7,0,7,0
+W314,A,Square,original_over_padded,O/P,8,0,1,7
+W314,B,5:4 uniform,original_over_padded,O/P,16,4,3,9
+W314,C,5:4 congested,original_over_padded,O/P,8,8,0,0
+W314,D,4:1,original_over_padded,O/P,16,13,3,0
+W314,E,Extreme,original_over_padded,O/P,12,10,2,0
+W314,F,Threshold ties,original_over_padded,O/P,7,3,4,0
+W314,A,Square,original_over_one_sided,O/U,8,0,0,8
+W314,B,5:4 uniform,original_over_one_sided,O/U,16,4,0,12
+W314,C,5:4 congested,original_over_one_sided,O/U,8,8,0,0
+W314,D,4:1,original_over_one_sided,O/U,16,5,2,9
+W314,E,Extreme,original_over_one_sided,O/U,12,3,6,3
+W314,F,Threshold ties,original_over_one_sided,O/U,7,0,1,6
+W314,A,Square,one_sided_over_padded,U/P,8,8,0,0
+W314,B,5:4 uniform,one_sided_over_padded,U/P,16,16,0,0
+W314,C,5:4 congested,one_sided_over_padded,U/P,8,8,0,0
+W314,D,4:1,one_sided_over_padded,U/P,16,16,0,0
+W314,E,Extreme,one_sided_over_padded,U/P,12,12,0,0
+W314,F,Threshold ties,one_sided_over_padded,U/P,7,7,0,0
+W314,A,Square,padded_over_compact,P/T,8,0,5,3
+W314,B,5:4 uniform,padded_over_compact,P/T,16,0,9,7
+W314,C,5:4 congested,padded_over_compact,P/T,8,0,5,3
+W314,D,4:1,padded_over_compact,P/T,16,0,8,8
+W314,E,Extreme,padded_over_compact,P/T,12,0,6,6
+W314,F,Threshold ties,padded_over_compact,P/T,7,0,5,2
+W314,A,Square,scan_over_compact,S/T,8,0,8,0
+W314,B,5:4 uniform,scan_over_compact,S/T,16,0,16,0
+W314,C,5:4 congested,scan_over_compact,S/T,8,0,8,0
+W314,D,4:1,scan_over_compact,S/T,16,0,16,0
+W314,E,Extreme,scan_over_compact,S/T,12,0,12,0
+W314,F,Threshold ties,scan_over_compact,S/T,7,0,7,0

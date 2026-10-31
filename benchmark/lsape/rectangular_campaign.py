@@ -17,9 +17,10 @@ import random
 import shutil
 import sys
 import traceback
+import time
 
-import controlled_comparison as common
-from redaction import redact
+from . import controlled_comparison as common
+from .redaction import redact
 
 ROOT = Path(__file__).resolve().parent
 GRID_ID = "lsape-rectangular-v1-67"
@@ -323,26 +324,54 @@ def extra_provenance(dest, manifest_path):
     return json.loads((ROOT / "src" / "upstream_download_check.json").read_text(encoding="utf-8"))
 
 
+def smoke_manifest(manifest):
+    """Cover each grid block and both orientations using fixed small cases."""
+    selected = []
+    for block in "ABCDEF":
+        candidates = [c for c in manifest["cases"] if c["block"] == block]
+        selected.append(candidates[0])
+        if candidates[0]["shape"][0] != candidates[0]["shape"][1]:
+            selected.append(candidates[1])
+    return {**manifest, "cases": selected, "case_count": len(selected),
+            "inputs_per_case": 1, "rounds": 2, "target_block_ms": 1.,
+            "scope": "Fixed bounded smoke; unavailable to publication summaries"}
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--manifest", type=Path, default=ROOT / "results" / "rectangular-grid-v1.json")
+    parser.add_argument("--manifest", type=Path, default=ROOT / "data" / "rectangular-grid-v1.json")
     parser.add_argument("--write-manifest", action="store_true",
                         help="Freeze the 67-case plan without importing or calling solvers")
     parser.add_argument("--session-index", type=int, choices=(1, 2, 3))
     parser.add_argument("--seed", type=int, help="Base seed; must match the frozen manifest")
-    parser.add_argument("--output", type=Path, help="New output directory; never overwrite an existing run")
+    parser.add_argument("--output", type=Path, help="New output directory; never overwrite an existing run. "
+                        "Default: benchmark/runs/{plat}-py{version}-{yyyymmdd}-{hhmm}/lsape-smoke or lsape-session-<index>")
+    parser.add_argument("--build-dir", type=Path)
+    parser.add_argument("--smoke", action="store_true", help="Bounded nonpublication check")
+    parser.add_argument("--allow-full-campaign", action="store_true")
     parser.add_argument("--validate-only", action="store_true", help="Validate all campaign inputs without timing")
     args = parser.parse_args(argv)
     if args.seed is not None and args.seed < 0:
         parser.error("--seed must be nonnegative")
+    if args.smoke and args.session_index is None:
+        args.session_index = 1
+    if not args.write_manifest and args.build_dir is None:
+        parser.error("--build-dir is required")
+    if not args.write_manifest and not args.validate_only and not args.smoke and not args.allow_full_campaign:
+        parser.error("Full measurements require --allow-full-campaign")
     if not args.write_manifest and args.session_index is None:
         parser.error("--session-index is required for a campaign invocation")
+    if not args.write_manifest and args.output is None:
+        from ..paths import default_output
+        args.output = default_output("lsape-smoke" if args.smoke else "lsape-input-validation"
+                                     if args.validate_only else f"lsape-session-{args.session_index}")
+        print(f"Output: {args.output}")
     return args
 
 
-def main(argv=None):
+def _run(args):
     global np
-    args = parse_args(argv)
+    started = time.perf_counter()
     manifest_path = args.manifest.resolve()
     if args.write_manifest:
         document = manifest_document(args.seed if args.seed is not None else 20261027)
@@ -357,12 +386,14 @@ def main(argv=None):
         return 0
     document = read_manifest(manifest_path, args.seed)
     manifest = document["manifest"]
+    if args.smoke:
+        manifest = smoke_manifest(manifest)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    dest = (args.output or ROOT / "results" / f"rectangular-s{args.session_index}-{stamp}").resolve()
+    dest = args.output.resolve()
     dest.mkdir(parents=True, exist_ok=False)
     path = dest / "report.json"
     report = {
-        "schema_version": 1, "status": "started", "stage": "initialization",
+        "schema_version": 1, "scope": "smoke_not_publication_evidence" if args.smoke else "lsape_five_arm_primary", "status": "started", "stage": "initialization",
         "started_utc": common.utc_now(), "session_index": args.session_index,
         "pid": os.getpid(), "validate_only": args.validate_only,
         "manifest_sha256": document["manifest_sha256"], "manifest": manifest,
@@ -378,8 +409,8 @@ def main(argv=None):
             "compact_tracked_to_padded_tracked": "Leading dimension and materialized border control; strided access and cache mapping can change, not merely storage size",
         },
         "limitations": [
-            "All three planned sessions are fresh processes in the current day/window; no reboot or independent-day replication is claimed",
-            "Four fixed inputs per case per session; newly seeded inputs across sessions",
+            "Session indices identify fresh processes; no independent-day replication is inferred",
+            f"{manifest['inputs_per_case']} fixed inputs per case per session; newly seeded inputs across sessions",
             "Paired round ratios and their intervals are descriptive; thermal drift and serial correlation remain possible",
             "The 3% ratio band is practical and descriptive, not a statistical-equivalence conclusion",
             "No other assignment package is a timed comparator; no historical timing is used",
@@ -391,7 +422,7 @@ def main(argv=None):
     common.write_json(path, report)
     try:
         report["stage"] = "runtime_and_provenance"
-        bridge, scipy, lsa, _, previous_threads = common.load_runtime()
+        bridge, scipy, lsa, _, previous_threads = common.load_runtime(args.build_dir)
         np = common.np
         solves = {name: getattr(bridge, attributes[0]) for name, attributes in METHODS.items()}
         diagnose = getattr(bridge, "diagnose")
@@ -406,6 +437,8 @@ def main(argv=None):
         common.write_json(dest / "upstream_archive_check.json", audit)
         if not audit["all_members_identical"]:
             raise ValueError("Upstream extracted files differ from the supplied archive")
+        if not report["affinity"]["applied"]:
+            raise RuntimeError("Measured LSAPE session requires verified CPU0 placement")
         report["upstream_integrity"] = {"file_count": audit["file_count"], "all_members_identical": True,
                                         "archive_sha256": audit["archive_sha256"]}
         report["provenance"] = common.snapshot_provenance(dest, bridge)
@@ -418,7 +451,7 @@ def main(argv=None):
             case = {**spec, "input_identities": identities, "diagnostics": [],
                     "methods": {}, "round_order": [], "status": "validating"}
             report["cases"].append(case)
-            print(f"Session {args.session_index}: {ordinal}/67 {spec['case']}", flush=True)
+            print(f"Session {args.session_index}: {ordinal}/{len(manifest['cases'])} {spec['case']}", flush=True)
             common.write_json(path, report)
             for index, cost in enumerate(inputs):
                 expected = common.reference_objective(cost, spec["limit"], lsa)
@@ -466,6 +499,7 @@ def main(argv=None):
         report["status"] = "validated_only" if args.validate_only else "complete"
         report["stage"], report["completed_utc"] = "complete", common.utc_now()
         report["completed_cases"] = len(report["cases"])
+        report["wall_seconds"] = time.perf_counter() - started
         common.write_json(path, report)
         print(redact("Saved " + str(path)), flush=True)
         return 0
@@ -475,6 +509,15 @@ def main(argv=None):
         common.write_json(path, report)
         print(redact(f"Campaign failed during {report['stage']}: {error}\nReport: {path}"), file=sys.stderr, flush=True)
         return 130 if isinstance(error, KeyboardInterrupt) else 1
+
+
+def main(argv=None):
+    args = parse_args(argv)
+    if args.write_manifest:
+        return _run(args)
+    from ..campaign.resources import HostLock
+    with HostLock():
+        return _run(args)
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@ import time
 import traceback
 import zipfile
 
-from redaction import redact
+from .redaction import redact
 
 
 ROOT = Path(__file__).resolve().parent
@@ -69,13 +69,18 @@ def effective_penalty(limit):
     return half, half + half
 
 
-def load_runtime():
+def load_runtime(build_dir):
     global np
     previous = {}
     for name in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
         previous[name] = os.environ.get(name)
         os.environ[name] = "1"
-    build = ROOT / "build"
+    build = Path(build_dir).resolve()
+    record = json.loads((build / "provenance.json").read_text(encoding="utf-8"))
+    if record.get("python_version", "").split()[0] != platform.python_version():
+        raise RuntimeError("LSAPE build requires the same Python patch version")
+    if record.get("output_sha256") != digest(build / "_lsape_native.pyd"):
+        raise RuntimeError("LSAPE binary differs from build provenance")
     sys.path.insert(0, str(build))
     np = importlib.import_module("numpy")
     scipy = importlib.import_module("scipy")
@@ -184,7 +189,8 @@ def resolve_build_input(name, candidates):
 
 
 def snapshot_provenance(dest, bridge):
-    build_record_path = ROOT / "build" / "provenance.json"
+    build_dir = Path(bridge.__file__).resolve().parent
+    build_record_path = build_dir / "provenance.json"
     build_record = json.loads(build_record_path.read_text(encoding="utf-8"))
     binary = Path(bridge.__file__).resolve()
     if build_record.get("returncode") != 0:
@@ -196,14 +202,16 @@ def snapshot_provenance(dest, bridge):
     declared = build_record.get("input_sha256", {})
     if not declared:
         raise RuntimeError("Build provenance has no source input hashes")
+    from .build_provenance import verified_builder
+    builder, builder_evidence = verified_builder(build_dir, ROOT, build_record)
     checks = []
     for name, expected in declared.items():
-        path = resolve_build_input(name, candidates)
+        path = builder if name == "build_bridge.py" else resolve_build_input(name, candidates)
         actual = digest(path)
         if actual != expected:
             raise RuntimeError(f"Source changed since the recorded build: {name}")
         checks.append({"recorded_name": name, "path": str(path), "sha256": actual})
-    required = [ROOT / "lsape_bridge.cpp", ROOT / "build_bridge.py",
+    required = [ROOT / "lsape_bridge.cpp", builder,
                 ROOT / "src" / "lsape-v4.zip",
                 ROOT / "src" / "specialized" / "hungarian-lsape-uniform.hh",
                 ROOT / "src" / "upstream-v4" / "lsape" / "include" / "hungarian-lsape.hh"]
@@ -212,14 +220,14 @@ def snapshot_provenance(dest, bridge):
         if path.resolve() not in checked_paths:
             raise RuntimeError(f"Required build input lacks a matching recorded hash: {path}")
     files = set(candidates)
-    files.update([binary, build_record_path.resolve()])
+    files.update([binary, build_record_path.resolve(), builder, *builder_evidence])
     for name in ("build.log", "compile_bridge.cmd"):
-        path = ROOT / "build" / name
+        path = build_dir / name
         if path.is_file():
             files.add(path.resolve())
     manifest = []
     for path in sorted(files):
-        relative = path.relative_to(ROOT)
+        relative = path.relative_to(ROOT) if path.is_relative_to(ROOT) else Path("build") / path.relative_to(build_dir)
         copied = dest / "provenance" / relative
         copied.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(path, copied)
@@ -432,208 +440,3 @@ def calibrate(solve, inputs, limit, target_ns):
         cycles = min(100000, max(cycles + 1,
             int(cycles * target_ns / max(elapsed, 1) * 1.1)))
 
-
-def write_summary(dest, report):
-    fields = ["case", "rows", "columns", "limit", "method", "rounds",
-              "q1_us", "median_us", "q3_us", "original_over_method"]
-    with (dest / "summary.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
-        writer.writeheader()
-        for case in report["cases"]:
-            for name, stats in case.get("methods", {}).items():
-                if "median_us" not in stats:
-                    continue
-                writer.writerow({"case": case["name"], "rows": case["shape"][0],
-                    "columns": case["shape"][1], "limit": case["limit"], "method": name,
-                    "rounds": len(stats["round_average_us"]),
-                    "q1_us": stats["q1_us"], "median_us": stats["median_us"],
-                    "q3_us": stats["q3_us"],
-                    "original_over_method": stats["original_over_method"]})
-
-
-def parse_args(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--validate-only", action="store_true",
-                        help="Validate small fixtures and pilot inputs without timing")
-    parser.add_argument("--output", type=Path,
-                        help="New output directory; existing directories are never overwritten")
-    parser.add_argument("--rounds", type=int, default=9,
-                        help="Shuffled timing rounds per case (default: 9)")
-    parser.add_argument("--target-ms", type=float, default=30.0,
-                        help="Calibration target per complete-input-cycle block (default: 30)")
-    args = parser.parse_args(argv)
-    if args.rounds < 1:
-        parser.error("--rounds must be positive")
-    if not math.isfinite(args.target_ms) or args.target_ms <= 0:
-        parser.error("--target-ms must be finite and positive")
-    return args
-
-
-def main(argv=None):
-    args = parse_args(argv)
-    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    dest = (args.output or ROOT / "results" / ("controlled-" + stamp)).resolve()
-    dest.mkdir(parents=True, exist_ok=False)
-    report_path = dest / "report.json"
-    report = {
-        "schema_version": 1, "status": "started", "started_utc": utc_now(),
-        "stage": "initialization", "output_directory": str(dest),
-        "validate_only": args.validate_only, "seed": SEED,
-        "rounds": args.rounds, "target_block_ms": args.target_ms,
-        "inputs_per_case": INPUTS_PER_CASE,
-        "scope": "Original versus specialized LSAPE; one freshly measured process/session/environment",
-        "primary_methods": list(PRIMARY_METHODS), "method_apis": METHOD_APIS,
-        "controls": ["one_sided_materialized", "implicit_scan"],
-        "control_interpretation": {
-            "original_to_one_sided_materialized": "Formulation control using the upstream solver",
-            "one_sided_materialized_to_implicit_scan": "Uniform/implicit specialization, including preprocessing of known-zero column minima, border storage, and possible scratch-allocation changes; not a pure storage ablation",
-            "implicit_scan_to_specialized_cached": "Cached rejection-candidate control within the same specialized implementation",
-        },
-        "objective": "F = sum selected original costs + half*(N+M-2K), half=double(L/2), p=half+half",
-        "input_contract": "Same finite nonnegative float64 C-contiguous inputs; no dimension reorientation",
-        "timed_work": "Python call; shared adapter validation, column-major input conversion, representation construction, per-call solver workspaces, solving, output consistency checks, and new int64 pair output; no total-cost calculation",
-        "untimed_work": "Input generation; exhaustive or capped-SciPy references; external feasibility, objective, and dual checks; hashes; warmup; calibration",
-        "comparison_contract": "All four kernels are called through one bridge binary and build; both original and specialized paths copy inputs into column-major storage. Specialization is not a zero-copy interface comparison.",
-        "ratio_direction": "original_over_method > 1 means that method has lower within-session median latency",
-        "validation_policy": {"small_fixtures": "Exact objective and dual equality, including subnormal limits",
-                              "pilot_inputs": {"rtol": 1e-10, "atol": 1e-10},
-                              "pair_identity_required": False,
-                              "input_hashes_checked": True},
-        "limitations": [
-            "Exploratory designed workloads, not an application-weighted sample",
-            "One process/session/environment; no cross-platform or independent-session replication",
-            "No comparison with other assignment packages or historical timing sessions",
-            "No kernel-phase latency breakdown, memory measurement, or batching study",
-            "No signed costs, forbidden edges, or required-matching workload",
-            "IQRs describe round averages, not per-instance confidence intervals",
-            "Original and specialized representations differ only by a small cost-matrix border in storage size; both copy real input costs",
-        ],
-        "small_validation": [], "cases": [],
-    }
-    write_json(report_path, report)
-    try:
-        report["stage"] = "loading_runtime"
-        bridge, scipy, lsa, methods, previous_threads = load_runtime()
-        report.update({"python": sys.version, "executable": sys.executable,
-                       "platform": platform.platform(), "processor": platform.processor(),
-                       "versions": {"numpy": np.__version__, "scipy": scipy.__version__},
-                       "thread_environment": {"requested": 1, "previous": previous_threads},
-                       "affinity": pin_process(), "driver_sha256": digest(__file__)})
-        report["stage"] = "upstream_integrity"
-        archive_check = check_upstream_archive()
-        write_json(dest / "upstream_archive_check.json", archive_check)
-        report["upstream_integrity"] = {
-            "record": "upstream_archive_check.json", "file_count": archive_check["file_count"],
-            "all_members_identical": archive_check["all_members_identical"],
-            "archive_sha256": archive_check["archive_sha256"],
-        }
-        if not archive_check["all_members_identical"]:
-            raise RuntimeError("Extracted upstream files differ from the supplied ZIP archive")
-        report["stage"] = "build_provenance"
-        report["provenance"] = snapshot_provenance(dest, bridge)
-        write_json(report_path, report)
-        report["stage"] = "small_validation"
-        for name, cost, limit in small_cases():
-            report["active_case"] = name
-            check_domain(cost, limit)
-            expected = enumerate_objective(cost, limit)
-            reference = reference_objective(cost, limit, lsa)
-            require_equal(reference, expected, True, f"{name} capped-SciPy reference")
-            half, effective = effective_penalty(limit)
-            record = {"name": name, "shape": list(cost.shape), "limit": limit,
-                      "endpoint_penalty": half, "effective_row_penalty": effective,
-                      "costs": cost.tolist(), "input_sha256": matrix_digest(cost),
-                      "expected": expected,
-                      "outcomes": validate(cost, limit, expected, methods, exact=True)}
-            report["small_validation"].append(record)
-        report["small_validation_cases"] = len(report["small_validation"])
-        write_json(report_path, report)
-        print(f"Small validation: {len(report['small_validation'])} cases passed", flush=True)
-        schedule = random.Random(SEED + 2)
-        for spec, inputs in workload_cases():
-            report["active_case"] = spec["name"]
-            report["stage"] = "pilot_validation"
-            setting = {**spec, "input_sha256": [matrix_digest(c) for c in inputs],
-                       "validation": [], "methods": {}, "round_order": [],
-                       "status": "validating"}
-            report["cases"].append(setting)
-            write_json(report_path, report)
-            print("Checking " + spec["name"], flush=True)
-            for index, cost in enumerate(inputs):
-                check_domain(cost, spec["limit"])
-                expected = reference_objective(cost, spec["limit"], lsa)
-                setting["validation"].append({"input_index": index, "expected": expected,
-                    "outcomes": validate(cost, spec["limit"], expected, methods)})
-            setting["status"] = "validated"
-            write_json(report_path, report)
-            if args.validate_only:
-                continue
-            report["stage"] = "calibration"
-            for name, solve in methods.items():
-                cycles, elapsed = calibrate(solve, inputs, spec["limit"], args.target_ms * 1e6)
-                setting["methods"][name] = {"cycles_per_round": cycles,
-                    "calibration_elapsed_ns": elapsed,
-                    "round_average_us": [], "round_elapsed_ns": []}
-            report["stage"] = "timing"
-            setting["status"] = "timing"
-            write_json(report_path, report)
-            for round_index in range(args.rounds):
-                report["active_round"] = round_index
-                order = list(methods)
-                schedule.shuffle(order)
-                setting["round_order"].append(order)
-                for name in order:
-                    stats = setting["methods"][name]
-                    elapsed = time_cycles(methods[name], inputs, spec["limit"],
-                                          stats["cycles_per_round"])
-                    stats["round_elapsed_ns"].append(elapsed)
-                    stats["round_average_us"].append(
-                        elapsed / (1000 * stats["cycles_per_round"] * len(inputs)))
-                if [matrix_digest(c) for c in inputs] != setting["input_sha256"]:
-                    raise ValueError("A timed call changed an input matrix")
-                write_json(report_path, report)
-            for stats in setting["methods"].values():
-                q1, median, q3 = np.quantile(stats["round_average_us"], [0.25, 0.5, 0.75])
-                if median <= 0:
-                    raise ValueError("Non-positive timing median")
-                stats.update(q1_us=float(q1), median_us=float(median), q3_us=float(q3))
-            original = setting["methods"]["original"]["median_us"]
-            for stats in setting["methods"].values():
-                stats["original_over_method"] = original / stats["median_us"]
-            specialized = setting["methods"]["specialized_cached"]["median_us"]
-            setting["primary_original_over_specialized"] = original / specialized
-            setting["input_unchanged_after_timing"] = True
-            setting["status"] = "complete"
-            write_json(report_path, report)
-            write_summary(dest, report)
-            print(f"{spec['name']}: original {original:.3f} us; specialized {specialized:.3f} us; "
-                  f"original/specialized {original / specialized:.3f}", flush=True)
-        report.pop("active_case", None)
-        report.pop("active_round", None)
-        report["stage"] = "complete"
-        report["status"] = "validated_only" if args.validate_only else "complete"
-        report["completed_utc"] = utc_now()
-        write_json(report_path, report)
-        write_summary(dest, report)
-        (ROOT / "results").mkdir(exist_ok=True)
-        try:
-            pointer = os.path.relpath(report_path, ROOT)
-        except ValueError:  # output on another drive; write_json redacts the absolute path
-            pointer = str(report_path)
-        write_json(ROOT / "results" / "latest-controlled.json",
-                   {"report": pointer, "status": report["status"], "completed_utc": report["completed_utc"]})
-        print(redact("Saved " + str(report_path)), flush=True)
-        return 0
-    except (Exception, KeyboardInterrupt) as error:
-        report["status"] = "failed"
-        report["failed_utc"] = utc_now()
-        report["error"] = {"type": type(error).__name__, "message": str(error),
-                           "traceback": traceback.format_exc()}
-        write_json(report_path, report)
-        print(redact(f"Comparison failed during {report['stage']}: {error}\nReport: {report_path}"),
-              file=sys.stderr, flush=True)
-        return 130 if isinstance(error, KeyboardInterrupt) else 1
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

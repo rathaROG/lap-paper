@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 
-from redaction import redact
+from .redaction import redact
 
 
 class RedactionTests(unittest.TestCase):

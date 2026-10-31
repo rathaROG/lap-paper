@@ -15,7 +15,7 @@ import math
 from pathlib import Path
 import statistics
 
-from redaction import redact
+from .redaction import redact
 
 ROOT = Path(__file__).resolve().parent
 BOOTSTRAP_REPLICATES = 10000
@@ -74,9 +74,38 @@ def paired_statistics(numerator, denominator, seed, band):
     }
 
 
+def environment_identity(report):
+    """Require comparable recorded runtime and placement across sessions."""
+    identity = {}
+    for key in ("python", "platform", "processor"):
+        value = report.get(key)
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"Missing environment identity field: {key}")
+        identity[key] = value
+    versions = report.get("versions")
+    if not isinstance(versions, dict) or any(not versions.get(key) for key in ("numpy", "scipy")):
+        raise ValueError("Missing environment package versions")
+    identity["versions"] = versions
+    affinity = report.get("affinity")
+    if (not isinstance(affinity, dict) or affinity.get("applied") is not True
+            or not isinstance(affinity.get("requested_logical_cpu"), int)
+            or not isinstance(affinity.get("original_process_mask"), int)
+            or not isinstance(affinity.get("system_mask"), int)
+            or affinity.get("error") is not None):
+        raise ValueError("Missing or unverified environment affinity")
+    identity["affinity"] = affinity
+    threads = report.get("thread_environment", {}).get("requested")
+    if threads != 1:
+        raise ValueError("Environment must record one requested library thread")
+    identity["library_threads"] = threads
+    return identity
+
+
 def check_reports(paths, reports):
     if len(reports) != 3 or {r.get("session_index") for r in reports} != {1, 2, 3}:
         raise ValueError("Supply exactly one report for each session index 1, 2, and 3")
+    if any(r.get("scope") == "smoke_not_publication_evidence" for r in reports):
+        raise ValueError("Smoke runs cannot enter primary summaries")
     manifest = reports[0]["manifest"]
     expected_cases = [c["case"] for c in manifest["cases"]]
     expected_methods = set(manifest["methods"])
@@ -87,7 +116,14 @@ def check_reports(paths, reports):
         "driver_sha256": {r["driver_sha256"] for r in reports},
         "shared_harness_sha256": {r["shared_harness_sha256"] for r in reports},
         "bridge_sha256": {r["provenance"]["loaded_bridge_sha256"] for r in reports},
+        "environment_sha256": {
+            hashlib.sha256(json.dumps(environment_identity(r), sort_keys=True,
+                                      separators=(",", ":")).encode()).hexdigest()
+            for r in reports
+        },
     }
+    if len(signatures["environment_sha256"]) != 1:
+        raise ValueError("Python, package versions, platform, processor or affinity differs across sessions")
     if any(len(values) != 1 for values in signatures.values()):
         raise ValueError(f"Campaign manifest, executed code, or bridge differs across sessions: {signatures}")
     if len({r["pid"] for r in reports}) != 3:
@@ -183,8 +219,11 @@ def main(argv=None):
     global np
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("reports", type=Path, nargs=3)
-    parser.add_argument("--output", type=Path)
+    parser.add_argument("--output", type=Path, help="Default: lsape-summary beside the session folders")
     args = parser.parse_args(argv)
+    if args.output is None:
+        args.output = args.reports[0].resolve().parent.parent / "lsape-summary"
+        print(f"Output: {args.output}")
     import numpy as numpy
     np = numpy
     loaded = [(path.resolve(), json.loads(path.read_text(encoding="utf-8"))) for path in args.reports]
@@ -193,7 +232,7 @@ def main(argv=None):
     manifest, signatures = check_reports(paths, reports)
     pairing = verify_input_pairing(manifest, reports)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-    dest = (args.output or ROOT / "results" / ("rectangular-summary-" + stamp)).resolve()
+    dest = args.output.resolve()
     dest.mkdir(parents=True, exist_ok=False)
     band = manifest["practical_ratio_band"]
     summary = {

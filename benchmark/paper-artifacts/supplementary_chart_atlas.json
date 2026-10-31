@@ -1,0 +1,227 @@
+{
+  "atlas_figures": [
+    {
+      "name": "S_geometry_lines_q06_square",
+      "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+      "title": "Geometry: q=0.6, sd=1\u03b4, square"
+    },
+    {
+      "name": "S_geometry_lines_q09_5to4",
+      "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+      "title": "Geometry: q=0.9, sd=0.25\u03b4, 5:4"
+    },
+    {
+      "name": "S_geometry_lines_q06_5to4",
+      "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+      "title": "Geometry: q=0.6, sd=1\u03b4, 5:4"
+    },
+    {
+      "name": "S_scaling_lines_01",
+      "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Required square"
+    },
+    {
+      "name": "S_scaling_lines_02",
+      "scope": "6 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Required wide"
+    },
+    {
+      "name": "S_scaling_lines_03",
+      "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Required fixed"
+    },
+    {
+      "name": "S_scaling_lines_04",
+      "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Optional square"
+    },
+    {
+      "name": "S_scaling_lines_05",
+      "scope": "6 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Optional wide"
+    },
+    {
+      "name": "S_scaling_lines_06",
+      "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Optional fixed"
+    },
+    {
+      "name": "S_scaling_lines_07",
+      "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Optional blocks"
+    },
+    {
+      "name": "S_scaling_lines_08",
+      "scope": "4 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large square required"
+    },
+    {
+      "name": "S_scaling_lines_09",
+      "scope": "4 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large square optional"
+    },
+    {
+      "name": "S_scaling_lines_10",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large rectangle required wide"
+    },
+    {
+      "name": "S_scaling_lines_11",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large rectangle optional wide"
+    },
+    {
+      "name": "S_scaling_lines_12",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large rectangle required tall"
+    },
+    {
+      "name": "S_scaling_lines_13",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Large rectangle optional tall"
+    },
+    {
+      "name": "S_scaling_lines_14",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Extreme rectangle required wide"
+    },
+    {
+      "name": "S_scaling_lines_15",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Extreme rectangle optional wide"
+    },
+    {
+      "name": "S_scaling_lines_16",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Extreme rectangle required tall"
+    },
+    {
+      "name": "S_scaling_lines_17",
+      "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+      "title": "Extreme rectangle optional tall"
+    },
+    {
+      "name": "S_policy_lines_rust_1",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 1/8"
+    },
+    {
+      "name": "S_policy_lines_rust_2",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 2/8"
+    },
+    {
+      "name": "S_policy_lines_rust_3",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 3/8"
+    },
+    {
+      "name": "S_policy_lines_rust_4",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 4/8"
+    },
+    {
+      "name": "S_policy_lines_rust_5",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 5/8"
+    },
+    {
+      "name": "S_policy_lines_rust_6",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 6/8"
+    },
+    {
+      "name": "S_policy_lines_rust_7",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 7/8"
+    },
+    {
+      "name": "S_policy_lines_rust_8",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "Rust policy cases, page 8/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_1",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 1/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_2",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 2/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_3",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 3/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_4",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 4/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_5",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 5/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_6",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 6/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_7",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 7/8"
+    },
+    {
+      "name": "S_policy_lines_cpp_8",
+      "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+      "title": "CPP policy cases, page 8/8"
+    },
+    {
+      "name": "S_layout_strip_shape_scipy",
+      "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Shape representations: scipy"
+    },
+    {
+      "name": "S_layout_strip_shape_jvx",
+      "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Shape representations: jvx"
+    },
+    {
+      "name": "S_layout_strip_shape_jvs",
+      "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Shape representations: jvs"
+    },
+    {
+      "name": "S_layout_strip_cost_scipy",
+      "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Cost representations: scipy"
+    },
+    {
+      "name": "S_layout_strip_cost_jvx",
+      "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Cost representations: jvx"
+    },
+    {
+      "name": "S_layout_strip_cost_jvs",
+      "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+      "title": "Cost representations: jvs"
+    },
+    {
+      "name": "S_batch_reuse_one_worker",
+      "scope": "Each marker is one workload, method and environment. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.",
+      "title": "Workspace reuse with one worker"
+    }
+  ],
+  "atlas_tables": [
+    {
+      "path": "S_applications_api.tex",
+      "scope": "All per-API replay and update ratios, with environments separate.",
+      "title": "Application APIs"
+    }
+  ],
+  "source": "latex/supplementary_figures.tex"
+}

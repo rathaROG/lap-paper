@@ -1,0 +1,2972 @@
+{
+  "charts": {
+    "atlas_figures": [
+      {
+        "name": "S_geometry_lines_q06_square",
+        "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+        "title": "Geometry: q=0.6, sd=1\u03b4, square"
+      },
+      {
+        "name": "S_geometry_lines_q09_5to4",
+        "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+        "title": "Geometry: q=0.9, sd=0.25\u03b4, 5:4"
+      },
+      {
+        "name": "S_geometry_lines_q06_5to4",
+        "scope": "Ten saved sizes per objective. Runtime above, matching SciPy/method ratios below. Each curve is one method/environment. Only planned methods are connected; the light cutoff is marked.",
+        "title": "Geometry: q=0.6, sd=1\u03b4, 5:4"
+      },
+      {
+        "name": "S_scaling_lines_01",
+        "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Required square"
+      },
+      {
+        "name": "S_scaling_lines_02",
+        "scope": "6 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Required wide"
+      },
+      {
+        "name": "S_scaling_lines_03",
+        "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Required fixed"
+      },
+      {
+        "name": "S_scaling_lines_04",
+        "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Optional square"
+      },
+      {
+        "name": "S_scaling_lines_05",
+        "scope": "6 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Optional wide"
+      },
+      {
+        "name": "S_scaling_lines_06",
+        "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Optional fixed"
+      },
+      {
+        "name": "S_scaling_lines_07",
+        "scope": "7 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Optional blocks"
+      },
+      {
+        "name": "S_scaling_lines_08",
+        "scope": "4 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large square required"
+      },
+      {
+        "name": "S_scaling_lines_09",
+        "scope": "4 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large square optional"
+      },
+      {
+        "name": "S_scaling_lines_10",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large rectangle required wide"
+      },
+      {
+        "name": "S_scaling_lines_11",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large rectangle optional wide"
+      },
+      {
+        "name": "S_scaling_lines_12",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large rectangle required tall"
+      },
+      {
+        "name": "S_scaling_lines_13",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Large rectangle optional tall"
+      },
+      {
+        "name": "S_scaling_lines_14",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Extreme rectangle required wide"
+      },
+      {
+        "name": "S_scaling_lines_15",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Extreme rectangle optional wide"
+      },
+      {
+        "name": "S_scaling_lines_16",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Extreme rectangle required tall"
+      },
+      {
+        "name": "S_scaling_lines_17",
+        "scope": "3 saved sizes. Top: complete-call milliseconds. Bottom: matching SciPy/method ratio. Each curve is one method and one environment; OS encoding is solid/filled Linux and dashed/open Windows. Only planned observations are drawn. Exact values are in A1_scaling.csv.",
+        "title": "Extreme rectangle optional tall"
+      },
+      {
+        "name": "S_policy_lines_rust_1",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 1/8"
+      },
+      {
+        "name": "S_policy_lines_rust_2",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 2/8"
+      },
+      {
+        "name": "S_policy_lines_rust_3",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 3/8"
+      },
+      {
+        "name": "S_policy_lines_rust_4",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 4/8"
+      },
+      {
+        "name": "S_policy_lines_rust_5",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 5/8"
+      },
+      {
+        "name": "S_policy_lines_rust_6",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 6/8"
+      },
+      {
+        "name": "S_policy_lines_rust_7",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 7/8"
+      },
+      {
+        "name": "S_policy_lines_rust_8",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "Rust policy cases, page 8/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_1",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 1/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_2",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 2/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_3",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 3/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_4",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 4/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_5",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 5/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_6",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 6/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_7",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 7/8"
+      },
+      {
+        "name": "S_policy_lines_cpp_8",
+        "scope": "One row per workload; R/O mean required/optional. Left: the ordered reduction-budget sweep. Right: independent nominal interventions, drawn only where planned. Every mark/curve is one environment. Ratios are intervention/reference, so above one is slower. Exact case identities and all values remain in the indexed S3 policy timing exports and F5_budget_data.csv.",
+        "title": "CPP policy cases, page 8/8"
+      },
+      {
+        "name": "S_layout_strip_shape_scipy",
+        "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Shape representations: scipy"
+      },
+      {
+        "name": "S_layout_strip_shape_jvx",
+        "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Shape representations: jvx"
+      },
+      {
+        "name": "S_layout_strip_shape_jvs",
+        "scope": "All 9 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Shape representations: jvs"
+      },
+      {
+        "name": "S_layout_strip_cost_scipy",
+        "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Cost representations: scipy"
+      },
+      {
+        "name": "S_layout_strip_cost_jvx",
+        "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Cost representations: jvx"
+      },
+      {
+        "name": "S_layout_strip_cost_jvs",
+        "scope": "All 14 eligible workloads per layout. Each marker is one workload/environment. Layouts are categorical and are therefore not connected by lines. Exact case-level values remain in S3_layout_timing.csv.",
+        "title": "Cost representations: jvs"
+      }
+    ],
+    "counts": {
+      "ccdf_observations": 5164,
+      "cutoff_eligible_cases": 13,
+      "formulation_cases": 14,
+      "heatmap_cells": 288,
+      "policy_eligible_cases": 31,
+      "scaling_cases": 79,
+      "sparse_points": 1328,
+      "square_geometry_cases": 20,
+      "structure_cases": 26
+    },
+    "main_figures": {
+      "A2_sensitivity_heatmap": "The only heatmap: optional 256\u00d7320 geometry, four survival/motion settings crossed with three gates and three limits. Each setting has four environment rows in L311,L314,W311,W314 order. Printed values are capped SciPy/method ratios, JVRUST left and CSGRAPH right. Values are individual environment observations, not pooled summaries.",
+      "F11_rejection_lines": "Uniform and congested-block rejection-limit sweeps. Linked upper panels show complete-call latency, lower panels the unmatched fraction from five saved validation cardinalities. Each line is one environment. The shaded block interval has K=144 throughout while native latency changes; no new solve determines these cardinalities.",
+      "F1_overview_ccdf": "Complementary empirical distributions of matching SciPy/method ratios. Each curve is one solver and one environment over its planned cases. Required natives n=102 and optional natives/sparse n=166; required JVX/JVS n=88 and optional JVX n=145. Linux is solid; Windows dashed. Ratios below the gray tie band are losses.",
+      "F2_geometry_lines": "Square geometry at q=0.9 and motion standard deviation 0.25\u03b4. Required assignment is left; optional assignment with L=1.5\u03b4 and no gate is right. Top: complete-call milliseconds. Bottom: matching SciPy/method ratios. Each curve is one method/environment. JVX/JVS (required) and JVX/square SciPy (optional) are not planned above 1024 rows.",
+      "F3_representations_strip": "The 14 optional formulation workloads, with one marker per case/environment in each representation row. Ratios are capped SciPy/complete representation time. Filled Linux and open Windows markers preserve all observations; the congested-block workload at 256\u00d7320 is labelled.",
+      "F4_policy_forest": "Each row is an intervention, separated into four environment lanes. Markers are within-environment medians across eligible cases; thick bars are interquartile ranges and thin lines the full range. Parentheses give case counts. Ratios are intervention/release-policy time: above one is slower. Initializer bypass is a nominal intervention, not a budget value.",
+      "F5_sparse_scatter": "All 166 optional workloads for CSGRAPH and LAPMOD, separated by environment. Each point compares the same sparse complete-call time with capped SciPy (x) and JVRUST (y). Upper-right points beat both references. Graph construction is timed.",
+      "F_structure_lines": "Congestion, forbidden-entry and quantized-tie sweeps, required above and optional below. Each line is one native method/environment, and ordered x positions retain the generator sweep values. The marked case 041 contains the Windows JVRUST and Linux JVCPP losses. Wall time alone does not identify their internal work."
+    },
+    "sources": {
+      "L311": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json",
+      "L314": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json",
+      "W311": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json",
+      "W314": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+    }
+  },
+  "diagnostics": {
+    "all_six_events_match_across_environments_and_languages": true,
+    "anchors": [
+      {
+        "arm": "no_reductions",
+        "case_id": "base:optional256x320",
+        "label": "Optional uniform; bypass",
+        "no_reductions_augmentations": 256,
+        "no_reductions_initialization_chain_starts": 0,
+        "no_reductions_initialization_displacements": 0,
+        "no_reductions_initialization_row_scans": 0,
+        "no_reductions_rejection_endings": 0,
+        "no_reductions_search_row_scans": 700.2,
+        "reference_augmentations": 0,
+        "reference_initialization_chain_starts": 256,
+        "reference_initialization_displacements": 256,
+        "reference_initialization_row_scans": 512,
+        "reference_rejection_endings": 0,
+        "reference_search_row_scans": 0
+      },
+      {
+        "arm": "budget1",
+        "budget1_augmentations": 77.2,
+        "budget1_initialization_chain_starts": 333.2,
+        "budget1_initialization_displacements": 154.4,
+        "budget1_initialization_row_scans": 333.2,
+        "budget1_rejection_endings": 0,
+        "budget1_search_row_scans": 399.6,
+        "case_id": "base:near256x320",
+        "label": "Near square; budget 1",
+        "reference_augmentations": 0,
+        "reference_initialization_chain_starts": 256,
+        "reference_initialization_displacements": 226.4,
+        "reference_initialization_row_scans": 482.4,
+        "reference_rejection_endings": 0,
+        "reference_search_row_scans": 0
+      },
+      {
+        "arm": "ties_off",
+        "case_id": "base:ties128x160",
+        "label": "Tied base; free ties off",
+        "reference_augmentations": 0,
+        "reference_initialization_chain_starts": 128,
+        "reference_initialization_displacements": 0,
+        "reference_initialization_row_scans": 128,
+        "reference_rejection_endings": 0,
+        "reference_search_row_scans": 0,
+        "ties_off_augmentations": 91,
+        "ties_off_initialization_chain_starts": 219.8,
+        "ties_off_initialization_displacements": 182.8,
+        "ties_off_initialization_row_scans": 219.8,
+        "ties_off_rejection_endings": 0,
+        "ties_off_search_row_scans": 91.2
+      },
+      {
+        "arm": "cutoff_off",
+        "case_id": "geometry:256x320:q0.9:motion0.25:required",
+        "cutoff_off_augmentations": 0.2,
+        "cutoff_off_initialization_chain_starts": 256.2,
+        "cutoff_off_initialization_displacements": 341.4,
+        "cutoff_off_initialization_row_scans": 597.2,
+        "cutoff_off_rejection_endings": 0,
+        "cutoff_off_search_row_scans": 2.6,
+        "label": "Geometry required; cutoff off",
+        "reference_augmentations": 0.4,
+        "reference_initialization_chain_starts": 256.4,
+        "reference_initialization_displacements": 269.2,
+        "reference_initialization_row_scans": 524.8,
+        "reference_rejection_endings": 0,
+        "reference_search_row_scans": 5.6
+      },
+      {
+        "arm": "budget1",
+        "budget1_augmentations": 128,
+        "budget1_initialization_chain_starts": 384,
+        "budget1_initialization_displacements": 256,
+        "budget1_initialization_row_scans": 384,
+        "budget1_rejection_endings": 112,
+        "budget1_search_row_scans": 1001.6,
+        "case_id": "formulations:optional_blocks256x320",
+        "label": "Optional blocks; budget 1",
+        "reference_augmentations": 112,
+        "reference_initialization_chain_starts": 368,
+        "reference_initialization_displacements": 1141.8,
+        "reference_initialization_row_scans": 1285.8,
+        "reference_rejection_endings": 112,
+        "reference_search_row_scans": 872.4
+      }
+    ],
+    "event_vectors_per_environment": 2140,
+    "language_pairs": 1070
+  },
+  "environments": {
+    "L311": {
+      "batch": {
+        "batch_overhead": {
+          "counts": {
+            "tie": 1,
+            "win": 2
+          },
+          "losses": [],
+          "maximum": 1.2809394813194648,
+          "minimum": 1.0197119614936914,
+          "n": 3
+        },
+        "orientation_buffer_lifetime": {
+          "counts": {
+            "tie": 37,
+            "win": 19
+          },
+          "losses": [],
+          "maximum": 1.187727580463726,
+          "minimum": 0.9723344329374964,
+          "n": 56
+        },
+        "solver_state_lifetime": {
+          "counts": {
+            "loss": 3,
+            "tie": 49,
+            "win": 4
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x4096x256:required",
+              "method": "workspace:cpp:w1:4",
+              "ratio": 0.9437010469247565
+            },
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:cpp:w1:4",
+              "ratio": 0.8277317135474347
+            },
+            {
+              "case_id": "batch:8x8192x256:required",
+              "method": "workspace:cpp:w1:4",
+              "ratio": 0.8583248225269776
+            }
+          ],
+          "maximum": 1.0512843658837123,
+          "minimum": 0.8277317135474347,
+          "n": 56
+        },
+        "total_worker_lifetime": {
+          "counts": {
+            "loss": 2,
+            "tie": 32,
+            "win": 22
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:cpp:w2:4",
+              "ratio": 0.8124791688764516
+            },
+            {
+              "case_id": "batch:8x8192x256:required",
+              "method": "workspace:cpp:w2:4",
+              "ratio": 0.960550777228039
+            }
+          ],
+          "maximum": 1.2077052703309807,
+          "minimum": 0.8124791688764516,
+          "n": 56
+        },
+        "worker_count": {
+          "counts": {
+            "loss": 2,
+            "win": 10
+          },
+          "losses": [
+            {
+              "case_id": "batch:batch1024x8x10",
+              "method": "batch:jvx:4",
+              "ratio": 0.48895306372981917
+            },
+            {
+              "case_id": "batch:batch64x64x80",
+              "method": "batch:jvx:4",
+              "ratio": 0.9313527920121398
+            }
+          ],
+          "maximum": 2.896871848168171,
+          "minimum": 0.48895306372981917,
+          "n": 12
+        },
+        "workspace_worker_count": {
+          "counts": {
+            "win": 84
+          },
+          "losses": [],
+          "maximum": 2.8516465816755194,
+          "minimum": 1.0685960207988385,
+          "n": 84
+        }
+      },
+      "geometry_sparse_crossovers": {
+        "q0.6:motion1.0:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.049794018715561536,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.0596473238408336,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.08639567846897923,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.2068111799337482,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.5105049017960348,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9278619806639122,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.2692924242609191,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.5377883835587167,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.8843132741553752,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.930203413368358,
+            "rows": 4096
+          }
+        ],
+        "q0.6:motion1.0:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.06668299793734178,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.07820010402460655,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.11132572031621359,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.25535747262765135,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.40385521628322324,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.6028257219607355,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.6751459511448202,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.8485620323922963,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9248224459829719,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.162173991482319,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.0493531145574581,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.05635601823273161,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.08732296094497918,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.18116332873621432,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.4505678426702402,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.864537633174327,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.214728118907737,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.4596013680928384,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.770377702344368,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.7289129963054881,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.06578106659516869,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.0740356541007689,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.11313813637424693,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.2203815709564176,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.4418095589427252,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.6131472329811793,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.8452170016984287,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.949191849212959,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.039665971302962,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.067480516399854,
+            "rows": 4096
+          }
+        ]
+      },
+      "native": {
+        "optional:jvcpp": {
+          "counts": {
+            "loss": 1,
+            "tie": 2,
+            "win": 163
+          },
+          "maximum": {
+            "case_id": "extended:053_ties_optional_256x320",
+            "ratio": 14.518150564320836
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.9562991582887023
+          },
+          "n": 166
+        },
+        "optional:jvrust": {
+          "counts": {
+            "tie": 1,
+            "win": 165
+          },
+          "maximum": {
+            "case_id": "extended:053_ties_optional_256x320",
+            "ratio": 14.116963537916567
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.9841423767413967
+          },
+          "n": 166
+        },
+        "required:jvcpp": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 12.564088387230845
+          },
+          "minimum": {
+            "case_id": "extended:040_congestion_required_256x320",
+            "ratio": 1.3042241108054093
+          },
+          "n": 102
+        },
+        "required:jvhybrid": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 12.762485449891356
+          },
+          "minimum": {
+            "case_id": "extended:040_congestion_required_256x320",
+            "ratio": 1.3765495906940808
+          },
+          "n": 102
+        },
+        "required:jvrust": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 12.099069897601536
+          },
+          "minimum": {
+            "case_id": "extended:040_congestion_required_256x320",
+            "ratio": 1.378436144507071
+          },
+          "n": 102
+        }
+      },
+      "policy": {
+        "cpp:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.4863041509457786,
+          "treatment_over_reference_range": [
+            0.9226346762058157,
+            5.529679943957919
+          ]
+        },
+        "cpp:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0040280734170972,
+          "treatment_over_reference_range": [
+            0.8969353519243627,
+            1.4975888923085598
+          ]
+        },
+        "cpp:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0009863632898242,
+          "treatment_over_reference_range": [
+            0.9594249569477127,
+            1.224677275273859
+          ]
+        },
+        "cpp:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.089523171720254,
+          "treatment_over_reference_range": [
+            1.0058630432972169,
+            1.1964599424700815
+          ]
+        },
+        "cpp:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.759731452240958,
+          "treatment_over_reference_range": [
+            1.3355191507249746,
+            7.458479770616526
+          ]
+        },
+        "cpp:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0140843075094834,
+          "treatment_over_reference_range": [
+            0.957985603741938,
+            3.783570660703342
+          ]
+        },
+        "cpp:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0065002581048343,
+          "treatment_over_reference_range": [
+            0.9710197223300119,
+            3.523590373777098
+          ]
+        },
+        "rust:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.195164302692589,
+          "treatment_over_reference_range": [
+            0.8667094247395842,
+            6.994516844302939
+          ]
+        },
+        "rust:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9992497195595564,
+          "treatment_over_reference_range": [
+            0.8794071872597612,
+            1.532522555598182
+          ]
+        },
+        "rust:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9981149605328503,
+          "treatment_over_reference_range": [
+            0.9666765462359536,
+            1.2407158837068566
+          ]
+        },
+        "rust:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0023818312058885,
+          "treatment_over_reference_range": [
+            0.966630564826215,
+            1.0886158979771485
+          ]
+        },
+        "rust:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 4.076994738697874,
+          "treatment_over_reference_range": [
+            1.3051409772529918,
+            9.607295970861987
+          ]
+        },
+        "rust:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0091934085231418,
+          "treatment_over_reference_range": [
+            0.9634283993252799,
+            3.310030838280174
+          ]
+        },
+        "rust:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9952889382683522,
+          "treatment_over_reference_range": [
+            0.9155541045306395,
+            3.138346767135043
+          ]
+        }
+      },
+      "rejection_plateau": [
+        {
+          "attempt_id": "0144-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:128_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.05,
+          "manifest": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 68.93935601693879,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.11.18-20261031-0455",
+          "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0145-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:129_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.1,
+          "manifest": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 149.97350405007938,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.11.18-20261031-0455",
+          "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0146-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:130_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.5,
+          "manifest": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 706.6343982758619,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.11.18-20261031-0455",
+          "source": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+        }
+      ],
+      "sparse": {
+        "sparse:csgraph": {
+          "dense_counts": {
+            "loss": 96,
+            "tie": 17,
+            "win": 53
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 164,
+            "win": 2
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 1.0962345654550625,
+              "scipy_ratio": 2.7514501288086777
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 1.0557850537000695,
+              "scipy_ratio": 3.266160421396224
+            }
+          ]
+        },
+        "sparse:lapmod": {
+          "dense_counts": {
+            "loss": 110,
+            "win": 56
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 164,
+            "win": 2
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 1.9966922235906608,
+              "scipy_ratio": 5.0115178346974085
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 1.9788722831189949,
+              "scipy_ratio": 6.121808892321524
+            }
+          ]
+        }
+      }
+    },
+    "L314": {
+      "batch": {
+        "batch_overhead": {
+          "counts": {
+            "tie": 1,
+            "win": 2
+          },
+          "losses": [],
+          "maximum": 1.265529641554241,
+          "minimum": 0.9917658618201767,
+          "n": 3
+        },
+        "orientation_buffer_lifetime": {
+          "counts": {
+            "tie": 41,
+            "win": 15
+          },
+          "losses": [],
+          "maximum": 1.1929622768114292,
+          "minimum": 0.9796540435613809,
+          "n": 56
+        },
+        "solver_state_lifetime": {
+          "counts": {
+            "loss": 2,
+            "tie": 44,
+            "win": 10
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x4096x256:optional",
+              "method": "workspace:cpp:w1:4",
+              "ratio": 0.934531578227486
+            },
+            {
+              "case_id": "batch:batch16x128x160_optional:T",
+              "method": "workspace:cpp:w1:4",
+              "ratio": 0.9688028901739272
+            }
+          ],
+          "maximum": 1.0802196085979892,
+          "minimum": 0.934531578227486,
+          "n": 56
+        },
+        "total_worker_lifetime": {
+          "counts": {
+            "tie": 36,
+            "win": 20
+          },
+          "losses": [],
+          "maximum": 1.197284656489598,
+          "minimum": 0.9903961128559398,
+          "n": 56
+        },
+        "worker_count": {
+          "counts": {
+            "loss": 1,
+            "tie": 1,
+            "win": 10
+          },
+          "losses": [
+            {
+              "case_id": "batch:batch1024x8x10",
+              "method": "batch:jvx:4",
+              "ratio": 0.5472798872728911
+            }
+          ],
+          "maximum": 2.9620721755264006,
+          "minimum": 0.5472798872728911,
+          "n": 12
+        },
+        "workspace_worker_count": {
+          "counts": {
+            "win": 84
+          },
+          "losses": [],
+          "maximum": 2.956097055183107,
+          "minimum": 1.0582186143237178,
+          "n": 84
+        }
+      },
+      "geometry_sparse_crossovers": {
+        "q0.6:motion1.0:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.05253428067672094,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.06340487591883923,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.08976088291408373,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.20713812462550688,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.4851616094920902,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.8872575545184006,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.2747517508107078,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.558408278518851,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.8936397162847178,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.9371753849170006,
+            "rows": 4096
+          }
+        ],
+        "q0.6:motion1.0:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.0709057646808403,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.08462594940765625,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.11859366657213574,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.2594055068889491,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.3949998535587633,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.5917231216851602,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.6746328559742577,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.8581793820781286,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9267016785057539,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.1728479497411004,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.05211681226560888,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.06116373592856787,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.08880265008756347,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.18698095029677791,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.43153665849001016,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.8342508865392791,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.212422607414115,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.449409623792199,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.778038840608887,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.7302273206073597,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.0696439458064426,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.08074073448776553,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.11461494790570025,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.22539350185745546,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.4419243776648898,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.5980965761685343,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.8556599031373296,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.9375901684976503,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.0258849684502827,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.0668028915795025,
+            "rows": 4096
+          }
+        ]
+      },
+      "native": {
+        "optional:jvcpp": {
+          "counts": {
+            "loss": 1,
+            "tie": 2,
+            "win": 163
+          },
+          "maximum": {
+            "case_id": "extended:053_ties_optional_256x320",
+            "ratio": 14.326695961498437
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.9429981846391507
+          },
+          "n": 166
+        },
+        "optional:jvrust": {
+          "counts": {
+            "tie": 1,
+            "win": 165
+          },
+          "maximum": {
+            "case_id": "extended:053_ties_optional_256x320",
+            "ratio": 14.136142819548368
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.984872174267435
+          },
+          "n": 166
+        },
+        "required:jvcpp": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 11.859049062669378
+          },
+          "minimum": {
+            "case_id": "extended:040_congestion_required_256x320",
+            "ratio": 1.3358443667393372
+          },
+          "n": 102
+        },
+        "required:jvhybrid": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 12.55648189809466
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.6:motion1:required",
+            "ratio": 1.3676822114101435
+          },
+          "n": 102
+        },
+        "required:jvrust": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 11.85301674385922
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.6:motion1:required",
+            "ratio": 1.3534253374543455
+          },
+          "n": 102
+        }
+      },
+      "policy": {
+        "cpp:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.4053984352104014,
+          "treatment_over_reference_range": [
+            0.9348433010503542,
+            5.56412148778621
+          ]
+        },
+        "cpp:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0075806246037662,
+          "treatment_over_reference_range": [
+            0.8756090550681319,
+            1.511012442341417
+          ]
+        },
+        "cpp:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0016928247681445,
+          "treatment_over_reference_range": [
+            0.9775968491608914,
+            1.1957977726938942
+          ]
+        },
+        "cpp:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0035204116898282,
+          "treatment_over_reference_range": [
+            0.9866538955244143,
+            1.0874396724427566
+          ]
+        },
+        "cpp:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.6886095496860793,
+          "treatment_over_reference_range": [
+            1.3058607801426607,
+            7.393459994037197
+          ]
+        },
+        "cpp:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0094101150962422,
+          "treatment_over_reference_range": [
+            0.9808199665475238,
+            3.7457423338879656
+          ]
+        },
+        "cpp:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 1.01139143197228,
+          "treatment_over_reference_range": [
+            0.9558301939450969,
+            3.6193453972111227
+          ]
+        },
+        "rust:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.4031649335694105,
+          "treatment_over_reference_range": [
+            0.8807150829801756,
+            6.899307222223995
+          ]
+        },
+        "rust:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.006978251729958,
+          "treatment_over_reference_range": [
+            0.884205086062267,
+            1.4495754979275581
+          ]
+        },
+        "rust:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0013764170860973,
+          "treatment_over_reference_range": [
+            0.9526702812931901,
+            1.2357034842198762
+          ]
+        },
+        "rust:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0000780895351835,
+          "treatment_over_reference_range": [
+            0.9725260199752318,
+            1.091521027023078
+          ]
+        },
+        "rust:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 4.023760884208387,
+          "treatment_over_reference_range": [
+            1.30327075806441,
+            9.337338039381189
+          ]
+        },
+        "rust:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 0.9892353748174297,
+          "treatment_over_reference_range": [
+            0.9538762346193715,
+            3.1909574022071223
+          ]
+        },
+        "rust:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9952508937363554,
+          "treatment_over_reference_range": [
+            0.9772262094910117,
+            3.6068062377633594
+          ]
+        }
+      },
+      "rejection_plateau": [
+        {
+          "attempt_id": "0144-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:128_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.05,
+          "manifest": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 68.91480123268683,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.14.10-20261031-0630",
+          "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0145-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:129_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.1,
+          "manifest": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 150.71484534485543,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.14.10-20261031-0630",
+          "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0146-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:130_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "L314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.5,
+          "manifest": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 710.7335810344828,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "linux-py3.14.10-20261031-0630",
+          "source": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+        }
+      ],
+      "sparse": {
+        "sparse:csgraph": {
+          "dense_counts": {
+            "loss": 94,
+            "tie": 16,
+            "win": 56
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 164,
+            "win": 2
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 1.101154003724436,
+              "scipy_ratio": 2.764895395436475
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 1.0572201454580368,
+              "scipy_ratio": 3.2932176404961724
+            }
+          ]
+        },
+        "sparse:lapmod": {
+          "dense_counts": {
+            "loss": 110,
+            "tie": 1,
+            "win": 55
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 164,
+            "win": 2
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 2.011288468571965,
+              "scipy_ratio": 5.050158476325848
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 2.0185044222940425,
+              "scipy_ratio": 6.287597147553716
+            }
+          ]
+        }
+      }
+    },
+    "W311": {
+      "batch": {
+        "batch_overhead": {
+          "counts": {
+            "tie": 1,
+            "win": 2
+          },
+          "losses": [],
+          "maximum": 1.302813063108385,
+          "minimum": 1.01106552759563,
+          "n": 3
+        },
+        "orientation_buffer_lifetime": {
+          "counts": {
+            "loss": 2,
+            "tie": 30,
+            "win": 24
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x256x8192:optional",
+              "method": "workspace:rust:w2:4",
+              "ratio": 0.9604513843435678
+            },
+            {
+              "case_id": "batch:8x8192x256:required",
+              "method": "workspace:rust:w2:4",
+              "ratio": 0.9196086334066054
+            }
+          ],
+          "maximum": 2.7179509950573224,
+          "minimum": 0.9196086334066054,
+          "n": 56
+        },
+        "solver_state_lifetime": {
+          "counts": {
+            "loss": 3,
+            "tie": 40,
+            "win": 13
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x256x4096:optional",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.9417912083547442
+            },
+            {
+              "case_id": "batch:8x256x8192:required",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.9229490244489352
+            },
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.9644723636382545
+            }
+          ],
+          "maximum": 1.0885346288636972,
+          "minimum": 0.9229490244489352,
+          "n": 56
+        },
+        "total_worker_lifetime": {
+          "counts": {
+            "loss": 2,
+            "tie": 19,
+            "win": 35
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:rust:w2:4",
+              "ratio": 0.9656840058034021
+            },
+            {
+              "case_id": "batch:8x8192x256:required",
+              "method": "workspace:rust:w2:4",
+              "ratio": 0.9690986086661062
+            }
+          ],
+          "maximum": 2.7003821599851476,
+          "minimum": 0.9656840058034021,
+          "n": 56
+        },
+        "worker_count": {
+          "counts": {
+            "loss": 2,
+            "tie": 1,
+            "win": 9
+          },
+          "losses": [
+            {
+              "case_id": "batch:batch1024x8x10",
+              "method": "batch:jvx:4",
+              "ratio": 0.3886616292375455
+            },
+            {
+              "case_id": "batch:batch64x64x80",
+              "method": "batch:jvx:4",
+              "ratio": 0.5792009458469374
+            }
+          ],
+          "maximum": 2.372503053954194,
+          "minimum": 0.3886616292375455,
+          "n": 12
+        },
+        "workspace_worker_count": {
+          "counts": {
+            "tie": 8,
+            "win": 76
+          },
+          "losses": [],
+          "maximum": 3.198270305663453,
+          "minimum": 0.9722883373843122,
+          "n": 84
+        }
+      },
+      "geometry_sparse_crossovers": {
+        "q0.6:motion1.0:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.061578735048183356,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.0739215332491365,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.10195866769080766,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.22168856976200602,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.47207797591839057,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.8635776149659222,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.544387691292365,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.8011107161239914,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.97994559677682,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.9344063167624028,
+            "rows": 4096
+          }
+        ],
+        "q0.6:motion1.0:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.0790126809853295,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.09351267984282212,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.12189803507084662,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.25938542250822344,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.3747443629040577,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.5484223068595891,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.7925527257172998,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9999421795830197,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.991306855542814,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.181575874106869,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.06148684808471787,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.06875015621062235,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.09850812624072905,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.20660539312255094,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.44900567901424115,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.7986913970855427,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.5274261144532275,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.7413873375052706,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.8953895215332643,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.822976176957548,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.07880268663374954,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.08701040009130553,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.1202601854835577,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.23326389070239315,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.414646104695086,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.5577130011174383,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.0422690865657078,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1592013633686271,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1375759080568844,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1552143679182323,
+            "rows": 4096
+          }
+        ]
+      },
+      "native": {
+        "optional:jvcpp": {
+          "counts": {
+            "tie": 1,
+            "win": 165
+          },
+          "maximum": {
+            "case_id": "extended:009_large_rectangle_optional_1000x2000",
+            "ratio": 17.40668255671578
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 1.023311591532692
+          },
+          "n": 166
+        },
+        "optional:jvrust": {
+          "counts": {
+            "loss": 1,
+            "tie": 2,
+            "win": 163
+          },
+          "maximum": {
+            "case_id": "extended:009_large_rectangle_optional_1000x2000",
+            "ratio": 16.04539750812632
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.9155544836649819
+          },
+          "n": 166
+        },
+        "required:jvcpp": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:028_extreme_rectangle_required_64x16384",
+            "ratio": 15.02642399440392
+          },
+          "minimum": {
+            "case_id": "geometry:32x32:q0.6:motion1:required",
+            "ratio": 1.4367746967468802
+          },
+          "n": 102
+        },
+        "required:jvhybrid": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:008_large_rectangle_required_1000x2000",
+            "ratio": 12.783982014342904
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.6:motion1:required",
+            "ratio": 1.4199407189009108
+          },
+          "n": 102
+        },
+        "required:jvrust": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:008_large_rectangle_required_1000x2000",
+            "ratio": 12.782348815709776
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.9:motion0.25:required",
+            "ratio": 1.422462395612356
+          },
+          "n": 102
+        }
+      },
+      "policy": {
+        "cpp:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.3541590091186237,
+          "treatment_over_reference_range": [
+            0.9335955488804069,
+            4.913838646032094
+          ]
+        },
+        "cpp:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0038985198050243,
+          "treatment_over_reference_range": [
+            0.8862917374810833,
+            1.4973665172420567
+          ]
+        },
+        "cpp:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.00321547399218,
+          "treatment_over_reference_range": [
+            0.963200616231303,
+            1.2407002131684233
+          ]
+        },
+        "cpp:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0019134708029513,
+          "treatment_over_reference_range": [
+            0.9560976490165191,
+            1.0718540628380127
+          ]
+        },
+        "cpp:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.741505343242904,
+          "treatment_over_reference_range": [
+            1.2738871875240967,
+            6.233298229649794
+          ]
+        },
+        "cpp:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0072495805644333,
+          "treatment_over_reference_range": [
+            0.9627548441883053,
+            3.253357508382916
+          ]
+        },
+        "cpp:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9973142627032237,
+          "treatment_over_reference_range": [
+            0.9787825152940837,
+            3.2895720760460643
+          ]
+        },
+        "rust:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.5575516680957704,
+          "treatment_over_reference_range": [
+            0.929329422235729,
+            7.657387247592017
+          ]
+        },
+        "rust:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0057877903164651,
+          "treatment_over_reference_range": [
+            0.882592097344554,
+            1.499905508663961
+          ]
+        },
+        "rust:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0017077542628174,
+          "treatment_over_reference_range": [
+            0.9503705537788396,
+            1.2121564831237543
+          ]
+        },
+        "rust:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0045593302077513,
+          "treatment_over_reference_range": [
+            0.9595488144961878,
+            1.10296201996933
+          ]
+        },
+        "rust:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.654562745093514,
+          "treatment_over_reference_range": [
+            1.1544672493467645,
+            8.618344744872884
+          ]
+        },
+        "rust:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 0.9993436373487571,
+          "treatment_over_reference_range": [
+            0.9808627691532614,
+            3.4465766893830017
+          ]
+        },
+        "rust:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9963865302653392,
+          "treatment_over_reference_range": [
+            0.977289111096868,
+            3.6040020809866897
+          ]
+        }
+      },
+      "rejection_plateau": [
+        {
+          "attempt_id": "0144-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:128_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.05,
+          "manifest": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 67.92517656436357,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.11.18-20261030-2322",
+          "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0145-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:129_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.1,
+          "manifest": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 150.77275696702694,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.11.18-20261030-2322",
+          "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0146-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:130_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W311",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.5,
+          "manifest": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 773.4226424501426,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.11.18-20261030-2322",
+          "source": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+        }
+      ],
+      "sparse": {
+        "sparse:csgraph": {
+          "dense_counts": {
+            "loss": 96,
+            "tie": 23,
+            "win": 47
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 166
+          },
+          "rust_wins": []
+        },
+        "sparse:lapmod": {
+          "dense_counts": {
+            "loss": 106,
+            "tie": 2,
+            "win": 58
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 163,
+            "win": 3
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:011_large_rectangle_optional_2000x1000",
+              "rust_ratio": 1.559422124117314,
+              "scipy_ratio": 4.600738634816581
+            },
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 1.592992629974555,
+              "scipy_ratio": 4.769667041509804
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 1.5706239570544975,
+              "scipy_ratio": 6.155888483733367
+            }
+          ]
+        }
+      }
+    },
+    "W314": {
+      "batch": {
+        "batch_overhead": {
+          "counts": {
+            "tie": 1,
+            "win": 2
+          },
+          "losses": [],
+          "maximum": 1.3268305228865211,
+          "minimum": 1.020869473814378,
+          "n": 3
+        },
+        "orientation_buffer_lifetime": {
+          "counts": {
+            "loss": 1,
+            "tie": 33,
+            "win": 22
+          },
+          "losses": [
+            {
+              "case_id": "batch:batch1024x8x10:T",
+              "method": "workspace:cpp:w2:4",
+              "ratio": 0.9672841402080853
+            }
+          ],
+          "maximum": 2.6298871092578775,
+          "minimum": 0.9672841402080853,
+          "n": 56
+        },
+        "solver_state_lifetime": {
+          "counts": {
+            "loss": 3,
+            "tie": 41,
+            "win": 12
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x256x4096:optional",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.9510458306515095
+            },
+            {
+              "case_id": "batch:8x256x8192:required",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.9553001481415995
+            },
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:rust:w1:4",
+              "ratio": 0.934917950248576
+            }
+          ],
+          "maximum": 1.0797328339648782,
+          "minimum": 0.934917950248576,
+          "n": 56
+        },
+        "total_worker_lifetime": {
+          "counts": {
+            "loss": 1,
+            "tie": 26,
+            "win": 29
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x256x8192:required",
+              "method": "workspace:rust:w2:4",
+              "ratio": 0.9341828452376866
+            }
+          ],
+          "maximum": 2.6589373360897657,
+          "minimum": 0.9341828452376866,
+          "n": 56
+        },
+        "worker_count": {
+          "counts": {
+            "loss": 2,
+            "win": 10
+          },
+          "losses": [
+            {
+              "case_id": "batch:batch1024x8x10",
+              "method": "batch:jvx:4",
+              "ratio": 0.44656146531296215
+            },
+            {
+              "case_id": "batch:batch64x64x80",
+              "method": "batch:jvx:4",
+              "ratio": 0.5985093174355761
+            }
+          ],
+          "maximum": 2.3403618956581482,
+          "minimum": 0.44656146531296215,
+          "n": 12
+        },
+        "workspace_worker_count": {
+          "counts": {
+            "loss": 1,
+            "tie": 2,
+            "win": 81
+          },
+          "losses": [
+            {
+              "case_id": "batch:8x8192x256:optional",
+              "method": "workspace:rust:w0:4",
+              "ratio": 0.9550181043085539
+            }
+          ],
+          "maximum": 3.432137351196874,
+          "minimum": 0.9550181043085539,
+          "n": 84
+        }
+      },
+      "geometry_sparse_crossovers": {
+        "q0.6:motion1.0:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.06649141553148577,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.07455099956532003,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.1034514397589349,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.22893676670739727,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.5234172701370841,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9006890125419301,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.5290851937602574,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.7784648636484892,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.91717096219368,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.9892096140447064,
+            "rows": 4096
+          }
+        ],
+        "q0.6:motion1.0:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.08629018675756195,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.0957808821876228,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.12916088008406906,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.27455616559618184,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.40299099059366816,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.5876788874657736,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.8195628771963087,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.6:motion1:L1.5:gatenone",
+            "ratio": 0.9800804363142505,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.0004523813506359,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.6:motion1:L1.5:gatenone",
+            "ratio": 1.2519049021451223,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:csgraph": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.0668244653025836,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.07265406617063694,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.10073642959737614,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.20928684180166504,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.4583002696267675,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.8398821902342986,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.4838154708588562,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.7148414996996488,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.8513472867912932,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.8013386994013143,
+            "rows": 4096
+          }
+        ],
+        "q0.9:motion0.25:sparse:lapmod": [
+          {
+            "case_id": "geometry:8x8:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.0871533509911046,
+            "rows": 8
+          },
+          {
+            "case_id": "geometry:16x16:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.091961493574851,
+            "rows": 16
+          },
+          {
+            "case_id": "geometry:32x32:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.12392187913873534,
+            "rows": 32
+          },
+          {
+            "case_id": "geometry:64x64:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.23435476860540108,
+            "rows": 64
+          },
+          {
+            "case_id": "geometry:128x128:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.43897531656721833,
+            "rows": 128
+          },
+          {
+            "case_id": "geometry:256x256:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 0.5916619675740482,
+            "rows": 256
+          },
+          {
+            "case_id": "geometry:512x512:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.071072492246322,
+            "rows": 512
+          },
+          {
+            "case_id": "geometry:1024x1024:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1338647969438436,
+            "rows": 1024
+          },
+          {
+            "case_id": "geometry:2048x2048:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1405773996972715,
+            "rows": 2048
+          },
+          {
+            "case_id": "geometry:4096x4096:q0.9:motion0.25:L1.5:gatenone",
+            "ratio": 1.1808234827137194,
+            "rows": 4096
+          }
+        ]
+      },
+      "native": {
+        "optional:jvcpp": {
+          "counts": {
+            "win": 166
+          },
+          "maximum": {
+            "case_id": "extended:009_large_rectangle_optional_1000x2000",
+            "ratio": 17.16366042383977
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 1.036125673065656
+          },
+          "n": 166
+        },
+        "optional:jvrust": {
+          "counts": {
+            "loss": 1,
+            "tie": 1,
+            "win": 164
+          },
+          "maximum": {
+            "case_id": "extended:009_large_rectangle_optional_1000x2000",
+            "ratio": 16.182351224816887
+          },
+          "minimum": {
+            "case_id": "extended:041_congestion_optional_256x320",
+            "ratio": 0.9255075041102923
+          },
+          "n": 166
+        },
+        "required:jvcpp": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:008_large_rectangle_required_1000x2000",
+            "ratio": 14.926473971043977
+          },
+          "minimum": {
+            "case_id": "geometry:4096x4096:q0.6:motion1:required",
+            "ratio": 1.481175809395227
+          },
+          "n": 102
+        },
+        "required:jvhybrid": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:008_large_rectangle_required_1000x2000",
+            "ratio": 12.853401575260033
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.6:motion1:required",
+            "ratio": 1.4755349950174679
+          },
+          "n": 102
+        },
+        "required:jvrust": {
+          "counts": {
+            "win": 102
+          },
+          "maximum": {
+            "case_id": "extended:052_ties_required_256x320",
+            "ratio": 12.75923816547152
+          },
+          "minimum": {
+            "case_id": "geometry:8x8:q0.6:motion1:required",
+            "ratio": 1.4641513053305668
+          },
+          "n": 102
+        }
+      },
+      "policy": {
+        "cpp:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.3612696110983027,
+          "treatment_over_reference_range": [
+            0.9347984472844689,
+            4.913472394819138
+          ]
+        },
+        "cpp:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0039190410436485,
+          "treatment_over_reference_range": [
+            0.857574873433616,
+            1.4696817971170457
+          ]
+        },
+        "cpp:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0020001715225266,
+          "treatment_over_reference_range": [
+            0.9657755422634118,
+            1.2210909698611798
+          ]
+        },
+        "cpp:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 0.9988745605387171,
+          "treatment_over_reference_range": [
+            0.9382853151039091,
+            1.083610735687192
+          ]
+        },
+        "cpp:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.7873437327036252,
+          "treatment_over_reference_range": [
+            1.2486786529718221,
+            6.299513833536997
+          ]
+        },
+        "cpp:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.000519808828423,
+          "treatment_over_reference_range": [
+            0.9525753937286637,
+            3.2813854813461885
+          ]
+        },
+        "cpp:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 0.9939354020534382,
+          "treatment_over_reference_range": [
+            0.9666269128336494,
+            3.297477836235703
+          ]
+        },
+        "rust:budget1": {
+          "n": 31,
+          "treatment_over_reference_median": 2.623079469736597,
+          "treatment_over_reference_range": [
+            0.9375120218189983,
+            7.596797152177673
+          ]
+        },
+        "rust:budget2": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0042468592513683,
+          "treatment_over_reference_range": [
+            0.897530952476113,
+            1.4776516257732395
+          ]
+        },
+        "rust:budget8": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0030238618421576,
+          "treatment_over_reference_range": [
+            0.9476266465245597,
+            1.2257833578753485
+          ]
+        },
+        "rust:cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0074780670816943,
+          "treatment_over_reference_range": [
+            0.9624621272209637,
+            1.0942249127611212
+          ]
+        },
+        "rust:no_reductions": {
+          "n": 31,
+          "treatment_over_reference_median": 3.604552478091637,
+          "treatment_over_reference_range": [
+            1.1554133004507101,
+            8.605497354260358
+          ]
+        },
+        "rust:ties_cutoff_off": {
+          "n": 13,
+          "treatment_over_reference_median": 1.0081281580463268,
+          "treatment_over_reference_range": [
+            0.9656863870007258,
+            3.525489369294572
+          ]
+        },
+        "rust:ties_off": {
+          "n": 31,
+          "treatment_over_reference_median": 1.0022417371046286,
+          "treatment_over_reference_range": [
+            0.9700688774238201,
+            3.6286455070211385
+          ]
+        }
+      },
+      "rejection_plateau": [
+        {
+          "attempt_id": "0144-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:128_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.05,
+          "manifest": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 68.08023176655041,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.14.10-20261031-0322",
+          "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0145-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:129_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.1,
+          "manifest": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 151.1615143314551,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.14.10-20261031-0322",
+          "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+        },
+        {
+          "attempt_id": "0146-w1-a00",
+          "cardinalities": [
+            144,
+            144,
+            144,
+            144,
+            144
+          ],
+          "case_id": "extended:130_rejection_optional_256x320",
+          "cols": 320,
+          "distribution": "blocks",
+          "environment": "W314",
+          "family": "rejection",
+          "gate": null,
+          "input_hashes": {
+            "0": "b16227d0051e1a70d09b102bd165bb3ea0e4ef1053878b2f49a3bfe8ed43c6c1",
+            "1": "47ebff0257774ea7402abcc44d6116c3219ffdf05297e79e5c8d5e1635676a08",
+            "2": "4d4f44c6548b4325888d473e80797df3151a7224de352e7f3a00c4acf1a8140c",
+            "3": "e2706136605d1ac70cf433bd9118c45aa213b2baea200fde290ba41ff7c2d998",
+            "4": "b557f84431c03100e92e5fbb932458cf09fcaf004f0b5935feab899131fea70e"
+          },
+          "kind": "single",
+          "limit": 0.5,
+          "manifest": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-session/manifest.json",
+          "max_rejected_rows_percent": 43.75,
+          "mean_rejected_rows_percent": 43.75,
+          "method": "jvrust",
+          "microseconds": 771.4010256410256,
+          "min_rejected_rows_percent": 43.75,
+          "objective": "optional",
+          "rows": 256,
+          "run": "windows-py3.14.10-20261031-0322",
+          "source": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+        }
+      ],
+      "sparse": {
+        "sparse:csgraph": {
+          "dense_counts": {
+            "loss": 95,
+            "tie": 16,
+            "win": 55
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 166
+          },
+          "rust_wins": []
+        },
+        "sparse:lapmod": {
+          "dense_counts": {
+            "loss": 106,
+            "tie": 2,
+            "win": 58
+          },
+          "n": 166,
+          "rust_counts": {
+            "loss": 163,
+            "win": 3
+          },
+          "rust_wins": [
+            {
+              "case_id": "extended:011_large_rectangle_optional_2000x1000",
+              "rust_ratio": 1.537857818275595,
+              "scipy_ratio": 4.566540504893894
+            },
+            {
+              "case_id": "extended:015_large_rectangle_optional_3000x2000",
+              "rust_ratio": 1.5707644682971187,
+              "scipy_ratio": 4.771541238285241
+            },
+            {
+              "case_id": "extended:019_large_rectangle_optional_5000x4000",
+              "rust_ratio": 1.5629118166274787,
+              "scipy_ratio": 6.361485027490218
+            }
+          ]
+        }
+      }
+    }
+  },
+  "representations": {
+    "cases_per_environment": 25,
+    "layout_conditions_per_environment": 624,
+    "plotted_points": 2936
+  },
+  "source_contract": "Four saved light sessions only; each environment summarized separately; ratios classified with [0.97,1.03] tie band.",
+  "sources": {
+    "L311": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light",
+    "L314": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light",
+    "W311": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light",
+    "W314": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "jvrust": {
+    "label": "JVRUST",
+    "color": "#0072B2",
+    "marker": "o",
+    "application_key": "laprust"
+  },
+  "jvcpp": {
+    "label": "JVCPP",
+    "color": "#D55E00",
+    "marker": "s",
+    "application_key": "lapcpp"
+  },
+  "jvhybrid": {
+    "label": "JVHYBRID",
+    "color": "#009E73",
+    "marker": "D",
+    "application_key": "lapjvh"
+  },
+  "jvx": {
+    "label": "JVX",
+    "color": "#E69F00",
+    "marker": "^",
+    "application_key": "lapjvxa"
+  },
+  "jvs": {
+    "label": "JVS",
+    "color": "#CC79A7",
+    "marker": "v",
+    "application_key": "lapjvs"
+  },
+  "jvx_rowmap": {
+    "label": "JVX row-map API",
+    "color": "#666666",
+    "marker": "h",
+    "application_key": "lapjv"
+  },
+  "jvx_indices": {
+    "label": "JVX index API",
+    "color": "#000000",
+    "marker": "p",
+    "application_key": "lapjvx"
+  },
+  "sparse:csgraph": {
+    "label": "CSGRAPH",
+    "color": "#56B4E9",
+    "marker": "X"
+  },
+  "sparse:lapmod": {
+    "label": "LAPMOD",
+    "color": "#333333",
+    "marker": "P"
+  },
+  "scipy": {
+    "label": "SciPy required",
+    "color": "#000000",
+    "marker": "*"
+  },
+  "scipy:capped": {
+    "label": "SciPy capped",
+    "color": "#000000",
+    "marker": "*"
+  },
+  "scipy:dummies": {
+    "label": "SciPy dummy columns",
+    "color": "#666666",
+    "marker": ">"
+  },
+  "scipy:diagonal_dummies": {
+    "label": "SciPy diagonal dummies",
+    "color": "#999999",
+    "marker": "<"
+  },
+  "scipy:square": {
+    "label": "SciPy square",
+    "color": "#444444",
+    "marker": "8"
+  },
+  "O": {
+    "label": "O: original",
+    "color": "#666666",
+    "marker": "o"
+  },
+  "U": {
+    "label": "U: one-sided",
+    "color": "#E69F00",
+    "marker": "^"
+  },
+  "S": {
+    "label": "S: ordered scan",
+    "color": "#CC79A7",
+    "marker": "v"
+  },
+  "T": {
+    "label": "T: compact cache",
+    "color": "#0072B2",
+    "marker": "D"
+  },
+  "P": {
+    "label": "P: padded cache",
+    "color": "#000000",
+    "marker": "s"
+  }
+}

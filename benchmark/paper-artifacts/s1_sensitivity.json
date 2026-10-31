@@ -1,0 +1,359 @@
+{
+  "application_truncation_extrema": {
+    "replay": {
+      "boundary": "replay",
+      "case_id": "mot20_03_rfdetr_nano_sort",
+      "first_three_classification": "win",
+      "first_three_round_ratio": 2.4170178801209223,
+      "full_classification": "win",
+      "full_nine_round_ratio": 2.40794333627829,
+      "method": "laprust",
+      "precision": "float64",
+      "reference": "scipy",
+      "relative_change_percent": 0.37685869538184313,
+      "round_indices": "0,1,2",
+      "source": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_rfdetr_nano_sort_float64.json",
+      "source_fields": "samples[].{case,precision,solver,round,nanoseconds}"
+    },
+    "tracker_update": {
+      "boundary": "tracker_update",
+      "case_id": "mot16_04_gt_centroid",
+      "first_three_classification": "win",
+      "first_three_round_ratio": 1.0679734812803208,
+      "full_classification": "win",
+      "full_nine_round_ratio": 1.075617257757772,
+      "method": "lapcpp",
+      "precision": "float32",
+      "reference": "scipy",
+      "relative_change_percent": -0.7106409294125204,
+      "round_indices": "0,1,2",
+      "source": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/tracking_samples.json",
+      "source_fields": "[].{case,solver,round,nanoseconds}"
+    }
+  },
+  "application_truncation_max_absolute_relative_change_percent": {
+    "replay": 0.37685869538184313,
+    "tracker_update": 0.7106409294125204
+  },
+  "assignment_comparisons": 818,
+  "assignment_first_three_classification_changes": 0,
+  "assignment_max_three_round_subset_classification_changes": 2,
+  "assignment_round_subsets": [
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "0,1,2"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "0,1,3"
+    },
+    {
+      "classification_changes": 1,
+      "comparisons": 818,
+      "round_indices": "0,1,4"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "0,2,3"
+    },
+    {
+      "classification_changes": 2,
+      "comparisons": 818,
+      "round_indices": "0,2,4"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "0,3,4"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "1,2,3"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "1,2,4"
+    },
+    {
+      "classification_changes": 0,
+      "comparisons": 818,
+      "round_indices": "1,3,4"
+    },
+    {
+      "classification_changes": 1,
+      "comparisons": 818,
+      "round_indices": "2,3,4"
+    }
+  ],
+  "common_full_light_estimate_input_hash_checks": 3286,
+  "full_geometry_example": {
+    "case_id": "geometry:1024x1280:q0.9:motion0.25:L1.5:gatenone",
+    "field": "estimates[].seconds",
+    "milliseconds": {
+      "jvrust": 0.6784085809315672,
+      "jvx": 131.3468302,
+      "scipy:square": 113.5463002
+    },
+    "source": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/campaign-summary.json"
+  },
+  "full_manifest_counts": {
+    "batch_cases": 14,
+    "by_family": {
+      "base": 12,
+      "congestion": 10,
+      "extreme_rectangle": 12,
+      "forbidden": 8,
+      "formulations": 5,
+      "geometry": 192,
+      "large_rectangle": 12,
+      "large_square": 8,
+      "memory": 20,
+      "rejection": 22,
+      "scaling": 47,
+      "signed": 4,
+      "ties": 8,
+      "workspace": 14
+    },
+    "cases": 374,
+    "cost_layout_cases": 14,
+    "geometry_cases": 192,
+    "layout_case_method_jobs": 624,
+    "layout_panel_cases": 25,
+    "legacy_single_cases": 148,
+    "memory_cases": 20,
+    "memory_conditions": 91,
+    "optional_single_cases": 202,
+    "planned_case_method_jobs": 3917,
+    "policy_case_method_jobs": 428,
+    "policy_panel_cases": 33,
+    "required_single_cases": 138,
+    "shape_layout_cases": 9,
+    "single_cases": 340,
+    "standard_batch_workloads": 3,
+    "workspace_workloads": 14
+  },
+  "full_run": "linux-py3.11.18-20261030-1434/paper-run",
+  "geometry_cutoff_method_conditions": 16,
+  "interpretation": "Descriptive truncation sensitivity within one saved session; not independent replication, confidence intervals, or statistical equivalence.",
+  "light_manifest_counts": {
+    "batch_cases": 14,
+    "by_family": {
+      "base": 12,
+      "congestion": 10,
+      "extreme_rectangle": 12,
+      "forbidden": 8,
+      "formulations": 5,
+      "geometry": 120,
+      "large_rectangle": 12,
+      "large_square": 8,
+      "memory": 20,
+      "rejection": 22,
+      "scaling": 47,
+      "signed": 4,
+      "ties": 8,
+      "workspace": 14
+    },
+    "cases": 302,
+    "cost_layout_cases": 14,
+    "geometry_cases": 120,
+    "layout_case_method_jobs": 624,
+    "layout_panel_cases": 25,
+    "legacy_single_cases": 148,
+    "memory_cases": 20,
+    "memory_conditions": 91,
+    "optional_single_cases": 166,
+    "planned_case_method_jobs": 3377,
+    "policy_case_method_jobs": 428,
+    "policy_panel_cases": 33,
+    "required_single_cases": 102,
+    "shape_layout_cases": 9,
+    "single_cases": 268,
+    "standard_batch_workloads": 3,
+    "workspace_workloads": 14
+  },
+  "omitted_geometry_case_count": 72,
+  "scope": "FULL session supplementary protocol justification only; never pooled with light estimates",
+  "sources": [
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/protocol.json",
+      "sha256": "76a0eefbdb0ac7e7e485884be80d2cdb1ec04811abc4ec6180dc24483c71ebbd"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_gt_centroid_float32.json",
+      "sha256": "bbaa2a91811df820b6cb960f3e74420c4ce37893838d86fcb09ebe4288b2a574"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_gt_centroid_float64.json",
+      "sha256": "1b924409099bd04d293c0d5b816596b4ea0cdef82d18e8571df675275710f951"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_gt_sort_float32.json",
+      "sha256": "acd03838fcda382a8ccb1102602192281928a40b5ab668d190138f95f0184c92"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_gt_sort_float64.json",
+      "sha256": "2cb6ee34763783e979185368b4f94bafda9cf52f2caccdd033bf629c5498a960"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_rfdetr_nano_centroid_float32.json",
+      "sha256": "ac88d1ca9fef25b8d579b52a854065d79c556b668d4c4cda0bfb335822364725"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_rfdetr_nano_centroid_float64.json",
+      "sha256": "2ca319ddd6e200073ddd48ca6a4215800664f8936c39d16c14c031d4f33a0127"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_rfdetr_nano_sort_float32.json",
+      "sha256": "71c8a406d9722bfdd3b76c14443c83a3814f954d3bb6b885e2bcfed43f408d60"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot16_04_rfdetr_nano_sort_float64.json",
+      "sha256": "f5fbf1f14b33a007c67dea96677ec94439d185439066354cb1ce283947fc7e7a"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_gt_centroid_float32.json",
+      "sha256": "8fc5b58b194ff90f828a42891201509983489d908811057a0b94cf19035072f9"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_gt_centroid_float64.json",
+      "sha256": "1000aef6d2c1a2a3bbfdd2b3b9d687fb0e56976a8e0f11864fc0a67c5df49522"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_gt_sort_float32.json",
+      "sha256": "808258b61d2e59cd3a979dd91c7833c9b038f08c75ec643d2d8bf7f6b400459f"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_gt_sort_float64.json",
+      "sha256": "6a1b25bfb01357476791edd44aa3d760ab2a9f2a199c47c104bb616d776a9f7e"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_rfdetr_nano_centroid_float32.json",
+      "sha256": "8a77bafa61568ef61eb5ae8b183f888666302d45992cc17bb2b0a736cada991b"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_rfdetr_nano_centroid_float64.json",
+      "sha256": "7e51105258f374fe9d62f55f6d7a459c1eb88ceccaf6db4b0b310b32ef82a893"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_rfdetr_nano_sort_float32.json",
+      "sha256": "9b9c15e8389d42872056173a06a5dd12a77844996e7764a529b953828141d793"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/replay/mot20_03_rfdetr_nano_sort_float64.json",
+      "sha256": "772d384e0db0f9be65406f19c6ab7a5280bc8ef5eca61382f65b410bc8045a34"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/application-session/tracking_samples.json",
+      "sha256": "c128fc6d235f62b76d63d11690ab63905974a12a553a52cf5e2839ee584e7bab"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/campaign-session/configuration.json",
+      "sha256": "acde4c515ef5b68da00d9eaf79a0d99ec70829d1ec3574adfbc559308dccfefc"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/campaign-session/manifest.json",
+      "sha256": "fedfbe9ce29aa9eeff18d6c2cc83c3656ded8cfb85856998ceab55a16f0032ac"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261030-1434/paper-run/campaign-summary.json",
+      "sha256": "869ad63fd6c2c1a632fc35ee3af37da522d1930fb4973c0685b686e0a4568e7d"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/application-session/protocol.json",
+      "sha256": "32dbf9c6fc31fee4099c1db283f970d6f8c3aef516f40dcb44e2f1a6c60d66d6"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/application-validation/validation.json",
+      "sha256": "640d27e6b042c83ef74d305e59d2a238fbe03b73fd36d71eb7b8e986f8e560bf"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/configuration.json",
+      "sha256": "41daa79b6b65b826696ba8fecbe927a2326107e0fdab1bd1ec69d4bf44a4e4a9"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/environment.json",
+      "sha256": "8e2ceea94f8050ab788ccbbb78accb1f9e8a557a1743dc6b9028c21f76f4b0ac"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-session/manifest.json",
+      "sha256": "3b3e2546bf2402be7b27fd5646184737c0e770c3516fc36abd3b3051b37b8493"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json",
+      "sha256": "f2eabd0cb4b346c6614c0787b782580851ab4eae1c94564ae36d027d66efd733"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-validation.json",
+      "sha256": "2f7bb117587105f902683b0345bb7aa83b0a2420cd71a5c010cb56f874876ee3"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/status.json",
+      "sha256": "1f97a2ddc6c28851a988fda50c5e10ad4dc18d10b4f73f8892ffe4a48734b032"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/application-validation/validation.json",
+      "sha256": "640d27e6b042c83ef74d305e59d2a238fbe03b73fd36d71eb7b8e986f8e560bf"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-session/configuration.json",
+      "sha256": "288997e31e2ad33ba14f09684db4d7f34f839f72c071265ea2b05f29485444d4"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-session/environment.json",
+      "sha256": "67e7d6aafe74256d84c70ad14e21c5431b1fa799d56db06726ee760317d5073e"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-validation.json",
+      "sha256": "2f7bb117587105f902683b0345bb7aa83b0a2420cd71a5c010cb56f874876ee3"
+    },
+    {
+      "path": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/status.json",
+      "sha256": "ebafd0e763467b2391fd39e5cd02113d08125833ad3887752c9275a024bc87b5"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/application-validation/validation.json",
+      "sha256": "62816f46b53e42678ca2ce8d98c3c1841facbe8fa8cb2cf15dddba3246b431c7"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-session/configuration.json",
+      "sha256": "6100c8285ec1fc78c471cd2545d841c02005d2264250a5ca5cab39fd3aa1ab6f"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-session/environment.json",
+      "sha256": "89aa3b78327c197eabfa5f7b3f32af6d8acdfbb7a77fe7e16880983546630295"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-validation.json",
+      "sha256": "7cfb3bdfee327c3a31cf7f5172fcc366dda4aa78e732e644150874d6ae47fc2e"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/status.json",
+      "sha256": "7aeb7c9e65c3caee7ba5bd1ea0b09507e68d32a80fd2461ff179ae7be6bbca47"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/application-validation/validation.json",
+      "sha256": "62816f46b53e42678ca2ce8d98c3c1841facbe8fa8cb2cf15dddba3246b431c7"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-session/configuration.json",
+      "sha256": "1312c60a45bdd29ac9a667d38a8532fa062e89c200bf2370755b4352070b5f59"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-session/environment.json",
+      "sha256": "ece6891e1ebfef73f389558231cde8f992302c3faa6224c4d47c1b1c203d68fa"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-validation.json",
+      "sha256": "7cfb3bdfee327c3a31cf7f5172fcc366dda4aa78e732e644150874d6ae47fc2e"
+    },
+    {
+      "path": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/status.json",
+      "sha256": "19cfb91a4b013bfa68ca96e38dc34110b1f95584deb38702b7a6a11b987d828e"
+    }
+  ]
+}

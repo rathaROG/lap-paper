@@ -1,7 +1,6 @@
 # LaTeX auxiliary files and compilation logs.
 /output/build/
 /tmp/
-/benchmark/runs/
 
 # Auxiliary files produced by a local TeX editor.
 /latex/*.aux
@@ -12,3 +11,5 @@
 /latex/*.out
 /latex/*.pdf
 /latex/*.synctex.gz
+/latex/*.bbl
+!/latex/main.bbl

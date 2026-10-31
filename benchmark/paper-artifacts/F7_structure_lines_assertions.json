@@ -1,0 +1,35 @@
+{
+  "all_csv_rows": 260,
+  "all_levels_present_for_each_applicable_method_and_environment": true,
+  "case_count": 26,
+  "fixed_limit_within_each_curve": true,
+  "limits_by_family_objective": {
+    "congestion:optional": 0.5,
+    "congestion:required": null,
+    "forbidden:optional": 0.00625,
+    "forbidden:required": null,
+    "ties:optional": 0.25,
+    "ties:required": null
+  },
+  "matching_reference": "SciPy seconds remain as the explicit reference numerator in every native CSV record; no synthetic reference point or curve is plotted.",
+  "native_ratio_points": 260,
+  "neutral_one_rule_and_tie_band_only": true,
+  "no_cross_environment_pooling": true,
+  "optional_congestion_case041_jvrust_ratios": {
+    "L311": 0.9841423767413967,
+    "L314": 0.984872174267435,
+    "W311": 0.9155544836649819,
+    "W314": 0.9255075041102923
+  },
+  "reference_points": 0,
+  "required_favored_column_fraction": 0.25,
+  "same_session_attempt_and_input_hashes_for_each_ratio": true,
+  "scipy_reference_glyphs_or_curve_drawn": false,
+  "signed_cases_not_connected_as_a_sweep": [
+    "extended:084_signed_required_256x320",
+    "extended:085_signed_optional_256x320",
+    "extended:086_signed_required_320x256",
+    "extended:087_signed_optional_320x256"
+  ],
+  "sources": "Only saved four light campaign summaries and manifests; no solver import or calls."
+}

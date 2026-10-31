@@ -14,6 +14,7 @@ import hashlib
 import importlib.util
 import json
 import math
+import platform
 from pathlib import Path
 import shutil
 import sys
@@ -23,7 +24,7 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 import scipy
 
-from redaction import redact
+from .redaction import redact
 
 VARIANTS = ("original", "one_sided", "implicit_scan", "specialized", "specialized_padded")
 FUNCTIONS = ("solve", "solve_one_sided", "solve_implicit_scan", "solve_specialized", "solve_specialized_padded")
@@ -178,19 +179,24 @@ def stress_cases(count: int):
         yield f"stress_{index:05d}_mode{mode}", C, L
 
 
-def main() -> int:
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--build-dir", type=Path, default=Path(__file__).resolve().parent / "build")
-    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--build-dir", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, help="Default: benchmark/runs/{plat}-py{version}-{yyyymmdd}-{hhmm}/lsape-verification")
     parser.add_argument("--stress-count", type=int, default=10000)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.stress_count < 10000:
         raise SystemExit("Audited verification requires at least 10,000 stress instances")
     root = Path(__file__).resolve().parent
-    out = (args.output_dir or root / "runs" / ("verification-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ"))).resolve()
+    if args.output_dir is None:
+        from ..paths import default_output
+        args.output_dir = default_output("lsape-verification")
+        print(f"Output: {args.output_dir}")
+    out = args.output_dir.resolve()
     out.mkdir(parents=True, exist_ok=False)
     binary = args.build_dir.resolve() / "_lsape_native.pyd"
     for path in (Path(__file__).resolve(), root / "lsape_bridge.cpp", root / "build_bridge.py",
+                 root / "build_provenance.py",
                  root / "src/specialized/hungarian-lsape-uniform.hh",
                  root / "src/upstream-v4/lsape/include/hungarian-lsape.hh", root / "README.md"):
         if path.is_file():
@@ -200,9 +206,18 @@ def main() -> int:
     shutil.copy2(binary, out / binary.name)
     shutil.copy2(args.build_dir / "provenance.json", out / "build-provenance.json")
     provenance = json.loads((args.build_dir / "provenance.json").read_text(encoding="utf-8"))
+    if provenance.get("python_version", "").split()[0] != platform.python_version():
+        raise SystemExit("LSAPE build requires the same Python patch version")
+    from .build_provenance import verified_builder
+    builder, builder_evidence = verified_builder(args.build_dir, root, provenance)
+    for source in (builder, *builder_evidence):
+        if source.is_relative_to(args.build_dir.resolve()):
+            destination = out / "build-snapshot" / source.relative_to(args.build_dir.resolve())
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, destination)
     inputs = {
         "lsape_bridge.cpp": root / "lsape_bridge.cpp",
-        "build_bridge.py": root / "build_bridge.py",
+        "build_bridge.py": builder,
         "lsape-v4.zip": root / "src/lsape-v4.zip",
         "hungarian-lsape.hh": root / "src/upstream-v4/lsape/include/hungarian-lsape.hh",
         "src/specialized/hungarian-lsape-uniform.hh": root / "src/specialized/hungarian-lsape-uniform.hh",

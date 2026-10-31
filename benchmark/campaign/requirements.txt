@@ -1,0 +1,17 @@
+# Assignment campaign on Windows or Linux, Python 3.11.18 or 3.14.10.
+# Solver releases install as PyPI wheels; nothing here needs a compiler.
+--index-url https://pypi.org/simple
+--only-binary=lapx,laprust,lapcpp
+lapx==0.13.0
+laprust==1.2.0
+lapcpp==1.2.0
+numpy==2.4.6
+scipy==1.17.1
+psutil==7.2.2
+threadpoolctl==3.7.0
+pytest==9.2.0
+# Used only by the controlled builds (native_build, diagnostic_build).
+Cython==3.3.0
+setuptools==79.0.1
+pybind11==3.1.0
+wheel==0.48.0

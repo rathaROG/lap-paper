@@ -1,0 +1,2046 @@
+{
+  "applications": {
+    "accuracy_identical_across_environments": true,
+    "captured_matrices": 7539,
+    "max_cols": 134,
+    "max_rows": 134,
+    "min_cols": 23,
+    "min_rows": 22,
+    "native_ranges": [
+      {
+        "case": "mot16_04_gt_centroid",
+        "max": 1.090269563990148,
+        "max_environment": "W314",
+        "max_solver": "lapjvh",
+        "min": 1.0762299381213727,
+        "min_environment": "L314",
+        "min_solver": "lapjvh",
+        "observations": 12
+      },
+      {
+        "case": "mot16_04_rfdetr_nano_centroid",
+        "max": 1.0818988276742882,
+        "max_environment": "W311",
+        "max_solver": "lapjvh",
+        "min": 1.0597679695662117,
+        "min_environment": "L314",
+        "min_solver": "lapjvh",
+        "observations": 12
+      },
+      {
+        "case": "mot20_03_gt_centroid",
+        "max": 1.1139326969477348,
+        "max_environment": "W314",
+        "max_solver": "lapjvh",
+        "min": 1.0912890556002428,
+        "min_environment": "L314",
+        "min_solver": "laprust",
+        "observations": 12
+      },
+      {
+        "case": "mot20_03_rfdetr_nano_centroid",
+        "max": 1.0916982388086687,
+        "max_environment": "W311",
+        "max_solver": "lapcpp",
+        "min": 1.0705437025612665,
+        "min_environment": "L311",
+        "min_solver": "lapjvh",
+        "observations": 12
+      },
+      {
+        "case": "mot16_04_gt_sort",
+        "max": 1.0085549091968824,
+        "max_environment": "L314",
+        "max_solver": "lapcpp",
+        "min": 0.9971576543243411,
+        "min_environment": "W311",
+        "min_solver": "lapjvh",
+        "observations": 12
+      },
+      {
+        "case": "mot16_04_rfdetr_nano_sort",
+        "max": 1.0147957550705535,
+        "max_environment": "L311",
+        "max_solver": "lapjvh",
+        "min": 0.9977568462857108,
+        "min_environment": "W311",
+        "min_solver": "lapcpp",
+        "observations": 12
+      },
+      {
+        "case": "mot20_03_gt_sort",
+        "max": 1.0118251627012242,
+        "max_environment": "W311",
+        "max_solver": "laprust",
+        "min": 1.0053565588505522,
+        "min_environment": "W314",
+        "min_solver": "laprust",
+        "observations": 12
+      },
+      {
+        "case": "mot20_03_rfdetr_nano_sort",
+        "max": 1.0063414796181824,
+        "max_environment": "W314",
+        "max_solver": "lapcpp",
+        "min": 0.9947695446893831,
+        "min_environment": "W311",
+        "min_solver": "lapcpp",
+        "observations": 12
+      }
+    ],
+    "objective_mismatches": 0,
+    "per_environment": {
+      "L311": {
+        "lapcpp": {
+          "replay": {
+            "loss": 0,
+            "max": 2.99032344704897,
+            "min": 1.9903832232164171,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.096217480012581,
+            "min": 1.0046821093552993,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "lapjvh": {
+          "replay": {
+            "loss": 0,
+            "max": 2.9408957392397626,
+            "min": 1.9037364629946718,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.0948919400896193,
+            "min": 1.0051339017480485,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "laprust": {
+          "replay": {
+            "loss": 0,
+            "max": 2.930240818683755,
+            "min": 1.934837495393973,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.0954007789048057,
+            "min": 1.0043072455398003,
+            "tie": 4,
+            "win": 4
+          }
+        }
+      },
+      "L314": {
+        "lapcpp": {
+          "replay": {
+            "loss": 0,
+            "max": 2.976497754604638,
+            "min": 1.9779188353488384,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.094931074688729,
+            "min": 1.0052527385437096,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "lapjvh": {
+          "replay": {
+            "loss": 0,
+            "max": 2.9347129304690647,
+            "min": 1.8857484193434733,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.093547637962115,
+            "min": 1.004464017095885,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "laprust": {
+          "replay": {
+            "loss": 0,
+            "max": 2.92310848476317,
+            "min": 1.916912807898914,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.0912890556002428,
+            "min": 1.0043213616015243,
+            "tie": 4,
+            "win": 4
+          }
+        }
+      },
+      "W311": {
+        "lapcpp": {
+          "replay": {
+            "loss": 0,
+            "max": 2.918587580967042,
+            "min": 1.9914231467723296,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.1069304827845354,
+            "min": 0.9947695446893831,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "lapjvh": {
+          "replay": {
+            "loss": 0,
+            "max": 3.1721467974911564,
+            "min": 2.01207372679982,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.1130437347413398,
+            "min": 0.9971576543243411,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "laprust": {
+          "replay": {
+            "loss": 0,
+            "max": 3.143396756207464,
+            "min": 1.9918638100553863,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.1105853014872262,
+            "min": 0.9952711759501642,
+            "tie": 4,
+            "win": 4
+          }
+        }
+      },
+      "W314": {
+        "lapcpp": {
+          "replay": {
+            "loss": 0,
+            "max": 2.9082810439865927,
+            "min": 2.0129207217999334,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.1075939647421778,
+            "min": 1.0044553848821118,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "lapjvh": {
+          "replay": {
+            "loss": 0,
+            "max": 3.068750502856223,
+            "min": 2.021691516162697,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.1139326969477348,
+            "min": 1.0047736096631859,
+            "tie": 4,
+            "win": 4
+          }
+        },
+        "laprust": {
+          "replay": {
+            "loss": 0,
+            "max": 3.072520390695801,
+            "min": 2.012993996915725,
+            "tie": 0,
+            "win": 8
+          },
+          "update": {
+            "loss": 0,
+            "max": 1.108856733796327,
+            "min": 0.9996658251940911,
+            "tie": 4,
+            "win": 4
+          }
+        }
+      }
+    },
+    "replay_rows": 512,
+    "reproducibility": {
+      "L311": {
+        "all_instrumented_predictions_match": true,
+        "all_repeated_prediction_hashes_identical": true,
+        "unique_evaluated_trajectories": 15
+      },
+      "L314": {
+        "all_instrumented_predictions_match": true,
+        "all_repeated_prediction_hashes_identical": true,
+        "unique_evaluated_trajectories": 15
+      },
+      "W311": {
+        "all_instrumented_predictions_match": true,
+        "all_repeated_prediction_hashes_identical": true,
+        "unique_evaluated_trajectories": 15
+      },
+      "W314": {
+        "all_instrumented_predictions_match": true,
+        "all_repeated_prediction_hashes_identical": true,
+        "unique_evaluated_trajectories": 15
+      }
+    },
+    "round_rows": 2304,
+    "slopes": 224,
+    "sources": [
+      "application-session/replay_summary.csv",
+      "application-session/tracking_summary.csv",
+      "application-session/summary.json.validation",
+      "application-session/profiles/*__scipy.json.matrix_metadata"
+    ],
+    "tracking_rows": 256,
+    "validation_checks_per_environment": {
+      "L311": 135702,
+      "L314": 135702,
+      "W311": 135702,
+      "W314": 135702
+    },
+    "validation_rows": 576,
+    "workloads": [
+      {
+        "case": "mot16_04_gt_centroid",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 56,
+        "max_rows": 56,
+        "min_cols": 47,
+        "min_rows": 47
+      },
+      {
+        "case": "mot16_04_gt_sort",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 56,
+        "max_rows": 56,
+        "min_cols": 47,
+        "min_rows": 47
+      },
+      {
+        "case": "mot16_04_rfdetr_nano_centroid",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 39,
+        "max_rows": 39,
+        "min_cols": 23,
+        "min_rows": 22
+      },
+      {
+        "case": "mot16_04_rfdetr_nano_sort",
+        "frames": 999,
+        "matrices": 976,
+        "max_cols": 42,
+        "max_rows": 39,
+        "min_cols": 24,
+        "min_rows": 23
+      },
+      {
+        "case": "mot20_03_gt_centroid",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 134,
+        "max_rows": 134,
+        "min_cols": 84,
+        "min_rows": 84
+      },
+      {
+        "case": "mot20_03_gt_sort",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 134,
+        "max_rows": 134,
+        "min_cols": 84,
+        "min_rows": 84
+      },
+      {
+        "case": "mot20_03_rfdetr_nano_centroid",
+        "frames": 999,
+        "matrices": 998,
+        "max_cols": 62,
+        "max_rows": 62,
+        "min_cols": 34,
+        "min_rows": 34
+      },
+      {
+        "case": "mot20_03_rfdetr_nano_sort",
+        "frames": 999,
+        "matrices": 575,
+        "max_cols": 66,
+        "max_rows": 62,
+        "min_cols": 39,
+        "min_rows": 36
+      }
+    ],
+    "zero_objective_gaps": true
+  },
+  "artifacts": {
+    "A4": "latex/images/current/A4_memory_visibility.pdf",
+    "F6": "latex/images/current/F6_batch_dots.pdf",
+    "F7": "latex/images/current/F7_applications_dumbbell.pdf",
+    "F8": "latex/images/current/F8_lsape_strip.pdf",
+    "F9": "latex/images/current/F9_orientation_dots.pdf",
+    "T1": "latex/generated/T1_protocol.tex",
+    "T2": "latex/generated/T2_methods.tex",
+    "T4": "latex/generated/T4_memory.tex",
+    "application_accuracy": "latex/generated/A_application_accuracy.tex",
+    "application_workloads": "latex/generated/A_application_workloads.tex"
+  },
+  "behavior": {
+    "atlas_figures": [
+      {
+        "name": "S_batch_reuse_one_worker",
+        "scope": "Each marker is one workload, method and environment. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.",
+        "title": "Workspace reuse with one worker"
+      }
+    ],
+    "atlas_tables": [
+      {
+        "path": "S_applications_api.tex",
+        "scope": "All per-API replay and update ratios, with environments separate.",
+        "title": "Application APIs"
+      }
+    ],
+    "batch": {
+      "main_points": 396,
+      "ratio_direction": "greater than one favours batching, four workers or retained state",
+      "standard_cases": 3,
+      "supplemental_points": 224,
+      "workspace_cases": 14
+    },
+    "orientation": {
+      "complete_export_pairs_per_environment": 74,
+      "not_planned": 64,
+      "points": 296,
+      "points_per_environment": 74,
+      "shapes": [
+        "1000x2000",
+        "2000x3000",
+        "4000x5000",
+        "64x4096",
+        "64x8192",
+        "64x16384"
+      ]
+    }
+  },
+  "generator": "benchmark/paper_artifacts_support.py",
+  "lsape": {
+    "absolute_process_estimates": 2010,
+    "atlas": [],
+    "cases_per_environment": 67,
+    "comparisons": {
+      "W311": {
+        "O/P": {
+          "loss": 17,
+          "max": 3.4431237419488485,
+          "min": 0.45968729142389514,
+          "tie": 12,
+          "win": 38
+        },
+        "O/U": {
+          "loss": 42,
+          "max": 3.089157398590362,
+          "min": 0.4106459151212451,
+          "tie": 5,
+          "win": 20
+        },
+        "P/T": {
+          "loss": 24,
+          "max": 1.0046586171482048,
+          "min": 0.7225883153304067,
+          "tie": 43,
+          "win": 0
+        },
+        "S/T": {
+          "loss": 1,
+          "max": 1.015063643385181,
+          "min": 0.9695119025948984,
+          "tie": 66,
+          "win": 0
+        },
+        "U/P": {
+          "loss": 0,
+          "max": 1.269254449136125,
+          "min": 1.0350347214482771,
+          "tie": 0,
+          "win": 67
+        }
+      },
+      "W314": {
+        "O/P": {
+          "loss": 16,
+          "max": 3.3708571606148796,
+          "min": 0.46251280927880495,
+          "tie": 13,
+          "win": 38
+        },
+        "O/U": {
+          "loss": 38,
+          "max": 3.05281198325227,
+          "min": 0.41092189626206893,
+          "tie": 9,
+          "win": 20
+        },
+        "P/T": {
+          "loss": 29,
+          "max": 1.0029489575838593,
+          "min": 0.7196805974809471,
+          "tie": 38,
+          "win": 0
+        },
+        "S/T": {
+          "loss": 0,
+          "max": 1.008348440587161,
+          "min": 0.9713813496467398,
+          "tie": 67,
+          "win": 0
+        },
+        "U/P": {
+          "loss": 0,
+          "max": 1.2674083820366964,
+          "min": 1.040167984122275,
+          "tie": 0,
+          "win": 67
+        }
+      }
+    },
+    "estimator": "median of three saved process paired-log central ratios; observed process min/max",
+    "inputs_per_case_process": 4,
+    "plotted_points": 670,
+    "processes_per_environment": 3,
+    "rounds": 9,
+    "source": "lsape-summary/all_cases.csv"
+  },
+  "memory": {
+    "endpoint_rows": [
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 97.7421875,
+        "headroom_min_mib": 97.52734375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 91.1171875,
+        "headroom_min_mib": 90.9296875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.96484375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 98.1875,
+        "headroom_min_mib": 97.9140625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 91.62890625,
+        "headroom_min_mib": 91.3984375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.91796875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 59.921875,
+        "headroom_min_mib": 59.45703125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 48.734375,
+        "headroom_min_mib": 48.28515625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 5.17578125,
+        "median_mib": 5.171875,
+        "method": "scipy",
+        "min_mib": 5.15234375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.92578125,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 5.1640625,
+        "median_mib": 5.1484375,
+        "method": "scipy",
+        "min_mib": 5.13671875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 98.30078125,
+        "headroom_min_mib": 98.0859375,
+        "max_mib": 29.53515625,
+        "median_mib": 29.109375,
+        "method": "jvx",
+        "min_mib": 29.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 91.6328125,
+        "headroom_min_mib": 91.3828125,
+        "max_mib": 36.33984375,
+        "median_mib": 35.98046875,
+        "method": "jvx",
+        "min_mib": 35.73828125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 125.08203125,
+        "median_mib": 125.0703125,
+        "method": "jvx",
+        "min_mib": 125.03125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.9609375,
+        "max_mib": 125.046875,
+        "median_mib": 125.046875,
+        "method": "jvx",
+        "min_mib": 125.04296875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 98.01171875,
+        "headroom_min_mib": 97.92578125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 91.109375,
+        "headroom_min_mib": 90.953125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 98.53515625,
+        "headroom_min_mib": 98.34375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 91.53515625,
+        "headroom_min_mib": 91.26953125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.9609375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 60.3203125,
+        "headroom_min_mib": 59.84765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:capped",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 48.51953125,
+        "headroom_min_mib": 48.16015625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:capped",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 5.1796875,
+        "median_mib": 5.16015625,
+        "method": "scipy:capped",
+        "min_mib": 5.15234375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.9453125,
+        "headroom_min_mib": 2.91796875,
+        "max_mib": 5.17578125,
+        "median_mib": 5.16015625,
+        "method": "scipy:capped",
+        "min_mib": 5.13671875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 60.3046875,
+        "headroom_min_mib": 59.921875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:dummies",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 48.55859375,
+        "headroom_min_mib": 48.390625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:dummies",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 5.703125,
+        "median_mib": 5.69921875,
+        "method": "scipy:dummies",
+        "min_mib": 5.68359375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.92578125,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 5.73046875,
+        "median_mib": 5.69140625,
+        "method": "scipy:dummies",
+        "min_mib": 5.66796875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L311",
+        "headroom_max_mib": 60.3671875,
+        "headroom_min_mib": 60.0859375,
+        "max_mib": 84.0859375,
+        "median_mib": 83.921875,
+        "method": "scipy:square",
+        "min_mib": 83.6484375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "L314",
+        "headroom_max_mib": 48.484375,
+        "headroom_min_mib": 48.2109375,
+        "max_mib": 95.90234375,
+        "median_mib": 95.765625,
+        "method": "scipy:square",
+        "min_mib": 95.51953125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.92578125,
+        "max_mib": 141.83203125,
+        "median_mib": 141.83203125,
+        "method": "scipy:square",
+        "min_mib": 141.8125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:256x4096",
+        "environment": "W314",
+        "headroom_max_mib": 2.953125,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 141.81640625,
+        "median_mib": 141.8046875,
+        "method": "scipy:square",
+        "min_mib": 141.796875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 98.390625,
+        "headroom_min_mib": 98.203125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 91.1328125,
+        "headroom_min_mib": 90.84765625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 5.0703125,
+        "median_mib": 5.03125,
+        "method": "jvrust",
+        "min_mib": 5.03125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.9609375,
+        "max_mib": 5.0859375,
+        "median_mib": 5.046875,
+        "method": "jvrust",
+        "min_mib": 5.04296875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 98.9140625,
+        "headroom_min_mib": 98.63671875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 91.5625,
+        "headroom_min_mib": 91.3671875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 5.05078125,
+        "median_mib": 5.04296875,
+        "method": "jvcpp",
+        "min_mib": 5.0390625,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 5.18359375,
+        "median_mib": 5.0546875,
+        "method": "jvcpp",
+        "min_mib": 5.05078125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 60.828125,
+        "headroom_min_mib": 60.2890625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 48.51171875,
+        "headroom_min_mib": 48.30078125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 13.1875,
+        "median_mib": 13.18359375,
+        "method": "scipy",
+        "min_mib": 13.1640625,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 13.19140625,
+        "median_mib": 13.16015625,
+        "method": "scipy",
+        "min_mib": 13.14453125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 99.12890625,
+        "headroom_min_mib": 98.96875,
+        "max_mib": 28.828125,
+        "median_mib": 28.51953125,
+        "method": "jvx",
+        "min_mib": 28.44921875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 91.6328125,
+        "headroom_min_mib": 91.2890625,
+        "max_mib": 36.26953125,
+        "median_mib": 35.86328125,
+        "method": "jvx",
+        "min_mib": 35.78125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 125.140625,
+        "median_mib": 125.03125,
+        "method": "jvx",
+        "min_mib": 125.03125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:required:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.91015625,
+        "max_mib": 125.12890625,
+        "median_mib": 125.046875,
+        "method": "jvx",
+        "min_mib": 125.04296875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 128.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 98.89453125,
+        "headroom_min_mib": 98.6015625,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 91.15234375,
+        "headroom_min_mib": 90.98828125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvrust",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 5.07421875,
+        "median_mib": 5.07421875,
+        "method": "jvrust",
+        "min_mib": 5.07421875,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.95703125,
+        "max_mib": 5.1796875,
+        "median_mib": 5.0859375,
+        "method": "jvrust",
+        "min_mib": 5.08203125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 99.35546875,
+        "headroom_min_mib": 99.3046875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 91.6484375,
+        "headroom_min_mib": 91.28125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "jvcpp",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 2.9765625,
+        "max_mib": 5.10546875,
+        "median_mib": 5.0703125,
+        "method": "jvcpp",
+        "min_mib": 5.0703125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 2.94921875,
+        "max_mib": 5.2109375,
+        "median_mib": 5.078125,
+        "method": "jvcpp",
+        "min_mib": 5.078125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 61.1328125,
+        "headroom_min_mib": 60.61328125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:capped",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 48.4921875,
+        "headroom_min_mib": 48.359375,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:capped",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 13.19140625,
+        "median_mib": 13.18359375,
+        "method": "scipy:capped",
+        "min_mib": 13.1640625,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.9296875,
+        "headroom_min_mib": 2.91796875,
+        "max_mib": 13.1875,
+        "median_mib": 13.16796875,
+        "method": "scipy:capped",
+        "min_mib": 13.15234375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.0,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 61.2890625,
+        "headroom_min_mib": 61.03125,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:dummies",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 48.62890625,
+        "headroom_min_mib": 48.16796875,
+        "max_mib": 0.0,
+        "median_mib": 0.0,
+        "method": "scipy:dummies",
+        "min_mib": 0.0,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.92578125,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 5.703125,
+        "median_mib": 5.69921875,
+        "method": "scipy:dummies",
+        "min_mib": 5.6953125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.921875,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 5.69921875,
+        "median_mib": 5.69140625,
+        "method": "scipy:dummies",
+        "min_mib": 5.6640625,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 8.5,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L311",
+        "headroom_max_mib": 61.37890625,
+        "headroom_min_mib": 61.10546875,
+        "max_mib": 82.4296875,
+        "median_mib": 81.94140625,
+        "method": "scipy:square",
+        "min_mib": 81.22265625,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "L314",
+        "headroom_max_mib": 48.49609375,
+        "headroom_min_mib": 48.34765625,
+        "max_mib": 95.62890625,
+        "median_mib": 94.71484375,
+        "method": "scipy:square",
+        "min_mib": 94.30859375,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W311",
+        "headroom_max_mib": 2.94140625,
+        "headroom_min_mib": 2.921875,
+        "max_mib": 141.83984375,
+        "median_mib": 141.8359375,
+        "method": "scipy:square",
+        "min_mib": 141.8203125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light/campaign-summary.json"
+      },
+      {
+        "case_id": "memory:extended:optional:4096x256",
+        "environment": "W314",
+        "headroom_max_mib": 2.92578125,
+        "headroom_min_mib": 2.9140625,
+        "max_mib": 141.8203125,
+        "median_mib": 141.7890625,
+        "method": "scipy:square",
+        "min_mib": 141.76953125,
+        "representation_definition": "one binary64 original/transformed cost buffer; not measured allocation or peak",
+        "representation_mib_arithmetic": 144.5,
+        "source_file": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light/campaign-summary.json"
+      }
+    ],
+    "interpretation": "Additional high-water increment is not total allocation; final RSS change is not peak memory.",
+    "per_environment": {
+      "L311": {
+        "conditions": 91,
+        "counter": "ru_maxrss_bytes",
+        "headroom_max_mib": 102.59765625,
+        "headroom_min_mib": 59.45703125,
+        "resident_delta_max_mib": 8.0703125,
+        "trials": 455,
+        "zero_increment_and_resident_growth_over_1mib": 80,
+        "zero_increment_trials": 420,
+        "zero_median_conditions": 84
+      },
+      "L314": {
+        "conditions": 91,
+        "counter": "ru_maxrss_bytes",
+        "headroom_max_mib": 100.375,
+        "headroom_min_mib": 48.16015625,
+        "resident_delta_max_mib": 8.0078125,
+        "trials": 455,
+        "zero_increment_and_resident_growth_over_1mib": 80,
+        "zero_increment_trials": 420,
+        "zero_median_conditions": 84
+      },
+      "W311": {
+        "conditions": 91,
+        "counter": "peak_working_set",
+        "headroom_max_mib": 2.9765625,
+        "headroom_min_mib": 0.0,
+        "resident_delta_max_mib": 8.08203125,
+        "trials": 455,
+        "zero_increment_and_resident_growth_over_1mib": 0,
+        "zero_increment_trials": 88,
+        "zero_median_conditions": 18
+      },
+      "W314": {
+        "conditions": 91,
+        "counter": "peak_working_set",
+        "headroom_max_mib": 2.96484375,
+        "headroom_min_mib": 0.0,
+        "resident_delta_max_mib": 8.16015625,
+        "trials": 455,
+        "zero_increment_and_resident_growth_over_1mib": 0,
+        "zero_increment_trials": 82,
+        "zero_median_conditions": 17
+      }
+    },
+    "source": "campaign-summary.json.memory.conditions[].trials[]"
+  },
+  "primary_roots": {
+    "L311": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light",
+    "L314": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light",
+    "W311": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light",
+    "W314": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light"
+  },
+  "protocol": {
+    "L311": {
+      "application_protocol": {
+        "adapter_scope": "contiguous dtype conversion, finite check, solver public API, int32 pair normalization, cardinality check",
+        "alias_validation_only": "lap.lapjvr versus laprust.lapjv",
+        "capture_precision": "float32",
+        "capture_solver": "scipy",
+        "clips": 2,
+        "cpu": 0,
+        "evaluation": "IoU>=0.5 motmetrics supplied-box metrics, no official class/ignore policy; outside timing",
+        "frames_per_clip": 999,
+        "library_threads": 1,
+        "minimum_replay_block_seconds": 0.03,
+        "name": "Real sequences with gt and rfdetr_nano detections",
+        "objective_tolerance_float32": "abs(gap) <= 1e-7*abs(reference) + 1e-4",
+        "objective_tolerance_float64": "abs(gap) <= 1e-10*abs(reference) + 1e-9",
+        "objective_validation_note": "exact nonzero-gap counts and maximum gaps retained; large gated costs can inflate relative tolerances; tolerance-pass is not exact equality",
+        "parallel_measurements": false,
+        "pipeline_configurations": 8,
+        "profile": "light",
+        "reinitialization": "fresh tracker after each warmup; SORT global ID counter reset; module hooks restored",
+        "replay_precisions": [
+          "float32",
+          "float64"
+        ],
+        "replay_scope": "same full captured corpus for every solver; conversion to corpus dtype outside timing; adapter work included",
+        "rounds": 3,
+        "seed": 20261027,
+        "sequences": [
+          "mot16_04",
+          "mot20_03"
+        ],
+        "solvers": [
+          "lapjv",
+          "lapjvx",
+          "lapjvxa",
+          "lapjvh",
+          "laprust",
+          "lapcpp",
+          "scipy",
+          "lapjvs"
+        ],
+        "sources": [
+          "gt",
+          "rfdetr_nano"
+        ],
+        "statistics": "median and IQR across repeated whole-sequence/corpus mean times; descriptive, not significance or generalization intervals",
+        "stock_tracker_semantics": "Centroid distance gate and SORT IoU post-filter/unique-feasible bypass preserved; no finite-limit objective substitution",
+        "timing_scope": "sum of sequential tracker.update calls; Person construction, serialization, evaluation, decode and detector inference excluded",
+        "tracker_input_precision": "float32",
+        "trackers": [
+          "centroid",
+          "sort"
+        ],
+        "warmup_frames": 32
+      },
+      "coverage": {
+        "attempts": 3286,
+        "available_comparisons": 3286,
+        "comparisons": 3286,
+        "complete_attempts": 3286,
+        "planned_case_methods": 3286,
+        "unobserved_planned_case_methods": 0
+      },
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "inputs": 5,
+      "manifest_counts": {
+        "batch_cases": 14,
+        "by_family": {
+          "base": 12,
+          "congestion": 10,
+          "extreme_rectangle": 12,
+          "forbidden": 8,
+          "formulations": 5,
+          "geometry": 120,
+          "large_rectangle": 12,
+          "large_square": 8,
+          "memory": 20,
+          "rejection": 22,
+          "scaling": 47,
+          "signed": 4,
+          "ties": 8,
+          "workspace": 14
+        },
+        "cases": 302,
+        "cost_layout_cases": 14,
+        "geometry_cases": 120,
+        "layout_case_method_jobs": 624,
+        "layout_panel_cases": 25,
+        "legacy_single_cases": 148,
+        "memory_cases": 20,
+        "memory_conditions": 91,
+        "optional_single_cases": 166,
+        "planned_case_method_jobs": 3377,
+        "policy_case_method_jobs": 428,
+        "policy_panel_cases": 33,
+        "required_single_cases": 102,
+        "shape_layout_cases": 9,
+        "single_cases": 268,
+        "standard_batch_workloads": 3,
+        "workspace_workloads": 14
+      },
+      "memory_trials": 5,
+      "packages": {
+        "Cython": "3.3.0",
+        "lapcpp": "1.2.0",
+        "laprust": "1.2.0",
+        "lapx": "0.13.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+      "processor": "x86_64",
+      "python": "3.11.18",
+      "rounds": 3,
+      "single_cpu": 0,
+      "source_root": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light",
+      "target_block_seconds": 0.02,
+      "wall_seconds": 3973.785278303
+    },
+    "L314": {
+      "application_protocol": {
+        "adapter_scope": "contiguous dtype conversion, finite check, solver public API, int32 pair normalization, cardinality check",
+        "alias_validation_only": "lap.lapjvr versus laprust.lapjv",
+        "capture_precision": "float32",
+        "capture_solver": "scipy",
+        "clips": 2,
+        "cpu": 0,
+        "evaluation": "IoU>=0.5 motmetrics supplied-box metrics, no official class/ignore policy; outside timing",
+        "frames_per_clip": 999,
+        "library_threads": 1,
+        "minimum_replay_block_seconds": 0.03,
+        "name": "Real sequences with gt and rfdetr_nano detections",
+        "objective_tolerance_float32": "abs(gap) <= 1e-7*abs(reference) + 1e-4",
+        "objective_tolerance_float64": "abs(gap) <= 1e-10*abs(reference) + 1e-9",
+        "objective_validation_note": "exact nonzero-gap counts and maximum gaps retained; large gated costs can inflate relative tolerances; tolerance-pass is not exact equality",
+        "parallel_measurements": false,
+        "pipeline_configurations": 8,
+        "profile": "light",
+        "reinitialization": "fresh tracker after each warmup; SORT global ID counter reset; module hooks restored",
+        "replay_precisions": [
+          "float32",
+          "float64"
+        ],
+        "replay_scope": "same full captured corpus for every solver; conversion to corpus dtype outside timing; adapter work included",
+        "rounds": 3,
+        "seed": 20261027,
+        "sequences": [
+          "mot16_04",
+          "mot20_03"
+        ],
+        "solvers": [
+          "lapjv",
+          "lapjvx",
+          "lapjvxa",
+          "lapjvh",
+          "laprust",
+          "lapcpp",
+          "scipy",
+          "lapjvs"
+        ],
+        "sources": [
+          "gt",
+          "rfdetr_nano"
+        ],
+        "statistics": "median and IQR across repeated whole-sequence/corpus mean times; descriptive, not significance or generalization intervals",
+        "stock_tracker_semantics": "Centroid distance gate and SORT IoU post-filter/unique-feasible bypass preserved; no finite-limit objective substitution",
+        "timing_scope": "sum of sequential tracker.update calls; Person construction, serialization, evaluation, decode and detector inference excluded",
+        "tracker_input_precision": "float32",
+        "trackers": [
+          "centroid",
+          "sort"
+        ],
+        "warmup_frames": 32
+      },
+      "coverage": {
+        "attempts": 3286,
+        "available_comparisons": 3286,
+        "comparisons": 3286,
+        "complete_attempts": 3286,
+        "planned_case_methods": 3286,
+        "unobserved_planned_case_methods": 0
+      },
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "inputs": 5,
+      "manifest_counts": {
+        "batch_cases": 14,
+        "by_family": {
+          "base": 12,
+          "congestion": 10,
+          "extreme_rectangle": 12,
+          "forbidden": 8,
+          "formulations": 5,
+          "geometry": 120,
+          "large_rectangle": 12,
+          "large_square": 8,
+          "memory": 20,
+          "rejection": 22,
+          "scaling": 47,
+          "signed": 4,
+          "ties": 8,
+          "workspace": 14
+        },
+        "cases": 302,
+        "cost_layout_cases": 14,
+        "geometry_cases": 120,
+        "layout_case_method_jobs": 624,
+        "layout_panel_cases": 25,
+        "legacy_single_cases": 148,
+        "memory_cases": 20,
+        "memory_conditions": 91,
+        "optional_single_cases": 166,
+        "planned_case_method_jobs": 3377,
+        "policy_case_method_jobs": 428,
+        "policy_panel_cases": 33,
+        "required_single_cases": 102,
+        "shape_layout_cases": 9,
+        "single_cases": 268,
+        "standard_batch_workloads": 3,
+        "workspace_workloads": 14
+      },
+      "memory_trials": 5,
+      "packages": {
+        "Cython": "3.3.0",
+        "lapcpp": "1.2.0",
+        "laprust": "1.2.0",
+        "lapx": "0.13.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+      "processor": "x86_64",
+      "python": "3.14.10",
+      "rounds": 3,
+      "single_cpu": 0,
+      "source_root": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light",
+      "target_block_seconds": 0.02,
+      "wall_seconds": 3923.6959591550003
+    },
+    "W311": {
+      "application_protocol": {
+        "adapter_scope": "contiguous dtype conversion, finite check, solver public API, int32 pair normalization, cardinality check",
+        "alias_validation_only": "lap.lapjvr versus laprust.lapjv",
+        "capture_precision": "float32",
+        "capture_solver": "scipy",
+        "clips": 2,
+        "cpu": 0,
+        "evaluation": "IoU>=0.5 motmetrics supplied-box metrics, no official class/ignore policy; outside timing",
+        "frames_per_clip": 999,
+        "library_threads": 1,
+        "minimum_replay_block_seconds": 0.03,
+        "name": "Real sequences with gt and rfdetr_nano detections",
+        "objective_tolerance_float32": "abs(gap) <= 1e-7*abs(reference) + 1e-4",
+        "objective_tolerance_float64": "abs(gap) <= 1e-10*abs(reference) + 1e-9",
+        "objective_validation_note": "exact nonzero-gap counts and maximum gaps retained; large gated costs can inflate relative tolerances; tolerance-pass is not exact equality",
+        "parallel_measurements": false,
+        "pipeline_configurations": 8,
+        "profile": "light",
+        "reinitialization": "fresh tracker after each warmup; SORT global ID counter reset; module hooks restored",
+        "replay_precisions": [
+          "float32",
+          "float64"
+        ],
+        "replay_scope": "same full captured corpus for every solver; conversion to corpus dtype outside timing; adapter work included",
+        "rounds": 3,
+        "seed": 20261027,
+        "sequences": [
+          "mot16_04",
+          "mot20_03"
+        ],
+        "solvers": [
+          "lapjv",
+          "lapjvx",
+          "lapjvxa",
+          "lapjvh",
+          "laprust",
+          "lapcpp",
+          "scipy",
+          "lapjvs"
+        ],
+        "sources": [
+          "gt",
+          "rfdetr_nano"
+        ],
+        "statistics": "median and IQR across repeated whole-sequence/corpus mean times; descriptive, not significance or generalization intervals",
+        "stock_tracker_semantics": "Centroid distance gate and SORT IoU post-filter/unique-feasible bypass preserved; no finite-limit objective substitution",
+        "timing_scope": "sum of sequential tracker.update calls; Person construction, serialization, evaluation, decode and detector inference excluded",
+        "tracker_input_precision": "float32",
+        "trackers": [
+          "centroid",
+          "sort"
+        ],
+        "warmup_frames": 32
+      },
+      "coverage": {
+        "attempts": 3286,
+        "available_comparisons": 3286,
+        "comparisons": 3286,
+        "complete_attempts": 3286,
+        "planned_case_methods": 3286,
+        "unobserved_planned_case_methods": 0
+      },
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "inputs": 5,
+      "manifest_counts": {
+        "batch_cases": 14,
+        "by_family": {
+          "base": 12,
+          "congestion": 10,
+          "extreme_rectangle": 12,
+          "forbidden": 8,
+          "formulations": 5,
+          "geometry": 120,
+          "large_rectangle": 12,
+          "large_square": 8,
+          "memory": 20,
+          "rejection": 22,
+          "scaling": 47,
+          "signed": 4,
+          "ties": 8,
+          "workspace": 14
+        },
+        "cases": 302,
+        "cost_layout_cases": 14,
+        "geometry_cases": 120,
+        "layout_case_method_jobs": 624,
+        "layout_panel_cases": 25,
+        "legacy_single_cases": 148,
+        "memory_cases": 20,
+        "memory_conditions": 91,
+        "optional_single_cases": 166,
+        "planned_case_method_jobs": 3377,
+        "policy_case_method_jobs": 428,
+        "policy_panel_cases": 33,
+        "required_single_cases": 102,
+        "shape_layout_cases": 9,
+        "single_cases": 268,
+        "standard_batch_workloads": 3,
+        "workspace_workloads": 14
+      },
+      "memory_trials": 5,
+      "packages": {
+        "Cython": "3.3.0",
+        "lapcpp": "1.2.0",
+        "laprust": "1.2.0",
+        "lapx": "0.13.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "platform": "Windows-10-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python": "3.11.18",
+      "rounds": 3,
+      "single_cpu": 0,
+      "source_root": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light",
+      "target_block_seconds": 0.02,
+      "wall_seconds": 5142.5341988
+    },
+    "W314": {
+      "application_protocol": {
+        "adapter_scope": "contiguous dtype conversion, finite check, solver public API, int32 pair normalization, cardinality check",
+        "alias_validation_only": "lap.lapjvr versus laprust.lapjv",
+        "capture_precision": "float32",
+        "capture_solver": "scipy",
+        "clips": 2,
+        "cpu": 0,
+        "evaluation": "IoU>=0.5 motmetrics supplied-box metrics, no official class/ignore policy; outside timing",
+        "frames_per_clip": 999,
+        "library_threads": 1,
+        "minimum_replay_block_seconds": 0.03,
+        "name": "Real sequences with gt and rfdetr_nano detections",
+        "objective_tolerance_float32": "abs(gap) <= 1e-7*abs(reference) + 1e-4",
+        "objective_tolerance_float64": "abs(gap) <= 1e-10*abs(reference) + 1e-9",
+        "objective_validation_note": "exact nonzero-gap counts and maximum gaps retained; large gated costs can inflate relative tolerances; tolerance-pass is not exact equality",
+        "parallel_measurements": false,
+        "pipeline_configurations": 8,
+        "profile": "light",
+        "reinitialization": "fresh tracker after each warmup; SORT global ID counter reset; module hooks restored",
+        "replay_precisions": [
+          "float32",
+          "float64"
+        ],
+        "replay_scope": "same full captured corpus for every solver; conversion to corpus dtype outside timing; adapter work included",
+        "rounds": 3,
+        "seed": 20261027,
+        "sequences": [
+          "mot16_04",
+          "mot20_03"
+        ],
+        "solvers": [
+          "lapjv",
+          "lapjvx",
+          "lapjvxa",
+          "lapjvh",
+          "laprust",
+          "lapcpp",
+          "scipy",
+          "lapjvs"
+        ],
+        "sources": [
+          "gt",
+          "rfdetr_nano"
+        ],
+        "statistics": "median and IQR across repeated whole-sequence/corpus mean times; descriptive, not significance or generalization intervals",
+        "stock_tracker_semantics": "Centroid distance gate and SORT IoU post-filter/unique-feasible bypass preserved; no finite-limit objective substitution",
+        "timing_scope": "sum of sequential tracker.update calls; Person construction, serialization, evaluation, decode and detector inference excluded",
+        "tracker_input_precision": "float32",
+        "trackers": [
+          "centroid",
+          "sort"
+        ],
+        "warmup_frames": 32
+      },
+      "coverage": {
+        "attempts": 3286,
+        "available_comparisons": 3286,
+        "comparisons": 3286,
+        "complete_attempts": 3286,
+        "planned_case_methods": 3286,
+        "unobserved_planned_case_methods": 0
+      },
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "inputs": 5,
+      "manifest_counts": {
+        "batch_cases": 14,
+        "by_family": {
+          "base": 12,
+          "congestion": 10,
+          "extreme_rectangle": 12,
+          "forbidden": 8,
+          "formulations": 5,
+          "geometry": 120,
+          "large_rectangle": 12,
+          "large_square": 8,
+          "memory": 20,
+          "rejection": 22,
+          "scaling": 47,
+          "signed": 4,
+          "ties": 8,
+          "workspace": 14
+        },
+        "cases": 302,
+        "cost_layout_cases": 14,
+        "geometry_cases": 120,
+        "layout_case_method_jobs": 624,
+        "layout_panel_cases": 25,
+        "legacy_single_cases": 148,
+        "memory_cases": 20,
+        "memory_conditions": 91,
+        "optional_single_cases": 166,
+        "planned_case_method_jobs": 3377,
+        "policy_case_method_jobs": 428,
+        "policy_panel_cases": 33,
+        "required_single_cases": 102,
+        "shape_layout_cases": 9,
+        "single_cases": 268,
+        "standard_batch_workloads": 3,
+        "workspace_workloads": 14
+      },
+      "memory_trials": 5,
+      "packages": {
+        "Cython": "3.3.0",
+        "lapcpp": "1.2.0",
+        "laprust": "1.2.0",
+        "lapx": "0.13.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python": "3.14.10",
+      "rounds": 3,
+      "single_cpu": 0,
+      "source_root": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light",
+      "target_block_seconds": 0.02,
+      "wall_seconds": 5119.345462599998
+    }
+  }
+}

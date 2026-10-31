@@ -1,0 +1,21 @@
+{
+  "absence_encoding": "Hatched method glyph in * lane outside numeric axis: not timed by protocol, not a measurement failure.",
+  "case_pairs_per_environment": 12,
+  "estimator": "tall case seconds / wide case seconds; separate attempts; no environment pooling",
+  "legend_groups": [
+    "Native",
+    "Legacy dense",
+    "SciPy formulations",
+    "Sparse"
+  ],
+  "method_pairs_per_environment": {
+    "L311": 74,
+    "L314": 74,
+    "W311": 74,
+    "W314": 74
+  },
+  "no_estimates_removed": true,
+  "source_csv": "benchmark/paper-artifacts/F12_orientation.csv",
+  "source_csv_sha256": "8f0f830326e8220b0c6714fa9dcfdfafd3405ba90d43af4a55f79392b4fcd8e1",
+  "total_plotted_estimates": 296
+}

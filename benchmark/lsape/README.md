@@ -1,97 +1,69 @@
-# Controlled LSAPE study (Tables 9–11)
+# Independent LSAPE benchmark
 
-This study measures a one-sided, uniform-penalty adaptation **inside the LSAPE v4 Hungarian implementation**. It compares LSAPE with itself, not with the paper's JV solvers. The unchanged upstream function is **LSAPE-v4**; the adaptation is **LSAPE-v4-1S**. The adaptation keeps Hungarian tree growth, FIFO traversal, dual updates and path reversal, and adds no JV reductions, JV search, orientation or batching.
+This experiment compares five formulations and implementations within the
+LSAPE v4 Hungarian code. Its kernels, frozen 67-case input grid and numeric
+contract are separate from the dense JV campaign.
 
-This folder is self-contained. It holds the upstream LSAPE v4 source, the adapted header, the C++ bridge and every script needed to build, verify, measure and summarize.
+| Arm | Implementation and layout |
+| --- | --- |
+| O | Unchanged LSAPE v4, full buffer, equal endpoint penalties |
+| U | Unchanged LSAPE v4, full buffer, one-sided penalty |
+| S | Specialized code, compact buffer, ordered rejection scan |
+| T | Specialized code, compact buffer, guarded rejection cache |
+| P | Specialized code, full buffer matching U's leading dimension |
 
-## The five arms
+All five arms use one binary and the same complete-call boundary: validation,
+float64 conversion, column-major copying, allocation, solve and int64 output.
+O/U compares formulations, U/P compares specialization with matched layout,
+P/T compares layouts, and S/T compares rejection tracking.
 
-| Name | Entry point | Cost buffer, leading dimension | Implementation |
-| --- | --- | --- | --- |
-| LSAPE-v4 (O) | `solve` | full (n+1)(m+1), ld=n+1 | unmodified upstream `hungarianLSAPE`, `init_type=1`, `forb_assign=false`, endpoint prices h,h |
-| LSAPE-v4 [p,0] (U) | `solve_one_sided` | full (n+1)(m+1), ld=n+1 | same upstream function, deletion price p and insertion price 0 |
-| LSAPE-v4-1S/scan (S) | `solve_implicit_scan` | compact n·m, ld=n | specialized preprocessing and implicit border; ordered rejection scan |
-| LSAPE-v4-1S/tracked (T) | `solve_specialized` | compact n·m, ld=n | same, with cached rejection and scan fallback |
-| LSAPE-v4-1S/tracked/padded (P) | `solve_specialized_padded` | full one-sided (n+1)(m+1), ld=n+1 | tracked adaptation on U's buffer geometry |
-
-All five share one translation unit, compiler configuration, binary, argument validation, float64 conversion, column-major copy and pair output. The ratios isolate different things:
-- **O/U** measures the formulation.
-- **U/P** measures specialization with a matched layout.
-- **O/P** is the total of the two.
-- **P/T** measures layout.
-
-A ratio above 1 favors the denominator.
-
-## Workflow
-
-Requires Windows x64, MSVC (Visual Studio 2022 C++ tools; set `VCVARS64` if they are not found automatically), Python with NumPy and SciPy. The current paper uses a fresh 29 October 2026 campaign with Python 3.11.18, NumPy 2.4.6, SciPy 1.17.1 and MSVC 19.44.35229. The original 27 October campaign remains archived separately. These kernels are independent of the JV package versions.
+Requires Windows x64, MSVC C++ tools, NumPy, SciPy, psutil and threadpoolctl.
+Use `VCVARS64` only if Visual Studio discovery cannot locate `vcvars64.bat`.
+Run from the repository root with an explicit output location:
 
 ```powershell
-python -B build_bridge.py
-python -B verify_implementation.py --output-dir runs/verification-new
-python -B rectangular_campaign.py --manifest results/rectangular-grid-v1.json --session-index 1 --output results/session-1
-python -B rectangular_campaign.py --manifest results/rectangular-grid-v1.json --session-index 2 --output results/session-2
-python -B rectangular_campaign.py --manifest results/rectangular-grid-v1.json --session-index 3 --output results/session-3
-python -B summarize_rectangular.py results/session-1/report.json results/session-2/report.json results/session-3/report.json --output results/summary
+$LsapeOut = Join-Path $env:TEMP "lap-paper-lsape-py31118"
+python -B -m benchmark.lsape build --output-dir "$LsapeOut/build"
+python -B -m benchmark.lsape verify --build-dir "$LsapeOut/build" --output-dir "$LsapeOut/verification"
+python -B -m benchmark.lsape smoke --build-dir "$LsapeOut/build" --output "$LsapeOut/smoke"
 ```
 
-1. **Build:** `build_bridge.py` compiles `_lsape_native.pyd` into `build/` with `/O2 /EHsc /std:c++17 /LD /MD /DNDEBUG /fp:precise`, without `/fp:fast` or `/fp:contract`. It also records the toolchain, the flags and the hashes of every input.
-2. **Verify:** `verify_implementation.py` runs the strict verification. That covers 190 enumerated small cases and 10,000 randomized stress cases, full primal–dual certificates, exact final-state identity between the one-sided arms and upstream, and capped- and square-SciPy objective checks. It refuses a build whose recorded source hashes differ from the current files.
-3. **Measure:** `rectangular_campaign.py` runs one session per process over the frozen 67-case grid in `results/rectangular-grid-v1.json` (manifest SHA-256 `875745fc…`). `--validate-only` checks every input without timing. The paper ran three sessions in fresh processes on logical CPU 0, with nine shuffled rounds and blocks calibrated to 30 ms.
-4. **Summarize:** `summarize_rectangular.py` pairs rounds within each session, takes the median and range over the three sessions, and writes `summary.json`, `all_cases.csv`, `all_case_methods.csv`, `paper_table.csv` (Table 10's twelve preselected rows) and `block_counts.csv` (Table 11).
+The build retains compiler flags, source and binary hashes and a source snapshot.
+Verification and runs check the archived builder that produced the binary,
+alongside the current compiled inputs and the recorded binary hash.
+It uses `/O2 /EHsc /std:c++17 /LD /MD /DNDEBUG /fp:precise`; primary calls have
+no diagnostic counters. Verification checks 10,190 matrices using enumeration,
+primal/dual certificates, final-state identity, and two SciPy objective references.
+The bounded smoke checks all five arms across the six grid families, using one
+input, two rounds and 1 ms target blocks. Its records cannot enter full summaries.
 
-Use new output directories every time; existing runs are never overwritten. Saved records name locations by role rather than by local path ([`redaction.py`](redaction.py)). `controlled_comparison.py` provides the shared campaign harness and a smaller validation run.
+Full measurements require explicit opt-in and a fresh process/output folder for
+each session. Inputs and the existing LSAPE protocol remain frozen: four inputs
+per case, nine shuffled rounds and 30 ms target blocks. Session indices describe
+three fresh processes, without claiming independent-day replication.
 
-## Frozen grid
-
-| Block | Shapes/distributions | Limits | Cases |
-| --- | --- | --- | ---: |
-| A | Uniform squares, N=128,256,512,1024 | 0.5 and 2/N | 8 |
-| B | Uniform N×5N/4 and transposes | 0.5 and 2/max | 16 |
-| C | Congested N×5N/4 and transposes | 0.5 | 8 |
-| D | Uniform N×4N and transposes, N=64..512 | 0.5 and 2/max | 16 |
-| E | Uniform 64×M and transposes, M=1024,4096,16384 | 0.5 and 2/M | 12 |
-| F | Threshold ties: 256²; 256×320, 256×1024, 64×4096 with transposes | L=2h, h=2^(−⌈log2 max⌉) | 7 |
-
-## Objective and numeric contract
-
-For K real pairs, h = float64(L/2) and p = h + h:
-
-```
-F = sum(selected costs) + h(n+m−2K),   P = sum(selected costs) + p(n−K),   F = P + h(m−n)
+```powershell
+python -B -m benchmark.lsape run --allow-full-campaign --build-dir "$LsapeOut/build" --session-index 1 --output "$LsapeOut/session-1"
+# Repeat in fresh processes for session indices 2 and 3.
+python -B -m benchmark.lsape summarize "$LsapeOut/session-1/report.json" "$LsapeOut/session-2/report.json" "$LsapeOut/session-3/report.json" --output "$LsapeOut/summary"
 ```
 
-Costs and L must be finite, nonnegative binary64 values no larger than DBL_MAX/[16(n+m+1)]. The bridge requires round-to-nearest with FTZ/DAZ disabled, and rejects calls otherwise.
+The manifest is [data/rectangular-grid-v1.json](data/rectangular-grid-v1.json).
+All generated builds, source copies, verification records and timing results stay
+inside the chosen output directories. Without `--output`/`--output-dir`, they go to
+`benchmark/runs/{plat}-py{version}-{yyyymmdd}-{hhmm}/lsape-<command>`, and the
+summary goes beside the session folders. Existing output is never overwritten.
+Builds must match the running Python patch version. The shared measurement lock
+prevents overlap with dense/application runs on the same host.
 
-## Current paper results (29 October 2026, one Windows host)
+Costs and limits must be finite, nonnegative binary64 values bounded by
+`DBL_MAX/[16(n+m+1)]`. For `h=float64(L/2)` and `p=h+h`, the equal-endpoint
+objective equals the one-sided objective plus `h*(m-n)`. Validation is finite
+sampled evidence, not a guarantee of universal floating-point exactness.
 
-For the primary comparison O/P over all 67 cases:
-- 38 cases are above 1.03 (favoring P);
-- 18 are below 0.97 (favoring O);
-- 11 fall in the practical band [0.97, 1.03].
-
-The matched-layout U/P ratio exceeds 1.03 in all 67 cases. All 67 cache-only S/T estimates lie inside the descriptive 3% band; this is not an equivalence test. These counts describe one host, compiler, grid and timing contract; they are not significance tests.
-
-## Source provenance and licence
-
-`src/lsape-v4.zip` is the July 2017 LSAPE v4 release by Sébastien Bougleux. It matched a fresh download from the author-hosted URL on 27 October 2026 (`src/upstream_download_check.json`, SHA-256 `2861b207…`). `src/upstream-v4/` is that archive extracted unchanged, under the CeCILL-C licence it ships with (`Licence_CeCILL-C_V1-*.txt`). `src/specialized/hungarian-lsape-uniform.hh` is the attributed adaptation, and its header documents its derivation and changes.
-
-## Saved current evidence
-
-[`../lsape-windows-20261029.zip`](../lsape-windows-20261029.zip) retains the
-fresh build and its input/binary hashes, the 10,190-case strict verification,
-all three raw session reports, 9,045 timing-round averages, summary CSVs, the
-independent saved-data audit and the source/precision review. Tables 10 and 11
-are regenerated from this collection.
-
-The rerun deliberately keeps the original five-arm implementations unchanged.
-The JV float32-working-arithmetic and rectangular-initialization fixes do not
-transfer directly: this bridge already converts to float64, while the kernel
-uses Hungarian tree growth rather than JV reduction retries. Source inspection
-and finite validation do not establish general floating-point exactness.
-
-From the parent `benchmark/` directory, `python verify_results.py` verifies the
-archive and recomputes paired-log estimates, session ranges and band counts
-without running a solver. `lsape_publication.py` regenerates table projections
-from a completed summary; `package_lsape.py` packages a completed campaign and
-refuses to replace an existing archive.
+[src/lsape-v4.zip](src/lsape-v4.zip) is the supplied July 2017 upstream release;
+the extracted source remains byte-identical and retains its CeCILL-C licences.
+[src/upstream_download_check.json](src/upstream_download_check.json) records its
+author-hosted download identity. The specialized header retains attribution and
+describes its changes. No JV performance or mechanism claim follows from these
+within-LSAPE contrasts.

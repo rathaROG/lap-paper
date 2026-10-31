@@ -23,7 +23,7 @@ import sysconfig
 import shutil
 from datetime import datetime, timezone
 
-from redaction import redact
+from .redaction import redact
 
 
 def sha256(path: Path) -> str:
@@ -56,10 +56,15 @@ def find_vcvars() -> Path:
     raise SystemExit("MSVC x64 toolchain not found; set VCVARS64 to the full path of vcvars64.bat")
 
 
-def main() -> int:
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, help="Build directory; defaults to this experiment's build/")
-    options = parser.parse_args()
+    parser.add_argument("--output-dir", type=Path,
+                        help="Fresh build output directory. Default: benchmark/runs/{plat}-py{version}-{yyyymmdd}-{hhmm}/lsape-build")
+    options = parser.parse_args(argv)
+    if options.output_dir is None:
+        from ..paths import default_output
+        options.output_dir = default_output("lsape-build")
+        print(f"Output: {options.output_dir}")
     if os.name != "nt" or struct.calcsize("P") != 8:
         raise SystemExit("This bridge builds with MSVC for 64-bit Python on Windows only.")
     import numpy as np
@@ -81,7 +86,9 @@ def main() -> int:
         if not path.is_file():
             raise SystemExit(redact(f"Required existing build input is missing: {path}"))
 
-    build = (options.output_dir or root / "build").resolve()
+    build = options.output_dir.resolve()
+    if build.exists() and any(build.iterdir()):
+        parser.error("Choose a fresh build directory; existing builds are never overwritten")
     build.mkdir(parents=True, exist_ok=True)
     output = build / "_lsape_native.pyd"
     obj = build / "lsape_bridge.obj"
@@ -143,7 +150,7 @@ def main() -> int:
     record["finished_utc"] = datetime.now(timezone.utc).isoformat()
     record["output_sha256"] = sha256(output) if result.returncode == 0 and output.is_file() else None
     (build / "provenance.json").write_text(json.dumps(redact(record), indent=2) + "\n", encoding="utf-8")
-    snapshot = build / "history" / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    snapshot = build / "snapshot"
     snapshot.mkdir(parents=True, exist_ok=False)
     for input_path in (source, Path(__file__).resolve(), header, specialized, archive,
                        root / "verify_implementation.py", root / "README.md"):

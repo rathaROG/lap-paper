@@ -1,0 +1,37 @@
+{
+  "atlas_figures": [
+    {
+      "name": "S_batch_reuse_one_worker",
+      "scope": "Each marker is one workload, method and environment. Recreate/retain ratios above one favour retaining state. The main batch figure shows four-worker reuse.",
+      "title": "Workspace reuse with one worker"
+    }
+  ],
+  "atlas_tables": [
+    {
+      "path": "S_applications_api.tex",
+      "scope": "All per-API replay and update ratios, with environments separate.",
+      "title": "Application APIs"
+    }
+  ],
+  "batch": {
+    "main_points": 396,
+    "ratio_direction": "greater than one favours batching, four workers or retained state",
+    "standard_cases": 3,
+    "supplemental_points": 224,
+    "workspace_cases": 14
+  },
+  "orientation": {
+    "complete_export_pairs_per_environment": 74,
+    "not_planned": 64,
+    "points": 296,
+    "points_per_environment": 74,
+    "shapes": [
+      "1000x2000",
+      "2000x3000",
+      "4000x5000",
+      "64x4096",
+      "64x8192",
+      "64x16384"
+    ]
+  }
+}
