@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "scope": "Every file read by the saved-data generator, plus complete primary campaign measurement/validation logs; no executable binaries or unused source snapshots.",
-  "selection": "generator_input_files.json from an audited complete generation; additional raw primary attempt logs",
+  "scope": "Campaign inputs read by the saved-data generator, plus complete primary campaign measurement/validation logs; microscopy evidence is versioned separately under benchmark/cell_tracking/; no executable binaries or unused source snapshots.",
+  "selection": "benchmark/runs/ entries from generator_input_files.json from an audited complete generation; additional raw primary attempt logs",
   "roots": [
     "linux-py3.11.18-20261030-1434",
     "linux-py3.11.18-20261031-0455",

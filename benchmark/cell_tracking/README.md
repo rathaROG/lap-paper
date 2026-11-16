@@ -20,6 +20,8 @@ the original measurement driver and observations by SHA-256. Both are copied
 unchanged from the evidence used for the revised conference manuscript.
 `recalculate.py` checks recorded orders, frame coverage, track/cost digests
 and objective gaps and regenerates tables; it never imports a solver or tracker.
+Table export destinations must resolve outside `benchmark/cell_tracking/`;
+all destinations are checked before any output is written.
 Tests exercise the saved-record checks, aggregation and safe command entry point.
 
 ## Measurement contract

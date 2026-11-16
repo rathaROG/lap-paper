@@ -219,6 +219,16 @@ def main():
     parser.add_argument("--profile-table", type=Path, help="Write the instrumented-association LaTeX table fragment")
     args = parser.parse_args()
 
+    # Validate every export before writing anything, including a new manifest.
+    # Resolve aliases such as '..' and symlinks into the frozen study directory.
+    for option in ("table", "compact_table", "profile_table"):
+        destination = getattr(args, option)
+        if destination is not None:
+            destination = destination.resolve()
+            if destination.is_relative_to(ROOT.resolve()):
+                parser.error("Table exports must be outside benchmark/cell_tracking; frozen evidence cannot be replaced")
+            setattr(args, option, destination)
+
     identity = manifest()
     manifest_path = ROOT / "manifest.json"
     if not args.write_manifest:

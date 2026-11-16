@@ -19,7 +19,7 @@ An identical existing file is retained. `python benchmark/paper_evidence.py veri
 checks archive hashes and any already-restored files without extracting them.
 
 `manifest.json` records every member's relative POSIX path, byte count, digest,
-archive and role. `generator_input` files are the actual files read during a
+archive and role. `generator_input` files are the campaign files read during a
 complete generator run, including summaries, protocols, build identities,
 diagnostics, application observations, LSAPE observations and saved rejection
 validation. Additional `primary_raw_audit` files retain all primary campaign
@@ -30,15 +30,22 @@ for rerunning measurements.
 
 Archives have sorted members, fixed timestamps, fixed permissions and maximum
 DEFLATE compression. They preserve original evidence bytes and line endings.
+Compressed archive bytes can differ between compression-library versions;
+member bytes and SHA-256 digests remain unchanged.
 To rebuild the archives after a complete saved-data generation:
 
 ```sh
 python benchmark/paper_evidence.py pack
 ```
 
-That command takes its required-file list from
+That command selects the `benchmark/runs/` entries from
 `benchmark/paper-artifacts/generator_input_files.json`, produced by tracing files
-actually opened during generation. Generated CSVs larger than 10 MB use gzip
+actually opened during generation. Microscopy inputs remain in that complete
+inventory but are versioned directly under `benchmark/cell_tracking/`, with a
+separate manifest binding the measurement driver and observations. They are not
+included in the five campaign archives. Unexpected input roots are rejected.
+
+Generated CSVs larger than 10 MB use gzip
 with a fixed timestamp and no embedded filename. Text exports use UTF-8, LF and
 relative source links. Exact rendering hashes additionally depend on Python,
 Matplotlib and its font/rendering dependencies; the pinned package versions match

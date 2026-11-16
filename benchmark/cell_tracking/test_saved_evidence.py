@@ -115,3 +115,78 @@ def test_run_refuses_frozen_evidence_output(tmp_path):
                             cwd=REPO, capture_output=True, text=True)
     assert result.returncode != 0
     assert "frozen evidence cannot be replaced" in result.stderr
+
+
+@pytest.fixture
+def audit_copy(tmp_path):
+    """Exercise both command entry points without risking the real frozen files."""
+    folder = tmp_path / "benchmark/cell_tracking"
+    folder.mkdir(parents=True)
+    (folder.parent / "__init__.py").write_text("", encoding="utf-8")
+    for name in (*study.BOUND_FILES, "manifest.json", "recalculate.py", "__main__.py", "__init__.py"):
+        shutil.copyfile(REPO / "benchmark/cell_tracking" / name, folder / name)
+    return folder
+
+
+def run_audit_copy(folder, entry_point, *arguments):
+    command = ([str(folder / "recalculate.py")] if entry_point == "direct"
+               else ["-m", "benchmark.cell_tracking", "audit"])
+    return subprocess.run([sys.executable, "-B", *command, *map(str, arguments)],
+                          cwd=folder.parents[1], capture_output=True, text=True)
+
+
+@pytest.mark.parametrize("entry_point", ["direct", "wrapper"])
+@pytest.mark.parametrize("option", ["--table", "--compact-table", "--profile-table"])
+@pytest.mark.parametrize("name", ["observations.json", "benchmark.py", "manifest.json", "new.tex"])
+def test_table_exports_refuse_frozen_destinations(audit_copy, entry_point, option, name):
+    before = {p.name: p.read_bytes() for p in audit_copy.iterdir()}
+    # Include a parent-directory alias to exercise resolved containment.
+    target = audit_copy / ".." / "cell_tracking" / name
+    result = run_audit_copy(audit_copy, entry_point, option, target)
+    assert result.returncode != 0
+    assert "frozen evidence cannot be replaced" in result.stderr
+    assert {p.name: p.read_bytes() for p in audit_copy.iterdir()} == before
+
+
+@pytest.mark.parametrize("entry_point", ["direct", "wrapper"])
+def test_all_exports_are_validated_before_any_write(audit_copy, entry_point):
+    output = audit_copy.parents[1] / "safe.tex"
+    manifest = audit_copy / "manifest.json"
+    manifest.write_bytes(manifest.read_bytes() + b"\n")
+    before = manifest.read_bytes()
+    arguments = ["--table", output, "--profile-table", audit_copy / "observations.json"]
+    if entry_point == "direct":
+        arguments.append("--write-manifest")
+    result = run_audit_copy(audit_copy, entry_point, *arguments)
+    assert result.returncode != 0
+    assert "frozen evidence cannot be replaced" in result.stderr
+    assert not output.exists()
+    assert manifest.read_bytes() == before
+
+
+def test_table_export_refuses_symlink_to_frozen_file(audit_copy):
+    alias = audit_copy.parents[1] / "alias.tex"
+    target = audit_copy / "observations.json"
+    before = target.read_bytes()
+    try:
+        alias.symlink_to(target)
+    except OSError as error:
+        pytest.skip(f"Symlinks unavailable: {error}")
+    result = run_audit_copy(audit_copy, "direct", "--table", alias)
+    assert result.returncode != 0
+    assert "frozen evidence cannot be replaced" in result.stderr
+    assert target.read_bytes() == before
+
+
+@pytest.mark.parametrize("entry_point", ["direct", "wrapper"])
+def test_external_table_exports_still_reproduce_saved_results(audit_copy, entry_point):
+    _, rows = load_saved(REPO)
+    renderers = {"table": study.table, "compact-table": study.compact_table,
+                 "profile-table": study.profile_table}
+    arguments = []
+    for option in renderers:
+        arguments.extend(["--" + option, audit_copy.parents[1] / (option + ".tex")])
+    result = run_audit_copy(audit_copy, entry_point, *arguments)
+    assert result.returncode == 0, result.stderr
+    for option, render in renderers.items():
+        assert (audit_copy.parents[1] / (option + ".tex")).read_bytes() == render(rows).encode("utf-8")

@@ -28,10 +28,29 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
+def campaign_inputs(source):
+    """Select campaign inputs; microscopy is versioned separately, not archived here."""
+    paths = source if isinstance(source, list) else (row["path"] for row in source["files"])
+    required = set()
+    for relative in paths:
+        path = PurePosixPath(relative)
+        if (path.is_absolute() or ".." in path.parts or "\\" in relative
+                or ":" in relative or path.as_posix() != relative):
+            raise ValueError(f"Unsafe generator input path: {relative}")
+        if len(path.parts) >= 4 and path.parts[:2] == ("benchmark", "runs"):
+            required.add(relative)
+        elif len(path.parts) >= 3 and path.parts[:2] == ("benchmark", "cell_tracking"):
+            continue
+        else:
+            raise ValueError(f"Unexpected generator input path: {relative}")
+    if not required:
+        raise ValueError("No campaign inputs found in the generator inventory")
+    return required
+
+
 def pack(input_file):
     source = json.loads(input_file.read_text(encoding="utf-8-sig"))
-    required = set(source if isinstance(source, list) else (row["path"] for row in source["files"]))
-    assert required and all(path.startswith("benchmark/runs/") for path in required)
+    required = campaign_inputs(source)
     selected = set(required)
     # Complete primary raw timing/validation logs make the central estimates
     # independently auditable, beyond the smaller set read by the plotter.
@@ -44,6 +63,8 @@ def pack(input_file):
     files = []
     for relative in sorted(selected):
         path = ROOT / relative
+        if not path.resolve().is_relative_to((ROOT / "benchmark/runs").resolve()):
+            raise ValueError(f"Evidence path escapes runs/: {relative}")
         if not path.is_file(): raise FileNotFoundError(path)
         run = PurePosixPath(relative).parts[2]
         groups[run].append(relative)
@@ -67,8 +88,8 @@ def pack(input_file):
         archives.append(dict(path=target.relative_to(ROOT).as_posix(), bytes=target.stat().st_size,
                              sha256=digest(target), files=len(paths)))
     manifest = dict(schema_version=1,
-        scope="Every file read by the saved-data generator, plus complete primary campaign measurement/validation logs; no executable binaries or unused source snapshots.",
-        selection="generator_input_files.json from an audited complete generation; additional raw primary attempt logs",
+        scope="Campaign inputs read by the saved-data generator, plus complete primary campaign measurement/validation logs; microscopy evidence is versioned separately under benchmark/cell_tracking/; no executable binaries or unused source snapshots.",
+        selection="benchmark/runs/ entries from generator_input_files.json from an audited complete generation; additional raw primary attempt logs",
         roots=roots, archives=archives, files=files)
     write_json(MANIFEST, manifest)
     print("Packaged", len(files), "files in", len(archives), "archives;", sum(row["bytes"] for row in archives), "compressed bytes.")
