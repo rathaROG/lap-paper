@@ -1,0 +1,92 @@
+{
+  "recorded_date": "2026-11-15",
+  "upstream": {
+    "title_as_documented": "Cell Tracking with the new laprust",
+    "author_as_documented": "Raphael Reme",
+    "repository_url": "https://github.com/raphaelreme/cell_tracking_with_laprust",
+    "source_revision": "1dae22e68c4dd1d6c3915a7a416dbfca39284b31",
+    "license": "MIT",
+    "copyright_notice": "Copyright (c) 2026 raphaelreme",
+    "source_files": {
+      "README.md": {
+        "working_tree_sha256": "820953fab2d60c35fc8c840240123fa3be9a974b29f5927ad888f24e5e3038fc",
+        "committed_blob_sha256": "5599be3bbf66788d59d5523ef459ebb165d1ace710d3f8284f69baa70e65c0e8",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "LICENSE": {
+        "working_tree_sha256": "1ddf1cee330d62770ab4183055fc633fe7dec876f9d1d48c774ed8b6565f891f",
+        "committed_blob_sha256": "f4e09d62c9efe686542f74ee8c3967723f12f8fd8b457ec4e68969502e77025a",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "pyproject.toml": {
+        "working_tree_sha256": "a0310c621a62481af0af6d68778c7437d2c980ef255c28cae2dfcac80aa24a58",
+        "committed_blob_sha256": "ad19baae64cd6fb3d200d1b30be2a5446ff99546aa67942456ddace744c6e76c",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "run_all.sh": {
+        "working_tree_sha256": "c9b92adeac07e10a8ecb060789b4368e5a151be9a4c3f213b257f15d955cd206",
+        "committed_blob_sha256": "8ef8b451fc558f3b9ecb492c44fef8fc232bfa6f99ea833c3df6003a259154ef",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "src/cell_tracking_with_laprust/run_ctc.py": {
+        "working_tree_sha256": "581072e08cd398c016f3868594f47b8b6a93b634248a117700c7e41b1ed3ceb5",
+        "committed_blob_sha256": "ea6ef647eed60a4578131dcb474909a580c8d5a5854404be5fd7180619a93545",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "src/cell_tracking_with_laprust/run_hydra.py": {
+        "working_tree_sha256": "91309a594d36978ef12960fd318caf0a8722dcb4d544cf6a58945550fe5f8356",
+        "committed_blob_sha256": "32482810555175fb370143c3eac3e4b5515263a7a06c57abd468aeb0b15d1535",
+        "text_matches_revision_after_line_ending_normalization": true
+      },
+      "src/cell_tracking_with_laprust/benchmark.py": {
+        "working_tree_sha256": "fc41f3c81bc6dd3d67fede73221815d6774c601096e5e3bf0ee8db56d30a8081",
+        "committed_blob_sha256": "70261fa0bee7e7c17695afd7dc19fb91e3c744fde22c694b9accfa5a5d294db8",
+        "text_matches_revision_after_line_ending_normalization": true
+      }
+    }
+  },
+  "reused_protocol_elements": [
+    {
+      "element": "Eight CTC excerpts plus the Hydra example.",
+      "upstream_source": "run_all.sh:1-9",
+      "study_source": "benchmark/cell_tracking/benchmark.py:42-45,204,222-225"
+    },
+    {
+      "element": "CTC sequence 02; final up to 100 imperfect segmentation masks as prepared detections.",
+      "upstream_source": "src/cell_tracking_with_laprust/run_ctc.py:24-32",
+      "difference": "ICPE enumerates and hashes the selected masks, verifies frame continuity, and prepares detections with GroundTruthDetector over the mask video.",
+      "study_source": "benchmark/cell_tracking/benchmark.py:177-188"
+    },
+    {
+      "element": "Hydra zero-based frames 130-229; mean-channel projection; normalization at 0.01/0.999 quantiles with smooth clipping at 1.0; CPU wavelet detector scale 1, k 2.5, min_area 5, batch_size 20.",
+      "upstream_source": "src/cell_tracking_with_laprust/run_hydra.py:26-30",
+      "identical_short_api_lines": [
+        "video.add_preprocessor(byotrack.video.ChannelProjection(\"mean\"))",
+        "video = video.normalize(q_min=0.01, q_max=0.999, smooth_clip=1.0)",
+        "detector = WaveletDetector(scale=1, k=2.5, min_area=5, batch_size=20, device=torch.device(\"cpu\"))"
+      ],
+      "difference": "ICPE takes an already-local video path and records its SHA-256 instead of obtaining the example through the upstream example-data helper.",
+      "study_source": "benchmark/cell_tracking/benchmark.py:191-196"
+    },
+    {
+      "element": "Use ByoTrack KalmanLinker, estimate motion parameters from prepared detections, select Pylapy backends, and time complete linker runs after warmup.",
+      "upstream_source": "src/cell_tracking_with_laprust/benchmark.py:88-130,139-185",
+      "study_source": "benchmark/cell_tracking/benchmark.py:76-172"
+    }
+  ],
+  "study_protocol_changes": [
+    "Three dense OPT_ALT arms: stock padded SciPy, capped rectangular SciPy, and LAPX Rust; original protocol also included sparse LAPMOD and SciPy csgraph arms.",
+    "Motion parameters are estimated once and shared across arms; context-managed backend selection restores Pylapy settings.",
+    "One whole-clip warmup per arm followed by six balanced arm orders shuffled with seed 20261113, replacing three consecutive measurements per backend.",
+    "Logical CPU 0, one-thread numerical libraries, garbage-collection control, and nanosecond timing.",
+    "Track digests include identity, lifespan-related metadata, coordinates/missing masks, and detection indices, and compare all timed and instrumented runs.",
+    "Input and cost hashes, recorded objective comparisons, and separate instrumented association profiles supplement the original cross-backend position check.",
+    "Reported table times are six-round medians from the ICPE saved campaign, not the original benchmark mean/min summaries."
+  ],
+  "saved_campaign_sha256": {
+    "benchmark.py": "ad0c211b644fc61d40816b6fb415c79155ce41251800bb333f8c4ee018fbc52c",
+    "observations.json": "e8e917324f11afdfcdb65700fb0810e6506200f6d84c5a304cc3ee4a51a103e0"
+  },
+  "measurement_date": "2026-11-13",
+  "public_release_permission_status": "Cell Tracking Challenge permission remains an unresolved release follow-up; no permission document is included here."
+}

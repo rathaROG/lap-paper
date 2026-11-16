@@ -80,3 +80,24 @@ They apply to assignment, diagnostics and applications; LSAPE keeps its fixed CP
 
 Detailed protocols: [assignment](campaign/README.md),
 [applications](application/README.md), [LSAPE](lsape/README.md).
+
+## Separate microscopy study
+
+The [ByoTrack study](cell_tracking/README.md) is a fourth suite, measured in a
+separate November session using LAPX 0.13.1. The combined launcher above and
+its October version pins remain unchanged. Microscopy compares forced stock
+padded SciPy, capped rectangular SciPy and LAPX Rust on nine excerpts, with
+six whole-linker rounds and one separate instrumented association profile per
+arm/excerpt. It has its own explicit opt-in runner and local data requirements.
+
+Verify its saved evidence and tests without loading a tracker or solver:
+
+```sh
+python -B -m benchmark.cell_tracking audit
+python -B -m pytest benchmark/cell_tracking -q
+```
+
+`python benchmark/generate_paper_artifacts.py` includes these observations;
+`--only microscopy` regenerates just its tables and S7 projections.
+The study's README and attribution record retain the outstanding Cell Tracking
+Challenge permission follow-up before public preprint or evidence release.

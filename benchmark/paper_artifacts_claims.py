@@ -125,12 +125,15 @@ def generate(repo: Path) -> dict:
     source("memory", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json"),
            "memory.conditions[].{case_id,method,counter,trials}; trials[].{additional_peak,baseline_peak_headroom,before.rss,after.rss,before.peak,after.peak}",
            "Bytes/2^20; medians/ranges over five trials. Count zero condition medians84/84/18/17; zero trials420/420/88/82; zero increment and RSS growth>2^20 count80/80/0/0.91×5=455 trials/environment. Extended endpoint selection memory:extended:*:256x4096 and transposes.", artifact="S5_memory_conditions.csv; S5_memory_trials.csv; T4_memory_endpoints.csv; support_summary.json:memory")
-    source("applications", all_paths("/application-session/protocol.json") + all_paths("/application-session/replay_summary.csv") + all_paths("/application-session/tracking_summary.csv"),
-           "protocol.{frames_per_clip,pipeline_configurations,solvers,rounds,minimum_replay_block_seconds,warmup_frames,cpu,replay_precisions}; summaries[].{case,solver,precision,scipy_speedup,median_*}",
+    source("applications", all_paths("/application-session/protocol.json") + all_paths("/application-session/replay_summary.csv") + all_paths("/application-session/tracking_summary.csv") + all_paths("/application-session/profiles"),
+           "protocol.{frames_per_clip,pipeline_configurations,solvers,rounds,minimum_replay_block_seconds,warmup_frames,cpu,replay_precisions}; summaries[].{case,solver,precision,scipy_speedup,median_*}; separate SciPy profiles retain assignment fractions of tracker-update time",
            "Join same case/API/environment. F7 float32 only:7 nonreference APIs×8 pipelines×4 environments=224. Main envelopes are observed min/max across12 native or16 legacy API/environment pairs,not averages. Classify each native API's eight update ratios separately:4 wins4 ties. Float64 replay remains in S4.", artifact="F7_application_envelopes.csv; F7_applications_api.csv; F9_applications.csv; S4_replay.csv; S4_tracking.csv; support_summary.json:applications")
     source("accuracy", all_paths("/application-session/tracking_summary.csv") + all_paths("/application-validation/validation.json"),
            "tracking_summary per pipeline/solver metrics and prediction hashes; validation.{matrices,checks,results[].objective_nonzero_gap_count,objective_max_abs_gap,objective_mismatch_count}",
            "7,539 matrices×2 precision views×9 validated entries=135,702 checks; all recorded objective gaps zero. Metric deltas subtract SciPy,percentage scores multiply by100; compare prediction hashes independently. Exact same deltas validated across environments before table deduplication.", artifact="S4_accuracy.csv; S4_validation.csv; support_summary.json:applications")
+    source("microscopy", ["benchmark/cell_tracking/observations.json", "benchmark/cell_tracking/manifest.json", "benchmark/cell_tracking/benchmark.py", "benchmark/cell_tracking/provenance.json"],
+           "datasets[].{frames,input,rounds,profiles,validation}; versions; seed; measured_utc; source-frame windows and recorded track/cost digests",
+           "Nine excerpts,816frames,807nonempty calls per arm. Whole-linker means per frame:median of six rounds; ratios divide arm medians. Profiles:one separate instrumented run per arm/excerpt; aggregate seconds=sum(frames*association_ns_per_frame)/1e9. Adapter,solver,pair conversion included; no pure-kernel or exact decomposition claim. All18 recorded cross-arm cost/track comparisons agree and recorded objective gaps are zero; original matrices/tracks are unavailable.", artifact="S7_microscopy.csv; S7_microscopy_rounds.csv; microscopy_summary.json")
     source("workloads", all_paths("/application-session/protocol.json") + all_paths("/application-session/profiles"),
            "profiles/<case>__scipy.json.matrix_metadata[].{shape,frame,call_index,source_dtype,solver_input_dtype,key}; protocol.frames_per_clip",
            "Count matrices and min/max original dimensions per pipeline; verify equality across environments then show once. Captured total7,539; eight pipelines999frames each.", artifact="A_application_workloads.csv; S4_capture_shapes.csv")
@@ -167,7 +170,7 @@ def generate(repo: Path) -> dict:
            "Seven post-hoc screened events. Three observed CSGRAPH sibling class disagreements; two changes holding target CSGRAPH latency fixed and substituting sibling reference. Native classifications unchanged. Cross-interpreter/session differences are confounded; no primary observation is corrected or removed.", artifact="reference_sensitivity.json; reference_sensitivity_events.csv; reference_sensitivity_methods.csv")
 
     figure_keys = {"F1":"native","F2":"geometry","F3":"layout","F4":"policy","F5":"sparse","F6":"batch","F7":"applications","F8":"lsape","F9":"orientation","F_structure":"structure","F11":"rejection","A1":"scaling","A2":"geometry","A4":"memory"}
-    table_keys = {"T1_protocol":"protocol","T2_methods":"implementation","T3_counters":"counters","T4_memory":"memory","A_application_workloads":"workloads","A_application_accuracy":"accuracy","s1_sensitivity":"sensitivity","S_native_family_counts":"native","S_native_exceptions":"native","S_lsape_family_counts":"lsape"}
+    table_keys = {"T1_protocol":"protocol","T2_methods":"implementation","T3_counters":"counters","T4_memory":"memory","A_application_workloads":"workloads","A_application_accuracy":"accuracy","s1_sensitivity":"sensitivity","S_native_family_counts":"native","S_native_exceptions":"native","S_lsape_family_counts":"lsape","T_microscopy":"microscopy","A_microscopy_profiles":"microscopy"}
 
     def mapping(text, section, subsection, image="", table=""):
         if table:
@@ -179,7 +182,7 @@ def generate(repo: Path) -> dict:
             for key in sorted(figure_keys,key=len,reverse=True):
                 if stem.startswith(key+"_"):return [figure_keys[key]]
             if "rejection_paths" in stem:return ["implementation","arithmetic"]
-        if section=="Abstract":return ["protocol","environment","native","applications","accuracy","lsape","reporting"]
+        if section=="Abstract":return ["protocol","environment","native","applications","accuracy","microscopy","lsape","reporting"]
         if section=="Introduction":
             if "MiB" in text:return ["arithmetic"]
             return ["literature","implementation","protocol","reporting"]
@@ -187,28 +190,29 @@ def generate(repo: Path) -> dict:
         if section=="Problem formulation":return ["arithmetic"]
         if section.startswith("Implementation"):return ["implementation","arithmetic","validation"]
         if section=="Experimental design":
-            if "LSAPE" in subsection:return ["applications","lsape","accuracy"]
+            if "LSAPE" in subsection:return ["applications","lsape","accuracy","microscopy"]
             if "Geometry" in subsection:return ["geometry","layout","policy","counters"]
             if "Validation" in subsection:return ["validation","batch","memory"]
             if "coverage" in subsection:return ["protocol","native","batch","reporting"]
-            return ["environment","protocol","reporting"]
+            return ["environment","protocol","reporting","microscopy"]
         if section=="Results":
             keys=[("Coverage","native"),("Geometry","geometry"),("Representation","layout"),("Initialization","counters"),("Sparse","sparse"),("Ordered","structure"),("Batching","batch"),("Applications","applications"),("LSAPE","lsape"),("Orientation","orientation"),("Memory","memory")]
             for needle,key in keys:
                 if needle in subsection:
                     if key=="counters" and "counters" not in text.lower():return ["policy"]
-                    if key=="applications" and any(t in text.lower() for t in ("predictions","objective","metric")):return ["applications","accuracy"]
+                    if key=="applications":return ["applications","accuracy","microscopy"]
                     if key=="structure" and "rejection" in text.lower():return ["structure","rejection"]
                     if key=="sparse" and "post-hoc" in text.lower():return ["sparse","reference_sensitivity"]
                     return [key]
-        if section=="Conclusion":return ["native","applications","lsape","reporting"]
-        if section=="Discussion":return ["native","policy","counters","batch","orientation","applications","accuracy","implementation","reporting"]
-        if section=="Limitations and threats to validity":return ["protocol","environment","geometry","validation","applications","lsape","memory","reference_sensitivity","reporting"]
+        if section=="Conclusion":return ["native","applications","microscopy","lsape","reporting"]
+        if section=="Discussion":return ["native","policy","counters","batch","orientation","applications","accuracy","microscopy","implementation","reporting"]
+        if section=="Limitations and threats to validity":return ["protocol","environment","geometry","validation","applications","microscopy","lsape","memory","reference_sensitivity","reporting"]
         if section=="Classification tables":return ["native","lsape"]
         if section=="Scaling and geometric sensitivity":return ["scaling","geometry"]
         if section=="Rejection-limit sweep":return ["rejection"]
         if section=="Memory-counter visibility":return ["memory"]
         if section=="Application workload and accuracy":return ["applications","accuracy","workloads"]
+        if section=="Microscopy inputs and association profiles":return ["microscopy"]
         if section=="Protocol sensitivity and indexed supplement":return ["sensitivity","reporting"]
         if section in ("Data and software availability","AI assistance disclosure","Acknowledgements"):return ["reporting"]
         return []

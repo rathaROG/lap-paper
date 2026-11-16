@@ -133,10 +133,11 @@ def normalize_exports(repo):
 
 
 class EvidenceReads:
-    """Record files actually opened for reading below benchmark/runs."""
+    """Record saved campaign and separate microscopy inputs actually read."""
     def __init__(self, repo):
         self.repo = Path(repo).resolve()
         self.root = self.repo / "benchmark/runs"
+        self.microscopy_root = self.repo / "benchmark/cell_tracking"
         self.paths = set()
 
     def start(self):
@@ -149,9 +150,10 @@ class EvidenceReads:
         if isinstance(mode, str) and any(character in mode for character in "wax+"): return
         if flags is not None and flags & (os.O_WRONLY | os.O_RDWR): return
         path = Path(os.path.abspath(os.fsdecode(args[0])))
-        try: relative = path.relative_to(self.root)
-        except ValueError: return
-        self.paths.add("benchmark/runs/" + relative.as_posix())
+        if path.is_relative_to(self.root):
+            self.paths.add(path.relative_to(self.repo).as_posix())
+        elif path.is_relative_to(self.microscopy_root) and path.suffix in (".json", ".py"):
+            self.paths.add(path.relative_to(self.repo).as_posix())
 
     def save(self):
         records = []

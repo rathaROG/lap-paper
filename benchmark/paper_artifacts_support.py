@@ -449,7 +449,7 @@ def protocol_tables(repo, data, table_dir, export_dir):
         r"LSAPE P & Specialized tracked code, full buffer & U-compatible leading dimension; matched-layout control. \\",
         r"\midrule",
         r"Campaign boundary & Binary64 inputs, int64 pairs & Public-API checks, conversion, representation, solve and output mapping. \\",
-        r"Application boundary & Float32 tracker costs, int32 pairs & Replay also widens captured values to float64 outside timing. \\",
+        r"Pedestrian boundary & Float32 tracker costs, int32 pairs & Replay also widens captured values to float64 outside timing. \\",
         r"LSAPE boundary & Finite, nonnegative binary64 costs; int64 pairs & Validation, conversion, column-major copy, allocation, solve and output. \\",
         r"\bottomrule", r"\end{tabular}"]
     write_tex(table_dir / "T2_methods.tex", methods)

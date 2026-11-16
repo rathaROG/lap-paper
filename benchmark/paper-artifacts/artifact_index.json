@@ -571,6 +571,11 @@
       "sha256": "3747115dc5d745cf2f7b0ed405d48c04ef593bdcd7e497154a020b68bde1dbd8"
     },
     {
+      "bytes": 1007,
+      "path": "latex/generated/A_microscopy_profiles.tex",
+      "sha256": "5bcfd0435cfc9d01c8f18e53b401f517303f249ede941c8c065a693a10f15207"
+    },
+    {
       "bytes": 398,
       "path": "latex/generated/s1_sensitivity.tex",
       "sha256": "66e65b25e1e30597523f586deb42c0fbadd32e08b0d49f3919448365f2840497"
@@ -606,9 +611,9 @@
       "sha256": "bba7a48761f47e1a8a9c84127d2a93979f509a5f48b927e6397a56a17a32e81d"
     },
     {
-      "bytes": 2087,
+      "bytes": 2086,
       "path": "latex/generated/T2_methods.tex",
-      "sha256": "3984ad5216144f6bdf7e55175a8e7bb8a0bbf3ab9bfb46d8d3af5b48a599e0c4"
+      "sha256": "0780cad412cc99a00822e756c3d4ee8588616a6b1bd80468cc551132fb9d8934"
     },
     {
       "bytes": 603,
@@ -619,6 +624,11 @@
       "bytes": 5937,
       "path": "latex/generated/T4_memory.tex",
       "sha256": "083aa6cb2647aeb04d32a105be5fa6b45fb6e78a9afa007163771521b4bcf31a"
+    },
+    {
+      "bytes": 963,
+      "path": "latex/generated/T_microscopy.tex",
+      "sha256": "1a62b5130beb0f6846a8c323107b7727bdf7422d7370309a676596c81e03fca0"
     },
     {
       "bytes": 1719081,
@@ -816,24 +826,29 @@
       "sha256": "2bca0a263cdf9d26f0efe813a0f4f39e5997bf96dbfef258211c83197f656bed"
     },
     {
-      "bytes": 367813,
+      "bytes": 368674,
       "path": "benchmark/paper-artifacts/generator_input_files.json",
-      "sha256": "c032684f3c61530b82cfec03f96d4809c73b1693be76a7702cb51d88762c75e8"
+      "sha256": "2413180a70cdd49c5076c292f9494f6607cc9d0e75be4781a65742785cb085e4"
     },
     {
-      "bytes": 104768,
+      "bytes": 117342,
       "path": "benchmark/paper-artifacts/manuscript_claims.csv",
-      "sha256": "76a0d5f6f71db261412c65ddaf509d1c42eba2e1677275ebb214772164a987a8"
+      "sha256": "8af1e13b39145ad3ed3f621f4536b8859d4f27998110b7bc0e839f796e2d770c"
     },
     {
-      "bytes": 236882,
+      "bytes": 268160,
       "path": "benchmark/paper-artifacts/manuscript_claims.json",
-      "sha256": "ccc597a171fa99bf2bd15e790bd0a05bcf8d6e2e1c42556e198d05f365bdf239"
+      "sha256": "433f867d61ad4d70ddf5c49484324a2c406fdacae3f4cb76e2cfa5d51ab6e1b1"
     },
     {
-      "bytes": 4557,
+      "bytes": 2194,
+      "path": "benchmark/paper-artifacts/microscopy_summary.json",
+      "sha256": "95c018274f33ac6220128a546b891f1d218fa394466101e36b85c3d696159e9a"
+    },
+    {
+      "bytes": 4994,
       "path": "benchmark/paper-artifacts/README.md",
-      "sha256": "330d7e0ce7700ca01c224b011546d94ebfc9858c600d7ebbbd4232a02b11bd26"
+      "sha256": "0e9fe6879a7305e054f676b067c8f7166692c3900ded4f47750eb2ea4f8e5db5"
     },
     {
       "bytes": 85986,
@@ -1009,6 +1024,16 @@
       "bytes": 1700576,
       "path": "benchmark/paper-artifacts/S6_lsape_process_estimates.csv",
       "sha256": "ce82df63963c77699ac51a1f176d174e3f10ec3f902bb2bd55bc1f9237940511"
+    },
+    {
+      "bytes": 1723,
+      "path": "benchmark/paper-artifacts/S7_microscopy.csv",
+      "sha256": "7dc5d6319af4e2c55d2fadd7fc3bddaddcea6309804e5349183c98819c9cf41b"
+    },
+    {
+      "bytes": 6820,
+      "path": "benchmark/paper-artifacts/S7_microscopy_rounds.csv",
+      "sha256": "f0c08a57d812fd66e5662b7f6d35b2285164f7c2126a649dd0a79a5b71996455"
     },
     {
       "bytes": 1748,

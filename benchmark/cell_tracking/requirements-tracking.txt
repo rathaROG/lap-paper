@@ -1,0 +1,19 @@
+# Recorded November microscopy session only; use a separate Python 3.14.10 environment.
+# Install the CPU-only PyTorch build; these version pins are not wheel hashes.
+byotrack==2.0.8
+pylapy==1.2.0
+lapx==0.13.1
+scipy==1.17.1
+numpy==2.4.6
+torch==2.14.1
+numba==0.68.1
+llvmlite==0.50.0
+torch-kf==0.4.3
+torch-tps==1.2.2
+tifffile==2026.10.15
+imagecodecs==2026.11.11
+opencv-python==4.11.0.86
+scikit-image==0.26.0
+threadpoolctl==3.6.0
+psutil==7.2.2
+tqdm==4.70.1

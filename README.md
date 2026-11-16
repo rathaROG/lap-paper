@@ -9,7 +9,11 @@ for the next arXiv update. The linked arXiv v1 and public repository have not ye
 been updated to this revision. Local regeneration does not publish or upload it.
 
 The manuscript reports the four saved light-profile environments from 30–31
-October 2026, with separate application and Windows LSAPE evidence.
+October 2026, with separate pedestrian application and Windows LSAPE evidence,
+plus the nine-excerpt microscopy session measured on 13 November 2026.
+This local revision includes microscopy results and therefore retains the
+previously identified Cell Tracking Challenge permission follow-up before any
+public preprint or evidence release. Nothing is published by these commands.
 
 Regenerate figures, tables and source-indexed supplementary data without running
 a benchmark. PDF and ZIP creation also requires `latexmk`, PDFLaTeX and BibTeX
@@ -57,19 +61,29 @@ Keep a tag or commit identifying that release.
 
 ## Benchmarks
 
-The [benchmark guide](benchmark/README.md) covers three suites:
+The [benchmark guide](benchmark/README.md) covers four suites:
 
 - the assignment campaign: dense and sparse solvers, geometric tracking-style
   inputs from 8 to 4096×5120, uniform and structured costs, padding layouts,
   initialization policies, batching and memory
 - cached pyppbox tracking and assignment replay
 - the controlled LSAPE study
+- a separate ByoTrack microscopy study: stock padded SciPy, capped rectangular
+  SciPy and LAPX Rust, with six whole-linker rounds and distinct association profiles
 
-The assignment campaign and the application suite run one session per
+The assignment campaign and the pedestrian application suite run one session per
 environment, and LSAPE runs three short fresh-process sessions. A complete run is
 sized to take a few hours. Every suite provides validation and a bounded smoke check before
 full measurements. Without an explicit output directory, commands write under
 `benchmark/runs/`; each suite guide describes its defaults.
+
+Microscopy is separate from that launcher and uses its recorded LAPX 0.13.1
+environment. The four October campaigns retain LAPX 0.13.0 and laprust/lapcpp
+1.2.0. [Its guide](benchmark/cell_tracking/README.md) documents the frozen driver,
+source attribution, checksum-bound observations and an explicit opt-in command
+for new measurements. `python -B -m benchmark.cell_tracking audit` verifies
+the saved study using only the Python standard library. The paper generator
+regenerates its whole-linker table and separate association panel without a rerun.
 
 `python -m benchmark run --allow-full-campaign` keeps the full protocol.
 `python -m benchmark run --allow-full-campaign-light` selects a shorter paper
@@ -108,4 +122,5 @@ benchmark guide for its precise coverage and the geometry baseline cutoff.
 | `benchmark/evidence/` | Frozen observations and checksum manifest for regeneration |
 | `benchmark/campaign/` | Assignment campaign implementation and tests |
 | `benchmark/application/` | Frozen application inputs, tracking/replay code and tests |
+| `benchmark/cell_tracking/` | Separate November microscopy driver, saved evidence, attribution and arithmetic tests |
 | `benchmark/lsape/` | Controlled LSAPE sources, case catalogue and tests |

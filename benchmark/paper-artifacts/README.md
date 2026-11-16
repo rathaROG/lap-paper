@@ -47,6 +47,11 @@ manifests and validation records, without combining their timing estimates.
   `S3_native_counters.csv.gz` and `S3_workspace_counters.csv.gz` are lossless
   CSVs; the latter retains the large per-matrix output-validation arrays.
 - `S4_*`, `S5_*`, `S6_*`: full application, batch/memory and LSAPE evidence.
+- `S7_microscopy.csv`, `S7_microscopy_rounds.csv`, `microscopy_summary.json`:
+  the separate November 13 ByoTrack study, all nine excerpts and 162 whole-linker
+  timing observations. Association totals use one separate instrumented run per
+  arm/excerpt. Source observations and their checksum-bound driver live under
+  `benchmark/cell_tracking/`; October observations are unchanged.
 - `campaign_summary.json`, `support_summary.json`, `s1_sensitivity.json`: derived
   claims with environment identities and source fields.
 - `reference_sensitivity.*` and `reference_sensitivity_*.csv`: the post-hoc
@@ -55,7 +60,8 @@ manifests and validation records, without combining their timing estimates.
   sensitivity checks do not replace primary observations or identify causality.
 - `artifact_index.json`: generated-file hashes, rebuilt by the single entry point.
 - `generator_input_files.json`: exact paths, sizes and hashes of files actually
-  read from the restored evidence during a complete generation.
+  read from the restored evidence and separate microscopy study during a
+  complete generation.
 
 Generated text uses UTF-8, LF and repository-relative POSIX source links. CSVs
 larger than 10 MB use deterministic gzip (fixed timestamp, no source filename).
@@ -67,7 +73,8 @@ are documented in `benchmark/evidence/README.md`.
 Each environment remains separate. The practical ratio classification is loss
 below 0.97, tie from 0.97 through 1.03, win above 1.03. Round spread and process
 ranges are descriptive, not confidence intervals. The driver can regenerate
-one component using `--only campaign`, `--only support` or `--only sensitivity`.
+one component using `--only campaign`, `--only support`, `--only sensitivity`
+or `--only microscopy`.
 
 The style map is `benchmark/paper_artifact_panels/style_mapping.json`. Panel
 scripts adapt the agreed mockup designs but do not depend on files outside this

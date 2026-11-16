@@ -16,7 +16,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--only',choices=['campaign','support','sensitivity'])
+    parser.add_argument('--only',choices=['campaign','support','sensitivity','microscopy'])
     args=parser.parse_args()
     utf8_sanity(ROOT)
     reads=EvidenceReads(ROOT).start()
@@ -31,6 +31,9 @@ def main():
     if args.only in (None,'sensitivity'):
         from paper_artifacts_sensitivity import generate
         generate(ROOT)
+    if args.only in (None,'microscopy'):
+        from paper_artifacts_microscopy import generate as generate_microscopy
+        generate_microscopy(ROOT)
     if args.only is None:
         from paper_artifacts_charts import write_atlas
         write_atlas(ROOT)

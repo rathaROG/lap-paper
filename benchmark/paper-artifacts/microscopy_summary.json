@@ -1,0 +1,71 @@
+{
+  "association_boundary": "Pylapy adapter, solver and pair conversion; excludes cost construction and profiling checks",
+  "association_profile_runs_per_arm_and_excerpt": 1,
+  "association_time_over_rust": {
+    "lapx_rust": 1.0,
+    "scipy_capped": 2.023279197235022,
+    "scipy_stock": 5.928649124427812
+  },
+  "association_total_seconds": {
+    "lapx_rust": 0.3160676,
+    "scipy_capped": 0.6394930000000001,
+    "scipy_stock": 1.8738539
+  },
+  "benchmarks_rerun": false,
+  "capped_median_ratios_inside_3_percent_band": 6,
+  "capped_over_rust_round_ratio_range": [
+    0.9346714154650162,
+    1.1654296176325827
+  ],
+  "excerpts": 9,
+  "excerpts_with_round_favoring_capped": 3,
+  "frames": 816,
+  "maximum_recorded_objective_gap": 0.0,
+  "measured_utc": "2026-11-13T14:58:45.199859+00:00",
+  "nonempty_calls_per_arm": {
+    "lapx_rust": 807,
+    "scipy_capped": 807,
+    "scipy_stock": 807
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.10",
+  "qualification": "Saved-record arithmetic and digest comparisons only; original costs and tracks are not included.",
+  "recorded_cross_arm_comparisons": 18,
+  "recorded_matching_cost_streams": 18,
+  "recorded_matching_tracks": 18,
+  "solvers_executed": false,
+  "source_file": "benchmark/cell_tracking/observations.json",
+  "source_sha256": "e8e917324f11afdfcdb65700fb0810e6506200f6d84c5a304cc3ee4a51a103e0",
+  "trackers_executed": false,
+  "versions": {
+    "byotrack": "2.0.8",
+    "imagecodecs": "2026.11.11",
+    "lapx": "0.13.1",
+    "llvmlite": "0.50.0",
+    "numba": "0.68.1",
+    "numpy": "2.4.6",
+    "opencv-python": "4.11.0.86",
+    "psutil": "7.2.2",
+    "pylapy": "1.2.0",
+    "scikit-image": "0.26.0",
+    "scipy": "1.17.1",
+    "threadpoolctl": "3.6.0",
+    "tifffile": "2026.10.15",
+    "torch": "2.14.1",
+    "torch-kf": "0.4.3",
+    "torch-tps": "1.2.2",
+    "tqdm": "4.70.1"
+  },
+  "whole_linker_ratio_estimator": "Ratio of separate medians of six whole-clip means",
+  "whole_linker_ratio_ranges": {
+    "capped_over_rust": [
+      1.0152753997824095,
+      1.0451965291340635
+    ],
+    "stock_over_rust": [
+      1.033749411501249,
+      1.3737714756428743
+    ]
+  },
+  "whole_linker_rounds_per_arm": 6
+}
