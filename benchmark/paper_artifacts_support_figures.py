@@ -99,14 +99,18 @@ def app_dumbbell(slopes):
 def app_table(slopes):
     lookup = {(r['environment'],r['case'],r['solver']):r for r in slopes}
     lines = [r'\section*{Application API ratios}',
-             r'Each cell gives float32 assignment replay / tracker.update speed ratios, each relative to SciPy within the same environment. Values are displayed to three decimals; classifications use unrounded values. Absolute times and round estimates remain in S4 exports.']
+             r'Each ratio divides SciPy median time by the listed API median time over three rounds in the same environment and pipeline. Values above one favor the listed API. Assignment replay uses the same captured float32 costs across APIs. Tracker updates start from prepared detections. S4 retains absolute times and round estimates.']
     for number,(case,label,tracker) in enumerate(PIPELINES):
         if number and number%2==0: lines.append(r'\clearpage')
-        lines += [r'\subsection*{'+label.replace(' · ',' / ')+' / '+tracker.capitalize()+'}',
-                  r'\begin{center}\small',r'\begin{tabular}{lrrrr}',r'\toprule',
-                  r'API & L311 & L314 & W311 & W314 \\',r'\midrule']
+        tracker_label = 'SORT' if tracker == 'sort' else 'Centroid'
+        lines += [r'\subsection*{'+label.replace(' · ',' / ')+' / '+tracker_label+'}',
+                  r'\begin{center}\small',r'\begin{tabular}{@{}lrrrrrrrr@{}}',r'\toprule',
+                  r' & \multicolumn{4}{c}{Assignment replay (float32)} & \multicolumn{4}{c}{Tracker update} \\',
+                  r'\cmidrule(lr){2-5}\cmidrule(lr){6-9}',
+                  'API & '+' & '.join(ENV_NAMES + ENV_NAMES)+r' \\',r'\midrule']
         for api in API_KEYS:
-            cells = [f"{lookup[env,case,api]['replay_ratio']:.3f} / {lookup[env,case,api]['update_ratio']:.3f}" for env in ENV_NAMES]
+            cells = [f"{lookup[env,case,api][boundary]:.3f}"
+                     for boundary in ('replay_ratio', 'update_ratio') for env in ENV_NAMES]
             lines.append(API_LABELS[api]+' & '+' & '.join(cells)+r' \\')
         lines += [r'\bottomrule',r'\end{tabular}',r'\end{center}']
     write_tex(TABLES/'S_applications_api.tex',lines)
