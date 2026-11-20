@@ -48,7 +48,12 @@ def portable(value, repo):
     exported copy; each build's source_file points to the unchanged raw record.
     """
     if isinstance(value, dict):
-        return {key: portable(item, repo) for key, item in value.items()}
+        # The claim ledger quotes the manuscript verbatim, including TeX paths.
+        is_claim = "statement" in value and "evidence_keys" in value
+        return {
+            key: item if is_claim and key == "statement" else portable(item, repo)
+            for key, item in value.items()
+        }
     if isinstance(value, list):
         return [portable(item, repo) for item in value]
     if not isinstance(value, str):
@@ -157,11 +162,16 @@ class EvidenceReads:
 
     def save(self):
         records = []
-        for relative in sorted(self.paths):
+        paths = self.paths.copy()
+        if "benchmark/cell_tracking/observations.json" in paths:
+            # A warm import can read bytecode instead of opening these sources.
+            paths.update(("benchmark/cell_tracking/__init__.py",
+                          "benchmark/cell_tracking/recalculate.py"))
+        for relative in sorted(paths):
             path = self.repo / relative
             records.append(dict(path=relative, bytes=path.stat().st_size,
                                 sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
         write_json(self.repo / "benchmark/paper-artifacts/generator_input_files.json",
-                   {"scope": "Files actually opened by the complete saved-data generator; no benchmark execution.",
+                   {"scope": "Saved campaign and microscopy inputs read during generation, including microscopy helper sources used through Python's import cache.",
                     "files": records})
         return records

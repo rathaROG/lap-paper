@@ -89,6 +89,11 @@ def generate(repo: Path) -> dict:
     def all_paths(suffix):
         return [p + suffix for p in roots.values()]
 
+    campaign_sources = "/campaign-session/sources/benchmark/campaign/"
+    source("timed_adapters", all_paths(campaign_sources + "adapters.py") + all_paths(campaign_sources + "worker.py") + all_paths("/campaign-session/source-hashes.json"),
+           "adapters._native_solver, prepare_method and _decode; worker.phase_call; source-hashes entries for adapters.py and worker.py",
+           "The timed callable includes output decoding. For optional calls, _decode selects pairs against the original matrix, requiring finite cost, cost <= gate when supplied, and cost < limit. Native IDs jvrust, jvhybrid and jvcpp select laprust.lapjv, lap.lapjvh and lapcpp.lapjv with float64 precision, pair output and return_cost=False.",
+           kind="pinned_campaign_source")
     source("protocol", all_paths("/campaign-session/manifest.json") + all_paths("/campaign-session/configuration.json") + all_paths("/campaign-summary.json"),
            "manifest.counts and cases[]; configuration.{inputs,rounds,target_seconds,memory_trials,session_id}; summary.{coverage,malformed_records,unobserved_planned_conditions}",
            "Read saved coverage and settings separately for each environment; planned_case_method_jobs minus memory_conditions gives timing conditions.", artifact="T1_protocol_inventory.json")
@@ -113,15 +118,15 @@ def generate(repo: Path) -> dict:
     source("sparse", all_paths("/campaign-summary.json"),
            "estimates: methods sparse:csgraph,sparse:lapmod,jvrust,scipy:capped; same case_id/environment/attempt/input identities",
            "x=scipy:capped.seconds/sparse.seconds; y=jvrust.seconds/sparse.seconds; all166 optional cases per method/environment; practical classes on displayed ratios.", artifact="F5_sparse_scatter.csv; campaign_summary.json:environments.*.sparse")
-    source("structure", all_paths("/campaign-session/manifest.json") + all_paths("/campaign-summary.json"),
-           "cases[family in congestion,forbidden,ties]; primary canonical paired ratios; planted feasibility in frozen datasets.py",
-           "26 cases;260 native ratio points across environments. Separate family/objective/limit/method/environment curves; varying declared structure parameter only.", artifact="chart_points.csv:structure; F7_structure_lines_data.csv; F7_structure_lines_assertions.json")
+    source("structure", all_paths("/campaign-session/manifest.json") + all_paths("/campaign-summary.json") + all_paths(campaign_sources + "datasets.py"),
+           "cases[family in congestion,forbidden,ties].input_group.parameters; primary canonical paired ratios; summary.attempts[].{case_id,input_hashes}; datasets._extended_cost",
+           "26 cases;260 native ratio points across environments. Separate family/objective/limit/method/environment curves; varying declared structure parameter only. With levels=1, floor(U)=0 for every U in [0,1). Each recorded attempt for extended:050_ties_required_256x320 and extended:051_ties_optional_256x320 has five input indices with the same digest.", artifact="chart_points.csv:structure; F7_structure_lines_data.csv; F7_structure_lines_assertions.json")
     source("batch", all_paths("/campaign-summary.json"),
            "batch_contrasts[].{case_id,contrast,method,reference,ratio,ratio_definition,seconds,reference_seconds}; estimates[].round_means_seconds",
            "Use saved ratio for worker/dispatch; invert solver-state and orientation lifetime contrasts for recreation/retained direction. Worker-count contrasts use matched inputs in distinct placement-process attempts; within-placement contrasts use the same attempt. Total-worker lifetime contrast is supplement-only; no pooling.", artifact="F6_batch_dot_values.csv; S5_batch_contrasts.csv; S5_batch_timing.csv; campaign_summary.json:environments.*.batch")
-    source("orientation", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json") + all_paths("/campaign-session/sources/benchmark/campaign/datasets.py"),
-           "large_rectangle/extreme_rectangle pairs share input_group,objective,limit,gate; reversed dimensions and transpose flags; estimates[].seconds from separate attempts",
-           "tall.seconds/wide.seconds;12 case pairs(6 shapes×2 objectives),74 method pairs/environment. Optional64×16384 values selected by shape and objective; export preserves both attempt/input identities.", artifact="F9_orientation_dot_values.csv; F9_orientation_not_planned.csv; F12_orientation_pairs.csv")
+    source("orientation", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json") + all_paths(campaign_sources + "datasets.py") + all_paths(campaign_sources + "adapters.py"),
+           "large_rectangle/extreme_rectangle pairs share input_group,objective,limit,gate; reversed dimensions and transpose flags; estimates[].seconds from separate attempts; adapters._sparse_solver uses original input dimensions n,m",
+           "tall.seconds/wide.seconds;12 case pairs(6 shapes×2 objectives),74 method pairs/environment. For optional 64×16384, the four ratios span 60.51–70.54 for CSGRAPH and 1.011–1.065 for LAPMOD. CSGRAPH adds one rejection column per original row: its n×(n+m) graph changes from 64×16448 to 16384×16448. LAPMOD uses (n+m)² in both orientations. Export preserves both attempts and their input identities.", artifact="F9_orientation_dot_values.csv; F9_orientation_not_planned.csv; F12_orientation_pairs.csv")
     source("memory", all_paths("/campaign-summary.json") + all_paths("/campaign-session/manifest.json"),
            "memory.conditions[].{case_id,method,counter,trials}; trials[].{additional_peak,baseline_peak_headroom,before.rss,after.rss,before.peak,after.peak}",
            "Bytes/2^20; medians/ranges over five trials. Count zero condition medians84/84/18/17; zero trials420/420/88/82; zero increment and RSS growth>2^20 count80/80/0/0.91×5=455 trials/environment. Extended endpoint selection memory:extended:*:256x4096 and transposes.", artifact="S5_memory_conditions.csv; S5_memory_trials.csv; T4_memory_endpoints.csv; support_summary.json:memory")
@@ -137,12 +142,18 @@ def generate(repo: Path) -> dict:
     source("workloads", all_paths("/application-session/protocol.json") + all_paths("/application-session/profiles"),
            "profiles/<case>__scipy.json.matrix_metadata[].{shape,frame,call_index,source_dtype,solver_input_dtype,key}; protocol.frames_per_clip",
            "Count matrices and min/max original dimensions per pipeline; verify equality across environments then show once. Captured total7,539; eight pipelines999frames each.", artifact="A_application_workloads.csv; S4_capture_shapes.csv")
-    source("lsape", [roots[e] + "/lsape-summary/all_cases.csv" for e in ("W311","W314")] + ["benchmark/lsape/README.md", "benchmark/lsape/data/rectangular-grid-v1.json", "benchmark/lsape/lsape_bridge.cpp", "benchmark/lsape/src/specialized/hungarian-lsape-uniform.hh"],
-           "all_cases[comparison in original_over_padded,original_over_one_sided,one_sided_over_padded,padded_over_compact,scan_over_compact].{median_estimate,min_session,max_session,s1_ratio,s2_ratio,s3_ratio}; saved protocol inputs4,rounds9,target_seconds.03; bridge.cpp:132–195 floating-point mode,dimensions and magnitude guards; specialized header's guarded-rejection dispatch",
-           "67cases×5contrasts×2Windows=670 displayed points; each center median of3process paired-log estimates; full export retains process min/max. O/P,O/U,U/P,P/T,S/T definitions; do not multiply separately summarized medians. Full buffer(n+1)(m+1) minus compact nm=n+m+1 doubles.", artifact="F8_lsape_values.csv; F8_lsape_family_counts.csv; S6_lsape_comparisons.csv; S6_lsape_process_estimates.csv; S6_lsape_identity.json; support_summary.json:lsape")
+    lsape_reports = [f"{roots[env]}/lsape-session-{session}/report.json"
+                     for env in ("W311", "W314") for session in (1, 2, 3)]
+    source("lsape", [roots[e] + "/lsape-summary/all_cases.csv" for e in ("W311","W314")] + lsape_reports + ["benchmark/lsape/README.md", "benchmark/lsape/data/rectangular-grid-v1.json", "benchmark/lsape/rectangular_campaign.py", "benchmark/lsape/lsape_bridge.cpp", "benchmark/lsape/src/specialized/hungarian-lsape-uniform.hh"],
+           "all_cases[comparison in original_over_padded,original_over_one_sided,one_sided_over_padded,padded_over_compact,scan_over_compact].{median_estimate,min_session,max_session,s1_ratio,s2_ratio,s3_ratio}; reports: session_index, manifest.target_block_ms, cases[].{case,input_identities,round_order,methods}; bridge.cpp:132–195 floating-point mode,dimensions and magnitude guards; specialized header's guarded-rejection dispatch",
+           "For each interpreter and case, the five arms share four inputs per process. The union of input_identities[].input_sha256 across the three processes has size 12 for every case. Each process shuffles arm order in each of nine rounds, with a 30 ms calibration target. 67 cases × 5 contrasts × 2 interpreters = 670 displayed points; each center is the median of three process paired-log estimates; full export retains process min/max. O/P,O/U,U/P,P/T,S/T definitions; do not multiply separately summarized medians. Full buffer(n+1)(m+1) minus compact nm=n+m+1 doubles.", artifact="F8_lsape_values.csv; F8_lsape_family_counts.csv; S6_lsape_comparisons.csv; S6_lsape_process_estimates.csv; S6_lsape_identity.json; support_summary.json:lsape")
     source("validation", all_paths("/campaign-validation.json") + all_paths("/application-validation/validation.json"),
-           "campaign.methods[].{passed,failures,numerical_boundary_limitations,results[].status}; campaign.correctness_failed; application.results[]",
-           "Per environment101 methods;4195 passed top-level fixtures,2864 unsupported fixture/method pairs,11 numerical boundary limitations across7layouts,0 blocking failures. Tolerance validation does not establish universal exactness.", artifact="s1_light_protocol_audit.json; s1_numerical_boundary_records.json; S4_validation.csv")
+           "campaign.methods[].{passed,failures,numerical_boundary_limitations}; methods[].results[].{case,status,exact_actual,exact_optimum,exact_gap}; campaign.correctness_failed; application.results[]",
+           "Per environment101 methods;4195 passed top-level fixtures,2864 unsupported fixture/method pairs,11 numerical boundary limitations across7layouts,0 blocking failures. All 11 saved exact gaps are 1/9007199254740992 = 2^-53. Tolerance validation does not establish universal exactness.", artifact="s1_light_protocol_audit.json; s1_numerical_boundary_records.json; S4_validation.csv")
+    source("binary64_example", ["latex/main.tex", "benchmark/campaign/adapters.py"],
+           "Worked example in Limitations and threats to validity; prepare_method for jvrust, jvhybrid, jvcpp and scipy:capped; single optional case with rows=cols=2, limit=1, no gate, and binary64 costs [[0,1/2],[1/2-2^-54,1]].",
+           "In a separate solver check all four adapters returned just (0,0), with penalized objective 1. The off-diagonal objective is 1-2^-54; the empty matching costs 2, every singleton costs at least 1 and the diagonal costs 1. The off-diagonal value lies halfway between 1 and the preceding binary64 value, so ties-to-even rounds it to 1. This example is outside the frozen validation counts.",
+           kind="standalone_solver_check_and_exact_derivation")
     source("sensitivity", ["benchmark/runs/" + FULL + "/campaign-summary.json", "benchmark/runs/" + FULL + "/campaign-session/manifest.json", "benchmark/runs/" + FULL + "/application-session/tracking_samples.json", "benchmark/runs/" + FULL + "/application-session/replay"],
            "FULL estimates[].round_means_seconds,paired canonical native comparisons; applications samples[].{solver,round,nanoseconds}; manifests.counts",
            "Recompute median first3 versus5 assignment round means; all10 subsets;818 comparisons,0first-subset changes,max2. Apps ratio of medians first3 versus9; max absolute relative percent change.7106409294 tracking,.3768586954 replay. FULL374/340/192 versus light302/268/120 total/single/geometry. FULL timings supplementary only.", artifact="s1_sensitivity.json; s1_assignment_comparisons.csv; s1_application_round_truncation.csv; s1_geometry_cutoff.csv")
@@ -155,9 +166,9 @@ def generate(repo: Path) -> dict:
     source("arithmetic", ["latex/main.tex (formulation retained from commit398b813ac1fd7437d8f95e8ad72b8ed3a6e381a8)"],
            "Equations1–7 and associated proofs; explicit illustrative matrix; binary64 cost-buffer dimensions",
            "Algebra checked: F=P+L(c-r)/2; primal-dual gap nonnegative; capped extension proof.256*4096*8/2^20=8MiB;4096^2*8/2^20=128MiB;4352^2*8/2^20=144.5MiB. These are definitions/arithmetic,not empirical run claims.", kind="mathematical_derivation")
-    source("implementation", ["../laprust/src/_lapjv/src/rectangular.rs@v1.2.0", "../laprust/src/_lapjv/src/ffi.rs@v1.2.0", "../lapcpp/src/_lapjv/solver.cpp@v1.2.0", "../lapx/src/_lapjvr/src/rectangular.rs@v0.13.0"],
-           "Rust rectangular.rs:18–22,176–279,search below279; CPP solver.cpp:285–432,540–542,597–598; release HEAD hashes in source audit",
-           "Verified cost storage T and float64work;two passes,B=min(c,4),required cutoff max(r,8),free-column ties;implicit terminal;half-limit rounding;chunk≈4096costs. Mathematical operation bounds derive from bounded scans/augmentations,not fitted timing.", kind="pinned_source_and_derivation")
+    source("implementation", ["../laprust/src/_lapjv/src/rectangular.rs@v1.2.0", "../laprust/src/_lapjv/src/ffi.rs@v1.2.0", "../laprust/src/_lapjv/src/square.rs@v1.2.0", "../laprust/src/_lapjv/_lapjv.pyx@v1.2.0", "../lapcpp/src/_lapjv/solver.cpp@v1.2.0", "../lapcpp/src/_lapjv/_lapjv.pyx@v1.2.0", "../lapx/src/_lapjvr/src/rectangular.rs@v0.13.0", "../lapx/src/_lapjvr/src/ffi.rs@v0.13.0", "../lapx/src/_lapjvr/src/square.rs@v0.13.0", "../lapx/src/_lapjvr/src/cpp_completion.cpp@v0.13.0", "../lapx/src/_lapjvr/_lapjv_rh.pyx@v0.13.0"],
+           "Rust rectangular.rs:18–22,176–279,search below279; CPP solver.cpp:285–432,540–542,597–598; Cython wrappers' original/work buffers, total accumulation and required-square dispatch in FFI/solver.cpp; square completion routines",
+           "Verified cost storage T and float64work;two passes,B=min(c,4),required cutoff max(r,8),free-column ties;implicit terminal;half-limit rounding;chunk≈4096costs. When requested, totals sum selected entries from the original float32/float64 buffer in float64; other accepted real dtypes first convert to float64. For required squares JVRUST uses Rust completion, JVHYBRID calls C++ completion on Rust-owned workspace and JVCPP uses C++ throughout. Mathematical operation bounds derive from bounded scans/augmentations,not fitted timing.", kind="pinned_source_and_derivation")
     source("literature", ["latex/references.bib", "benchmark/lsape/src/upstream_download_check.json"],
            "Citation keys on indexed line; source download check.retrieved_utc,matches_supplied,official_download_sha256,supplied_archive_sha256",
            "Retained literature attribution from398b813; no new empirical inference from historical timings. Download record confirms27October2026 archive equality,not2016 implementation identity.", kind="retained_cited_literature")
@@ -175,7 +186,7 @@ def generate(repo: Path) -> dict:
     def mapping(text, section, subsection, image="", table=""):
         if table:
             k=table_keys.get(Path(table).stem)
-            if k:return [k,"environment","applications","lsape"] if k=="protocol" else [k,"arithmetic"] if Path(table).stem=="T2_methods" else [k]
+            if k:return [k,"environment","applications","lsape"] if k=="protocol" else [k,"arithmetic","timed_adapters"] if Path(table).stem=="T2_methods" else [k]
         if image:
             stem=Path(image).stem
             if stem.startswith("A1_geometry"):return ["geometry"]
@@ -188,8 +199,13 @@ def generate(repo: Path) -> dict:
             return ["literature","implementation","protocol","reporting"]
         if section=="Background and related work":return ["literature","implementation","arithmetic"]
         if section=="Problem formulation":return ["arithmetic"]
-        if section.startswith("Implementation"):return ["implementation","arithmetic","validation"]
+        if section.startswith("Implementation"):
+            if "post-filter" in text:return ["implementation","arithmetic","validation","timed_adapters"]
+            return ["implementation","arithmetic","validation"]
         if section=="Experimental design":
+            if "common output filter" in text:return ["environment", "protocol", "timed_adapters"]
+            if "Quantized costs" in text:return ["protocol", "structure"]
+            if text.startswith("The Windows-only LSAPE study"):return ["lsape"]
             if "LSAPE" in subsection:return ["applications","lsape","accuracy","microscopy"]
             if "Geometry" in subsection:return ["geometry","layout","policy","counters"]
             if "Validation" in subsection:return ["validation","batch","memory"]
@@ -206,7 +222,9 @@ def generate(repo: Path) -> dict:
                     return [key]
         if section=="Conclusion":return ["native","applications","microscopy","lsape","reporting"]
         if section=="Discussion":return ["native","policy","counters","batch","orientation","applications","accuracy","microscopy","implementation","reporting"]
-        if section=="Limitations and threats to validity":return ["protocol","environment","geometry","validation","applications","microscopy","lsape","memory","reference_sensitivity","reporting"]
+        if section=="Limitations and threats to validity":
+            if "worked example outside the frozen preflight" in text:return ["binary64_example", "validation"]
+            return ["protocol","environment","geometry","validation","applications","microscopy","lsape","memory","reference_sensitivity","reporting"]
         if section=="Classification tables":return ["native","lsape"]
         if section=="Scaling and geometric sensitivity":return ["scaling","geometry"]
         if section=="Rejection-limit sweep":return ["rejection"]
@@ -276,7 +294,7 @@ def generate(repo: Path) -> dict:
             if line.startswith(SKIP) or not NUMBER.search(line):continue
             keys=[key] if key else []
             if stem=="T1_protocol":keys=["protocol","environment","applications","lsape"]
-            if stem=="T2_methods":keys=["implementation","arithmetic","lsape"]
+            if stem=="T2_methods":keys=["implementation","arithmetic","lsape","timed_adapters"]
             record=dict(id=f"M{len(records)+1:04d}",file=fp.relative_to(repo).as_posix(),line=i,section="Generated table/appendix fragment",subsection=stem,statement=line,numeric_tokens=re.findall(r"\d[\d,.]*",line),evidence_keys=keys)
             if not keys:unknown.append(record)
             records.append(record)

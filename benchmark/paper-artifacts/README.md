@@ -59,9 +59,11 @@ manifests and validation records, without combining their timing estimates.
   CSGRAPH class disagreements and two reference-substitution changes. These
   sensitivity checks do not replace primary observations or identify causality.
 - `artifact_index.json`: generated-file hashes, rebuilt by the single entry point.
-- `generator_input_files.json`: exact paths, sizes and hashes of files actually
-  read from the restored evidence and separate microscopy study during a
-  complete generation.
+- `generator_input_files.json` records paths, sizes and hashes of the restored
+  campaign inputs and the separate microscopy inputs. It includes the microscopy
+  helper sources whether Python reads source or cached bytecode.
+- `manuscript_claims.csv` and `manuscript_claims.json` preserve the manuscript's
+  wording in the `statement` field and link each excerpt to its evidence.
 
 Generated text uses UTF-8, LF and repository-relative POSIX source links. CSVs
 larger than 10 MB use deterministic gzip (fixed timestamp, no source filename).
