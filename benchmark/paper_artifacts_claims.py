@@ -169,8 +169,8 @@ def generate(repo: Path) -> dict:
     source("implementation", ["../laprust/src/_lapjv/src/rectangular.rs@v1.2.0", "../laprust/src/_lapjv/src/ffi.rs@v1.2.0", "../laprust/src/_lapjv/src/square.rs@v1.2.0", "../laprust/src/_lapjv/_lapjv.pyx@v1.2.0", "../lapcpp/src/_lapjv/solver.cpp@v1.2.0", "../lapcpp/src/_lapjv/_lapjv.pyx@v1.2.0", "../lapx/src/_lapjvr/src/rectangular.rs@v0.13.0", "../lapx/src/_lapjvr/src/ffi.rs@v0.13.0", "../lapx/src/_lapjvr/src/square.rs@v0.13.0", "../lapx/src/_lapjvr/src/cpp_completion.cpp@v0.13.0", "../lapx/src/_lapjvr/_lapjv_rh.pyx@v0.13.0"],
            "Rust rectangular.rs:18–22,176–279,search below279; CPP solver.cpp:285–432,540–542,597–598; Cython wrappers' original/work buffers, total accumulation and required-square dispatch in FFI/solver.cpp; square completion routines",
            "Verified cost storage T and float64work;two passes,B=min(c,4),required cutoff max(r,8),free-column ties;implicit terminal;half-limit rounding;chunk≈4096costs. When requested, totals sum selected entries from the original float32/float64 buffer in float64; other accepted real dtypes first convert to float64. For required squares JVRUST uses Rust completion, JVHYBRID calls C++ completion on Rust-owned workspace and JVCPP uses C++ throughout. Mathematical operation bounds derive from bounded scans/augmentations,not fitted timing.", kind="pinned_source_and_derivation")
-    source("literature", ["latex/references.bib", "benchmark/lsape/src/upstream_download_check.json"],
-           "Citation keys on indexed line; source download check.retrieved_utc,matches_supplied,official_download_sha256,supplied_archive_sha256",
+    source("literature", ["latex/references.bib", "https://arxiv.org/abs/1603.04380v3", "benchmark/lsape/src/upstream_download_check.json"],
+           "Citation keys on indexed line or table caption. For the LSAPE design comparison, Bougleux and Brun (2016), Eq. (19), gives the edit-cost matrix; Section 4 and Algorithms 2–3 describe the augmenting paths and Hungarian algorithm; Figures 4–5 compare LSAPE and squared-LSAPE on synthetic edit costs. Source download check: retrieved_utc,matches_supplied,official_download_sha256,supplied_archive_sha256",
            "Retained literature attribution from398b813; no new empirical inference from historical timings. Download record confirms27October2026 archive equality,not2016 implementation identity.", kind="retained_cited_literature")
     source("reporting", ["benchmark/generate_paper_artifacts.py", "benchmark/paper_artifacts_common.py", "benchmark/paper_artifacts_campaign.py", "benchmark/paper_artifacts_support.py", "benchmark/paper_artifacts_sensitivity.py"],
            "Saved-run allowlist,classification function,generator outputs and source indices",
@@ -197,7 +197,10 @@ def generate(repo: Path) -> dict:
         if section=="Introduction":
             if "MiB" in text:return ["arithmetic"]
             return ["literature","implementation","protocol","reporting"]
-        if section=="Background and related work":return ["literature","implementation","arithmetic"]
+        if section=="Background and related work":
+            if r"\ref{tab:lsape-design}" in text:return ["literature","implementation","arithmetic","lsape"]
+            if text.startswith("Evaluation &"):return ["literature","implementation","protocol","layout","batch"]
+            return ["literature","implementation","arithmetic"]
         if section=="Problem formulation":return ["arithmetic"]
         if section.startswith("Implementation"):
             if "post-filter" in text:return ["implementation","arithmetic","validation","timed_adapters"]
@@ -239,6 +242,7 @@ def generate(repo: Path) -> dict:
     path=repo/"latex/main.tex"
     lines=path.read_text(encoding="utf-8").splitlines()
     section=subsection=image=""
+    table_part=""
     active=False
     math_block=None
     fragments=[]
@@ -251,6 +255,9 @@ def generate(repo: Path) -> dict:
         sm=re.match(r"\\subsection\{([^}]*)\}",line)
         if sm:subsection=sm.group(1)
         if line.startswith((r"\begin{figure}",r"\begin{table}")):image=""
+        if line.startswith(r"\toprule"):table_part="header"
+        elif line.startswith(r"\midrule"):table_part="body"
+        elif line.startswith((r"\bottomrule",r"\end{tabular")):table_part=""
         sm=re.search(r"\\includegraphics(?:\[[^]]*\])?\{([^}]*)\}",line)
         if sm:image=sm.group(1)
         sm=re.search(r"\\input\{([^}]*)\}",line)
@@ -273,7 +280,9 @@ def generate(repo: Path) -> dict:
             continue
         if line.startswith(SKIP) or not line.strip():continue
         cleaned=re.sub(r"\\(?:cite|ref|label)\{[^}]*\}","",line)
-        if not NUMBER.search(cleaned) and not re.search(r"\\\(|(?<!\\)\$",cleaned):continue
+        inline_row = " & " in line and bool(table_part)
+        if inline_row and table_part=="header":continue
+        if not inline_row and not NUMBER.search(cleaned) and not re.search(r"\\\(|(?<!\\)\$",cleaned):continue
         table=""
         if line.startswith(r"\caption"):
             for following in lines[i:i+8]:
@@ -298,7 +307,7 @@ def generate(repo: Path) -> dict:
             record=dict(id=f"M{len(records)+1:04d}",file=fp.relative_to(repo).as_posix(),line=i,section="Generated table/appendix fragment",subsection=stem,statement=line,numeric_tokens=re.findall(r"\d[\d,.]*",line),evidence_keys=keys)
             if not keys:unknown.append(record)
             records.append(record)
-    result=dict(scope="Quantitative paragraphs (including symbolic formulas),displayed equations,captions and generated numeric table rows; technical preamble,automatic numbering and citation-key digits excluded. Each record identifies sources for all quantities in its excerpt. This editorial index does not replace the underlying observations or constitute automatic proof.",
+    result=dict(scope="Quantitative paragraphs (including symbolic formulas),displayed equations,captions,inline table body rows and generated numeric table rows; technical preamble,automatic numbering and citation-key digits excluded. Each record identifies sources for the claims in its excerpt. This editorial index does not replace the underlying observations or constitute automatic proof.",
                 manuscript_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),environment_order=list(roots),primary_roots=roots,
                 quantitative_records=len(records),unmapped_records=unknown,evidence=evidence,claims=records)
     result["independent_empirical_recomputation"]=audit_empirical_claims(repo,roots)

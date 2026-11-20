@@ -86,11 +86,36 @@ SciPy \cite{virtanen2020scipy} supplies a native rectangular solver documented a
 
 \subsection{Optional assignment and compact representations}
 
-Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using element-specific insertion and removal costs and a null element on each side \cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.
+Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition (LSAPE) using element-specific insertion and removal costs and a null element on each side \cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.
 
 Jones, Chawdhary, and King adapt Volgenant--Jonker methods to graph-edit matching \cite{jones2017}. Their compact representation avoids explicitly storing the redundant zero and infinite regions of the expanded matrix, using only (n+1)(m+1)-1 entries. Bougleux and colleagues subsequently describe a compact reduction from assignment with error correction to a rectangular assignment problem without cost constraints of the earlier reductions \cite{bougleux2020}.
 
-The present solver specializes the penalty structure: a common cost \(L/2\) per unmatched endpoint yields a one-sided objective with rejection cost \(L\) per unmatched smaller-side row, up to an additive constant (Section~\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.
+Table~\ref{tab:lsape-design} compares Bougleux and Brun's published LSAPE design with our native JV implementation. With a uniform penalty, the two endpoint charges reduce to a single rejection price per unmatched smaller-side row, up to an additive constant (Section~\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.
+
+\begin{table}[!htbp]
+\centering
+\caption{Design choices in Bougleux and Brun's 2016 LSAPE model~\cite{bougleux2016} and in the native JV solver. Both avoid square expansion. For input dimensions $n,m$, the JV solver orients the costs with $r=\min(n,m)$ and $c=\max(n,m)$.}
+\label{tab:lsape-design}
+\begingroup\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.16\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+Design choice & Bougleux and Brun (2016) & Native JV solver (this work) \\
+\midrule
+Penalty model & Each element has its own removal or insertion cost. & Every unmatched endpoint costs $L/2$, equivalent in exact arithmetic to $L$ per rejected smaller-side row. \\
+\addlinespace
+Cost representation & An $(n+1)\times(m+1)$ edit-cost matrix includes a null row and a null column. & An $r\times c$ matrix stores the real costs. One scalar specifies the rejection price. \\
+\addlinespace
+Path endpoints & A path can end at an unassigned real element or a null element. & A path ends at a free real column or a reusable rejection terminal tracked by one distance and one predecessor row. \\
+\addlinespace
+Search & An adapted Hungarian algorithm finds augmenting paths for the edit assignment. & Bounded JV row reductions precede a shortest augmenting path search for the remaining free rows. \\
+\addlinespace
+Evaluation & The study times compact and square-expanded formulations on synthetic edit-cost matrices. & The Python interfaces support single solves and batches that reuse worker workspaces. Complete-call benchmarks include compact and expanded baselines. \\
+\bottomrule
+\end{tabularx}
+\endgroup
+\end{table}
 
 Application interfaces also accept non-assignment costs. MATLAB's \texttt{assignjv}, \texttt{assignmunkres}, and \texttt{assignauction} take a scalar cost of non-assignment charged per unmatched endpoint \cite{mathworks2018assign}. The Tracker Component Library includes a Jonker--Volgenant routine for missed detections that never builds the augmented matrix but keeps search state for one virtual row per target \cite{crouse2017tcl}.
 

@@ -148,7 +148,7 @@
         "2016"
       ],
       "section": "Background and related work",
-      "statement": "Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition using element-specific insertion and removal costs and a null element on each side \\cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \\cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.",
+      "statement": "Optional assignment also has clear precedents. Bougleux and Brun formulate linear sum assignment with edition (LSAPE) using element-specific insertion and removal costs and a null element on each side \\cite{bougleux2016}. Their adapted Hungarian algorithm permits augmenting paths to terminate at a null element, representing removal or insertion. The associated LSAPE toolbox supplies C++ implementations, including null-terminal path routines \\cite{lsape2017}. The 2016 publication is the conceptual comparison; the July-2017 LSAPE-v4 release is the implementation used in our separate controlled experiment. Equality with the author-hosted v4 archive was checked on 27 October 2026, but does not establish identity with the code behind the 2016 timings.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -174,21 +174,21 @@
       "evidence_keys": [
         "literature",
         "implementation",
-        "arithmetic"
+        "arithmetic",
+        "lsape"
       ],
       "file": "latex/main.tex",
       "id": "M0009",
       "line": 93,
       "numeric_tokens": [
-        "2",
-        "one",
+        "two",
         "one",
         "one",
         "one",
         "4"
       ],
       "section": "Background and related work",
-      "statement": "The present solver specializes the penalty structure: a common cost \\(L/2\\) per unmatched endpoint yields a one-sided objective with rejection cost \\(L\\) per unmatched smaller-side row, up to an additive constant (Section~\\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \\texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.",
+      "statement": "Table~\\ref{tab:lsape-design} compares Bougleux and Brun's published LSAPE design with our native JV implementation. With a uniform penalty, the two endpoint charges reduce to a single rejection price per unmatched smaller-side row, up to an additive constant (Section~\\ref{sec:one-sided}). Within JV code descended from the JVS lineage, we combine rectangular reductions, rejection state stored as one distance and one predecessor row, the threshold arguments of \\texttt{lap.lapjv}, and native batching. These established ingredients define a software-integration contribution; we claim no new optional-assignment objective, null-terminal principle, algorithmic priority or asymptotic improvement over the compact predecessors. Table~\\ref{tab:methods} defines the measured interfaces and LSAPE arms. The separate experiment in Section~\\ref{sec:lsape-results} evaluates one-sided adaptation within LSAPE-v4 and makes no JV-versus-LSAPE runtime comparison.",
       "subsection": "Optional assignment and compact representations"
     },
     {
@@ -199,7 +199,105 @@
       ],
       "file": "latex/main.tex",
       "id": "M0010",
-      "line": 95,
+      "line": 97,
+      "numeric_tokens": [
+        "2016"
+      ],
+      "section": "Background and related work",
+      "statement": "\\caption{Design choices in Bougleux and Brun's 2016 LSAPE model~\\cite{bougleux2016} and in the native JV solver. Both avoid square expansion. For input dimensions $n,m$, the JV solver orients the costs with $r=\\min(n,m)$ and $c=\\max(n,m)$.}",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "arithmetic"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0011",
+      "line": 106,
+      "numeric_tokens": [
+        "Every",
+        "2"
+      ],
+      "section": "Background and related work",
+      "statement": "Penalty model & Each element has its own removal or insertion cost. & Every unmatched endpoint costs $L/2$, equivalent in exact arithmetic to $L$ per rejected smaller-side row. \\\\",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "arithmetic"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0012",
+      "line": 108,
+      "numeric_tokens": [
+        "1",
+        "1",
+        "One"
+      ],
+      "section": "Background and related work",
+      "statement": "Cost representation & An $(n+1)\\times(m+1)$ edit-cost matrix includes a null row and a null column. & An $r\\times c$ matrix stores the real costs. One scalar specifies the rejection price. \\\\",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "arithmetic"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0013",
+      "line": 110,
+      "numeric_tokens": [
+        "one",
+        "one"
+      ],
+      "section": "Background and related work",
+      "statement": "Path endpoints & A path can end at an unassigned real element or a null element. & A path ends at a free real column or a reusable rejection terminal tracked by one distance and one predecessor row. \\\\",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "arithmetic"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0014",
+      "line": 112,
+      "numeric_tokens": [],
+      "section": "Background and related work",
+      "statement": "Search & An adapted Hungarian algorithm finds augmenting paths for the edit assignment. & Bounded JV row reductions precede a shortest augmenting path search for the remaining free rows. \\\\",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "protocol",
+        "layout",
+        "batch"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0015",
+      "line": 114,
+      "numeric_tokens": [],
+      "section": "Background and related work",
+      "statement": "Evaluation & The study times compact and square-expanded formulations on synthetic edit-cost matrices. & The Python interfaces support single solves and batches that reuse worker workspaces. Complete-call benchmarks include compact and expanded baselines. \\\\",
+      "subsection": "Optional assignment and compact representations"
+    },
+    {
+      "evidence_keys": [
+        "literature",
+        "implementation",
+        "arithmetic"
+      ],
+      "file": "latex/main.tex",
+      "id": "M0016",
+      "line": 120,
       "numeric_tokens": [
         "one"
       ],
@@ -214,8 +312,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0011",
-      "line": 97,
+      "id": "M0017",
+      "line": 122,
       "numeric_tokens": [
         "every"
       ],
@@ -228,8 +326,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0012",
-      "line": 110,
+      "id": "M0018",
+      "line": 135,
       "numeric_tokens": [
         "1",
         "4",
@@ -244,8 +342,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0013",
-      "line": 112,
+      "id": "M0019",
+      "line": 137,
       "numeric_tokens": [
         "1,",
         "1,",
@@ -261,8 +359,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0014",
-      "line": 121,
+      "id": "M0020",
+      "line": 146,
       "numeric_tokens": [
         "all"
       ],
@@ -275,8 +373,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0015",
-      "line": 128,
+      "id": "M0021",
+      "line": 153,
       "numeric_tokens": [
         "2",
         "2",
@@ -291,8 +389,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0016",
-      "line": 135,
+      "id": "M0022",
+      "line": 160,
       "numeric_tokens": [
         "2.",
         "2,",
@@ -307,8 +405,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0017",
-      "line": 137,
+      "id": "M0023",
+      "line": 162,
       "numeric_tokens": [
         "2"
       ],
@@ -321,8 +419,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0018",
-      "line": 139,
+      "id": "M0024",
+      "line": 164,
       "numeric_tokens": [
         "0",
         "0.9",
@@ -338,8 +436,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0019",
-      "line": 143,
+      "id": "M0025",
+      "line": 168,
       "numeric_tokens": [
         "Two",
         "1.8.",
@@ -357,8 +455,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0020",
-      "line": 150,
+      "id": "M0026",
+      "line": 175,
       "numeric_tokens": [
         "1.",
         "2"
@@ -372,8 +470,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0021",
-      "line": 152,
+      "id": "M0027",
+      "line": 177,
       "numeric_tokens": [
         "3"
       ],
@@ -386,8 +484,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0022",
-      "line": 162,
+      "id": "M0028",
+      "line": 187,
       "numeric_tokens": [
         "2"
       ],
@@ -400,8 +498,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0023",
-      "line": 166,
+      "id": "M0029",
+      "line": 191,
       "numeric_tokens": [
         "zero"
       ],
@@ -414,8 +512,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0024",
-      "line": 168,
+      "id": "M0030",
+      "line": 193,
       "numeric_tokens": [
         "every"
       ],
@@ -428,8 +526,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0025",
-      "line": 170,
+      "id": "M0031",
+      "line": 195,
       "numeric_tokens": [
         "all"
       ],
@@ -442,8 +540,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0026",
-      "line": 176,
+      "id": "M0032",
+      "line": 201,
       "numeric_tokens": [],
       "section": "Problem formulation",
       "statement": "For an effective row penalty p, introduce a rejection variable \\(z_{i}\\):",
@@ -454,8 +552,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0027",
-      "line": 178,
+      "id": "M0033",
+      "line": 203,
       "numeric_tokens": [
         "1,",
         "1,",
@@ -471,8 +569,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0028",
-      "line": 189,
+      "id": "M0034",
+      "line": 214,
       "numeric_tokens": [
         "one"
       ],
@@ -485,8 +583,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0029",
-      "line": 191,
+      "id": "M0035",
+      "line": 216,
       "numeric_tokens": [
         "0.",
         "5"
@@ -500,8 +598,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0030",
-      "line": 198,
+      "id": "M0036",
+      "line": 223,
       "numeric_tokens": [
         "2.",
         "0"
@@ -515,8 +613,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0031",
-      "line": 202,
+      "id": "M0037",
+      "line": 227,
       "numeric_tokens": [
         "1",
         "6"
@@ -530,8 +628,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0032",
-      "line": 210,
+      "id": "M0038",
+      "line": 235,
       "numeric_tokens": [
         "Every",
         "zero"
@@ -545,8 +643,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0033",
-      "line": 212,
+      "id": "M0039",
+      "line": 237,
       "numeric_tokens": [
         "zero"
       ],
@@ -559,8 +657,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0034",
-      "line": 214,
+      "id": "M0040",
+      "line": 239,
       "numeric_tokens": [
         "every"
       ],
@@ -573,8 +671,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0035",
-      "line": 218,
+      "id": "M0041",
+      "line": 243,
       "numeric_tokens": [
         "one",
         "two",
@@ -591,8 +689,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0036",
-      "line": 222,
+      "id": "M0042",
+      "line": 247,
       "numeric_tokens": [
         "7"
       ],
@@ -605,8 +703,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0037",
-      "line": 228,
+      "id": "M0043",
+      "line": 253,
       "numeric_tokens": [
         "3.",
         "all",
@@ -623,8 +721,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0038",
-      "line": 230,
+      "id": "M0044",
+      "line": 255,
       "numeric_tokens": [
         "Every"
       ],
@@ -637,8 +735,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0039",
-      "line": 232,
+      "id": "M0045",
+      "line": 257,
       "numeric_tokens": [
         "1,",
         "7",
@@ -654,8 +752,8 @@
         "arithmetic"
       ],
       "file": "latex/main.tex",
-      "id": "M0040",
-      "line": 234,
+      "id": "M0046",
+      "line": 259,
       "numeric_tokens": [
         "one"
       ],
@@ -670,8 +768,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0041",
-      "line": 241,
+      "id": "M0047",
+      "line": 266,
       "numeric_tokens": [
         "three",
         "1.2.0",
@@ -689,8 +787,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0042",
-      "line": 244,
+      "id": "M0048",
+      "line": 269,
       "numeric_tokens": [],
       "section": "Implementation",
       "statement": "Interface compatibility here means that the single-matrix entry points accept the \\texttt{extend\\_cost}, \\texttt{cost\\_limit}, and \\texttt{return\\_cost} arguments of \\texttt{lap.lapjv} with the same objective: the finite limit prices unmatched endpoints, and the reported total excludes those penalties. They return matched row and column index arrays, or pairs, rather than lap's full-length per-row and per-column assignment vectors, so callers of lap need a small output adaptation. Compatibility does not imply identical assignments when optima tie, or identical behavior across precision modes. At \\(C_{ij}=L\\), matching and rejection tie in exact arithmetic. Native reductions and search prefer rejection on computed ties, whereas the evaluated padded \\texttt{lap.lapjv} can retain the edge. This is not a strict \\(C_{ij}<L\\) output guarantee: the rounded effective penalty \\(p\\) in Section~\\ref{sec:numeric} can differ from the supplied \\(L\\).",
@@ -703,8 +801,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0043",
-      "line": 248,
+      "id": "M0049",
+      "line": 273,
       "numeric_tokens": [
         "All"
       ],
@@ -719,8 +817,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0044",
-      "line": 252,
+      "id": "M0050",
+      "line": 277,
       "numeric_tokens": [
         "zero",
         "zero"
@@ -736,8 +834,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0045",
-      "line": 256,
+      "id": "M0051",
+      "line": 281,
       "numeric_tokens": [
         "two",
         "4",
@@ -755,8 +853,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0046",
-      "line": 262,
+      "id": "M0052",
+      "line": 287,
       "numeric_tokens": [],
       "section": "Implementation",
       "statement": "For finite-limit matching, the search compares real-column paths with a rejection terminal. A real edge has reduced cost \\(C_{ij}-u_i-v_j\\). Leaving a row unmatched has reduced cost \\(p-u_i\\). The implementation stores the best terminal distance and its predecessor row using the variables \\texttt{dummy\\_distance} and \\texttt{dummy\\_row}.",
@@ -769,8 +867,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0047",
-      "line": 264,
+      "id": "M0053",
+      "line": 289,
       "numeric_tokens": [
         "0",
         "one",
@@ -787,8 +885,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0048",
-      "line": 266,
+      "id": "M0054",
+      "line": 291,
       "numeric_tokens": [
         "Every",
         "zero",
@@ -805,8 +903,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0049",
-      "line": 268,
+      "id": "M0055",
+      "line": 293,
       "numeric_tokens": [
         "one"
       ],
@@ -821,8 +919,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0050",
-      "line": 270,
+      "id": "M0056",
+      "line": 295,
       "numeric_tokens": [
         "two"
       ],
@@ -837,8 +935,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0051",
-      "line": 286,
+      "id": "M0057",
+      "line": 311,
       "numeric_tokens": [
         "every"
       ],
@@ -853,8 +951,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0052",
-      "line": 299,
+      "id": "M0058",
+      "line": 324,
       "numeric_tokens": [
         "64",
         "32",
@@ -871,8 +969,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0053",
-      "line": 301,
+      "id": "M0059",
+      "line": 326,
       "numeric_tokens": [
         "4096",
         "one"
@@ -888,8 +986,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0054",
-      "line": 303,
+      "id": "M0060",
+      "line": 328,
       "numeric_tokens": [
         "4",
         "two",
@@ -907,8 +1005,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0055",
-      "line": 307,
+      "id": "M0061",
+      "line": 332,
       "numeric_tokens": [
         "All",
         "three",
@@ -952,8 +1050,8 @@
         "timed_adapters"
       ],
       "file": "latex/main.tex",
-      "id": "M0056",
-      "line": 309,
+      "id": "M0062",
+      "line": 334,
       "numeric_tokens": [
         "2",
         "64",
@@ -975,8 +1073,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0057",
-      "line": 313,
+      "id": "M0063",
+      "line": 338,
       "numeric_tokens": [
         "All",
         "64"
@@ -993,8 +1091,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0058",
-      "line": 320,
+      "id": "M0064",
+      "line": 345,
       "numeric_tokens": [
         "one",
         "3.11.18",
@@ -1032,8 +1130,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0059",
-      "line": 322,
+      "id": "M0065",
+      "line": 347,
       "numeric_tokens": [
         "9",
         "13900",
@@ -1055,8 +1153,8 @@
         "timed_adapters"
       ],
       "file": "latex/main.tex",
-      "id": "M0060",
-      "line": 324,
+      "id": "M0066",
+      "line": 349,
       "numeric_tokens": [
         "One",
         "66.23,",
@@ -1080,8 +1178,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0061",
-      "line": 328,
+      "id": "M0067",
+      "line": 353,
       "numeric_tokens": [
         "four"
       ],
@@ -1097,8 +1195,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0062",
-      "line": 339,
+      "id": "M0068",
+      "line": 364,
       "numeric_tokens": [
         "302",
         "268",
@@ -1122,8 +1220,8 @@
         "structure"
       ],
       "file": "latex/main.tex",
-      "id": "M0063",
-      "line": 341,
+      "id": "M0069",
+      "line": 366,
       "numeric_tokens": [
         "0,1",
         "2",
@@ -1158,8 +1256,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0064",
-      "line": 343,
+      "id": "M0070",
+      "line": 368,
       "numeric_tokens": [
         "64",
         "every",
@@ -1180,8 +1278,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0065",
-      "line": 345,
+      "id": "M0071",
+      "line": 370,
       "numeric_tokens": [
         "Every",
         "five",
@@ -1202,8 +1300,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0066",
-      "line": 347,
+      "id": "M0072",
+      "line": 372,
       "numeric_tokens": [
         "0.97",
         "0.97,1.03",
@@ -1222,8 +1320,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0067",
-      "line": 351,
+      "id": "M0073",
+      "line": 376,
       "numeric_tokens": [
         "zero",
         "0.25,1",
@@ -1257,8 +1355,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0068",
-      "line": 353,
+      "id": "M0074",
+      "line": 378,
       "numeric_tokens": [
         "1024",
         "4096",
@@ -1275,8 +1373,8 @@
         "timed_adapters"
       ],
       "file": "latex/main.tex",
-      "id": "M0069",
-      "line": 359,
+      "id": "M0075",
+      "line": 384,
       "numeric_tokens": [],
       "section": "Experimental design",
       "statement": "\\caption{Methods, representations and controlled LSAPE arms. Here $r\\le c$ denotes oriented JV dimensions; LSAPE retains original $n,m$. Definitions are not measured memory or speed claims.}",
@@ -1289,8 +1387,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0070",
-      "line": 370,
+      "id": "M0076",
+      "line": 395,
       "numeric_tokens": [
         "4,195",
         "2,864",
@@ -1317,8 +1415,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0071",
-      "line": 372,
+      "id": "M0077",
+      "line": 397,
       "numeric_tokens": [
         "one",
         "four"
@@ -1334,8 +1432,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0072",
-      "line": 374,
+      "id": "M0078",
+      "line": 399,
       "numeric_tokens": [
         "Every",
         "five",
@@ -1355,8 +1453,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0073",
-      "line": 379,
+      "id": "M0079",
+      "line": 404,
       "numeric_tokens": [
         "999",
         "16",
@@ -1395,8 +1493,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0074",
-      "line": 382,
+      "id": "M0080",
+      "line": 407,
       "numeric_tokens": [
         "13",
         "2026",
@@ -1427,8 +1525,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0075",
-      "line": 384,
+      "id": "M0081",
+      "line": 409,
       "numeric_tokens": [
         "All",
         "32",
@@ -1448,8 +1546,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0076",
-      "line": 387,
+      "id": "M0082",
+      "line": 412,
       "numeric_tokens": [
         "2017",
         "4",
@@ -1477,8 +1575,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0077",
-      "line": 389,
+      "id": "M0083",
+      "line": 414,
       "numeric_tokens": [
         "64",
         "2",
@@ -1502,8 +1600,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0078",
-      "line": 397,
+      "id": "M0084",
+      "line": 422,
       "numeric_tokens": [
         "one",
         "All",
@@ -1525,8 +1623,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0079",
-      "line": 399,
+      "id": "M0085",
+      "line": 424,
       "numeric_tokens": [
         "165",
         "1",
@@ -1585,8 +1683,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0080",
-      "line": 404,
+      "id": "M0086",
+      "line": 429,
       "numeric_tokens": [
         "One",
         "one",
@@ -1605,8 +1703,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0081",
-      "line": 411,
+      "id": "M0087",
+      "line": 436,
       "numeric_tokens": [
         "0.9",
         "0.25",
@@ -1632,8 +1730,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0082",
-      "line": 416,
+      "id": "M0088",
+      "line": 441,
       "numeric_tokens": [
         "0.9",
         "0.25",
@@ -1653,8 +1751,8 @@
         "layout"
       ],
       "file": "latex/main.tex",
-      "id": "M0083",
-      "line": 423,
+      "id": "M0089",
+      "line": 448,
       "numeric_tokens": [
         "five",
         "all",
@@ -1671,8 +1769,8 @@
         "layout"
       ],
       "file": "latex/main.tex",
-      "id": "M0084",
-      "line": 428,
+      "id": "M0090",
+      "line": 453,
       "numeric_tokens": [
         "14",
         "One",
@@ -1689,8 +1787,8 @@
         "policy"
       ],
       "file": "latex/main.tex",
-      "id": "M0085",
-      "line": 435,
+      "id": "M0091",
+      "line": 460,
       "numeric_tokens": [
         "3.6",
         "4.1",
@@ -1713,8 +1811,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0086",
-      "line": 438,
+      "id": "M0092",
+      "line": 463,
       "numeric_tokens": [
         "256",
         "320",
@@ -1734,8 +1832,8 @@
         "policy"
       ],
       "file": "latex/main.tex",
-      "id": "M0087",
-      "line": 445,
+      "id": "M0093",
+      "line": 470,
       "numeric_tokens": [
         "4",
         "3.11",
@@ -1751,8 +1849,8 @@
         "counters"
       ],
       "file": "latex/main.tex",
-      "id": "M0088",
-      "line": 451,
+      "id": "M0094",
+      "line": 476,
       "numeric_tokens": [
         "five",
         "all",
@@ -1769,8 +1867,8 @@
         "sparse"
       ],
       "file": "latex/main.tex",
-      "id": "M0089",
-      "line": 463,
+      "id": "M0095",
+      "line": 488,
       "numeric_tokens": [
         "every",
         "53,",
@@ -1801,8 +1899,8 @@
         "reference_sensitivity"
       ],
       "file": "latex/main.tex",
-      "id": "M0090",
-      "line": 465,
+      "id": "M0096",
+      "line": 490,
       "numeric_tokens": [
         "seven",
         "30",
@@ -1824,8 +1922,8 @@
         "sparse"
       ],
       "file": "latex/main.tex",
-      "id": "M0091",
-      "line": 470,
+      "id": "M0097",
+      "line": 495,
       "numeric_tokens": [
         "All",
         "166",
@@ -1842,8 +1940,8 @@
         "structure"
       ],
       "file": "latex/main.tex",
-      "id": "M0092",
-      "line": 477,
+      "id": "M0098",
+      "line": 502,
       "numeric_tokens": [
         "90",
         "041,"
@@ -1857,8 +1955,8 @@
         "structure"
       ],
       "file": "latex/main.tex",
-      "id": "M0093",
-      "line": 486,
+      "id": "M0099",
+      "line": 511,
       "numeric_tokens": [
         "256",
         "320",
@@ -1881,8 +1979,8 @@
         "batch"
       ],
       "file": "latex/main.tex",
-      "id": "M0094",
-      "line": 493,
+      "id": "M0100",
+      "line": 518,
       "numeric_tokens": [
         "one",
         "four",
@@ -1925,8 +2023,8 @@
         "batch"
       ],
       "file": "latex/main.tex",
-      "id": "M0095",
-      "line": 498,
+      "id": "M0101",
+      "line": 523,
       "numeric_tokens": [
         "one",
         "one",
@@ -1956,8 +2054,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0096",
-      "line": 506,
+      "id": "M0102",
+      "line": 531,
       "numeric_tokens": [
         "four",
         "four",
@@ -1979,8 +2077,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0097",
-      "line": 508,
+      "id": "M0103",
+      "line": 533,
       "numeric_tokens": [
         "135,702",
         "7,539",
@@ -1998,8 +2096,8 @@
         "applications"
       ],
       "file": "latex/main.tex",
-      "id": "M0098",
-      "line": 513,
+      "id": "M0104",
+      "line": 538,
       "numeric_tokens": [
         "eight",
         "three",
@@ -2025,8 +2123,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0099",
-      "line": 518,
+      "id": "M0105",
+      "line": 543,
       "numeric_tokens": [
         "all",
         "nine",
@@ -2055,8 +2153,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0100",
-      "line": 520,
+      "id": "M0106",
+      "line": 545,
       "numeric_tokens": [
         "1.874,",
         "0.639",
@@ -2079,8 +2177,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0101",
-      "line": 524,
+      "id": "M0107",
+      "line": 549,
       "numeric_tokens": [
         "six",
         "one",
@@ -2095,8 +2193,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0102",
-      "line": 532,
+      "id": "M0108",
+      "line": 557,
       "numeric_tokens": [
         "all",
         "67",
@@ -2151,8 +2249,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0103",
-      "line": 534,
+      "id": "M0109",
+      "line": 559,
       "numeric_tokens": [
         "2016"
       ],
@@ -2165,8 +2263,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0104",
-      "line": 539,
+      "id": "M0110",
+      "line": 564,
       "numeric_tokens": [
         "All",
         "67",
@@ -2187,8 +2285,8 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0105",
-      "line": 546,
+      "id": "M0111",
+      "line": 571,
       "numeric_tokens": [
         "every",
         "two",
@@ -2203,8 +2301,8 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0106",
-      "line": 548,
+      "id": "M0112",
+      "line": 573,
       "numeric_tokens": [
         "64",
         "16384",
@@ -2239,8 +2337,8 @@
         "orientation"
       ],
       "file": "latex/main.tex",
-      "id": "M0107",
-      "line": 553,
+      "id": "M0113",
+      "line": 578,
       "numeric_tokens": [
         "One",
         "one",
@@ -2261,8 +2359,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0108",
-      "line": 560,
+      "id": "M0114",
+      "line": 585,
       "numeric_tokens": [
         "every",
         "256",
@@ -2285,8 +2383,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0109",
-      "line": 564,
+      "id": "M0115",
+      "line": 589,
       "numeric_tokens": [
         "five",
         "zero",
@@ -2313,8 +2411,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0110",
-      "line": 577,
+      "id": "M0116",
+      "line": 602,
       "numeric_tokens": [
         "None",
         "one",
@@ -2338,8 +2436,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0111",
-      "line": 586,
+      "id": "M0117",
+      "line": 611,
       "numeric_tokens": [
         "one",
         "one",
@@ -2366,8 +2464,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0112",
-      "line": 588,
+      "id": "M0118",
+      "line": 613,
       "numeric_tokens": [
         "two",
         "1024"
@@ -2382,8 +2480,8 @@
         "validation"
       ],
       "file": "latex/main.tex",
-      "id": "M0113",
-      "line": 590,
+      "id": "M0119",
+      "line": 615,
       "numeric_tokens": [
         "64",
         "1",
@@ -2424,8 +2522,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0114",
-      "line": 592,
+      "id": "M0120",
+      "line": 617,
       "numeric_tokens": [
         "two",
         "two",
@@ -2453,8 +2551,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0115",
-      "line": 594,
+      "id": "M0121",
+      "line": 619,
       "numeric_tokens": [
         "zero"
       ],
@@ -2471,8 +2569,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0116",
-      "line": 599,
+      "id": "M0122",
+      "line": 624,
       "numeric_tokens": [
         "four",
         "all",
@@ -2494,8 +2592,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0117",
-      "line": 606,
+      "id": "M0123",
+      "line": 631,
       "numeric_tokens": [
         "four",
         "3.11.18",
@@ -2524,8 +2622,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0118",
-      "line": 608,
+      "id": "M0124",
+      "line": 633,
       "numeric_tokens": [
         "7"
       ],
@@ -2539,8 +2637,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0119",
-      "line": 631,
+      "id": "M0125",
+      "line": 656,
       "numeric_tokens": [
         "79",
         "5",
@@ -2558,8 +2656,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0120",
-      "line": 642,
+      "id": "M0126",
+      "line": 667,
       "numeric_tokens": [
         "256",
         "320",
@@ -2576,8 +2674,8 @@
         "geometry"
       ],
       "file": "latex/main.tex",
-      "id": "M0121",
-      "line": 647,
+      "id": "M0127",
+      "line": 672,
       "numeric_tokens": [
         "256",
         "320",
@@ -2596,8 +2694,8 @@
         "rejection"
       ],
       "file": "latex/main.tex",
-      "id": "M0122",
-      "line": 654,
+      "id": "M0128",
+      "line": 679,
       "numeric_tokens": [
         "256",
         "320",
@@ -2628,8 +2726,8 @@
         "rejection"
       ],
       "file": "latex/main.tex",
-      "id": "M0123",
-      "line": 662,
+      "id": "M0129",
+      "line": 687,
       "numeric_tokens": [
         "five",
         "311",
@@ -2648,8 +2746,8 @@
         "memory"
       ],
       "file": "latex/main.tex",
-      "id": "M0124",
-      "line": 669,
+      "id": "M0130",
+      "line": 694,
       "numeric_tokens": [
         "all",
         "455",
@@ -2677,8 +2775,8 @@
         "workloads"
       ],
       "file": "latex/main.tex",
-      "id": "M0125",
-      "line": 681,
+      "id": "M0131",
+      "line": 706,
       "numeric_tokens": [
         "All",
         "1",
@@ -2702,8 +2800,8 @@
         "accuracy"
       ],
       "file": "latex/main.tex",
-      "id": "M0126",
-      "line": 696,
+      "id": "M0132",
+      "line": 721,
       "numeric_tokens": [
         "All",
         "16",
@@ -2719,8 +2817,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0127",
-      "line": 710,
+      "id": "M0133",
+      "line": 735,
       "numeric_tokens": [
         "one",
         "zero"
@@ -2734,8 +2832,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0128",
-      "line": 716,
+      "id": "M0134",
+      "line": 741,
       "numeric_tokens": [
         "0.01",
         "0.999",
@@ -2755,8 +2853,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0129",
-      "line": 719,
+      "id": "M0135",
+      "line": 744,
       "numeric_tokens": [
         "816",
         "807",
@@ -2774,8 +2872,8 @@
         "microscopy"
       ],
       "file": "latex/main.tex",
-      "id": "M0130",
-      "line": 722,
+      "id": "M0136",
+      "line": 747,
       "numeric_tokens": [
         "six",
         "all",
@@ -2794,8 +2892,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0131",
-      "line": 727,
+      "id": "M0137",
+      "line": 752,
       "numeric_tokens": [
         "3.11",
         "374",
@@ -2815,8 +2913,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0132",
-      "line": 729,
+      "id": "M0138",
+      "line": 754,
       "numeric_tokens": [
         "three",
         "five",
@@ -2842,8 +2940,8 @@
         "reporting"
       ],
       "file": "latex/main.tex",
-      "id": "M0133",
-      "line": 731,
+      "id": "M0139",
+      "line": 756,
       "numeric_tokens": [
         "1",
         "2",
@@ -2864,8 +2962,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0134",
-      "line": 741,
+      "id": "M0140",
+      "line": 766,
       "numeric_tokens": [
         "166",
         "all",
@@ -2880,8 +2978,8 @@
         "native"
       ],
       "file": "latex/main.tex",
-      "id": "M0135",
-      "line": 753,
+      "id": "M0141",
+      "line": 778,
       "numeric_tokens": [
         "Every",
         "one",
@@ -2897,8 +2995,8 @@
         "lsape"
       ],
       "file": "latex/main.tex",
-      "id": "M0136",
-      "line": 765,
+      "id": "M0142",
+      "line": 790,
       "numeric_tokens": [
         "three"
       ],
@@ -2914,7 +3012,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0137",
+      "id": "M0143",
       "line": 4,
       "numeric_tokens": [
         "311",
@@ -2934,7 +3032,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0138",
+      "id": "M0144",
       "line": 6,
       "numeric_tokens": [
         "3.11.18",
@@ -2954,7 +3052,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0139",
+      "id": "M0145",
       "line": 8,
       "numeric_tokens": [
         "4",
@@ -2976,7 +3074,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0140",
+      "id": "M0146",
       "line": 9,
       "numeric_tokens": [
         "4",
@@ -2996,7 +3094,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0141",
+      "id": "M0147",
       "line": 10,
       "numeric_tokens": [
         "4",
@@ -3015,7 +3113,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0142",
+      "id": "M0148",
       "line": 11,
       "numeric_tokens": [
         "4",
@@ -3035,7 +3133,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0143",
+      "id": "M0149",
       "line": 12,
       "numeric_tokens": [
         "4",
@@ -3054,7 +3152,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0144",
+      "id": "M0150",
       "line": 13,
       "numeric_tokens": [
         "4",
@@ -3073,7 +3171,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0145",
+      "id": "M0151",
       "line": 14,
       "numeric_tokens": [
         "3,286",
@@ -3097,7 +3195,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0146",
+      "id": "M0152",
       "line": 15,
       "numeric_tokens": [
         "4",
@@ -3116,7 +3214,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0147",
+      "id": "M0153",
       "line": 16,
       "numeric_tokens": [
         "4",
@@ -3136,7 +3234,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0148",
+      "id": "M0154",
       "line": 17,
       "numeric_tokens": [
         "4",
@@ -3156,7 +3254,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0149",
+      "id": "M0155",
       "line": 18,
       "numeric_tokens": [
         "4",
@@ -3175,7 +3273,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0150",
+      "id": "M0156",
       "line": 19,
       "numeric_tokens": [
         "67",
@@ -3195,7 +3293,7 @@
         "lsape"
       ],
       "file": "latex/generated/T1_protocol.tex",
-      "id": "M0151",
+      "id": "M0157",
       "line": 20,
       "numeric_tokens": [
         "4",
@@ -3217,7 +3315,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0152",
+      "id": "M0158",
       "line": 6,
       "numeric_tokens": [
         "64",
@@ -3236,7 +3334,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0153",
+      "id": "M0159",
       "line": 10,
       "numeric_tokens": [
         "64"
@@ -3253,7 +3351,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0154",
+      "id": "M0160",
       "line": 11,
       "numeric_tokens": [],
       "section": "Generated table/appendix fragment",
@@ -3268,7 +3366,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0155",
+      "id": "M0161",
       "line": 12,
       "numeric_tokens": [],
       "section": "Generated table/appendix fragment",
@@ -3283,7 +3381,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0156",
+      "id": "M0162",
       "line": 13,
       "numeric_tokens": [
         "2",
@@ -3302,7 +3400,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0157",
+      "id": "M0163",
       "line": 16,
       "numeric_tokens": [
         "4,"
@@ -3319,7 +3417,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0158",
+      "id": "M0164",
       "line": 20,
       "numeric_tokens": [
         "64",
@@ -3337,7 +3435,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0159",
+      "id": "M0165",
       "line": 21,
       "numeric_tokens": [
         "32",
@@ -3356,7 +3454,7 @@
         "timed_adapters"
       ],
       "file": "latex/generated/T2_methods.tex",
-      "id": "M0160",
+      "id": "M0166",
       "line": 22,
       "numeric_tokens": [
         "64",
@@ -3371,7 +3469,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0161",
+      "id": "M0167",
       "line": 5,
       "numeric_tokens": [
         "512",
@@ -3392,7 +3490,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0162",
+      "id": "M0168",
       "line": 6,
       "numeric_tokens": [
         "1",
@@ -3414,7 +3512,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0163",
+      "id": "M0169",
       "line": 7,
       "numeric_tokens": [
         "128",
@@ -3435,7 +3533,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0164",
+      "id": "M0170",
       "line": 8,
       "numeric_tokens": [
         "524.8",
@@ -3456,7 +3554,7 @@
         "counters"
       ],
       "file": "latex/generated/T3_counters.tex",
-      "id": "M0165",
+      "id": "M0171",
       "line": 9,
       "numeric_tokens": [
         "1",
@@ -3478,7 +3576,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0166",
+      "id": "M0172",
       "line": 7,
       "numeric_tokens": [
         "6"
@@ -3492,7 +3590,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0167",
+      "id": "M0173",
       "line": 8,
       "numeric_tokens": [
         "4",
@@ -3507,7 +3605,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0168",
+      "id": "M0174",
       "line": 11,
       "numeric_tokens": [
         "2",
@@ -3526,7 +3624,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0169",
+      "id": "M0175",
       "line": 12,
       "numeric_tokens": [
         "2",
@@ -3546,7 +3644,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0170",
+      "id": "M0176",
       "line": 13,
       "numeric_tokens": [
         "2",
@@ -3565,7 +3663,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0171",
+      "id": "M0177",
       "line": 14,
       "numeric_tokens": [
         "2",
@@ -3584,7 +3682,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0172",
+      "id": "M0178",
       "line": 15,
       "numeric_tokens": [
         "2",
@@ -3604,7 +3702,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0173",
+      "id": "M0179",
       "line": 16,
       "numeric_tokens": [
         "2",
@@ -3623,7 +3721,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0174",
+      "id": "M0180",
       "line": 17,
       "numeric_tokens": [
         "2",
@@ -3642,7 +3740,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0175",
+      "id": "M0181",
       "line": 18,
       "numeric_tokens": [
         "2",
@@ -3661,7 +3759,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0176",
+      "id": "M0182",
       "line": 19,
       "numeric_tokens": [
         "100",
@@ -3679,7 +3777,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0177",
+      "id": "M0183",
       "line": 21,
       "numeric_tokens": [
         "3",
@@ -3697,7 +3795,7 @@
         "microscopy"
       ],
       "file": "latex/generated/T_microscopy.tex",
-      "id": "M0178",
+      "id": "M0184",
       "line": 22,
       "numeric_tokens": [
         "3",
@@ -3714,7 +3812,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0179",
+      "id": "M0185",
       "line": 4,
       "numeric_tokens": [
         "2",
@@ -3729,7 +3827,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0180",
+      "id": "M0186",
       "line": 5,
       "numeric_tokens": [
         "311",
@@ -3746,7 +3844,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0181",
+      "id": "M0187",
       "line": 7,
       "numeric_tokens": [
         "256",
@@ -3770,7 +3868,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0182",
+      "id": "M0188",
       "line": 8,
       "numeric_tokens": [
         "8",
@@ -3792,7 +3890,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0183",
+      "id": "M0189",
       "line": 9,
       "numeric_tokens": [
         "8",
@@ -3814,7 +3912,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0184",
+      "id": "M0190",
       "line": 10,
       "numeric_tokens": [
         "128",
@@ -3836,7 +3934,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0185",
+      "id": "M0191",
       "line": 12,
       "numeric_tokens": [
         "256",
@@ -3860,7 +3958,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0186",
+      "id": "M0192",
       "line": 13,
       "numeric_tokens": [
         "8",
@@ -3882,7 +3980,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0187",
+      "id": "M0193",
       "line": 14,
       "numeric_tokens": [
         "8",
@@ -3904,7 +4002,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0188",
+      "id": "M0194",
       "line": 15,
       "numeric_tokens": [
         "8.5",
@@ -3926,7 +4024,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0189",
+      "id": "M0195",
       "line": 16,
       "numeric_tokens": [
         "144.5",
@@ -3948,7 +4046,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0190",
+      "id": "M0196",
       "line": 18,
       "numeric_tokens": [
         "4096",
@@ -3972,7 +4070,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0191",
+      "id": "M0197",
       "line": 19,
       "numeric_tokens": [
         "8",
@@ -3994,7 +4092,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0192",
+      "id": "M0198",
       "line": 20,
       "numeric_tokens": [
         "8",
@@ -4016,7 +4114,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0193",
+      "id": "M0199",
       "line": 21,
       "numeric_tokens": [
         "128",
@@ -4038,7 +4136,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0194",
+      "id": "M0200",
       "line": 23,
       "numeric_tokens": [
         "4096",
@@ -4062,7 +4160,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0195",
+      "id": "M0201",
       "line": 24,
       "numeric_tokens": [
         "8",
@@ -4084,7 +4182,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0196",
+      "id": "M0202",
       "line": 25,
       "numeric_tokens": [
         "8",
@@ -4106,7 +4204,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0197",
+      "id": "M0203",
       "line": 26,
       "numeric_tokens": [
         "8.5",
@@ -4128,7 +4226,7 @@
         "memory"
       ],
       "file": "latex/generated/T4_memory.tex",
-      "id": "M0198",
+      "id": "M0204",
       "line": 27,
       "numeric_tokens": [
         "144.5",
@@ -4150,7 +4248,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0199",
+      "id": "M0205",
       "line": 6,
       "numeric_tokens": [
         "16",
@@ -4171,7 +4269,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0200",
+      "id": "M0206",
       "line": 7,
       "numeric_tokens": [
         "16",
@@ -4192,7 +4290,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0201",
+      "id": "M0207",
       "line": 8,
       "numeric_tokens": [
         "16",
@@ -4213,7 +4311,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0202",
+      "id": "M0208",
       "line": 9,
       "numeric_tokens": [
         "16",
@@ -4234,7 +4332,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0203",
+      "id": "M0209",
       "line": 10,
       "numeric_tokens": [
         "20",
@@ -4255,7 +4353,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0204",
+      "id": "M0210",
       "line": 11,
       "numeric_tokens": [
         "20",
@@ -4276,7 +4374,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0205",
+      "id": "M0211",
       "line": 12,
       "numeric_tokens": [
         "20",
@@ -4297,7 +4395,7 @@
         "workloads"
       ],
       "file": "latex/generated/A_application_workloads.tex",
-      "id": "M0206",
+      "id": "M0212",
       "line": 13,
       "numeric_tokens": [
         "20",
@@ -4318,7 +4416,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0207",
+      "id": "M0213",
       "line": 4,
       "numeric_tokens": [
         "1"
@@ -4332,7 +4430,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0208",
+      "id": "M0214",
       "line": 6,
       "numeric_tokens": [
         "16",
@@ -4351,7 +4449,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0209",
+      "id": "M0215",
       "line": 7,
       "numeric_tokens": [
         "16",
@@ -4370,7 +4468,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0210",
+      "id": "M0216",
       "line": 8,
       "numeric_tokens": [
         "16",
@@ -4389,7 +4487,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0211",
+      "id": "M0217",
       "line": 9,
       "numeric_tokens": [
         "16",
@@ -4408,7 +4506,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0212",
+      "id": "M0218",
       "line": 10,
       "numeric_tokens": [
         "16",
@@ -4427,7 +4525,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0213",
+      "id": "M0219",
       "line": 11,
       "numeric_tokens": [
         "16",
@@ -4446,7 +4544,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0214",
+      "id": "M0220",
       "line": 12,
       "numeric_tokens": [
         "16",
@@ -4465,7 +4563,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0215",
+      "id": "M0221",
       "line": 13,
       "numeric_tokens": [
         "16",
@@ -4484,7 +4582,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0216",
+      "id": "M0222",
       "line": 14,
       "numeric_tokens": [
         "20",
@@ -4503,7 +4601,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0217",
+      "id": "M0223",
       "line": 15,
       "numeric_tokens": [
         "20",
@@ -4522,7 +4620,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0218",
+      "id": "M0224",
       "line": 16,
       "numeric_tokens": [
         "20",
@@ -4541,7 +4639,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0219",
+      "id": "M0225",
       "line": 17,
       "numeric_tokens": [
         "20",
@@ -4560,7 +4658,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0220",
+      "id": "M0226",
       "line": 18,
       "numeric_tokens": [
         "20",
@@ -4579,7 +4677,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0221",
+      "id": "M0227",
       "line": 19,
       "numeric_tokens": [
         "20",
@@ -4598,7 +4696,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0222",
+      "id": "M0228",
       "line": 20,
       "numeric_tokens": [
         "20",
@@ -4617,7 +4715,7 @@
         "accuracy"
       ],
       "file": "latex/generated/A_application_accuracy.tex",
-      "id": "M0223",
+      "id": "M0229",
       "line": 21,
       "numeric_tokens": [
         "20",
@@ -4636,7 +4734,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0224",
+      "id": "M0230",
       "line": 8,
       "numeric_tokens": [
         "3"
@@ -4650,7 +4748,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0225",
+      "id": "M0231",
       "line": 9,
       "numeric_tokens": [
         "4",
@@ -4665,7 +4763,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0226",
+      "id": "M0232",
       "line": 12,
       "numeric_tokens": [
         "2",
@@ -4686,7 +4784,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0227",
+      "id": "M0233",
       "line": 13,
       "numeric_tokens": [
         "2",
@@ -4708,7 +4806,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0228",
+      "id": "M0234",
       "line": 14,
       "numeric_tokens": [
         "2",
@@ -4729,7 +4827,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0229",
+      "id": "M0235",
       "line": 15,
       "numeric_tokens": [
         "2",
@@ -4750,7 +4848,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0230",
+      "id": "M0236",
       "line": 16,
       "numeric_tokens": [
         "2",
@@ -4772,7 +4870,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0231",
+      "id": "M0237",
       "line": 17,
       "numeric_tokens": [
         "2",
@@ -4793,7 +4891,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0232",
+      "id": "M0238",
       "line": 18,
       "numeric_tokens": [
         "2",
@@ -4814,7 +4912,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0233",
+      "id": "M0239",
       "line": 19,
       "numeric_tokens": [
         "2",
@@ -4835,7 +4933,7 @@
         "microscopy"
       ],
       "file": "latex/generated/A_microscopy_profiles.tex",
-      "id": "M0234",
+      "id": "M0240",
       "line": 20,
       "numeric_tokens": [
         "130",
@@ -4855,7 +4953,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0235",
+      "id": "M0241",
       "line": 3,
       "numeric_tokens": [
         "2",
@@ -4876,7 +4974,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0236",
+      "id": "M0242",
       "line": 6,
       "numeric_tokens": [
         "5",
@@ -4914,7 +5012,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0237",
+      "id": "M0243",
       "line": 7,
       "numeric_tokens": [
         "5",
@@ -4952,7 +5050,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0238",
+      "id": "M0244",
       "line": 8,
       "numeric_tokens": [
         "27",
@@ -4990,7 +5088,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0239",
+      "id": "M0245",
       "line": 9,
       "numeric_tokens": [
         "4",
@@ -5028,7 +5126,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0240",
+      "id": "M0246",
       "line": 10,
       "numeric_tokens": [
         "6",
@@ -5066,7 +5164,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0241",
+      "id": "M0247",
       "line": 11,
       "numeric_tokens": [
         "6",
@@ -5104,7 +5202,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0242",
+      "id": "M0248",
       "line": 12,
       "numeric_tokens": [
         "5",
@@ -5142,7 +5240,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0243",
+      "id": "M0249",
       "line": 13,
       "numeric_tokens": [
         "4",
@@ -5180,7 +5278,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0244",
+      "id": "M0250",
       "line": 14,
       "numeric_tokens": [
         "4",
@@ -5218,7 +5316,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0245",
+      "id": "M0251",
       "line": 15,
       "numeric_tokens": [
         "2",
@@ -5256,7 +5354,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0246",
+      "id": "M0252",
       "line": 16,
       "numeric_tokens": [
         "22",
@@ -5294,7 +5392,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_family_counts.tex",
-      "id": "M0247",
+      "id": "M0253",
       "line": 17,
       "numeric_tokens": [
         "76",
@@ -5332,7 +5430,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0248",
+      "id": "M0254",
       "line": 3,
       "numeric_tokens": [
         "311",
@@ -5349,7 +5447,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0249",
+      "id": "M0255",
       "line": 5,
       "numeric_tokens": [
         "256",
@@ -5368,7 +5466,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0250",
+      "id": "M0256",
       "line": 6,
       "numeric_tokens": [
         "256",
@@ -5387,7 +5485,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0251",
+      "id": "M0257",
       "line": 7,
       "numeric_tokens": [
         "128",
@@ -5406,7 +5504,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0252",
+      "id": "M0258",
       "line": 8,
       "numeric_tokens": [
         "128",
@@ -5425,7 +5523,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0253",
+      "id": "M0259",
       "line": 9,
       "numeric_tokens": [
         "041,",
@@ -5445,7 +5543,7 @@
         "native"
       ],
       "file": "latex/generated/S_native_exceptions.tex",
-      "id": "M0254",
+      "id": "M0260",
       "line": 10,
       "numeric_tokens": [
         "041,",
@@ -5465,7 +5563,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0255",
+      "id": "M0261",
       "line": 6,
       "numeric_tokens": [
         "311",
@@ -5495,7 +5593,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0256",
+      "id": "M0262",
       "line": 7,
       "numeric_tokens": [
         "314",
@@ -5525,7 +5623,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0257",
+      "id": "M0263",
       "line": 9,
       "numeric_tokens": [
         "5",
@@ -5557,7 +5655,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0258",
+      "id": "M0264",
       "line": 10,
       "numeric_tokens": [
         "5",
@@ -5589,7 +5687,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0259",
+      "id": "M0265",
       "line": 12,
       "numeric_tokens": [
         "5",
@@ -5621,7 +5719,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0260",
+      "id": "M0266",
       "line": 13,
       "numeric_tokens": [
         "5",
@@ -5653,7 +5751,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0261",
+      "id": "M0267",
       "line": 15,
       "numeric_tokens": [
         "4",
@@ -5685,7 +5783,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0262",
+      "id": "M0268",
       "line": 16,
       "numeric_tokens": [
         "4",
@@ -5717,7 +5815,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0263",
+      "id": "M0269",
       "line": 18,
       "numeric_tokens": [
         "311",
@@ -5747,7 +5845,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0264",
+      "id": "M0270",
       "line": 19,
       "numeric_tokens": [
         "314",
@@ -5777,7 +5875,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0265",
+      "id": "M0271",
       "line": 21,
       "numeric_tokens": [
         "311",
@@ -5807,7 +5905,7 @@
         "lsape"
       ],
       "file": "latex/generated/S_lsape_family_counts.tex",
-      "id": "M0266",
+      "id": "M0272",
       "line": 22,
       "numeric_tokens": [
         "314",
@@ -5996,11 +6094,12 @@
     },
     "literature": {
       "derivation": "Retained literature attribution from398b813; no new empirical inference from historical timings. Download record confirms27October2026 archive equality,not2016 implementation identity.",
-      "fields_or_selection": "Citation keys on indexed line; source download check.retrieved_utc,matches_supplied,official_download_sha256,supplied_archive_sha256",
+      "fields_or_selection": "Citation keys on indexed line or table caption. For the LSAPE design comparison, Bougleux and Brun (2016), Eq. (19), gives the edit-cost matrix; Section 4 and Algorithms 2\u20133 describe the augmenting paths and Hungarian algorithm; Figures 4\u20135 compare LSAPE and squared-LSAPE on synthetic edit costs. Source download check: retrieved_utc,matches_supplied,official_download_sha256,supplied_archive_sha256",
       "generator_output": null,
       "kind": "retained_cited_literature",
       "source_files": [
         "latex/references.bib",
+        "https://arxiv.org/abs/1603.04380v3",
         "benchmark/lsape/src/upstream_download_check.json"
       ]
     },
@@ -7034,14 +7133,14 @@
       }
     }
   },
-  "manuscript_sha256": "7f0d01d3d9c22dbec4255369cdbc15193358591e53ba3856cd93d35d53c55c9d",
+  "manuscript_sha256": "a7c5bbc20cb417b6ba915cee9517f5beef0d1a8ca6f26fe60a1b64504c2633ac",
   "primary_roots": {
     "L311": "benchmark/runs/linux-py3.11.18-20261031-0455/paper-run-light",
     "L314": "benchmark/runs/linux-py3.14.10-20261031-0630/paper-run-light",
     "W311": "benchmark/runs/windows-py3.11.18-20261030-2322/paper-run-light",
     "W314": "benchmark/runs/windows-py3.14.10-20261031-0322/paper-run-light"
   },
-  "quantitative_records": 266,
-  "scope": "Quantitative paragraphs (including symbolic formulas),displayed equations,captions and generated numeric table rows; technical preamble,automatic numbering and citation-key digits excluded. Each record identifies sources for all quantities in its excerpt. This editorial index does not replace the underlying observations or constitute automatic proof.",
+  "quantitative_records": 272,
+  "scope": "Quantitative paragraphs (including symbolic formulas),displayed equations,captions,inline table body rows and generated numeric table rows; technical preamble,automatic numbering and citation-key digits excluded. Each record identifies sources for the claims in its excerpt. This editorial index does not replace the underlying observations or constitute automatic proof.",
   "unmapped_records": []
 }
