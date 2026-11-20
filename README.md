@@ -4,16 +4,14 @@ Paper and benchmark code for *Native Rectangular Linear Assignment with Implicit
 
 **[arXiv:2610.35948](https://arxiv.org/abs/2610.35948)** · [Paper PDF](output/pdf/native_rectangular_assignment.pdf) · [LaTeX source](latex/main.tex) · [arXiv source ZIP](output/arxiv/lap-paper-arxiv.zip)
 
-**Publication status:** this checkout contains the revised manuscript prepared
-for the next arXiv update. The linked arXiv v1 and public repository have not yet
-been updated to this revision. Local regeneration does not publish or upload it.
+This revision builds on [arXiv v2](https://arxiv.org/abs/2610.35948v2),
+posted on 8 November 2026.
 
 The manuscript reports the four saved light-profile environments from 30–31
 October 2026, with separate pedestrian application and Windows LSAPE evidence,
 plus the nine-excerpt microscopy session measured on 13 November 2026.
-This local revision includes microscopy results and therefore retains the
-previously identified Cell Tracking Challenge permission follow-up before any
-public preprint or evidence release. Nothing is published by these commands.
+The Cell Tracking Challenge organizers approved publication of the microscopy
+benchmark results in the preprint.
 
 Regenerate figures, tables and source-indexed supplementary data without running
 a benchmark. PDF and ZIP creation also requires `latexmk`, PDFLaTeX and BibTeX
@@ -54,10 +52,9 @@ metadata is fixed, and every archived file is checked against its source.
 Run this command again after changing the manuscript, bibliography, figures
 or tables. For a PDF-only rebuild, use `latexmk -pdf latex/main.tex`.
 
-Before publishing, upload the matching repository revision and frozen evidence,
-update the publication-status statements here and in the manuscript, rebuild
-the PDF and ZIP, and submit the arXiv replacement with matching author metadata.
-Keep a tag or commit identifying that release.
+For an arXiv replacement, submit the source ZIP with author metadata matching
+the manuscript. A repository release uses the corresponding commit or tag to
+identify the manuscript and its frozen evidence.
 
 ## Benchmarks
 

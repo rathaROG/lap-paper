@@ -8,6 +8,10 @@ The upstream MIT notice is preserved in `licenses/original-benchmark-MIT.txt`.
 Raphael Reme is a coauthor of the present paper; this remains separately
 credited prior work. Source hashes and reused protocol elements are recorded
 in `provenance.json` without private machine paths.
+On 16 November 2026, the submitting author confirmed full permission from
+Raphael Reme for his code, protocol and contribution, and confirmed that
+`cell_tracking_with_laprust` is now public. This confirmation does not cover
+the separate Cell Tracking Challenge dataset permission described below.
 
 The present driver uses its own November 13 observations. Compared with the
 earlier benchmark it adds capped rectangular SciPy, six balanced arm orders,
@@ -26,8 +30,8 @@ Scientific and data sources, cited in the manuscript:
   Benchmarking*, Nature Methods 20, 1010-1020,
   DOI: 10.1038/s41592-023-01879-y.
 
-The existing Cell Tracking Challenge permission follow-up is unresolved in
-the supplied records. Obtain/document permission before public release of the
-microscopy-containing preprint or evidence. Software licensing does not grant
-permission to redistribute or publicly use the datasets. This directory
-contains no images, masks, detections, tracks or cost matrices.
+On 20 November 2026, the submitting author confirmed that the Cell Tracking
+Challenge organizers explicitly approved publication of the microscopy benchmark
+results in the preprint. The [CTC dataset page](https://celltrackingchallenge.net/datasets/)
+provides the original images, annotations and conditions of use.
+This directory contains no images, masks, detections, tracks or cost matrices.

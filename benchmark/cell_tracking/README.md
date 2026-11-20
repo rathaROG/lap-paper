@@ -87,7 +87,6 @@ at revision `1dae22e68c4dd1d6c3915a7a416dbfca39284b31`. See
 This study adds capped SciPy, balanced round orders, CPU/thread controls and
 stronger saved validation; none of the earlier benchmark's timings is reused.
 
-The previously reviewed [CTC conditions](https://celltrackingchallenge.net/datasets/)
-require explicit permission for public scientific use outside the challenge.
-That permission remains a release follow-up for this local revision, including
-an arXiv update or public evidence. No input images or masks are included.
+The Cell Tracking Challenge organizers approved publication of the microscopy
+benchmark results in the preprint. The [CTC dataset page](https://celltrackingchallenge.net/datasets/)
+provides the source data and its conditions of use.

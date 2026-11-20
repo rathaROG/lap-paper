@@ -99,5 +99,5 @@ python -B -m pytest benchmark/cell_tracking -q
 
 `python benchmark/generate_paper_artifacts.py` includes these observations;
 `--only microscopy` regenerates just its tables and S7 projections.
-The study's README and attribution record retain the outstanding Cell Tracking
-Challenge permission follow-up before public preprint or evidence release.
+The [attribution record](cell_tracking/ATTRIBUTION.md) documents the Cell Tracking
+Challenge organizers' approval to publish the microscopy results in the preprint.
