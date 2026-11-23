@@ -4,12 +4,14 @@ Paper and benchmark code for *Native Rectangular Linear Assignment with Implicit
 
 **[arXiv:2610.35948](https://arxiv.org/abs/2610.35948)** · [Paper PDF](output/pdf/native_rectangular_assignment.pdf) · [LaTeX source](latex/main.tex) · [arXiv source ZIP](output/arxiv/lap-paper-arxiv.zip)
 
-This revision builds on [arXiv v2](https://arxiv.org/abs/2610.35948v2),
-posted on 8 November 2026.
+The paper PDF and source ZIP in this repository are prepared for **arXiv v3**.
+The revision builds on [v2 (8 November 2026)](https://arxiv.org/abs/2610.35948v2).
+Table 1 compares Bougleux and Brun’s LSAPE design with the native
+Jonker–Volgenant solver. The revision also adds a ByoTrack microscopy benchmark
+on nine excerpts, measured on 13 November 2026.
 
-The manuscript reports the four saved light-profile environments from 30–31
-October 2026, with separate pedestrian application and Windows LSAPE evidence,
-plus the nine-excerpt microscopy session measured on 13 November 2026.
+The paper retains the assignment benchmarks run in four environments on
+30–31 October 2026, the pedestrian tracking benchmarks and the Windows LSAPE study.
 The Cell Tracking Challenge organizers approved publication of the microscopy
 benchmark results in the preprint.
 
